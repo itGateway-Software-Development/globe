@@ -9,6 +9,7 @@
     padding: 10px 15%;    
 }
 
+
 ::placeholder {
     color: #767676;
     font-size: 14px;
@@ -23,8 +24,4 @@ ul li{
     list-style: none;
 }
 
-@media (max-width: 860px) {
-    .content-wrapper {
-        padding: 10px 0;
-    }
-}
+

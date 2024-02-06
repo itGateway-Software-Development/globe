@@ -25,21 +25,32 @@
           Contact Us <br />
           +959 880 441 046
         </p>
-        <p class="menu">
-          <span class="material-symbols-outlined"> menu </span>
-        </p>
+        <div class="menu" @click="MobileToggle()" v-if="!isShow">
+          <span class="material-symbols-outlined" > menu </span>
+          <p>Menu</p>
+        </div>
       </div>
     </div>
-    <div class="content-wrapper navigation">
+    <div class="content-wrapper navigation" v-if="isShow">
       <nav>
-        <div class="nav-item"><a href="#">Home</a></div>
-        <div class="nav-item"><a href="#">Popular Gadget</a></div>
-        <div class="nav-item">
-          <a href="" class="d-flex"
-            >Categories
-            <span class="material-symbols-outlined"> arrow_drop_down </span></a
-          >
-          <div class="dropdown">
+        <div class="close">
+          <h3>Menu</h3>
+          <span class="material-symbols-outlined" @click="MobileToggle()">
+close
+</span>
+        </div>
+        <ul>
+          <li class="nav-item">
+            <router-link to="/">Home</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/">Popular Gadgets</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/" class="f-d">Categories<span class="material-symbols-outlined">
+              arrow_drop_down
+            </span>
+            <div class="dropdown">
             <div
               class="dropdown-item"
               v-for="item in categories"
@@ -58,40 +69,38 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="nav-item">
-          <a href="#">Brands</a>
-        </div>
-        <div class="nav-item"><a href="#">Promotion</a></div>
-        <div class="nav-item">
-          <a href="#" class="d-flex"
-            >Informaton<span class="material-symbols-outlined">
-              arrow_drop_down
-            </span></a
-          >
-          <div class="dropdown">
-            <div class="dropdown-item">
-              <router-link
-                to="#"
-                v-for="text in Information"
-                :key="text"
-                class="item"
-              >
-                {{ text.name }}
-              </router-link>
             </div>
-          </div>
-        </div>
+          </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/">Brands</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/">Promotion</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/" class="d-flex">Information<span class="material-symbols-outlined">
+              arrow_drop_down
+            </span>
+            <div class="dropdown">
+              <div class="dropdown-item">
+                <router-link to="/" v-for="text in Infromation" :key="text" class="item">
+                  {{ text.name }}
+                </router-link>
+              </div>
+            </div>
+          </router-link>
+          </li>
+         
+        </ul>
       </nav>
     </div>
-    <MobileMenu></MobileMenu>
   </div>
 </template>
 
 <script>
-import MobileMenu from "./MobileMenu";
 import { ref } from "vue";
+import MobileMenu from './MobileMenu.vue';
 export default {
   components: { MobileMenu },
   setup() {
@@ -376,13 +385,19 @@ export default {
       },
     ];
 
-    return { categories };
+    let isShow = ref(false)
+    let MobileToggle=()=>{
+     isShow!=isShow
+    }
+
+    return { categories, isShow, MobileToggle };
   },
 };
 </script>
 
-<style>
+<style scoped>
 .sticky-header {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   position: fixed;
@@ -432,7 +447,7 @@ export default {
   font-size: 20px;
 }
 
-p.menu {
+.menu {
   display: none;
 }
 
@@ -447,9 +462,22 @@ nav {
   justify-content: center;
   gap: 120px;
   cursor: pointer;
+  text-align: center;
 }
 
-.nav-item a {
+nav h3 {
+  display: none;
+}
+
+nav ul {
+  display: flex;
+  gap: 100px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-align: left;
   margin: 0;
   font-size: 20px;
   font-weight: 600;
@@ -458,13 +486,15 @@ nav {
   transition: 0.4ms;
 }
 
+
+
 nav .nav-item {
   position: relative;
 }
 
 .dropdown {
   width: 210px;
-  margin-top: 10px;
+  margin-top: 40px;
   position: absolute;
   transform: translateY(0px);
   transition: 0.5s;
@@ -522,11 +552,7 @@ nav .nav-item {
 }
 
 @media (max-width: 1600px) {
-  .content-wrapper {
-    padding: 10px 8% !important;
-  }
-
-  nav {
+  nav ul {
     gap: 70px;
   }
 }
@@ -536,35 +562,99 @@ nav .nav-item {
   p.contact {
     display: none;
   }
+
+ .content-wrapper {
+    padding: 10px 10% !important;
+  }
+
+  nav ul{
+   gap: 35px;
+  }
 }
 
 @media (max-width: 860px) {
-  .navigation {
-    display: none;
-  }
   .icon-group p.heart,
   p.cart,
   p.contact,
   p.sigin {
     display: none;
   }
-  .icon-group p.menu {
+  .icon-group .menu {
     display: block;
-    padding-left: 20px;
     cursor: pointer;
   }
+
+  .menu{
+    margin-top: 6px;
+  }
+
+  .menu p{
+    margin-top: -10px;
+  }
+
   .input-group {
     width: 500px;
   }
-  .header-group {
-    gap: 50px;
-    position: fixed;
-    height: 100px;
-  }
+
   .sticky-header {
-    position: unset;
+    position: fixed;
     justify-content: center;
     background: #fff;
+  }
+
+  .content-wrapper{
+    padding:0 !important;
+  }
+
+  .header-group{
+    padding: 0 30px !important;
+    z-index: -1;
+  }
+
+  .navigation{
+    position: absolute;
+    background: none;
+    display: block;
+    top: 0;
+    right: 0;
+    height: 1000px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .close{
+    padding: 10px;
+    display: flex;
+    gap:  100px;
+  }
+
+  .close .material-symbols-outlined{
+    font-size: 32px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  nav{
+    position: relative;
+    float: right;
+    background: #0f8ec5;
+    height: 1000px;
+    width: 30%;
+    display: inline-block;
+    text-align: left;
+  }
+  nav h3 {
+    display: block;
+  }
+
+  nav ul{
+    display: inline-block;
+    padding: 0 0 20px 0;
+    width: 100%;
+  }
+
+  nav .nav-item {
+    padding: 10px 20px;
+    border-bottom: 1px solid #fff;
   }
 }
 </style>

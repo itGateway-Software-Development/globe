@@ -1,6 +1,8 @@
 <template>
-  <div class="mobile-header float-end">
-    <nav class="float-end">
+  <div class="mobile-header">
+    <div class="mobile-nav-background">
+      <div class="mobile-nav">
+        <nav class="float-end">
       <div class="nav-item"><h3>Menu</h3></div>
       <div class="nav-item"><a href="#">Home</a></div>
       <div class="nav-item"><a href="#">Popular Gadget</a></div>
@@ -50,6 +52,10 @@
         </div>
       </div>
     </nav>
+      </div>
+      
+    </div>
+    
   </div>
 </template>
 
@@ -65,17 +71,25 @@ export default {};
 @media (max-width: 860px) {
   .mobile-header {
     display: block;
-    position: absolute;
+    width: 860px;
+    height: 960px;
+    overflow: hidden;
+    background: red;
+  }
+
+  .mobile-nav {
+    width: 30%;
+    background-color: red;
     top: 0;
     right: 0;
+    position: absolute;
   }
 
   nav {
     display: inline-block;
     text-align: left;
-    background: #111;
-    width: 300px;
-    height: 700px;
+    background-color: aqua;
+    width: 100%;
     padding: 10px;
   }
 
