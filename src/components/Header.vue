@@ -9,21 +9,24 @@
         </button>
       </form>
       <div class="icon-group">
-        <p>
+        <p class="cart">
           <span class="material-symbols-outlined"> shopping_cart </span
           ><br />Cart
         </p>
-        <p>
+        <p class="heart">
           <span class="material-symbols-outlined"> favorite </span> <br />
           Wish List
         </p>
-        <p>
+        <p class="sigin">
           <span class="material-symbols-outlined"> account_circle </span> <br />
           Sign/up
         </p>
-        <p>
+        <p class="contact">
           Contact Us <br />
           +959 880 441 046
+        </p>
+        <p class="menu">
+          <span class="material-symbols-outlined"> menu </span>
         </p>
       </div>
     </div>
@@ -82,12 +85,15 @@
         </div>
       </nav>
     </div>
+    <MobileMenu></MobileMenu>
   </div>
 </template>
 
 <script>
+import MobileMenu from "./MobileMenu";
 import { ref } from "vue";
 export default {
+  components: { MobileMenu },
   setup() {
     const categories = [
       {
@@ -380,6 +386,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   position: fixed;
+  background: white;
 }
 
 .header-group {
@@ -425,6 +432,10 @@ export default {
   font-size: 20px;
 }
 
+p.menu {
+  display: none;
+}
+
 .navigation {
   background: #0f8ec5;
   width: 100%;
@@ -434,7 +445,7 @@ nav {
   display: flex;
   text-align: center;
   justify-content: center;
-  gap: 80px;
+  gap: 120px;
   cursor: pointer;
 }
 
@@ -508,5 +519,52 @@ nav .nav-item {
   width: 100%;
   text-align: start;
   padding: 10px;
+}
+
+@media (max-width: 1600px) {
+  .content-wrapper {
+    padding: 10px 8% !important;
+  }
+
+  nav {
+    gap: 70px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .icon-group p.heart,
+  p.contact {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .navigation {
+    display: none;
+  }
+  .icon-group p.heart,
+  p.cart,
+  p.contact,
+  p.sigin {
+    display: none;
+  }
+  .icon-group p.menu {
+    display: block;
+    padding-left: 20px;
+    cursor: pointer;
+  }
+  .input-group {
+    width: 500px;
+  }
+  .header-group {
+    gap: 50px;
+    position: fixed;
+    height: 100px;
+  }
+  .sticky-header {
+    position: unset;
+    justify-content: center;
+    background: #fff;
+  }
 }
 </style>

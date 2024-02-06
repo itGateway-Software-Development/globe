@@ -6,8 +6,7 @@
 }
 
 .content-wrapper {
-    padding: 10px 15%;
-    
+    padding: 10px 15%;    
 }
 
 ::placeholder {
@@ -22,4 +21,10 @@ a {
 
 ul li{
     list-style: none;
+}
+
+@media (max-width: 860px) {
+    .content-wrapper {
+        padding: 10px 0;
+    }
 }
