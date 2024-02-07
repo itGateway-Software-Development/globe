@@ -2,12 +2,78 @@
   <div class="sticky-header">
     <div class="header-group content-wrapper">
       <img src="../assets/logo.jpg" alt="" class="logo" />
-      <form class="input-group">
-        <input type="text" class="form-control" placeholder="Search Here" />
-        <button class="btn btn-info search-bar">
-          <span class="material-symbols-outlined"> search </span>
-        </button>
-      </form>
+      <div class="search-form">
+        <div class="searh-bar">
+          <form class="input-group">
+            <input type="text" class="form-control" placeholder="Search Here" />
+            <button
+              class="btn btn-info search-bar-button"
+              @click="search_bar = !search_bar"
+            >
+              <span class="material-symbols-outlined"> search </span>
+            </button>
+          </form>
+        </div>
+        <div class="hidden-search-bar" v-if="search_bar">
+          <div class="item-1">
+            <h3 class="text-start fs-4 text-header">Popular Gadget</h3>
+            <div class="row align-baseline">
+              <div class="col-lg-3 col-md-3 col-sm-4">
+                <p class="text-stat fs-4 sub-text">Keyboard</p>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-4">
+                <p class="text-stat fs-4 sub-text">Keyboard</p>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-4">
+                <p class="text-stat fs-4 sub-text">Keyboard</p>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-4">
+                <p class="text-stat fs-4 sub-text">Keyboard</p>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-4">
+                <p class="text-stat fs-4 sub-text">Keyboard</p>
+              </div>
+            </div>
+            <div class="item-2">
+              <h2 class="text-start fs-4 text-header">Popular Product</h2>
+              <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-sm-4">
+                  <div class="card" style="width: 10rem">
+                    <img src="../assets/1.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                      <p class="card-text">Keyboard</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-4">
+                  <div class="card" style="width: 10rem">
+                    <img src="../assets/1.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                      <p class="card-text">Keyboard</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-4">
+                  <div class="card" style="width: 10rem">
+                    <img src="../assets/1.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                      <p class="card-text">Keyboard</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-4">
+                  <div class="card" style="width: 10rem">
+                    <img src="../assets/1.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                      <p class="card-text">Keyboard</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="mobile-icon-group d-none">
         <div class="mb-icon">
           <p class="cart-icon">
@@ -587,11 +653,13 @@ export default {
       },
     ];
 
+    let search_bar = ref(false);
+
     let dropdown = ref(false);
 
     let isShow = ref(false);
 
-    return { categories, isShow, dropdown, information };
+    return { categories, isShow, dropdown, information, search_bar };
   },
 };
 </script>
@@ -633,7 +701,51 @@ export default {
   color: #fff;
 }
 
+.search-form {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 10px;
+  z-index: 1;
+}
+
 .search-bar {
+  position: absolute;
+}
+
+.hidden-search-bar {
+  position: absolute;
+  width: 800px;
+  height: 400px;
+  display: block;
+  border: 1px solid #767676;
+  background: #fff;
+  margin: 1px 0;
+  border-radius: 10px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.hidden-search-bar .item-2 {
+  padding-top: 30px;
+}
+
+.hidden-search-bar .text-header {
+  border-bottom: 2px solid #767676;
+}
+
+.hidden-search-bar .sub-text {
+  border: 2px solid #767676;
+  background: #767676;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.card-img-top {
+  object-fit: fill;
+}
+
+.search-bar-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -832,6 +944,12 @@ nav .nav-item {
   .icon-group .menu {
     display: block !important;
     cursor: pointer;
+  }
+
+  .hidden-search-bar {
+    width: 600px;
+    height: 384px;
+    overflow: hidden;
   }
 
   .menu {
