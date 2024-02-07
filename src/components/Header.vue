@@ -8,6 +8,19 @@
           <span class="material-symbols-outlined"> search </span>
         </button>
       </form>
+      <div class="mobile-icon-group d-none">
+        <div class="mb-icon">
+          <p class="cart-icon">
+            <span class="material-symbols-outlined icon"> shopping_cart </span>
+          </p>
+          <p class="heart-icon">
+            <span class="material-symbols-outlined icon"> favorite </span>
+          </p>
+          <p class="sigin-icon">
+            <span class="material-symbols-outlined icon"> account_circle </span>
+          </p>
+        </div>
+      </div>
       <div class="icon-group">
         <p class="cart">
           <span class="material-symbols-outlined"> shopping_cart </span
@@ -18,26 +31,34 @@
           Wish List
         </p>
         <p class="sigin">
-          <span class="material-symbols-outlined"> account_circle </span> <br />
+          <span class="material-symbols-outlined"> account_circle </span>
+          <br />
           Sign/up
         </p>
         <p class="contact">
-          Contact Us <br />
+          <span class="material-symbols-outlined"> call </span> Contact Us
+          <br />
           +959 880 441 046
         </p>
-        <div class="menu" @click="MobileToggle()" v-if="!isShow">
-          <span class="material-symbols-outlined" > menu </span>
+        <div class="menu" @click="isShow = !isShow">
+          <span class="material-symbols-outlined"> menu </span>
           <p>Menu</p>
         </div>
       </div>
     </div>
-    <div class="content-wrapper navigation" v-if="isShow">
+    <form class="mobile-input-group">
+      <input type="text" class="form-control" placeholder="Search Here" />
+      <button class="btn btn-info search-bar">
+        <span class="material-symbols-outlined"> search </span>
+      </button>
+    </form>
+    <div class="content-wrapper navigation">
       <nav>
         <div class="close">
           <h3>Menu</h3>
-          <span class="material-symbols-outlined" @click="MobileToggle()">
-close
-</span>
+          <span class="material-symbols-outlined" @click="isShow = !isShow">
+            close
+          </span>
         </div>
         <ul>
           <li class="nav-item">
@@ -47,30 +68,31 @@ close
             <router-link to="/">Popular Gadgets</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/" class="f-d">Categories<span class="material-symbols-outlined">
-              arrow_drop_down
-            </span>
-            <div class="dropdown">
-            <div
-              class="dropdown-item"
-              v-for="item in categories"
-              :key="item.id"
-            >
-              <router-link to="#" class="item">{{ item.name }}</router-link>
-              <div class="sub-dropdown">
-                <div class="sub-item">
-                  <router-link
-                    to="#"
-                    class="item"
-                    v-for="sub_item in item.subCategory"
-                    :key="sub_item.id"
-                    >{{ sub_item.name }}</router-link
-                  >
+            <router-link to="/" class="f-d"
+              >Categories<span class="material-symbols-outlined">
+                arrow_drop_down
+              </span>
+              <div class="dropdown">
+                <div
+                  class="dropdown-item"
+                  v-for="item in categories"
+                  :key="item.id"
+                >
+                  <router-link to="#" class="item">{{ item.name }}</router-link>
+                  <div class="sub-dropdown">
+                    <div class="sub-item">
+                      <router-link
+                        to="#"
+                        class="item"
+                        v-for="sub_item in item.subCategory"
+                        :key="sub_item.id"
+                        >{{ sub_item.name }}</router-link
+                      >
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            </div>
-          </router-link>
+            </router-link>
           </li>
           <li class="nav-item">
             <router-link to="/">Brands</router-link>
@@ -79,19 +101,113 @@ close
             <router-link to="/">Promotion</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/" class="d-flex">Information<span class="material-symbols-outlined">
-              arrow_drop_down
-            </span>
-            <div class="dropdown">
-              <div class="dropdown-item">
-                <router-link to="/" v-for="text in Infromation" :key="text" class="item">
-                  {{ text.name }}
-                </router-link>
+            <router-link to="/" class="f-d"
+              >Information<span class="material-symbols-outlined">
+                arrow_drop_down
+              </span>
+              <div class="dropdown">
+                <div
+                  class="dropdown-item"
+                  v-for="item in information"
+                  :key="item.id"
+                >
+                  <router-link to="#" class="item">{{ item.name }}</router-link>
+                </div>
               </div>
-            </div>
-          </router-link>
+            </router-link>
           </li>
-         
+        </ul>
+      </nav>
+    </div>
+    <div class="content-wrapper mobile-navigation" v-if="isShow">
+      <nav>
+        <div class="close">
+          <h3>Menu</h3>
+          <span class="material-symbols-outlined" @click="isShow = !isShow">
+            close
+          </span>
+        </div>
+        <ul>
+          <li class="nav-item">
+            <router-link to="/">Home</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/">Popular Gadgets</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/">
+              <div class="f-d" @click="dropdown = !dropdown">
+                Categories<span class="material-symbols-outlined">
+                  arrow_drop_down
+                </span>
+              </div>
+              <div class="dropdown" v-if="dropdown">
+                <div
+                  class="dropdown-item"
+                  v-for="item in categories"
+                  :key="item.id"
+                >
+                  <router-link to="#" class="item">{{ item.name }}</router-link>
+                  <div class="sub-dropdown">
+                    <div class="sub-item">
+                      <router-link
+                        to="#"
+                        class="item"
+                        v-for="sub_item in item.subCategory"
+                        :key="sub_item.id"
+                        >{{ sub_item.name }}</router-link
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/">Brands</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/">Promotion</router-link>
+          </li>
+          <li class="nav-item" @click="dropdown = !dropdown">
+            <router-link to="/" class="f-d"
+              >Information<span class="material-symbols-outlined">
+                arrow_drop_down
+              </span>
+              <div class="dropdown" v-if="dropdown">
+                <div class="dropdown-item">
+                  <router-link
+                    to="/"
+                    v-for="text in Infromation"
+                    :key="text"
+                    class="item"
+                  >
+                    {{ text.name }}
+                  </router-link>
+                </div>
+              </div>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/" class="d-flex"
+              ><span class="material-symbols-outlined pe-3"> favorite </span
+              >Favourite
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/" class="d-flex">
+              <span class="material-symbols-outlined pe-3"> shopping_cart </span
+              >Cart</router-link
+            >
+          </li>
+          <li class="nav-item">
+            <router-link to="/" class="d-flex">
+              <span class="material-symbols-outlined pe-3">
+                account_circle
+              </span>
+              Sigin/up</router-link
+            >
+          </li>
         </ul>
       </nav>
     </div>
@@ -99,10 +215,10 @@ close
 </template>
 
 <script>
-import { ref } from "vue";
-import MobileMenu from './MobileMenu.vue';
+import { onMounted, ref } from "vue";
+
 export default {
-  components: { MobileMenu },
+  components: {},
   setup() {
     const categories = [
       {
@@ -341,7 +457,23 @@ export default {
         subCategory: [
           {
             id: 1,
-            name: "Headset 1",
+            name: "Business",
+          },
+          {
+            id: 2,
+            name: "Professional",
+          },
+          {
+            id: 3,
+            name: "Wireless",
+          },
+          {
+            id: 4,
+            name: "Mic",
+          },
+          {
+            id: 5,
+            name: "Wire Headset",
           },
         ],
       },
@@ -351,7 +483,23 @@ export default {
         subCategory: [
           {
             id: 1,
-            name: "Speaker 4.0",
+            name: "Home",
+          },
+          {
+            id: 2,
+            name: "Portable",
+          },
+          {
+            id: 3,
+            name: "Loud",
+          },
+          {
+            id: 4,
+            name: "Sound Bar",
+          },
+          {
+            id: 5,
+            name: "Conference",
           },
         ],
       },
@@ -361,7 +509,39 @@ export default {
         subCategory: [
           {
             id: 1,
-            name: "Portable 1 ",
+            name: "Monitor",
+          },
+          {
+            id: 2,
+            name: "Printer & Scanner",
+          },
+          {
+            id: 3,
+            name: "Photo Printer",
+          },
+          {
+            id: 4,
+            name: "Projector",
+          },
+          {
+            id: 5,
+            name: "Conferencing",
+          },
+          {
+            id: 6,
+            name: "Mobile Router",
+          },
+          {
+            id: 7,
+            name: "Sim Router",
+          },
+          {
+            id: 8,
+            name: "Speaker",
+          },
+          {
+            id: 9,
+            name: "Power Station",
           },
         ],
       },
@@ -384,13 +564,34 @@ export default {
         ],
       },
     ];
+    const information = [
+      {
+        id: 1,
+        name: "About Us",
+      },
+      {
+        id: 2,
+        name: "News & Events",
+      },
+      {
+        id: 3,
+        name: "New Product",
+      },
+      {
+        id: 4,
+        name: "Shipping Policy",
+      },
+      {
+        id: 5,
+        name: "Our Store Location",
+      },
+    ];
 
-    let isShow = ref(false)
-    let MobileToggle=()=>{
-     isShow!=isShow
-    }
+    let dropdown = ref(false);
 
-    return { categories, isShow, MobileToggle };
+    let isShow = ref(false);
+
+    return { categories, isShow, dropdown, information };
   },
 };
 </script>
@@ -402,6 +603,7 @@ export default {
   flex-wrap: wrap;
   position: fixed;
   background: white;
+  z-index: 99;
 }
 
 .header-group {
@@ -417,6 +619,18 @@ export default {
   border: 1px solid #767676;
   border-radius: 7px;
   color: #767676;
+}
+
+.input-group .material-symbols-outlined {
+  color: #fff;
+}
+
+.mobile-input-group {
+  display: none;
+}
+
+.mobile-input-group .material-symbols-outlined {
+  color: #fff;
 }
 
 .search-bar {
@@ -439,12 +653,16 @@ export default {
 .material-symbols-outlined {
   font-size: 32px;
   font-weight: 500;
+  color: #0f8ec5;
 }
 
 .icon-group p {
   padding: 0 20px 0 20px;
   text-align: center;
   font-size: 20px;
+}
+.contact span {
+  padding: 0px 10px;
 }
 
 .menu {
@@ -455,6 +673,10 @@ export default {
   background: #0f8ec5;
   width: 100%;
 }
+
+.mobile-navigation {
+  display: none;
+}
 nav {
   padding: 0 !important;
   display: flex;
@@ -463,6 +685,23 @@ nav {
   gap: 120px;
   cursor: pointer;
   text-align: center;
+}
+
+nav .close {
+  display: none;
+}
+
+.close .material-symbols-outlined {
+  color: #fff;
+}
+
+nav .f-d {
+  display: flex;
+  cursor: pointer;
+}
+
+.f-d .material-symbols-outlined {
+  color: #fff;
 }
 
 nav h3 {
@@ -486,7 +725,9 @@ nav ul li a {
   transition: 0.4ms;
 }
 
-
+.nav-item .material-symbols-outlined {
+  color: #fff;
+}
 
 nav .nav-item {
   position: relative;
@@ -555,6 +796,9 @@ nav .nav-item {
   nav ul {
     gap: 70px;
   }
+  .content-wrapper {
+    padding: 10px 5% !important;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -563,12 +807,18 @@ nav .nav-item {
     display: none;
   }
 
- .content-wrapper {
-    padding: 10px 10% !important;
+  .content-wrapper {
+    padding: 10px 5% !important;
   }
 
-  nav ul{
-   gap: 35px;
+  nav ul {
+    gap: 35px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header-group {
+    padding: 0px 20px !important;
   }
 }
 
@@ -580,16 +830,16 @@ nav .nav-item {
     display: none;
   }
   .icon-group .menu {
-    display: block;
+    display: block !important;
     cursor: pointer;
   }
 
-  .menu{
-    margin-top: 6px;
+  .menu {
+    margin-top: -10px;
   }
 
-  .menu p{
-    margin-top: -10px;
+  .menu p {
+    display: none;
   }
 
   .input-group {
@@ -602,38 +852,55 @@ nav .nav-item {
     background: #fff;
   }
 
-  .content-wrapper{
-    padding:0 !important;
+  .content-wrapper {
+    padding: 0 !important;
   }
 
-  .header-group{
+  .header-group {
     padding: 0 30px !important;
     z-index: -1;
   }
 
-  .navigation{
+  .navigation {
     position: absolute;
     background: none;
-    display: block;
+    display: none;
     top: 0;
     right: 0;
     height: 1000px;
     background-color: rgba(0, 0, 0, 0.5);
   }
-
-  .close{
-    padding: 10px;
-    display: flex;
-    gap:  100px;
+  .mobile-navigation {
+    position: absolute;
+    background: none;
+    width: 100%;
+    top: 0;
+    right: 0;
+    height: 1000px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: block;
   }
 
-  .close .material-symbols-outlined{
-    font-size: 32px;
+  nav .mobile-navigation .close {
+    display: block;
+  }
+
+  nav .close {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 120px;
+    color: #fff;
+  }
+
+  .close .material-symbols-outlined {
+    font-size: 20px;
     font-weight: 600;
+    margin-bottom: 10px;
     cursor: pointer;
   }
 
-  nav{
+  nav {
     position: relative;
     float: right;
     background: #0f8ec5;
@@ -646,7 +913,7 @@ nav .nav-item {
     display: block;
   }
 
-  nav ul{
+  nav ul {
     display: inline-block;
     padding: 0 0 20px 0;
     width: 100%;
@@ -655,6 +922,97 @@ nav .nav-item {
   nav .nav-item {
     padding: 10px 20px;
     border-bottom: 1px solid #fff;
+  }
+  .dropdown {
+    width: 210px;
+    margin: 0 !important;
+    position: relative;
+    transform: translateY(0px);
+    transition: 0ms;
+    background: #0f8ec5;
+  }
+  .sub-dropdown {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .input-group .form-control {
+    display: none;
+  }
+  .input-group {
+    display: none;
+  }
+  .search-bar {
+    background: none;
+    border: none;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo {
+    width: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .header-group {
+    margin: 0 auto;
+    padding: 0 !important;
+  }
+
+  .icon-group {
+    display: block !important;
+    margin-top: -10px;
+  }
+  .mobile-input-group {
+    display: flex;
+    margin-top: 100px;
+    width: 600px;
+  }
+  .mobile-input-group .search-bar {
+    border: 1px solid black;
+    background: #0f8ec5;
+    border-radius: 0px;
+  }
+  .mobile-input-group .form-control {
+    border: 1px solid #111;
+    border-radius: 0px;
+  }
+  nav {
+    width: 70%;
+  }
+  nav .close {
+    gap: 160px;
+  }
+  .mobile-icon-group {
+    display: block !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .mb-icon {
+    display: flex !important;
+    margin-bottom: 40px;
+    margin-left: 20px;
+  }
+  p.heart-icon .material-symbols-outlined,
+  p.cart-icon .material-symbols-outlined,
+  p.sigin-icon .material-symbols-outlined {
+    font-size: 20px;
+    margin-top: 5px;
+    padding: 10px;
+    color: #0f8ec5;
+  }
+
+  .menu p {
+    display: none;
+  }
+  .menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 30px;
   }
 }
 </style>

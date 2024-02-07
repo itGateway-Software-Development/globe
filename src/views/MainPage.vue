@@ -1,17 +1,14 @@
 <template>
-  
   <Header></Header>
-  <Silder></Silder>
+  <Slider></Slider>
 </template>
 
 <script>
-import MobileMenu from '../components/MobileMenu'
-import Silder from "../components/Silder";
+import Slider from "../components/Slider";
 import Header from "../components/Header";
 export default {
   components: {
-    MobileMenu,
-    Silder,
+    Slider,
     Header,
   },
 };
