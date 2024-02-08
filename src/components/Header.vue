@@ -4,7 +4,7 @@
       <img src="../assets/logo.jpg" alt="" class="logo" />
       <div class="search-form">
         <div class="searh-bar">
-          <form class="input-group">
+          <form class="input-group" @click="search_bar = !search_bar">
             <input type="text" class="form-control" placeholder="Search Here" />
             <button
               class="btn btn-info search-bar-button"
@@ -39,7 +39,7 @@
               <div class="row align-items-center">
                 <div class="col-lg-3 col-md-4 col-sm-4">
                   <div class="card" style="width: 10rem">
-                    <img src="../assets/1.jpg" class="card-img-top" alt="..." />
+                    <img src="../assets/2.jpg" class="card-img-top" alt="..." />
                     <div class="card-body">
                       <p class="card-text">Keyboard</p>
                     </div>
@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-4">
                   <div class="card" style="width: 10rem">
-                    <img src="../assets/1.jpg" class="card-img-top" alt="..." />
+                    <img src="../assets/2.jpg" class="card-img-top" alt="..." />
                     <div class="card-body">
                       <p class="card-text">Keyboard</p>
                     </div>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-4">
                   <div class="card" style="width: 10rem">
-                    <img src="../assets/1.jpg" class="card-img-top" alt="..." />
+                    <img src="../assets/2.jpg" class="card-img-top" alt="..." />
                     <div class="card-body">
                       <p class="card-text">Keyboard</p>
                     </div>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-4">
                   <div class="card" style="width: 10rem">
-                    <img src="../assets/1.jpg" class="card-img-top" alt="..." />
+                    <img src="../assets/2.jpg" class="card-img-top" alt="..." />
                     <div class="card-body">
                       <p class="card-text">Keyboard</p>
                     </div>
@@ -112,12 +112,6 @@
         </div>
       </div>
     </div>
-    <form class="mobile-input-group">
-      <input type="text" class="form-control" placeholder="Search Here" />
-      <button class="btn btn-info search-bar">
-        <span class="material-symbols-outlined"> search </span>
-      </button>
-    </form>
     <div class="content-wrapper navigation">
       <nav>
         <div class="close">
@@ -277,14 +271,18 @@
         </ul>
       </nav>
     </div>
+    <MobileSearchBar></MobileSearchBar>
   </div>
 </template>
 
 <script>
+import MobileSearchBar from "./SearchBar/MobileSearchBar";
 import { onMounted, ref } from "vue";
 
 export default {
-  components: {},
+  components: {
+    MobileSearchBar,
+  },
   setup() {
     const categories = [
       {
@@ -669,7 +667,6 @@ export default {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  position: fixed;
   background: white;
   z-index: 99;
 }
@@ -690,14 +687,6 @@ export default {
 }
 
 .input-group .material-symbols-outlined {
-  color: #fff;
-}
-
-.mobile-input-group {
-  display: none;
-}
-
-.mobile-input-group .material-symbols-outlined {
   color: #fff;
 }
 
@@ -843,6 +832,7 @@ nav ul li a {
 
 nav .nav-item {
   position: relative;
+  height: 100%;
 }
 
 .dropdown {
@@ -853,6 +843,7 @@ nav .nav-item {
   transition: 0.5s;
   background: #0f8ec5;
   visibility: hidden;
+  z-index: 99;
 }
 
 .dropdown .dropdown-item {
@@ -1082,19 +1073,8 @@ nav .nav-item {
     display: block !important;
     margin-top: -10px;
   }
-  .mobile-input-group {
+  .mobile-input {
     display: flex;
-    margin-top: 100px;
-    width: 600px;
-  }
-  .mobile-input-group .search-bar {
-    border: 1px solid black;
-    background: #0f8ec5;
-    border-radius: 0px;
-  }
-  .mobile-input-group .form-control {
-    border: 1px solid #111;
-    border-radius: 0px;
   }
   nav {
     width: 70%;
@@ -1104,10 +1084,8 @@ nav .nav-item {
   }
   .mobile-icon-group {
     display: block !important;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    margin-top: 25px;
   }
   .mb-icon {
     display: flex !important;
