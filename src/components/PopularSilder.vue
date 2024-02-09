@@ -1,59 +1,146 @@
 <template>
-  <div class="logo-swiper swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="../assets/2.jpg" alt="" />
+  <h2 class="fs-3 text-center mt-4 mb-4 fw-bold">Popular Gadget</h2>
+  <div class="gadget">
+    <div class="gadget-slider">
+      <div class="gadget-card">
+        <img src="../assets/2.png" alt="" />
+        <p class="text-center">Product 1</p>
       </div>
-      <div class="swiper-slide">
+      <div class="gadget-card">
         <img src="../assets/2.jpg" alt="" />
+        <p class="text-center">Product 1</p>
       </div>
-      <div class="swiper-slide">
-        <img src="../assets/2.jpg" alt="" />
+      <div class="gadget-card">
+        <img src="../assets/2.png" alt="" />
+        <p class="text-center">Product 1</p>
       </div>
-      <div class="swiper-slide">
-        <img src="../assets/2.jpg" alt="" />
+      <div class="gadget-card">
+        <img src="../assets/2.png" alt="" />
+        <p class="text-center">Product 1</p>
       </div>
-      <div class="swiper-slide">
-        <img src="../assets/2.jpg" alt="" />
+      <div class="gadget-card">
+        <img src="../assets/2.png" alt="" />
+        <p class="text-center">Product 1</p>
       </div>
-      <div class="swiper-slide">
-        <img src="../assets/2.jpg" alt="" />
+      <div class="gadget-card">
+        <img src="../assets/2.png" alt="" />
+        <p class="text-center">Product 1</p>
+      </div>
+      <div class="gadget-card">
+        <img src="../assets/2.png" alt="" />
+        <p class="text-center">Product 1</p>
+      </div>
+      <div class="gadget-card">
+        <img src="../assets/2.png" alt="" />
+        <p class="text-center">Product 1</p>
+      </div>
+      <div class="gadget-card">
+        <img src="../assets/2.png" alt="" />
+        <p class="text-center">Product 1</p>
+      </div>
+      <div class="gadget-card">
+        <img src="../assets/2.png" alt="" />
+        <p class="text-center">Product 1</p>
       </div>
     </div>
-    <hr />
+    <div class="gadget-slider">
+      <div class="gadget-card">
+        <img src="../assets/2.jpg" alt="" />
+        <p class="text-center">Product 1</p>
+      </div>
+      <div class="gadget-card">
+        <img src="../assets/2.png" alt="" />
+        <p class="text-center">Product 1</p>
+      </div>
+      <div class="gadget-card">
+        <img src="../assets/2.png" alt="" />
+        <p class="text-center">Product 1</p>
+      </div>
+      <div class="gadget-card">
+        <img src="../assets/2.png" alt="" />
+        <p class="text-center">Product 1</p>
+      </div>
+      <div class="gadget-card">
+        <img src="../assets/2.png" alt="" />
+        <p class="text-center">Product 1</p>
+      </div>
+      <div class="gadget-card">
+        <img src="../assets/2.png" alt="" />
+        <p class="text-center">Product 1</p>
+      </div>
+      <div class="gadget-card">
+        <img src="../assets/2.png" alt="" />
+        <p class="text-center">Product 1</p>
+      </div>
+      <div class="gadget-card">
+        <img src="../assets/2.png" alt="" />
+        <p class="text-center">Product 1</p>
+      </div>
+      <div class="gadget-card">
+        <img src="../assets/2.png" alt="" />
+        <p class="text-center">Product 1</p>
+      </div>
+      <div class="gadget-card">
+        <img src="../assets/2.png" alt="" />
+        <p class="text-center">Product 1</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
-export default {
-  setup() {
-    const swiper = ref(null);
-
-    onMounted(() => {
-      swiper.value = new Swiper(".logo-swiper", {
-        speed: 1000,
-        loop: true,
-        autoplay: {
-          delay: 1,
-          disableOnInteraction: false,
-        },
-        slidesPerView: 3,
-      });
-    });
-
-    return { swiper };
-  },
-};
+export default {};
 </script>
 
-<style scoped>
-.swiper-wrapper {
-  margin-bottom: 60px;
+<style>
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
-.swiper-slide img {
-  width: 100%;
-  height: 200px;
-  padding: 20px;
+
+.gadget {
+  overflow: hidden;
+  display: flex;
+}
+
+.gadget-slider {
+  display: flex;
+  animation: 20s slide infinite linear;
+}
+
+.gadget-card {
+  padding: 12px;
+}
+
+.gadget-card img {
+  height: 150px;
+}
+
+.gadget-card p {
+  font-size: 20px;
+  font-weight: 500;
+  padding-top: 5px;
+}
+
+.gadget:hover .gadget-slider {
+  animation-play-state: paused;
+}
+
+@media (max-width: 860px) {
+  .gadget-card img {
+    width: 150px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 500px) {
+  .gadget-card img {
+    width: 150px;
+    height: 100px;
+  }
 }
 </style>
