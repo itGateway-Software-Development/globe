@@ -276,7 +276,7 @@
 </template>
 
 <script>
-import MobileSearchBar from "./SearchBar/MobileSearchBar";
+import MobileSearchBar from "./Mobile/MobileSearchBar";
 import { onMounted, ref } from "vue";
 
 export default {
