@@ -1,55 +1,99 @@
 <template>
-  <div class="feature">
+  <div class="feature content-wrapper">
     <div class="section-header mt-5">
-      <h2 class="fs-3 text-center fw-bold">Laptop</h2>
+      <h2 class="fs-3 fw-bold">Laptop</h2>
     </div>
     <ul class="nav-tabs">
-      <li class="tabs active">
-        <p class="tabs-link show" data-bs-toggle="tab" data-bs-target="#tab-1">
-          Home & Business
-        </p>
+      <li
+        class="tabs tabs-after"
+        :class="{ active: tab == 'home' }"
+        @click="tab = 'home'"
+      >
+        <p class="tabs-link show">Home & Business</p>
       </li>
+
       <!-- End tab nav item -->
 
-      <li class="tabs">
-        <p class="tabs-link" data-bs-toggle="tab" data-bs-target="#tab-2">
-          2 in 1 Laptop
-        </p>
+      <li
+        class="tabs tabs-after"
+        :class="{ active: tab == '2in1' }"
+        @click="tab = '2in1'"
+      >
+        <p class="tabs-link">2 in 1 Laptop</p>
         <!-- End tab nav item -->
       </li>
 
-      <li class="tabs">
-        <p class="tabs-link" data-bs-toggle="tab" data-bs-target="#tab-3">
-          Productivity
-        </p>
+      <li
+        class="tabs tabs-after"
+        :class="{ active: tab == 'productivity' }"
+        @click="tab = 'productivity'"
+      >
+        <p class="tabs-link">Productivity</p>
       </li>
       <!-- End tab nav item -->
 
-      <li class="tabs">
-        <p class="tabs-link" data-bs-toggle="tab" data-bs-target="#tab-4">
-          Gaming
-        </p>
+      <li
+        class="tabs"
+        :class="{ active: tab == 'gaming' }"
+        @click="tab = 'gaming'"
+      >
+        <p class="tabs-link">Gaming</p>
       </li>
       <!-- End tab nav item -->
     </ul>
+    <div class="product-card gap-3">
+      <LaptopCard :tab="tab"></LaptopCard>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+import LaptopCard from "./LaptopCard";
+import { ref } from "vue";
+export default {
+  components: { LaptopCard },
+  setup() {
+    let tab = ref("home");
+
+    let ViewMore;
+
+    return { tab };
+  },
+};
 </script>
 
 <style>
 .nav-tabs {
   display: flex;
-  margin: 30px 440px;
+  justify-content: center;
   border: 0px;
+  gap: 30px;
   align-items: center;
 }
+
+.product-card {
+  margin-top: 20px;
+  margin-left: 100px;
+}
+
+.tabs-after {
+  position: relative;
+  z-index: 2;
+}
+
+.tabs-after::after {
+  content: "";
+  position: absolute;
+  background: #0f8ec5;
+  width: 3px;
+  height: 30px;
+  margin-left: 113px;
+  margin-top: -45px;
+}
+
 .feature .tabs {
   width: 200px;
   height: 40px;
-  margin: 0 20px;
   border: 1px solid #111;
   border-radius: 10px;
   padding: 4px;
@@ -81,7 +125,6 @@ export default {};
   color: #000;
   position: relative;
   z-index: 2;
-  margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
 }
