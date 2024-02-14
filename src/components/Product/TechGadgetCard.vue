@@ -1,19 +1,19 @@
 <template>
-  <div v-if="tab == 'home'" class="row gap-3">
+  <div v-if="tab == 'K&B'" class="row gap-3">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
-      v-for="laptop in homeLaptop"
-      :key="laptop.id"
+      v-for="gadget in KM"
+      :key="gadget.id"
     >
-      <img :src="laptop.img" class="card-img-top" alt="..." />
+      <img :src="gadget.img" class="card-img-top" alt="..." />
       <div class="card-body">
-        <h5 class="card-title">{{ laptop.name }}</h5>
+        <h5 class="card-title">{{ gadget.name }}</h5>
         <p class="card-text text-start">
-          Memory: {{ laptop.ram }} <br />
-          CPU: {{ laptop.cpu }} <br />
-          Storage: {{ laptop.storage }} <br />
-          Price: {{ laptop.price }} Ks
+          Memory: {{ gadget.ram }} <br />
+          CPU: {{ gadget.cpu }} <br />
+          Storage: {{ gadget.storage }} <br />
+          Price: {{ gadget.price }} Ks
         </p>
       </div>
     </div>
@@ -21,7 +21,7 @@
       <button
         v-if="!isViewAll1"
         class="btn main-btn vm mt-5"
-        @click="viewMoreItem('home')"
+        @click="viewMoreItem('K&M')"
       >
         View More
       </button>
@@ -29,7 +29,7 @@
     </div>
   </div>
 
-  <div class="row gap-3" v-if="tab == '2in1'">
+  <div class="row gap-3" v-if="tab == 'D&A'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -51,7 +51,7 @@
       <button
         v-if="!isViewAll2"
         class="btn main-btn vm mt-5"
-        @click="viewMoreItem('2in1')"
+        @click="viewMoreItem('D&A')"
       >
         View More
       </button>
@@ -59,7 +59,7 @@
     </div>
   </div>
 
-  <div class="row gap-3" v-if="tab == 'productivity'">
+  <div class="row gap-3" v-if="tab == 'P&C'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -81,14 +81,14 @@
       <button
         v-if="!isViewAll3"
         class="btn main-btn vm mt-5"
-        @click="viewMoreItem('productivity')"
+        @click="viewMoreItem('P&C')"
       >
         View More
       </button>
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row gap-3" v-if="tab == 'gaming'">
+  <div class="row gap-3" v-if="tab == 'PS'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -110,7 +110,181 @@
       <button
         v-if="!isViewAll4"
         class="btn main-btn vm mt-5"
-        @click="viewMoreItem('gaming')"
+        @click="viewMoreItem('PS')"
+      >
+        View More
+      </button>
+      <button v-else class="btn main-btn vm mt-5">View All</button>
+    </div>
+  </div>
+  <div class="row gap-3" v-if="tab == 'BP'">
+    <div
+      class="card col-12 col-md-6 col-lg-3"
+      style="width: 18rem"
+      v-for="laptop in gamingLaptop"
+      :key="laptop.id"
+    >
+      <img :src="laptop.img" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ laptop.name }}</h5>
+        <p class="card-text text-start">
+          Memory: {{ laptop.ram }} <br />
+          CPU: {{ laptop.cpu }} <br />
+          Storage: {{ laptop.storage }} <br />
+          Price: {{ laptop.price }} Ks
+        </p>
+      </div>
+    </div>
+    <div>
+      <button
+        v-if="!isViewAll4"
+        class="btn main-btn vm mt-5"
+        @click="viewMoreItem('BP')"
+      >
+        View More
+      </button>
+      <button v-else class="btn main-btn vm mt-5">View All</button>
+    </div>
+  </div>
+  <div class="row gap-3" v-if="tab == 'SW'">
+    <div
+      class="card col-12 col-md-6 col-lg-3"
+      style="width: 18rem"
+      v-for="laptop in gamingLaptop"
+      :key="laptop.id"
+    >
+      <img :src="laptop.img" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ laptop.name }}</h5>
+        <p class="card-text text-start">
+          Memory: {{ laptop.ram }} <br />
+          CPU: {{ laptop.cpu }} <br />
+          Storage: {{ laptop.storage }} <br />
+          Price: {{ laptop.price }} Ks
+        </p>
+      </div>
+    </div>
+    <div>
+      <button
+        v-if="!isViewAll4"
+        class="btn main-btn vm mt-5"
+        @click="viewMoreItem('SW')"
+      >
+        View More
+      </button>
+      <button v-else class="btn main-btn vm mt-5">View All</button>
+    </div>
+  </div>
+  <div class="row gap-3" v-if="tab == 'pen'">
+    <div
+      class="card col-12 col-md-6 col-lg-3"
+      style="width: 18rem"
+      v-for="laptop in gamingLaptop"
+      :key="laptop.id"
+    >
+      <img :src="laptop.img" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ laptop.name }}</h5>
+        <p class="card-text text-start">
+          Memory: {{ laptop.ram }} <br />
+          CPU: {{ laptop.cpu }} <br />
+          Storage: {{ laptop.storage }} <br />
+          Price: {{ laptop.price }} Ks
+        </p>
+      </div>
+    </div>
+    <div>
+      <button
+        v-if="!isViewAll4"
+        class="btn main-btn vm mt-5"
+        @click="viewMoreItem('pen')"
+      >
+        View More
+      </button>
+      <button v-else class="btn main-btn vm mt-5">View All</button>
+    </div>
+  </div>
+  <div class="row gap-3" v-if="tab == 'LS'">
+    <div
+      class="card col-12 col-md-6 col-lg-3"
+      style="width: 18rem"
+      v-for="laptop in gamingLaptop"
+      :key="laptop.id"
+    >
+      <img :src="laptop.img" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ laptop.name }}</h5>
+        <p class="card-text text-start">
+          Memory: {{ laptop.ram }} <br />
+          CPU: {{ laptop.cpu }} <br />
+          Storage: {{ laptop.storage }} <br />
+          Price: {{ laptop.price }} Ks
+        </p>
+      </div>
+    </div>
+    <div>
+      <button
+        v-if="!isViewAll4"
+        class="btn main-btn vm mt-5"
+        @click="viewMoreItem('LS')"
+      >
+        View More
+      </button>
+      <button v-else class="btn main-btn vm mt-5">View All</button>
+    </div>
+  </div>
+  <div class="row gap-3" v-if="tab == 'lighting'">
+    <div
+      class="card col-12 col-md-6 col-lg-3"
+      style="width: 18rem"
+      v-for="laptop in gamingLaptop"
+      :key="laptop.id"
+    >
+      <img :src="laptop.img" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ laptop.name }}</h5>
+        <p class="card-text text-start">
+          Memory: {{ laptop.ram }} <br />
+          CPU: {{ laptop.cpu }} <br />
+          Storage: {{ laptop.storage }} <br />
+          Price: {{ laptop.price }} Ks
+        </p>
+      </div>
+    </div>
+    <div>
+      <button
+        v-if="!isViewAll4"
+        class="btn main-btn vm mt-5"
+        @click="viewMoreItem('lighting')"
+      >
+        View More
+      </button>
+      <button v-else class="btn main-btn vm mt-5">View All</button>
+    </div>
+  </div>
+  <div class="row gap-3" v-if="tab == 'W&M'">
+    <div
+      class="card col-12 col-md-6 col-lg-3"
+      style="width: 18rem"
+      v-for="laptop in gamingLaptop"
+      :key="laptop.id"
+    >
+      <img :src="laptop.img" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ laptop.name }}</h5>
+        <p class="card-text text-start">
+          Memory: {{ laptop.ram }} <br />
+          CPU: {{ laptop.cpu }} <br />
+          Storage: {{ laptop.storage }} <br />
+          Price: {{ laptop.price }} Ks
+        </p>
+      </div>
+    </div>
+    <div>
+      <button
+        v-if="!isViewAll4"
+        class="btn main-btn vm mt-5"
+        @click="viewMoreItem('W&M')"
       >
         View More
       </button>
@@ -124,7 +298,7 @@ import { ref } from "vue";
 export default {
   props: ["tab"],
   setup() {
-    const AllLaptop = [
+    const AllGadget = [
       {
         id: "1",
         name: "Lenovo X1 Carbon",
@@ -133,7 +307,7 @@ export default {
         storage: "M.2 PCIE Gen 4 SSD 2TB",
         price: "60,000,000",
         img: require("@/assets/Laptop/X1-Carbon.jpg"),
-        cat: "home",
+        cat: "K&M",
       },
       {
         id: "2",
@@ -143,7 +317,7 @@ export default {
         storage: "M.2 PCIE Gen 4 SSD 1TB",
         price: "57,000,000",
         img: require("@/assets/Laptop/X1-Carbon.jpg"),
-        cat: "home",
+        cat: "K&M",
       },
       {
         id: "3",
@@ -153,7 +327,7 @@ export default {
         storage: "M.2 PCIE Gen 4 SSD 512TB",
         price: "53,000,000",
         img: require("@/assets/Laptop/X1-Carbon.jpg"),
-        cat: "home",
+        cat: "K&M",
       },
       {
         id: "4",
@@ -163,7 +337,7 @@ export default {
         storage: "M.2 PCIE Gen 4 SSD 1TB",
         price: "58,000,000",
         img: require("@/assets/Laptop/X1-Carbon.jpg"),
-        cat: "home",
+        cat: "K&M",
       },
       {
         id: "5",
@@ -173,7 +347,7 @@ export default {
         storage: "M.2 PCIE Gen 4 SSD 1TB",
         price: "55,000,000",
         img: require("@/assets/Laptop/X1-Carbon.jpg"),
-        cat: "home",
+        cat: "K&M",
       },
       {
         id: "6",
@@ -183,7 +357,7 @@ export default {
         storage: "M.2 PCIE Gen 4 SSD 512TB",
         price: "50,000,000",
         img: require("@/assets/Laptop/X1-Carbon.jpg"),
-        cat: "home",
+        cat: "K&M",
       },
       {
         id: "7",
@@ -372,48 +546,46 @@ export default {
     let isViewAll3 = ref(false);
     let isViewAll4 = ref(false);
 
-    let homeLaptop = ref("");
-    homeLaptop.value = AllLaptop.filter((laptop) => laptop.cat == "home").slice(
-      0,
-      4
-    );
+    let KM = ref("");
+    KM.value = AllGadget.filter((gadget) => gadget.cat == "K&M").slice(0, 4);
     let twoin1Laptop = ref("");
-    twoin1Laptop.value = AllLaptop.filter(
+    twoin1Laptop.value = AllGadget.filter(
       (laptop) => laptop.cat == "2in1"
     ).slice(0, 4);
 
     let productivityLaptop = ref("");
-    productivityLaptop.value = AllLaptop.filter(
+    productivityLaptop.value = AllGadget.filter(
       (laptop) => laptop.cat == "productivity"
     ).slice(0, 4);
 
     let gamingLaptop = ref("");
-    gamingLaptop.value = AllLaptop.filter(
+    gamingLaptop.value = AllGadget.filter(
       (laptop) => laptop.cat == "gaming"
     ).slice(0, 4);
 
     const viewMoreItem = (tabName) => {
-      if (tabName == "home") {
-        homeLaptop.value = AllLaptop.filter(
-          (laptop) => laptop.cat == "home"
-        ).slice(0, 8);
+      if (tabName == "K&M") {
+        KM.value = AllGadget.filter((gadget) => gadget.cat == "K&M").slice(
+          0,
+          8
+        );
         isViewAll1.value = true;
       }
 
       if (tabName == "2in1") {
-        twoin1Laptop.value = AllLaptop.filter(
+        twoin1Laptop.value = AllGadget.filter(
           (laptop) => laptop.cat == "2in1"
         ).slice(0, 8);
         isViewAll2.value = true;
       }
       if (tabName == "productivity") {
-        productivityLaptop.value = AllLaptop.filter(
+        productivityLaptop.value = AllGadget.filter(
           (laptop) => laptop.cat == "productivity"
         ).slice(0, 8);
         isViewAll3.value = true;
       }
       if (tabName == "gaming") {
-        gamingLaptop.value = AllLaptop.filter(
+        gamingLaptop.value = AllGadget.filter(
           (laptop) => laptop.cat == "gaming"
         ).slice(0, 8);
         isViewAll4.value = true;
@@ -421,7 +593,7 @@ export default {
     };
 
     return {
-      homeLaptop,
+      KM,
       twoin1Laptop,
       productivityLaptop,
       gamingLaptop,
@@ -435,8 +607,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .vm {
-  margin-right: 100px;
+  margin-right: 70px;
 }
 </style>

@@ -62,18 +62,17 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .nav-tabs {
   display: flex;
   justify-content: center;
   border: 0px;
-  gap: 30px;
+  gap: 20px;
   align-items: center;
 }
 
 .product-card {
   margin-top: 20px;
-  margin-left: 100px;
 }
 
 .tabs-after {
@@ -87,7 +86,7 @@ export default {
   background: #0f8ec5;
   width: 3px;
   height: 30px;
-  margin-left: 113px;
+  margin-left: 110px;
   margin-top: -45px;
 }
 
