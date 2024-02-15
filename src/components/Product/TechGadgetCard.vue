@@ -6,14 +6,19 @@
       v-for="gadget in KM"
       :key="gadget.id"
     >
-      <img :src="gadget.img" class="card-img-top" alt="..." />
+      <div class="card-top-image" v-for="(img, i) in gadget.img" :key="i">
+        <img
+          class="w-100 hover_img"
+          :class="{ 'd-none': img.status == 'sec_img' }"
+          :src="img.url"
+          alt=""
+        />
+      </div>
       <div class="card-body">
         <h5 class="card-title">{{ gadget.name }}</h5>
         <p class="card-text text-start">
-          Memory: {{ gadget.ram }} <br />
-          CPU: {{ gadget.cpu }} <br />
-          Storage: {{ gadget.storage }} <br />
-          Price: {{ gadget.price }} Ks
+          Specification: {{ gadget.spec }} <br />
+          Price: {{ gadget.price }} $
         </p>
       </div>
     </div>
@@ -47,7 +52,7 @@
         </p>
       </div>
     </div>
-    <div>
+    <div class="vm">
       <button
         v-if="!isViewAll2"
         class="btn main-btn vm mt-5"
@@ -55,7 +60,7 @@
       >
         View More
       </button>
-      <button v-else class="btn main-btn vm mt-5">View All</button>
+      <button v-else class="btn main-btn mt-5">View All</button>
     </div>
   </div>
 
@@ -294,69 +299,75 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 export default {
   props: ["tab"],
   setup() {
     const AllGadget = [
       {
         id: "1",
-        name: "Lenovo X1 Carbon",
-        ram: "32GB DDR5 400MHz",
-        cpu: "Intel Core i7-1165G7 @ 3.0",
-        storage: "M.2 PCIE Gen 4 SSD 2TB",
-        price: "60,000,000",
-        img: require("@/assets/Laptop/X1-Carbon.jpg"),
+        name: "RK 61",
+        spec: "RK 61 is a special 60% Mechnical Keyboard",
+        price: "48",
+        img: [
+          { url: require("@/assets/Keyboard/RK61.jpg"), status: "primary_img" },
+          { url: require("@/assets/Laptop/X1-Carbon.jpg"), status: "sec_img" },
+        ],
         cat: "K&M",
       },
       {
         id: "2",
-        name: "Lenovo X1 Carbon",
-        ram: "16GB DDR5 400MHz",
-        cpu: "Intel Core i7-1165G7 @ 3.0",
-        storage: "M.2 PCIE Gen 4 SSD 1TB",
-        price: "57,000,000",
-        img: require("@/assets/Laptop/X1-Carbon.jpg"),
+        name: "RK 61",
+        spec: "RK 61 is a special 60% Mechnical Keyboard",
+        price: "48",
+        img: [
+          { url: require("@/assets/Keyboard/RK61.jpg"), status: "primary_img" },
+          { url: require("@/assets/Laptop/X1-Carbon.jpg"), status: "sec_img" },
+        ],
         cat: "K&M",
       },
       {
         id: "3",
-        name: "Lenovo X1 Carbon",
-        ram: "16GB DDR5 400MHz",
-        cpu: "Intel Core i7-1165G7 @ 3.0",
-        storage: "M.2 PCIE Gen 4 SSD 512TB",
-        price: "53,000,000",
-        img: require("@/assets/Laptop/X1-Carbon.jpg"),
+        name: "RK 61",
+        spec: "RK 61 is a special 60% Mechnical Keyboard",
+        price: "48",
+        img: [
+          { url: require("@/assets/Keyboard/RK61.jpg"), status: "primary_img" },
+          { url: require("@/assets/Laptop/X1-Carbon.jpg"), status: "sec_img" },
+        ],
         cat: "K&M",
       },
       {
         id: "4",
-        name: "Lenovo X1 Carbon",
-        ram: "32GB DDR5 400MHz",
-        cpu: "Intel Core i5-1165G7 @ 3.0",
-        storage: "M.2 PCIE Gen 4 SSD 1TB",
-        price: "58,000,000",
-        img: require("@/assets/Laptop/X1-Carbon.jpg"),
+        name: "RK 61",
+        spec: "RK 61 is a special 60% Mechnical Keyboard",
+        price: "48",
+        img: [
+          { url: require("@/assets/Keyboard/RK61.jpg"), status: "primary_img" },
+          { url: require("@/assets/Laptop/X1-Carbon.jpg"), status: "sec_img" },
+        ],
         cat: "K&M",
       },
       {
         id: "5",
-        name: "Lenovo X1 Carbon",
-        ram: "16GB DDR5 400MHz",
-        cpu: "Intel Core i5-1165G7 @ 3.0",
-        storage: "M.2 PCIE Gen 4 SSD 1TB",
-        price: "55,000,000",
-        img: require("@/assets/Laptop/X1-Carbon.jpg"),
+        name: "RK 61",
+        spec: "RK 61 is a special 60% Mechnical Keyboard",
+        price: "48",
+        img: [
+          { url: require("@/assets/Keyboard/RK61.jpg"), status: "primary_img" },
+          { url: require("@/assets/Laptop/X1-Carbon.jpg"), status: "sec_img" },
+        ],
         cat: "K&M",
       },
       {
         id: "6",
-        name: "Lenovo X1 Carbon",
-        ram: "8GB DDR5 400MHz",
-        cpu: "Intel Core i5-1165G7 @ 3.0",
-        storage: "M.2 PCIE Gen 4 SSD 512TB",
-        price: "50,000,000",
-        img: require("@/assets/Laptop/X1-Carbon.jpg"),
+        name: "RK 61",
+        spec: "RK 61 is a special 60% Mechnical Keyboard",
+        price: "48",
+        img: [
+          { url: require("@/assets/Keyboard/RK61.jpg"), status: "primary_img" },
+          { url: require("@/assets/Laptop/X1-Carbon.jpg"), status: "sec_img" },
+        ],
         cat: "K&M",
       },
       {
@@ -592,6 +603,20 @@ export default {
       }
     };
 
+    // onMounted(() => {
+    //   let imgs = document.querySelectorAll(".hover_img");
+
+    //   imgs.forEach((img) => {
+    //     img.addEventListener("mouseover", function (e) {
+    //       e.target.style.display = "none";
+    //     });
+
+    //     img.addEventListener("mouseleave", function (e) {
+    //       e.target.style.display = "block";
+    //     });
+    //   });
+    // });
+
     return {
       KM,
       twoin1Laptop,
@@ -607,8 +632,4 @@ export default {
 };
 </script>
 
-<style>
-.vm {
-  margin-right: 70px;
-}
-</style>
+<style></style>
