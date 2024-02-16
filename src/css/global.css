@@ -59,3 +59,13 @@ ul li {
   transition: transform 0.5s ease;
   transform: scaleX(0);
 }
+
+.vm {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.product-header {
+  margin: 0 0 0 85px;
+}

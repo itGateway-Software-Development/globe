@@ -1,5 +1,5 @@
 <template>
-  <div v-if="tab == 'K&B'" class="row vm gap-3">
+  <div v-if="tab == 'home'" class="row vm gap-3">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -26,15 +26,15 @@
       <button
         v-if="!isViewAll1"
         class="btn main-btn vm mt-5"
-        @click="viewMoreItem('K&M')"
+        @click="viewMoreItem('home')"
       >
         View More
       </button>
-      <button v-else class="btn main-btn mt-5">View All</button>
+      <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
 
-  <div class="row vm gap-3" v-if="tab == 'D&A'">
+  <div class="row vm gap-3" v-if="tab == 'portable'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -52,19 +52,19 @@
         </p>
       </div>
     </div>
-    <div class="vm">
+    <div>
       <button
         v-if="!isViewAll2"
         class="btn main-btn vm mt-5"
-        @click="viewMoreItem('D&A')"
+        @click="viewMoreItem('portable')"
       >
         View More
       </button>
-      <button v-else class="btn main-btn mt-5">View All</button>
+      <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
 
-  <div class="row vm gap-3" v-if="tab == 'P&C'">
+  <div class="row vm gap-3" v-if="tab == 'loud'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -86,14 +86,14 @@
       <button
         v-if="!isViewAll3"
         class="btn main-btn vm mt-5"
-        @click="viewMoreItem('P&C')"
+        @click="viewMoreItem('loud')"
       >
         View More
       </button>
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row vm gap-3" v-if="tab == 'PS'">
+  <div class="row vm gap-3" v-if="tab == 'soundbar'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -115,14 +115,14 @@
       <button
         v-if="!isViewAll4"
         class="btn main-btn vm mt-5"
-        @click="viewMoreItem('PS')"
+        @click="viewMoreItem('soundbar')"
       >
         View More
       </button>
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row vm gap-3" v-if="tab == 'BP'">
+  <div class="row vm gap-3" v-if="tab == 'conference'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -144,152 +144,7 @@
       <button
         v-if="!isViewAll4"
         class="btn main-btn vm mt-5"
-        @click="viewMoreItem('BP')"
-      >
-        View More
-      </button>
-      <button v-else class="btn main-btn vm mt-5">View All</button>
-    </div>
-  </div>
-  <div class="row vm gap-3" v-if="tab == 'SW'">
-    <div
-      class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
-      v-for="laptop in gamingLaptop"
-      :key="laptop.id"
-    >
-      <img :src="laptop.img" class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">{{ laptop.name }}</h5>
-        <p class="card-text text-start">
-          Memory: {{ laptop.ram }} <br />
-          CPU: {{ laptop.cpu }} <br />
-          Storage: {{ laptop.storage }} <br />
-          Price: {{ laptop.price }} Ks
-        </p>
-      </div>
-    </div>
-    <div>
-      <button
-        v-if="!isViewAll4"
-        class="btn main-btn vm mt-5"
-        @click="viewMoreItem('SW')"
-      >
-        View More
-      </button>
-      <button v-else class="btn main-btn vm mt-5">View All</button>
-    </div>
-  </div>
-  <div class="row vm gap-3" v-if="tab == 'pen'">
-    <div
-      class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
-      v-for="laptop in gamingLaptop"
-      :key="laptop.id"
-    >
-      <img :src="laptop.img" class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">{{ laptop.name }}</h5>
-        <p class="card-text text-start">
-          Memory: {{ laptop.ram }} <br />
-          CPU: {{ laptop.cpu }} <br />
-          Storage: {{ laptop.storage }} <br />
-          Price: {{ laptop.price }} Ks
-        </p>
-      </div>
-    </div>
-    <div>
-      <button
-        v-if="!isViewAll4"
-        class="btn main-btn vm mt-5"
-        @click="viewMoreItem('pen')"
-      >
-        View More
-      </button>
-      <button v-else class="btn main-btn vm mt-5">View All</button>
-    </div>
-  </div>
-  <div class="row vm gap-3" v-if="tab == 'LS'">
-    <div
-      class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
-      v-for="laptop in gamingLaptop"
-      :key="laptop.id"
-    >
-      <img :src="laptop.img" class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">{{ laptop.name }}</h5>
-        <p class="card-text text-start">
-          Memory: {{ laptop.ram }} <br />
-          CPU: {{ laptop.cpu }} <br />
-          Storage: {{ laptop.storage }} <br />
-          Price: {{ laptop.price }} Ks
-        </p>
-      </div>
-    </div>
-    <div>
-      <button
-        v-if="!isViewAll4"
-        class="btn main-btn vm mt-5"
-        @click="viewMoreItem('LS')"
-      >
-        View More
-      </button>
-      <button v-else class="btn main-btn vm mt-5">View All</button>
-    </div>
-  </div>
-  <div class="row vm gap-3" v-if="tab == 'lighting'">
-    <div
-      class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
-      v-for="laptop in gamingLaptop"
-      :key="laptop.id"
-    >
-      <img :src="laptop.img" class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">{{ laptop.name }}</h5>
-        <p class="card-text text-start">
-          Memory: {{ laptop.ram }} <br />
-          CPU: {{ laptop.cpu }} <br />
-          Storage: {{ laptop.storage }} <br />
-          Price: {{ laptop.price }} Ks
-        </p>
-      </div>
-    </div>
-    <div>
-      <button
-        v-if="!isViewAll4"
-        class="btn main-btn vm mt-5"
-        @click="viewMoreItem('lighting')"
-      >
-        View More
-      </button>
-      <button v-else class="btn main-btn vm mt-5">View All</button>
-    </div>
-  </div>
-  <div class="row vm gap-3" v-if="tab == 'W&M'">
-    <div
-      class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
-      v-for="laptop in gamingLaptop"
-      :key="laptop.id"
-    >
-      <img :src="laptop.img" class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">{{ laptop.name }}</h5>
-        <p class="card-text text-start">
-          Memory: {{ laptop.ram }} <br />
-          CPU: {{ laptop.cpu }} <br />
-          Storage: {{ laptop.storage }} <br />
-          Price: {{ laptop.price }} Ks
-        </p>
-      </div>
-    </div>
-    <div>
-      <button
-        v-if="!isViewAll4"
-        class="btn main-btn vm mt-5"
-        @click="viewMoreItem('W&M')"
+        @click="viewMoreItem('conference')"
       >
         View More
       </button>
@@ -575,7 +430,7 @@ export default {
     ).slice(0, 4);
 
     const viewMoreItem = (tabName) => {
-      if (tabName == "K&M") {
+      if (tabName == "WAP") {
         KM.value = AllGadget.filter((gadget) => gadget.cat == "K&M").slice(
           0,
           8
@@ -632,10 +487,4 @@ export default {
 };
 </script>
 
-<style>
-.vm {
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-}
-</style>
+<style></style>

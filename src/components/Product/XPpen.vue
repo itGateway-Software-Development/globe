@@ -2,25 +2,25 @@
   <div class="feature content-wrapper">
     <div class="product-header">
       <div class="section-header mt-5">
-        <h2 class="fs-3 text-center fw-bold">Digital Display</h2>
+        <h2 class="fs-3 text-center fw-bold">XP-Pen</h2>
       </div>
       <div class="nav-tabs">
         <div
           class="tabs tabs-after"
-          :class="{ active: tab == 'BB' }"
-          @click="tab = 'BB'"
+          :class="{ active: tab == 'DD' }"
+          @click="tab = 'DD'"
         >
-          <p class="tabs-link show">Black Board</p>
+          <p class="tabs-link show">Drawing Display</p>
         </div>
 
         <!-- End tab nav item -->
 
         <div
           class="tabs tabs-after"
-          :class="{ active: tab == 'IFP' }"
-          @click="tab = 'IFP'"
+          :class="{ active: tab == 'DT' }"
+          @click="tab = 'DT'"
         >
-          <p class="tabs-link">Interative Flat Panel</p>
+          <p class="tabs-link">Drawing Tablet</p>
           <!-- End tab nav item -->
         </div>
 
@@ -32,29 +32,24 @@
           <p class="tabs-link">Accessories</p>
         </div>
         <!-- End tab nav item -->
-
         <!-- End tab nav item -->
       </div>
     </div>
     <div class="product-card gap-3">
-      <DigitalDisplayCard :tab="tab"></DigitalDisplayCard>
+      <XPpenCard :tab="tab"></XPpenCard>
     </div>
   </div>
 </template>
 
 <script>
-import DigitalDisplayCard from "./DigitalDisplayCard";
-import TelecommunicationCard from "./TelecommunicationCard";
-import NetworkingCard from "./NetworkingCard";
+import XPpenCard from "./XPpenCard";
 import { ref } from "vue";
 export default {
   components: {
-    DigitalDisplayCard,
-    TelecommunicationCard,
-    NetworkingCard,
+    XPpenCard,
   },
   setup() {
-    let tab = ref("BB");
+    let tab = ref("DD");
 
     let ViewMore;
 
@@ -132,7 +127,6 @@ export default {
 .section-header h2:after {
   content: "";
   position: absolute;
-  display: block;
   width: 50px;
   height: 5px;
   background: #0f8ec5;

@@ -2,96 +2,79 @@
   <div class="feature content-wrapper">
     <div class="product-header">
       <div class="section-header mt-5">
-        <h2 class="fs-3 text-center fw-bold">Networking</h2>
+        <h2 class="fs-3 text-center fw-bold">Portable</h2>
       </div>
       <div class="nav-tabs">
         <div
           class="tabs tabs-after"
-          :class="{ active: tab == 'WAP' }"
-          @click="tab = 'WAP'"
+          :class="{ active: tab == 'monitor' }"
+          @click="tab = 'monitor'"
         >
-          <p class="tabs-link show">Wireless AP</p>
+          <p class="tabs-link show">Monitor</p>
         </div>
 
         <!-- End tab nav item -->
 
         <div
           class="tabs tabs-after"
-          :class="{ active: tab == 'MWAP' }"
-          @click="tab = 'MWAP'"
+          :class="{ active: tab == 'P&S' }"
+          @click="tab = 'P&S'"
         >
-          <p class="tabs-link">Mesh Wi-Fi Ap</p>
+          <p class="tabs-link">Printer & Scanner</p>
           <!-- End tab nav item -->
         </div>
 
         <div
           class="tabs tabs-after"
-          :class="{ active: tab == 'SR' }"
-          @click="tab = 'SR'"
+          :class="{ active: tab == 'PP' }"
+          @click="tab = 'PP'"
         >
-          <p class="tabs-link">Sim Router</p>
+          <p class="tabs-link">Photo Printer</p>
         </div>
         <!-- End tab nav item -->
 
-        <div class="tabs" :class="{ active: tab == 'WR' }" @click="tab = 'WR'">
-          <p class="tabs-link">Wireless Router</p>
-        </div>
-        <div class="tabs" :class="{ active: tab == 'NS' }" @click="tab = 'NS'">
-          <p class="tabs-link">Network Switch</p>
-        </div>
-        <div
-          class="tabs tabs-after"
-          :class="{ active: tab == 'NTK' }"
-          @click="tab = 'NTK'"
-        >
-          <p class="tabs-link">Network Tools Kit</p>
-        </div>
-        <div
-          class="tabs tabs-after"
-          :class="{ active: tab == 'WA' }"
-          @click="tab = 'WA'"
-        >
-          <p class="tabs-link">Wi-Fi Adapter</p>
-        </div>
-        <div
-          class="tabs r"
-          :class="{ active: tab == 'gateway' }"
-          @click="tab = 'gateway'"
-        >
-          <p class="tabs-link">Gateway</p>
-        </div>
-        <div
-          class="tabs tabs-after"
-          :class="{ active: tab == 'rack' }"
-          @click="tab = 'rack'"
-        >
-          <p class="tabs-link">Rack</p>
-        </div>
         <div
           class="tabs"
-          :class="{ active: tab == 'NNH' }"
-          @click="tab = 'NNH'"
+          :class="{ active: tab == 'projector' }"
+          @click="tab = 'projector'"
         >
-          <p class="tabs-link">NAS & NAS HDD</p>
+          <p class="tabs-link">Projector</p>
+        </div>
+        <div
+          class="tabs tabs-after"
+          :class="{ active: tab == 'conferencing' }"
+          @click="tab = 'conferencing'"
+        >
+          <p class="tabs-link">Conferencing</p>
+        </div>
+        <div
+          class="tabs tabs-after"
+          :class="{ active: tab == 'MR' }"
+          @click="tab = 'MR'"
+        >
+          <p class="tabs-link">Mobile Router</p>
+        </div>
+        <div class="tabs" :class="{ active: tab == 'PS' }" @click="tab = 'PS'">
+          <p class="tabs-link">Power Station</p>
         </div>
         <!-- End tab nav item -->
       </div>
     </div>
     <div class="product-card gap-3">
-      <NetworkingCard :tab="tab"></NetworkingCard>
+      <PortableCard :tab="tab"></PortableCard>
     </div>
   </div>
 </template>
 
 <script>
-import NetworkingCard from "./NetworkingCard";
+import PortableCard from "./PortableCard";
 import { ref } from "vue";
 export default {
   components: {
-    NetworkingCard,
+    PortableCard,
   },
   setup() {
-    let tab = ref("WAP");
+    let tab = ref("monitor");
 
     let ViewMore;
 
@@ -100,18 +83,13 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .nav-tabs {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   border: 0px;
   gap: 20px;
-  margin-left: 20px;
-}
-
-.section-header {
-  margin-left: 20px;
 }
 
 .product-card {

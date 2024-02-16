@@ -1,5 +1,5 @@
 <template>
-  <div v-if="tab == 'e-reader'" class="row gap-3">
+  <div v-if="tab == 'e-reader'" class="row vm gap-3">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -34,7 +34,7 @@
     </div>
   </div>
 
-  <div class="row gap-3" v-if="tab == 'tablet'">
+  <div class="row vm gap-3" v-if="tab == 'tablet'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -64,7 +64,7 @@
     </div>
   </div>
 
-  <div class="row gap-3" v-if="tab == 'ptablet'">
+  <div class="row vm gap-3" v-if="tab == 'ptablet'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -93,7 +93,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row gap-3" v-if="tab == 'tabletpc'">
+  <div class="row vm gap-3" v-if="tab == 'tabletpc'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -122,7 +122,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row gap-3" v-if="tab == 'sim-tablet'">
+  <div class="row vm gap-3" v-if="tab == 'sim-tablet'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -151,7 +151,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row gap-3" v-if="tab == 'smartdisplay'">
+  <div class="row vm gap-3" v-if="tab == 'smartdisplay'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"

@@ -1,69 +1,75 @@
 <template>
   <div class="feature content-wrapper">
-    <div class="section-header mt-5">
-      <h2 class="fs-3 text-center fw-bold">Telecommunication</h2>
-    </div>
-    <div class="nav-tabs">
-      <div
-        class="tabs tabs-after"
-        :class="{ active: tab == 'VC' }"
-        @click="tab = 'VC'"
-      >
-        <p class="tabs-link show">Video Conference</p>
+    <div class="product-header">
+      <div class="section-header mt-5">
+        <h2 class="fs-3 text-center fw-bold">Telecommunication</h2>
       </div>
+      <div class="nav-tabs">
+        <div
+          class="tabs tabs-after"
+          :class="{ active: tab == 'VC' }"
+          @click="tab = 'VC'"
+        >
+          <p class="tabs-link show">Video Conference</p>
+        </div>
 
-      <!-- End tab nav item -->
+        <!-- End tab nav item -->
 
-      <div
-        class="tabs tabs-after"
-        :class="{ active: tab == 'CP' }"
-        @click="tab = 'CP'"
-      >
-        <p class="tabs-link">Conference Phone</p>
+        <div
+          class="tabs tabs-after"
+          :class="{ active: tab == 'CP' }"
+          @click="tab = 'CP'"
+        >
+          <p class="tabs-link">Conference Phone</p>
+          <!-- End tab nav item -->
+        </div>
+
+        <div
+          class="tabs tabs-after"
+          :class="{ active: tab == 'VVSP' }"
+          @click="tab = 'VVSP'"
+        >
+          <p class="tabs-link">Video-VOIP-SIP Phone</p>
+        </div>
+        <!-- End tab nav item -->
+
+        <div
+          class="tabs"
+          :class="{ active: tab == 'GSM' }"
+          @click="tab = 'GSM'"
+        >
+          <p class="tabs-link">GSM Gateway</p>
+        </div>
+        <div
+          class="tabs tabs-after"
+          :class="{ active: tab == 'VOIP' }"
+          @click="tab = 'VOIP'"
+        >
+          <p class="tabs-link">VOIP Gateway</p>
+        </div>
+        <div
+          class="tabs tabs-after"
+          :class="{ active: tab == 'CM' }"
+          @click="tab = 'CM'"
+        >
+          <p class="tabs-link">Conference Mic</p>
+        </div>
+        <div
+          class="tabs tabs-after"
+          :class="{ active: tab == 'CW' }"
+          @click="tab = 'CW'"
+        >
+          <p class="tabs-link">Conference Webcam</p>
+        </div>
+        <div
+          class="tabs"
+          :class="{ active: tab == 'PBX' }"
+          @click="tab = 'PBX'"
+        >
+          <p class="tabs-link">PBX / IP-PBX Devices</p>
+        </div>
         <!-- End tab nav item -->
       </div>
-
-      <div
-        class="tabs tabs-after"
-        :class="{ active: tab == 'VVSP' }"
-        @click="tab = 'VVSP'"
-      >
-        <p class="tabs-link">Video-VOIP-SIP Phone</p>
-      </div>
-      <!-- End tab nav item -->
-
-      <div
-        class="tabs tabs-after"
-        :class="{ active: tab == 'GSM' }"
-        @click="tab = 'GSM'"
-      >
-        <p class="tabs-link">GSM Gateway</p>
-      </div>
-      <div
-        class="tabs"
-        :class="{ active: tab == 'VOIP' }"
-        @click="tab = 'VOIP'"
-      >
-        <p class="tabs-link">VOIP Gateway</p>
-      </div>
-      <div
-        class="tabs tabs-after"
-        :class="{ active: tab == 'CM' }"
-        @click="tab = 'CM'"
-      >
-        <p class="tabs-link">Conference Mic</p>
-      </div>
-      <div
-        class="tabs tabs-after"
-        :class="{ active: tab == 'CW' }"
-        @click="tab = 'CW'"
-      >
-        <p class="tabs-link">Conference Webcam</p>
-      </div>
-      <div class="tabs" :class="{ active: tab == 'PBX' }" @click="tab = 'PBX'">
-        <p class="tabs-link">PBX / IP-PBX Devices</p>
-      </div>
-      <!-- End tab nav item -->
     </div>
     <div class="product-card gap-3">
       <TelecommunicationCard :tab="tab"></TelecommunicationCard>
@@ -97,6 +103,11 @@ export default {
   justify-content: center;
   border: 0px;
   gap: 20px;
+  margin-left: 15px;
+}
+
+.section-header {
+  margin-left: 10px;
 }
 
 .product-card {

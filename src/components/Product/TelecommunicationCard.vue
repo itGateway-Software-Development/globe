@@ -1,5 +1,5 @@
 <template>
-  <div v-if="tab == 'VC'" class="row gap-3">
+  <div v-if="tab == 'VC'" class="row vm gap-3">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -30,11 +30,11 @@
       >
         View More
       </button>
-      <button v-else class="btn main-btn vm mt-5">View All</button>
+      <button v-else class="btn main-btn mt-5">View All</button>
     </div>
   </div>
 
-  <div class="row gap-3" v-if="tab == 'CP'">
+  <div class="row vm gap-3" v-if="tab == 'CP'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -64,7 +64,7 @@
     </div>
   </div>
 
-  <div class="row gap-3" v-if="tab == 'VVSP'">
+  <div class="row vm gap-3" v-if="tab == 'VVSP'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -93,7 +93,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row gap-3" v-if="tab == 'GSM'">
+  <div class="row vm gap-3" v-if="tab == 'GSM'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -122,7 +122,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row gap-3" v-if="tab == 'VOIP'">
+  <div class="row vm gap-3" v-if="tab == 'VOIP'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -151,7 +151,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row gap-3" v-if="tab == 'CM'">
+  <div class="row vm gap-3" v-if="tab == 'CM'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -180,7 +180,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row gap-3" v-if="tab == 'CW'">
+  <div class="row vm gap-3" v-if="tab == 'CW'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -209,7 +209,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row gap-3" v-if="tab == 'PBX'">
+  <div class="row vm gap-3" v-if="tab == 'PBX'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"

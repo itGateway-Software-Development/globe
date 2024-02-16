@@ -1,5 +1,5 @@
 <template>
-  <div v-if="tab == 'home'" class="row gap-3">
+  <div v-if="tab == 'home'" class="row vm gap-3">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -20,16 +20,16 @@
     <div>
       <button
         v-if="!isViewAll1"
-        class="btn main-btn vm mt-5"
+        class="btn main-btn mt-5"
         @click="viewMoreItem('home')"
       >
         View More
       </button>
-      <button v-else class="btn main-btn vm mt-5">View All</button>
+      <button v-else class="btn main-btn mt-5">View All</button>
     </div>
   </div>
 
-  <div class="row gap-3" v-if="tab == '2in1'">
+  <div class="row vm gap-3" v-if="tab == '2in1'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -59,7 +59,7 @@
     </div>
   </div>
 
-  <div class="row gap-3" v-if="tab == 'productivity'">
+  <div class="row vm gap-3" v-if="tab == 'productivity'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -88,7 +88,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row gap-3" v-if="tab == 'gaming'">
+  <div class="row vm gap-3" v-if="tab == 'gaming'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -106,16 +106,15 @@
         </p>
       </div>
     </div>
-    <div>
-      <button
-        v-if="!isViewAll4"
-        class="btn main-btn vm mt-5"
-        @click="viewMoreItem('gaming')"
-      >
-        View More
-      </button>
-      <button v-else class="btn main-btn vm mt-5">View All</button>
-    </div>
+
+    <button
+      v-if="!isViewAll4"
+      class="btn main-btn vm mt-5"
+      @click="viewMoreItem('gaming')"
+    >
+      View More
+    </button>
+    <button v-else class="btn main-btn vm mt-5">View All</button>
   </div>
 </template>
 
@@ -435,8 +434,4 @@ export default {
 };
 </script>
 
-<style>
-.vm {
-  margin-right: 90px;
-}
-</style>
+<style></style>

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="tab == 'WAP'" class="row gap-3">
+  <div v-if="tab == 'WAP'" class="row vm gap-3">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -25,16 +25,16 @@
     <div>
       <button
         v-if="!isViewAll1"
-        class="btn main-btn vm mt-5"
+        class="btn main-btn mt-5"
         @click="viewMoreItem('WAP')"
       >
         View More
       </button>
-      <button v-else class="btn main-btn vm mt-5">View All</button>
+      <button v-else class="btn main-btn mt-5">View All</button>
     </div>
   </div>
 
-  <div class="row gap-3" v-if="tab == 'MWAP'">
+  <div class="row vm gap-3" v-if="tab == 'MWAP'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -64,7 +64,7 @@
     </div>
   </div>
 
-  <div class="row gap-3" v-if="tab == 'SR'">
+  <div class="row vm gap-3" v-if="tab == 'SR'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -93,7 +93,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row gap-3" v-if="tab == 'WR'">
+  <div class="row vm gap-3" v-if="tab == 'WR'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -122,7 +122,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row gap-3" v-if="tab == 'NS'">
+  <div class="row vm gap-3" v-if="tab == 'NS'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -151,7 +151,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row gap-3" v-if="tab == 'NTK'">
+  <div class="row vm gap-3" v-if="tab == 'NTK'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -180,7 +180,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row gap-3" v-if="tab == 'WA'">
+  <div class="row vm gap-3" v-if="tab == 'WA'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -209,7 +209,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row gap-3" v-if="tab == 'gateway'">
+  <div class="row vm gap-3" v-if="tab == 'gateway'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -238,7 +238,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row gap-3" v-if="tab == 'rack'">
+  <div class="row vm gap-3" v-if="tab == 'rack'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"
@@ -267,7 +267,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row gap-3" v-if="tab == 'NNH'">
+  <div class="row vm gap-3" v-if="tab == 'NNH'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       style="width: 18rem"

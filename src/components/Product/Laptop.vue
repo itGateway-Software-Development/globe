@@ -1,46 +1,48 @@
 <template>
   <div class="feature content-wrapper">
-    <div class="section-header mt-5">
-      <h2 class="fs-3 fw-bold">Laptop</h2>
-    </div>
-    <ul class="nav-tabs">
-      <li
-        class="tabs tabs-after"
-        :class="{ active: tab == 'home' }"
-        @click="tab = 'home'"
-      >
-        <p class="tabs-link show">Home & Business</p>
-      </li>
+    <div class="product-header">
+      <div class="section-header mt-5">
+        <h2 class="fs-3 fw-bold">Laptop</h2>
+      </div>
+      <ul class="nav-tabs">
+        <li
+          class="tabs tabs-after"
+          :class="{ active: tab == 'home' }"
+          @click="tab = 'home'"
+        >
+          <p class="tabs-link show">Home & Business</p>
+        </li>
 
-      <!-- End tab nav item -->
-
-      <li
-        class="tabs tabs-after"
-        :class="{ active: tab == '2in1' }"
-        @click="tab = '2in1'"
-      >
-        <p class="tabs-link">2 in 1 Laptop</p>
         <!-- End tab nav item -->
-      </li>
 
-      <li
-        class="tabs tabs-after"
-        :class="{ active: tab == 'productivity' }"
-        @click="tab = 'productivity'"
-      >
-        <p class="tabs-link">Productivity</p>
-      </li>
-      <!-- End tab nav item -->
+        <li
+          class="tabs tabs-after"
+          :class="{ active: tab == '2in1' }"
+          @click="tab = '2in1'"
+        >
+          <p class="tabs-link">2 in 1 Laptop</p>
+          <!-- End tab nav item -->
+        </li>
 
-      <li
-        class="tabs"
-        :class="{ active: tab == 'gaming' }"
-        @click="tab = 'gaming'"
-      >
-        <p class="tabs-link">Gaming</p>
-      </li>
-      <!-- End tab nav item -->
-    </ul>
+        <li
+          class="tabs tabs-after"
+          :class="{ active: tab == 'productivity' }"
+          @click="tab = 'productivity'"
+        >
+          <p class="tabs-link">Productivity</p>
+        </li>
+        <!-- End tab nav item -->
+
+        <li
+          class="tabs"
+          :class="{ active: tab == 'gaming' }"
+          @click="tab = 'gaming'"
+        >
+          <p class="tabs-link">Gaming</p>
+        </li>
+        <!-- End tab nav item -->
+      </ul>
+    </div>
     <div class="product-card gap-3">
       <LaptopCard :tab="tab"></LaptopCard>
     </div>
@@ -68,6 +70,7 @@ export default {
   justify-content: center;
   border: 0px;
   gap: 20px;
+  margin-right: 20px;
   align-items: center;
 }
 
@@ -116,6 +119,9 @@ export default {
   color: #fff;
 }
 
+.section-header {
+  margin-left: 10px;
+}
 .section-header h2 {
   font-size: 32px;
   font-weight: 700;
