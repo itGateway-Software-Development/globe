@@ -1,0 +1,175 @@
+<template>
+  <div class="mt-5 footer">
+    <div class="footer-card container d-flex">
+      <div class="address-card text-start">
+        <div class="address mb-4">
+          <h2>Address</h2>
+          <div class="location d-flex gap-2">
+            <span class="material-symbols-outlined"> near_me </span>
+            <p>
+              No.508 A, Lower Kyee Myin daing Road,<br />
+              (Home Lan Bus Stop), Kyee Myin Daing Township. Yangon.
+            </p>
+          </div>
+        </div>
+        <div class="contact-us">
+          <h2>Contact Us</h2>
+          <div class="ph-number d-flex gap-2">
+            <span class="material-symbols-outlined"> call </span>
+            <p>+959 880 441 046</p>
+          </div>
+          <div class="mail d-flex gap-2">
+            <span class="material-symbols-outlined"> mail </span>
+            <p>info@globetradingmm.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="shopnow-card text-start">
+        <h2>Shop Now</h2>
+        <div class="shopnow-list">
+          <ul>
+            <li><p>Laptop</p></li>
+            <li><p>Tech Gadget</p></li>
+            <li><p>Networking</p></li>
+            <li><p>Headset</p></li>
+            <li><p>Speaker</p></li>
+            <li><p>XP-Pen</p></li>
+          </ul>
+        </div>
+      </div>
+      <div class="partner-card text-start">
+        <h2>Our Partnership</h2>
+        <div class="row partnership">
+          <div class="col-3 col-md-3 partnership-card">
+            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          </div>
+          <div class="col-3 col-md-3 partnership-card">
+            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          </div>
+          <div class="col-3 col-md-3 partnership-card">
+            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          </div>
+          <div class="col-3 col-md-3 partnership-card">
+            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          </div>
+          <div class="col-3 col-md-3 partnership-card">
+            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          </div>
+          <div class="col-3 col-md-3 partnership-card">
+            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          </div>
+          <div class="col-3 col-md-3 partnership-card">
+            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          </div>
+          <div class="col-3 col-md-3 partnership-card">
+            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          </div>
+          <div class="col-3 col-md-3 partnership-card">
+            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          </div>
+          <div class="col-3 col-md-3 partnership-card">
+            <button>View More</button>
+          </div>
+        </div>
+        <h2>Follow Us</h2>
+        <div class="footer-icon-group d-flex gap-4">
+          <div class="icon">
+            <i class="bi bi-facebook" style="font-size: 30px"></i>
+          </div>
+          <div class="icon">
+            <i class="bi bi-instagram" style="font-size: 30px"></i>
+          </div>
+          <div class="icon">
+            <i class="bi bi-youtube" style="font-size: 30px"></i>
+          </div>
+          <div class="icon">
+            <i class="bi bi-linkedin" style="font-size: 30px"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style>
+.footer {
+  margin: 0 auto;
+  background-color: #0f8ec5;
+  padding: 12px;
+}
+
+.footer-card h2 {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.footer-card p {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.footer-card .material-symbols-outlined {
+  color: #fff;
+}
+
+.footer-card .shopnow-card {
+  width: 200px;
+}
+
+.shopnow-card {
+  margin-left: 50px;
+  margin-right: 70px;
+}
+
+.shopnow-list ul {
+  padding: 0;
+}
+
+.shopnow-list ul li {
+  line-height: 20px;
+}
+
+.partnership-card {
+  width: 100px;
+  height: 100px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+.partnership-card button {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #111;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.partnership-card button:hover {
+  background: #0f8ec5;
+  color: #fff;
+}
+
+.partnership img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #111;
+  border-radius: 20px;
+}
+
+.partnership {
+  width: 600px;
+}
+
+.icon {
+  color: #0f8ec5;
+  border: 2px solid #111;
+  border-radius: 60%;
+  padding: 5px 12px;
+  background: #fff;
+}
+</style>

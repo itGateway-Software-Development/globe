@@ -74,10 +74,6 @@ export default {
   align-items: center;
 }
 
-.product-card {
-  margin-top: 20px;
-}
-
 .tabs-after {
   position: relative;
   z-index: 2;

@@ -110,11 +110,6 @@ export default {
   margin-left: 10px;
 }
 
-.product-card {
-  margin-top: 20px;
-  margin-left: 100px;
-}
-
 .tabs-after {
   position: relative;
   z-index: 2;

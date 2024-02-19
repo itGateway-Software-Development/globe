@@ -66,6 +66,11 @@ ul li {
   align-content: center;
 }
 
+.product-card {
+  margin-top: 20px;
+  margin-left: 60px;
+}
+
 .product-header {
-  margin: 0 0 0 85px;
+  margin-left: 50px;
 }

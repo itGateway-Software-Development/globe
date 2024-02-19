@@ -111,11 +111,6 @@ export default {
   margin-left: 20px;
 }
 
-.product-card {
-  margin-top: 20px;
-  margin-left: 100px;
-}
-
 .section-header {
   margin-left: 15px;
 }
