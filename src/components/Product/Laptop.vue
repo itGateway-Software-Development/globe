@@ -4,6 +4,7 @@
       <div class="section-header mt-5">
         <h2 class="fs-3 fw-bold">Laptop</h2>
       </div>
+
       <ul class="nav-tabs">
         <li
           class="tabs tabs-after"
@@ -140,5 +141,49 @@ export default {
   right: 0;
   bottom: 0;
   margin: auto;
+}
+@media (max-width: 500px) {
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  .content-wrapper {
+    padding: 0px;
+  }
+  .product-header {
+    width: 500px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .section-header {
+    margin: 0;
+  }
+  .nav-tabs {
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+  .nav-tabs .tabs {
+    padding: 6px 30px;
+    height: 35px;
+  }
+  .tabs-after::after {
+    width: 0;
+  }
+  .feature .tabs-link {
+    font-size: 14px;
+  }
+  .product-card {
+    margin: 20px 0 0 0;
+  }
 }
 </style>

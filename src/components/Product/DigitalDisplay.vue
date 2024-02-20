@@ -63,7 +63,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .nav-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -135,5 +135,41 @@ export default {
   right: 0;
   bottom: 0;
   margin: auto;
+}
+
+@media (max-width: 500px) {
+  .content-wrapper {
+    padding: 0px;
+  }
+  .product-header {
+    width: 500px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .nav-tabs {
+    margin-left: -10px;
+    flex-wrap: nowrap;
+  }
+
+  .section-header {
+    margin: 0;
+  }
+
+  .tabs-after::after {
+    margin-top: -0px;
+    margin-left: -80px;
+    width: 0;
+  }
+  .feature .tabs {
+    width: 150px;
+    height: 30px;
+  }
+  .feature .tabs-link {
+    font-size: 14px;
+  }
+  .product-card {
+    margin: 20px 0 0 0;
+  }
 }
 </style>

@@ -4,51 +4,51 @@
       <div class="section-header mt-5">
         <h2 class="fs-3 text-center fw-bold">Speaker</h2>
       </div>
-      <div class="nav-tabs">
-        <div
+      <ul class="nav-tabs">
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'home' }"
           @click="tab = 'home'"
         >
           <p class="tabs-link show">Home</p>
-        </div>
+        </li>
 
         <!-- End tab nav item -->
 
-        <div
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'portable' }"
           @click="tab = 'portable'"
         >
           <p class="tabs-link">Portable</p>
           <!-- End tab nav item -->
-        </div>
+        </li>
 
-        <div
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'loud' }"
           @click="tab = 'loud'"
         >
           <p class="tabs-link">Loud</p>
-        </div>
+        </li>
         <!-- End tab nav item -->
 
-        <div
+        <li
           class="tabs"
           :class="{ active: tab == 'soundbar' }"
           @click="tab = 'soundbar'"
         >
           <p class="tabs-link">Sound Bar</p>
-        </div>
-        <div
+        </li>
+        <li
           class="tabs"
           :class="{ active: tab == 'conference' }"
           @click="tab = 'conference'"
         >
           <p class="tabs-link">Conference</p>
-        </div>
+        </li>
         <!-- End tab nav item -->
-      </div>
+      </ul>
     </div>
     <div class="product-card gap-3">
       <SpeakerCard :tab="tab"></SpeakerCard>
@@ -73,7 +73,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .nav-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -145,5 +145,49 @@ export default {
   right: 0;
   bottom: 0;
   margin: auto;
+}
+@media (max-width: 500px) {
+  .content-wrapper {
+    padding: 0px;
+  }
+  .product-header {
+    width: 500px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .section-header {
+    margin: 0;
+  }
+  .nav-tabs {
+    margin-left: -10px;
+    flex-wrap: nowrap;
+  }
+
+  .tabs-after::after {
+    margin-top: -0px;
+    margin-left: -80px;
+    width: 0;
+  }
+  .nav-tabs {
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+  .nav-tabs .tabs {
+    padding: 6px 30px;
+    height: 35px;
+  }
+  .feature .tabs-link {
+    font-size: 14px;
+  }
+  .product-card {
+    margin: 20px 0 0 0;
+  }
 }
 </style>

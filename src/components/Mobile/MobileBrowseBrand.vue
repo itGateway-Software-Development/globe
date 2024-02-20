@@ -4,46 +4,88 @@
       <h3 class="fs-5 text-center mb-3 fw-bold">Browse by Brands</h3>
     </div>
     <div class="row mobile-row">
-      <div class="col-4 mobile-logo">
+      <div class="col-4 mobile-logo" v-for="img in filterLogo" :key="img.id">
         <div class="mobile-brand-photo">
-          <img src="../../assets/Logo/dell.jpg" class="img-fluid" alt="" />
-        </div>
-      </div>
-      <div class="col-4 mobile-logo">
-        <div class="mobile-brand-photo">
-          <img src="../../assets/Logo/acer.png" class="img-fluid" alt="" />
-        </div>
-      </div>
-      <div class="col-4 mobile-logo">
-        <div class="mobile-brand-photo">
-          <img src="../../assets/Logo/jbl.png" class="img-fluid" alt="" />
-        </div>
-      </div>
-      <div class="col-4 mobile-logo">
-        <div class="mobile-brand-photo">
-          <img src="../../assets/Logo/asus.jpg" class="img-fluid" alt="" />
-        </div>
-      </div>
-      <div class="col-4 mobile-logo">
-        <div class="mobile-brand-photo">
-          <img src="../../assets/Logo/mashall.png" class="img-fluid" alt="" />
-        </div>
-      </div>
-      <div class="col-4 mobile-logo">
-        <div class="mobile-brand-photo">
-          <img
-            src="../../assets/Logo/Brother_logo.svg.png"
-            class="img-fluid"
-            alt=""
-          />
+          <img :src="img.img" class="img-fluid" />
         </div>
       </div>
     </div>
+    <button
+      v-if="!isViewAll"
+      class="btn main-btn brand-btn"
+      @click="viewMoreLogo"
+    >
+      View More
+    </button>
+    <button v-else class="btn main-btn brand-btn">View All</button>
   </div>
 </template>
 
 <script>
-export default {};
+import { ref } from "vue";
+export default {
+  setup() {
+    let logo = [
+      {
+        id: "1",
+        img: require("@/assets/Logo/dell.jpg"),
+      },
+      {
+        id: "2",
+        img: require("@/assets/Logo/dell.jpg"),
+      },
+      {
+        id: "3",
+        img: require("@/assets/Logo/dell.jpg"),
+      },
+      {
+        id: "4",
+        img: require("@/assets/Logo/dell.jpg"),
+      },
+      {
+        id: "5",
+        img: require("@/assets/Logo/dell.jpg"),
+      },
+      {
+        id: "6",
+        img: require("@/assets/Logo/dell.jpg"),
+      },
+      {
+        id: "7",
+        img: require("@/assets/Logo/dell.jpg"),
+      },
+      {
+        id: "8",
+        img: require("@/assets/Logo/dell.jpg"),
+      },
+      {
+        id: "9",
+        img: require("@/assets/Logo/dell.jpg"),
+      },
+      {
+        id: "10",
+        img: require("@/assets/Logo/dell.jpg"),
+      },
+      {
+        id: "11",
+        img: require("@/assets/Logo/dell.jpg"),
+      },
+      {
+        id: "12",
+        img: require("@/assets/Logo/dell.jpg"),
+      },
+    ];
+    let filterLogo = ref("");
+    filterLogo.value = logo.slice(0, 6);
+    let isViewAll = ref(false);
+    let viewMoreLogo = () => {
+      filterLogo.value = logo.slice(0, 12);
+      isViewAll.value = true;
+    };
+
+    return { filterLogo, isViewAll, viewMoreLogo };
+  },
+};
 </script>
 
 <style>
@@ -67,6 +109,10 @@ export default {};
     padding: 20px;
     border: 1px solid;
     margin: 2px;
+  }
+
+  .brand-btn {
+    padding: 6px 20px;
   }
 
   .mobile-row .mobile-logo img {

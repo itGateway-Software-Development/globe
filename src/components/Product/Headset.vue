@@ -4,51 +4,47 @@
       <div class="section-header mt-5">
         <h2 class="fs-3 text-center fw-bold">Headset</h2>
       </div>
-      <div class="nav-tabs">
-        <div
+      <ul class="nav-tabs">
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'business' }"
           @click="tab = 'business'"
         >
           <p class="tabs-link show">Business</p>
-        </div>
+        </li>
 
         <!-- End tab nav item -->
 
-        <div
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'professional' }"
           @click="tab = 'professional'"
         >
           <p class="tabs-link">Professional</p>
           <!-- End tab nav item -->
-        </div>
+        </li>
 
-        <div
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'wireless' }"
           @click="tab = 'wireless'"
         >
           <p class="tabs-link">Wireless</p>
-        </div>
+        </li>
         <!-- End tab nav item -->
 
-        <div
-          class="tabs"
-          :class="{ active: tab == 'mic' }"
-          @click="tab = 'mic'"
-        >
+        <li class="tabs" :class="{ active: tab == 'mic' }" @click="tab = 'mic'">
           <p class="tabs-link">Mic</p>
-        </div>
-        <div
+        </li>
+        <li
           class="tabs"
           :class="{ active: tab == 'wireheadset' }"
           @click="tab = 'wireheadset'"
         >
           <p class="tabs-link">Wire Headset</p>
-        </div>
+        </li>
         <!-- End tab nav item -->
-      </div>
+      </ul>
     </div>
     <div class="product-card gap-3">
       <HeadsetCard :tab="tab"></HeadsetCard>
@@ -73,7 +69,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .nav-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -145,5 +141,49 @@ export default {
   right: 0;
   bottom: 0;
   margin: auto;
+}
+@media (max-width: 500px) {
+  .content-wrapper {
+    padding: 0px;
+  }
+  .product-header {
+    width: 500px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .section-header {
+    margin: 0;
+  }
+  .nav-tabs {
+    margin-left: -10px;
+    flex-wrap: nowrap;
+  }
+
+  .tabs-after::after {
+    margin-top: -0px;
+    margin-left: -80px;
+    width: 0;
+  }
+  .nav-tabs {
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+  .nav-tabs .tabs {
+    padding: 6px 30px;
+    height: 35px;
+  }
+  .feature .tabs-link {
+    font-size: 14px;
+  }
+  .product-card {
+    margin: 20px 0 0 0;
+  }
 }
 </style>

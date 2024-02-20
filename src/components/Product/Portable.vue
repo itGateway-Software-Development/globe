@@ -4,61 +4,61 @@
       <div class="section-header mt-5">
         <h2 class="fs-3 text-center fw-bold">Portable</h2>
       </div>
-      <div class="nav-tabs">
-        <div
+      <ul class="nav-tabs">
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'monitor' }"
           @click="tab = 'monitor'"
         >
           <p class="tabs-link show">Monitor</p>
-        </div>
+        </li>
 
         <!-- End tab nav item -->
 
-        <div
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'P&S' }"
           @click="tab = 'P&S'"
         >
           <p class="tabs-link">Printer & Scanner</p>
           <!-- End tab nav item -->
-        </div>
+        </li>
 
-        <div
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'PP' }"
           @click="tab = 'PP'"
         >
           <p class="tabs-link">Photo Printer</p>
-        </div>
+        </li>
         <!-- End tab nav item -->
 
-        <div
+        <li
           class="tabs"
           :class="{ active: tab == 'projector' }"
           @click="tab = 'projector'"
         >
           <p class="tabs-link">Projector</p>
-        </div>
-        <div
+        </li>
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'conferencing' }"
           @click="tab = 'conferencing'"
         >
           <p class="tabs-link">Conferencing</p>
-        </div>
-        <div
+        </li>
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'MR' }"
           @click="tab = 'MR'"
         >
           <p class="tabs-link">Mobile Router</p>
-        </div>
-        <div class="tabs" :class="{ active: tab == 'PS' }" @click="tab = 'PS'">
+        </li>
+        <li class="tabs" :class="{ active: tab == 'PS' }" @click="tab = 'PS'">
           <p class="tabs-link">Power Station</p>
-        </div>
+        </li>
         <!-- End tab nav item -->
-      </div>
+      </ul>
     </div>
     <div class="product-card gap-3">
       <PortableCard :tab="tab"></PortableCard>
@@ -83,7 +83,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .nav-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -155,5 +155,49 @@ export default {
   right: 0;
   bottom: 0;
   margin: auto;
+}
+@media (max-width: 500px) {
+  .content-wrapper {
+    padding: 0px;
+  }
+  .product-header {
+    width: 500px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .section-header {
+    margin: 0;
+  }
+  .nav-tabs {
+    margin-left: -10px;
+    flex-wrap: nowrap;
+  }
+
+  .tabs-after::after {
+    margin-top: -0px;
+    margin-left: -80px;
+    width: 0;
+  }
+  .nav-tabs {
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+  .nav-tabs .tabs {
+    padding: 6px 30px;
+    height: 35px;
+  }
+  .feature .tabs-link {
+    font-size: 14px;
+  }
+  .product-card {
+    margin: 20px 0 0 0;
+  }
 }
 </style>

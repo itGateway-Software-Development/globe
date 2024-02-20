@@ -2,7 +2,6 @@
   <div v-if="tab == 'monitor'" class="row vm gap-3">
     <div
       class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
       v-for="gadget in KM"
       :key="gadget.id"
     >
@@ -37,7 +36,6 @@
   <div class="row vm gap-3" v-if="tab == 'P&S'">
     <div
       class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
       v-for="laptop in twoin1Laptop"
       :key="laptop.id"
     >
@@ -67,7 +65,6 @@
   <div class="row vm gap-3" v-if="tab == 'PP'">
     <div
       class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
       v-for="laptop in productivityLaptop"
       :key="laptop.id"
     >
@@ -96,7 +93,6 @@
   <div class="row vm gap-3" v-if="tab == 'projector'">
     <div
       class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
       v-for="laptop in gamingLaptop"
       :key="laptop.id"
     >
@@ -125,7 +121,6 @@
   <div class="row vm gap-3" v-if="tab == 'conferencing'">
     <div
       class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
       v-for="laptop in gamingLaptop"
       :key="laptop.id"
     >
@@ -154,7 +149,6 @@
   <div class="row vm gap-3" v-if="tab == 'MR'">
     <div
       class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
       v-for="laptop in gamingLaptop"
       :key="laptop.id"
     >
@@ -183,7 +177,6 @@
   <div class="row vm gap-3" v-if="tab == 'PS'">
     <div
       class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
       v-for="laptop in gamingLaptop"
       :key="laptop.id"
     >
@@ -212,7 +205,6 @@
   <div class="row vm gap-3" v-if="tab == 'gateway'">
     <div
       class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
       v-for="laptop in gamingLaptop"
       :key="laptop.id"
     >
@@ -241,7 +233,6 @@
   <div class="row vm gap-3" v-if="tab == 'rack'">
     <div
       class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
       v-for="laptop in gamingLaptop"
       :key="laptop.id"
     >
@@ -270,7 +261,6 @@
   <div class="row vm gap-3" v-if="tab == 'NNH'">
     <div
       class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
       v-for="laptop in gamingLaptop"
       :key="laptop.id"
     >
@@ -632,4 +622,24 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.card {
+  width: 18rem;
+}
+
+@media (max-width: 500px) {
+  .card {
+    width: 200px;
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .card-text {
+    font-size: 14px;
+  }
+  .btn {
+    font-size: 16px;
+  }
+}
+</style>

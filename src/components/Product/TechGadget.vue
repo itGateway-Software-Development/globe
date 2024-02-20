@@ -4,78 +4,74 @@
       <div class="section-header mt-5">
         <h2 class="fs-3 text-center fw-bold">Tech Gadget</h2>
       </div>
-      <div class="nav-tabs">
-        <div
+      <ul class="nav-tabs">
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'K&B' }"
           @click="tab = 'K&B'"
         >
           <p class="tabs-link show">Keyboard & Mouse</p>
-        </div>
+        </li>
 
         <!-- End tab nav item -->
 
-        <div
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'D&A' }"
           @click="tab = 'D&A'"
         >
           <p class="tabs-link">Docking & Adapter</p>
           <!-- End tab nav item -->
-        </div>
+        </li>
 
-        <div
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'P&C' }"
           @click="tab = 'P&C'"
         >
           <p class="tabs-link">Powerbank & Charger</p>
-        </div>
+        </li>
         <!-- End tab nav item -->
 
-        <div class="tabs" :class="{ active: tab == 'PS' }" @click="tab = 'PS'">
+        <li class="tabs" :class="{ active: tab == 'PS' }" @click="tab = 'PS'">
           <p class="tabs-link">Personal Storage</p>
-        </div>
-        <div
+        </li>
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'BP' }"
           @click="tab = 'BP'"
         >
           <p class="tabs-link">Back Pack</p>
-        </div>
-        <div
+        </li>
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'SW' }"
           @click="tab = 'SW'"
         >
           <p class="tabs-link">Smart Watch</p>
-        </div>
-        <div
+        </li>
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'pen' }"
           @click="tab = 'pen'"
         >
           <p class="tabs-link">Pen</p>
-        </div>
-        <div class="tabs" :class="{ active: tab == 'LS' }" @click="tab = 'LS'">
+        </li>
+        <li class="tabs" :class="{ active: tab == 'LS' }" @click="tab = 'LS'">
           <p class="tabs-link">Laptop Stand</p>
-        </div>
-        <div
+        </li>
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'lighting' }"
           @click="tab = 'lighting'"
         >
           <p class="tabs-link">Lighting</p>
-        </div>
-        <div
-          class="tabs"
-          :class="{ active: tab == 'W&M' }"
-          @click="tab = 'W&M'"
-        >
+        </li>
+        <li class="tabs" :class="{ active: tab == 'W&M' }" @click="tab = 'W&M'">
           <p class="tabs-link">Webcam & Mic</p>
-        </div>
+        </li>
         <!-- End tab nav item -->
-      </div>
+      </ul>
     </div>
     <div class="product-card gap-3">
       <TechGadgetCard :tab="tab"></TechGadgetCard>
@@ -178,5 +174,45 @@ export default {
   right: 0;
   bottom: 0;
   margin: auto;
+}
+@media (max-width: 500px) {
+  .content-wrapper {
+    padding: 0px;
+  }
+  .product-header {
+    width: 500px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .section-header {
+    margin: 0;
+  }
+  .nav-tabs {
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+  .nav-tabs .tabs {
+    padding: 6px 30px;
+    height: 35px;
+  }
+
+  .tabs-after::after {
+    margin-top: -0px;
+    margin-left: -80px;
+    width: 0;
+  }
+  .feature .tabs-link {
+    font-size: 14px;
+  }
+  .product-card {
+    margin: 20px 0 0 0;
+  }
 }
 </style>

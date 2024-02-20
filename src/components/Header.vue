@@ -988,6 +988,7 @@ nav .nav-item {
     height: 1000px;
     background-color: rgba(0, 0, 0, 0.5);
     display: block;
+    z-index: 99;
   }
 
   nav .mobile-navigation .close {
@@ -998,7 +999,7 @@ nav .nav-item {
     padding: 10px;
     display: flex;
     align-items: center;
-    gap: 120px;
+    gap: 140px;
     color: #fff;
   }
 
@@ -1080,7 +1081,7 @@ nav .nav-item {
     width: 70%;
   }
   nav .close {
-    gap: 160px;
+    gap: 250px;
   }
   .mobile-icon-group {
     display: block !important;
@@ -1099,6 +1100,7 @@ nav .nav-item {
     margin-top: 5px;
     padding: 10px;
     color: #0f8ec5;
+    border: 0px;
   }
 
   .menu p {
@@ -1109,6 +1111,7 @@ nav .nav-item {
     top: 0;
     right: 0;
     margin-top: 30px;
+    margin-right: 30px;
   }
 }
 </style>

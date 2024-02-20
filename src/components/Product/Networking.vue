@@ -4,78 +4,74 @@
       <div class="section-header mt-5">
         <h2 class="fs-3 text-center fw-bold">Networking</h2>
       </div>
-      <div class="nav-tabs">
-        <div
+      <ul class="nav-tabs">
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'WAP' }"
           @click="tab = 'WAP'"
         >
           <p class="tabs-link show">Wireless AP</p>
-        </div>
+        </li>
 
         <!-- End tab nav item -->
 
-        <div
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'MWAP' }"
           @click="tab = 'MWAP'"
         >
           <p class="tabs-link">Mesh Wi-Fi Ap</p>
           <!-- End tab nav item -->
-        </div>
+        </li>
 
-        <div
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'SR' }"
           @click="tab = 'SR'"
         >
           <p class="tabs-link">Sim Router</p>
-        </div>
+        </li>
         <!-- End tab nav item -->
 
-        <div class="tabs" :class="{ active: tab == 'WR' }" @click="tab = 'WR'">
+        <li class="tabs" :class="{ active: tab == 'WR' }" @click="tab = 'WR'">
           <p class="tabs-link">Wireless Router</p>
-        </div>
-        <div class="tabs" :class="{ active: tab == 'NS' }" @click="tab = 'NS'">
+        </li>
+        <li class="tabs" :class="{ active: tab == 'NS' }" @click="tab = 'NS'">
           <p class="tabs-link">Network Switch</p>
-        </div>
-        <div
+        </li>
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'NTK' }"
           @click="tab = 'NTK'"
         >
           <p class="tabs-link">Network Tools Kit</p>
-        </div>
-        <div
+        </li>
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'WA' }"
           @click="tab = 'WA'"
         >
           <p class="tabs-link">Wi-Fi Adapter</p>
-        </div>
-        <div
+        </li>
+        <li
           class="tabs r"
           :class="{ active: tab == 'gateway' }"
           @click="tab = 'gateway'"
         >
           <p class="tabs-link">Gateway</p>
-        </div>
-        <div
+        </li>
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'rack' }"
           @click="tab = 'rack'"
         >
           <p class="tabs-link">Rack</p>
-        </div>
-        <div
-          class="tabs"
-          :class="{ active: tab == 'NNH' }"
-          @click="tab = 'NNH'"
-        >
+        </li>
+        <li class="tabs" :class="{ active: tab == 'NNH' }" @click="tab = 'NNH'">
           <p class="tabs-link">NAS & NAS HDD</p>
-        </div>
+        </li>
         <!-- End tab nav item -->
-      </div>
+      </ul>
     </div>
     <div class="product-card gap-3">
       <NetworkingCard :tab="tab"></NetworkingCard>
@@ -177,5 +173,49 @@ export default {
   right: 0;
   bottom: 0;
   margin: auto;
+}
+@media (max-width: 500px) {
+  .content-wrapper {
+    padding: 0px;
+  }
+  .product-header {
+    width: 500px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .section-header {
+    margin: 0;
+  }
+  .nav-tabs {
+    margin-left: -10px;
+    flex-wrap: nowrap;
+  }
+
+  .tabs-after::after {
+    margin-top: -0px;
+    margin-left: -80px;
+    width: 0;
+  }
+  .nav-tabs {
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+  .nav-tabs .tabs {
+    padding: 6px 30px;
+    height: 35px;
+  }
+  .feature .tabs-link {
+    font-size: 14px;
+  }
+  .product-card {
+    margin: 20px 0 0 0;
+  }
 }
 </style>

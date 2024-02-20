@@ -2,7 +2,6 @@
   <div v-if="tab == 'home'" class="row vm gap-3">
     <div
       class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
       v-for="laptop in homeLaptop"
       :key="laptop.id"
     >
@@ -20,19 +19,18 @@
     <div>
       <button
         v-if="!isViewAll1"
-        class="btn main-btn mt-5"
+        class="btn main-btn mt-3"
         @click="viewMoreItem('home')"
       >
         View More
       </button>
-      <button v-else class="btn main-btn mt-5">View All</button>
+      <button v-else class="btn main-btn mt-3">View All</button>
     </div>
   </div>
 
   <div class="row vm gap-3" v-if="tab == '2in1'">
     <div
       class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
       v-for="laptop in twoin1Laptop"
       :key="laptop.id"
     >
@@ -50,19 +48,18 @@
     <div>
       <button
         v-if="!isViewAll2"
-        class="btn main-btn vm mt-5"
+        class="btn main-btn vm mt-3"
         @click="viewMoreItem('2in1')"
       >
         View More
       </button>
-      <button v-else class="btn main-btn vm mt-5">View All</button>
+      <button v-else class="btn main-btn vm mt-3">View All</button>
     </div>
   </div>
 
   <div class="row vm gap-3" v-if="tab == 'productivity'">
     <div
       class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
       v-for="laptop in productivityLaptop"
       :key="laptop.id"
     >
@@ -80,18 +77,17 @@
     <div>
       <button
         v-if="!isViewAll3"
-        class="btn main-btn vm mt-5"
+        class="btn main-btn vm mt-3"
         @click="viewMoreItem('productivity')"
       >
         View More
       </button>
-      <button v-else class="btn main-btn vm mt-5">View All</button>
+      <button v-else class="btn main-btn vm mt-3">View All</button>
     </div>
   </div>
   <div class="row vm gap-3" v-if="tab == 'gaming'">
     <div
       class="card col-12 col-md-6 col-lg-3"
-      style="width: 18rem"
       v-for="laptop in gamingLaptop"
       :key="laptop.id"
     >
@@ -109,12 +105,12 @@
 
     <button
       v-if="!isViewAll4"
-      class="btn main-btn vm mt-5"
+      class="btn main-btn vm mt-3"
       @click="viewMoreItem('gaming')"
     >
       View More
     </button>
-    <button v-else class="btn main-btn vm mt-5">View All</button>
+    <button v-else class="btn main-btn vm mt-3">View All</button>
   </div>
 </template>
 
@@ -434,4 +430,24 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.card {
+  width: 18rem;
+}
+
+@media (max-width: 500px) {
+  .card {
+    width: 200px;
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .card-text {
+    font-size: 14px;
+  }
+  .btn {
+    font-size: 16px;
+  }
+}
+</style>

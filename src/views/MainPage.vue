@@ -4,7 +4,7 @@
   <PopularSilder></PopularSilder>
   <BrowseBrand></BrowseBrand>
   <ProductShow></ProductShow>
-  <Footer></Footer>
+  <!-- <Footer></Footer> -->
 </template>
 
 <script>

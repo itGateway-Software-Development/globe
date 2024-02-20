@@ -172,4 +172,10 @@ export default {};
   padding: 5px 12px;
   background: #fff;
 }
+
+@media (max-width: 500px) {
+  .footer-card {
+    flex-direction: column;
+  }
+}
 </style>

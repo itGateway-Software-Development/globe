@@ -48,4 +48,11 @@ export default {
   flex-direction: column;
   justify-content: center;
 }
+
+@media (max-width: 500px) {
+  .product-view {
+    margin: 0;
+    padding: 0;
+  }
+}
 </style>

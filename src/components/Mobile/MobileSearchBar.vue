@@ -99,6 +99,7 @@ export default {
     height: 50px;
     margin-top: -35px;
     position: relative;
+    z-index: 0;
   }
   .control {
     margin: 0 auto;

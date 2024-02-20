@@ -145,7 +145,6 @@ export default {
     padding-top: 45px;
   }
   .brand-btn {
-    width: 100px !important;
     font-size: 14px !important;
     padding: 5px;
   }

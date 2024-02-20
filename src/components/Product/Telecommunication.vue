@@ -4,72 +4,64 @@
       <div class="section-header mt-5">
         <h2 class="fs-3 text-center fw-bold">Telecommunication</h2>
       </div>
-      <div class="nav-tabs">
-        <div
+      <ul class="nav-tabs">
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'VC' }"
           @click="tab = 'VC'"
         >
           <p class="tabs-link show">Video Conference</p>
-        </div>
+        </li>
 
         <!-- End tab nav item -->
 
-        <div
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'CP' }"
           @click="tab = 'CP'"
         >
           <p class="tabs-link">Conference Phone</p>
           <!-- End tab nav item -->
-        </div>
+        </li>
 
-        <div
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'VVSP' }"
           @click="tab = 'VVSP'"
         >
           <p class="tabs-link">Video-VOIP-SIP Phone</p>
-        </div>
+        </li>
         <!-- End tab nav item -->
 
-        <div
-          class="tabs"
-          :class="{ active: tab == 'GSM' }"
-          @click="tab = 'GSM'"
-        >
+        <li class="tabs" :class="{ active: tab == 'GSM' }" @click="tab = 'GSM'">
           <p class="tabs-link">GSM Gateway</p>
-        </div>
-        <div
+        </li>
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'VOIP' }"
           @click="tab = 'VOIP'"
         >
           <p class="tabs-link">VOIP Gateway</p>
-        </div>
-        <div
+        </li>
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'CM' }"
           @click="tab = 'CM'"
         >
           <p class="tabs-link">Conference Mic</p>
-        </div>
-        <div
+        </li>
+        <li
           class="tabs tabs-after"
           :class="{ active: tab == 'CW' }"
           @click="tab = 'CW'"
         >
           <p class="tabs-link">Conference Webcam</p>
-        </div>
-        <div
-          class="tabs"
-          :class="{ active: tab == 'PBX' }"
-          @click="tab = 'PBX'"
-        >
+        </li>
+        <li class="tabs" :class="{ active: tab == 'PBX' }" @click="tab = 'PBX'">
           <p class="tabs-link">PBX / IP-PBX Devices</p>
-        </div>
+        </li>
         <!-- End tab nav item -->
-      </div>
+      </ul>
     </div>
     <div class="product-card gap-3">
       <TelecommunicationCard :tab="tab"></TelecommunicationCard>
@@ -96,7 +88,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .nav-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -173,5 +165,49 @@ export default {
   right: 0;
   bottom: 0;
   margin: auto;
+}
+@media (max-width: 500px) {
+  .content-wrapper {
+    padding: 0px;
+  }
+  .product-header {
+    width: 500px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .section-header {
+    margin: 0;
+  }
+  .nav-tabs {
+    margin-left: -10px;
+    flex-wrap: nowrap;
+  }
+
+  .tabs-after::after {
+    margin-top: -0px;
+    margin-left: -80px;
+    width: 0;
+  }
+  .nav-tabs {
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+  .nav-tabs .tabs {
+    padding: 6px 30px;
+    height: 35px;
+  }
+  .feature .tabs-link {
+    font-size: 14px;
+  }
+  .product-card {
+    margin: 20px 0 0 0;
+  }
 }
 </style>
