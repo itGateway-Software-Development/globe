@@ -49,6 +49,20 @@ export default {
   justify-content: center;
 }
 
+@media (max-width: 1200px) {
+  .product-view {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 860px) {
+  .product-view {
+    margin: 0;
+    padding: 0;
+  }
+}
+
 @media (max-width: 500px) {
   .product-view {
     margin: 0;

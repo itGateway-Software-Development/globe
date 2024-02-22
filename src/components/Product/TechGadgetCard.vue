@@ -627,6 +627,22 @@ export default {
   width: 18rem;
 }
 
+@media (max-width: 860px) {
+  .card {
+    width: 300px;
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .card-text {
+    font-size: 14px;
+  }
+  .btn {
+    font-size: 16px;
+  }
+}
+
 @media (max-width: 500px) {
   .card {
     width: 200px;

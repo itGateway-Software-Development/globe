@@ -111,10 +111,6 @@ export default {
     margin: 2px;
   }
 
-  .brand-btn {
-    padding: 6px 20px;
-  }
-
   .mobile-row .mobile-logo img {
     width: 90px;
   }

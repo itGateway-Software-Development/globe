@@ -1,5 +1,10 @@
 <template>
-  <div class="feature content-wrapper">
+  <div
+    class="feature"
+    data-aos="fade-up-left"
+    data-aos-delay="50"
+    data-aos-duration="2000"
+  >
     <div class="product-header">
       <div class="section-header mt-5">
         <h2 class="fs-3 text-center fw-bold">Digital Display</h2>
@@ -135,6 +140,54 @@ export default {
   right: 0;
   bottom: 0;
   margin: auto;
+}
+
+@media (max-width: 1200px) {
+  .content-wrapper {
+    padding: 0;
+  }
+
+  .product-header {
+    margin: 0;
+  }
+  .product-card {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 860px) {
+  .content-wrapper {
+    padding: 0px;
+  }
+  .product-header {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .nav-tabs {
+    margin-left: -10px;
+    flex-wrap: nowrap;
+  }
+
+  .section-header {
+    margin: 0;
+  }
+
+  .tabs-after::after {
+    margin-top: -0px;
+    margin-left: -80px;
+    width: 0;
+  }
+  .nav-tabs .tabs {
+    padding: 6px 30px;
+    height: 35px;
+  }
+  .feature .tabs-link {
+    font-size: 14px;
+  }
+  .product-card {
+    margin: 20px 0 0 0;
+  }
 }
 
 @media (max-width: 500px) {

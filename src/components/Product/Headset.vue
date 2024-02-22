@@ -1,5 +1,10 @@
 <template>
-  <div class="feature content-wrapper">
+  <div
+    class="feature"
+    data-aos="fade-up-right"
+    data-aos-delay="50"
+    data-aos-duration="2000"
+  >
     <div class="product-header">
       <div class="section-header mt-5">
         <h2 class="fs-3 text-center fw-bold">Headset</h2>
@@ -33,7 +38,11 @@
         </li>
         <!-- End tab nav item -->
 
-        <li class="tabs" :class="{ active: tab == 'mic' }" @click="tab = 'mic'">
+        <li
+          class="tabs tabs-after"
+          :class="{ active: tab == 'mic' }"
+          @click="tab = 'mic'"
+        >
           <p class="tabs-link">Mic</p>
         </li>
         <li
@@ -76,6 +85,7 @@ export default {
   justify-content: center;
   border: 0px;
   gap: 20px;
+  margin-right: 20px;
 }
 
 .tabs-after {
@@ -142,6 +152,64 @@ export default {
   bottom: 0;
   margin: auto;
 }
+
+@media (max-width: 1200px) {
+  .content-wrapper {
+    padding: 0;
+  }
+
+  .product-header {
+    margin: 0;
+  }
+  .product-card {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 860px) {
+  .content-wrapper {
+    padding: 0px;
+  }
+  .product-header {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .section-header {
+    margin: 0;
+  }
+  .nav-tabs {
+    margin-left: -10px;
+    flex-wrap: nowrap;
+  }
+
+  .tabs-after::after {
+    margin-top: -0px;
+    margin-left: -80px;
+    width: 0;
+  }
+  .nav-tabs {
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+  .nav-tabs .tabs {
+    padding: 6px 30px;
+    height: 35px;
+  }
+  .feature .tabs-link {
+    font-size: 14px;
+  }
+  .product-card {
+    margin: 20px 0 0 0;
+  }
+}
+
 @media (max-width: 500px) {
   .content-wrapper {
     padding: 0px;

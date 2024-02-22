@@ -1,5 +1,10 @@
 <template>
-  <div class="feature content-wrapper">
+  <div
+    class="feature"
+    data-aos="fade-up"
+    data-aos-delay="50"
+    data-aos-duration="2000"
+  >
     <div class="product-header">
       <div class="section-header mt-5">
         <h2 class="fs-3 fw-bold">Laptop</h2>
@@ -142,15 +147,56 @@ export default {
   bottom: 0;
   margin: auto;
 }
-@media (max-width: 500px) {
-  @keyframes slide {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
+
+@media (max-width: 1200px) {
+  .content-wrapper {
+    padding: 0;
   }
+
+  .product-header {
+    margin: 0;
+  }
+  .product-card {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 860px) {
+  .content-wrapper {
+    padding: 0px;
+  }
+  .product-header {
+    margin: 0 auto;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .section-header {
+    margin: 0;
+  }
+  .nav-tabs {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+  .nav-tabs .tabs {
+    padding: 6px 30px;
+    height: 35px;
+  }
+  .tabs-after::after {
+    width: 0;
+  }
+  .feature .tabs-link {
+    font-size: 14px;
+  }
+  .product-card {
+    margin: 20px 0 0 0;
+  }
+}
+
+@media (max-width: 500px) {
   .content-wrapper {
     padding: 0px;
   }

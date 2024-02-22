@@ -1,14 +1,24 @@
 <template>
   <div class="container brands mt-5 mb-5">
     <div class="row">
-      <div class="col-6 col-md-6 col-sm-6 brand-text">
+      <div
+        class="col-6 col-md-6 col-sm-6 brand-text"
+        data-aos="fade-right"
+        data-aos-delay="50"
+        data-aos-duration="1500"
+      >
         <h1 class="mt-4 mb-4 text-start fs-3 fw-bold">
           Browse Product <br />
           by Brand
         </h1>
         <button class="btn main-btn brand-btn">View More</button>
       </div>
-      <div class="col-6 col-md-6 col-sm-6">
+      <div
+        class="col-6 col-md-6 col-sm-6"
+        data-aos="fade-left"
+        data-aos-delay="50"
+        data-aos-duration="1500"
+      >
         <div class="row brand-list">
           <div class="col-3 col-md-3 col-sm-3 brand-photo">
             <div class="brand-logo">

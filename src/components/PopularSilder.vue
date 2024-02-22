@@ -1,88 +1,90 @@
 <template>
-  <h2 class="fs-3 text-center mt-4 mb-4 fw-bold">Popular Gadget</h2>
-  <div class="gadget">
-    <div class="gadget-slider">
-      <div class="gadget-card">
-        <img src="../assets/2.png" alt="" />
-        <p class="text-center">Product 1</p>
+  <div data-aos="fade-up" data-aos-delay="50" data-aos-duration="2000">
+    <h2 class="fs-3 text-center mt-4 mb-4 fw-bold">Popular Gadget</h2>
+    <div class="gadget">
+      <div class="gadget-slider">
+        <div class="gadget-card">
+          <img src="../assets/2.png" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
+        <div class="gadget-card">
+          <img src="../assets/2.jpg" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
+        <div class="gadget-card">
+          <img src="../assets/2.png" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
+        <div class="gadget-card">
+          <img src="../assets/2.png" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
+        <div class="gadget-card">
+          <img src="../assets/2.png" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
+        <div class="gadget-card">
+          <img src="../assets/2.png" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
+        <div class="gadget-card">
+          <img src="../assets/2.png" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
+        <div class="gadget-card">
+          <img src="../assets/2.png" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
+        <div class="gadget-card">
+          <img src="../assets/2.png" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
+        <div class="gadget-card">
+          <img src="../assets/2.png" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
       </div>
-      <div class="gadget-card">
-        <img src="../assets/2.jpg" alt="" />
-        <p class="text-center">Product 1</p>
-      </div>
-      <div class="gadget-card">
-        <img src="../assets/2.png" alt="" />
-        <p class="text-center">Product 1</p>
-      </div>
-      <div class="gadget-card">
-        <img src="../assets/2.png" alt="" />
-        <p class="text-center">Product 1</p>
-      </div>
-      <div class="gadget-card">
-        <img src="../assets/2.png" alt="" />
-        <p class="text-center">Product 1</p>
-      </div>
-      <div class="gadget-card">
-        <img src="../assets/2.png" alt="" />
-        <p class="text-center">Product 1</p>
-      </div>
-      <div class="gadget-card">
-        <img src="../assets/2.png" alt="" />
-        <p class="text-center">Product 1</p>
-      </div>
-      <div class="gadget-card">
-        <img src="../assets/2.png" alt="" />
-        <p class="text-center">Product 1</p>
-      </div>
-      <div class="gadget-card">
-        <img src="../assets/2.png" alt="" />
-        <p class="text-center">Product 1</p>
-      </div>
-      <div class="gadget-card">
-        <img src="../assets/2.png" alt="" />
-        <p class="text-center">Product 1</p>
-      </div>
-    </div>
-    <div class="gadget-slider">
-      <div class="gadget-card">
-        <img src="../assets/2.jpg" alt="" />
-        <p class="text-center">Product 1</p>
-      </div>
-      <div class="gadget-card">
-        <img src="../assets/2.png" alt="" />
-        <p class="text-center">Product 1</p>
-      </div>
-      <div class="gadget-card">
-        <img src="../assets/2.png" alt="" />
-        <p class="text-center">Product 1</p>
-      </div>
-      <div class="gadget-card">
-        <img src="../assets/2.png" alt="" />
-        <p class="text-center">Product 1</p>
-      </div>
-      <div class="gadget-card">
-        <img src="../assets/2.png" alt="" />
-        <p class="text-center">Product 1</p>
-      </div>
-      <div class="gadget-card">
-        <img src="../assets/2.png" alt="" />
-        <p class="text-center">Product 1</p>
-      </div>
-      <div class="gadget-card">
-        <img src="../assets/2.png" alt="" />
-        <p class="text-center">Product 1</p>
-      </div>
-      <div class="gadget-card">
-        <img src="../assets/2.png" alt="" />
-        <p class="text-center">Product 1</p>
-      </div>
-      <div class="gadget-card">
-        <img src="../assets/2.png" alt="" />
-        <p class="text-center">Product 1</p>
-      </div>
-      <div class="gadget-card">
-        <img src="../assets/2.png" alt="" />
-        <p class="text-center">Product 1</p>
+      <div class="gadget-slider">
+        <div class="gadget-card">
+          <img src="../assets/2.jpg" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
+        <div class="gadget-card">
+          <img src="../assets/2.png" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
+        <div class="gadget-card">
+          <img src="../assets/2.png" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
+        <div class="gadget-card">
+          <img src="../assets/2.png" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
+        <div class="gadget-card">
+          <img src="../assets/2.png" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
+        <div class="gadget-card">
+          <img src="../assets/2.png" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
+        <div class="gadget-card">
+          <img src="../assets/2.png" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
+        <div class="gadget-card">
+          <img src="../assets/2.png" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
+        <div class="gadget-card">
+          <img src="../assets/2.png" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
+        <div class="gadget-card">
+          <img src="../assets/2.png" alt="" />
+          <p class="text-center">Product 1</p>
+        </div>
       </div>
     </div>
   </div>

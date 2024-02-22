@@ -68,9 +68,11 @@ ul li {
 
 .product-card {
   margin-top: 20px;
-  margin-left: 35px;
+  margin-left: 40px;
+  overflow: hidden;
 }
 
 .product-header {
-  margin-left: 20px;
+  margin-left: 25px;
+  overflow: hidden;
 }

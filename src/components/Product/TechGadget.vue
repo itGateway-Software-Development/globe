@@ -1,5 +1,10 @@
 <template>
-  <div class="feature content-wrapper">
+  <div
+    class="feature"
+    data-aos="fade-right"
+    data-aos-delay="50"
+    data-aos-duration="2000"
+  >
     <div class="product-header">
       <div class="section-header mt-5">
         <h2 class="fs-3 text-center fw-bold">Tech Gadget</h2>
@@ -33,7 +38,11 @@
         </li>
         <!-- End tab nav item -->
 
-        <li class="tabs" :class="{ active: tab == 'PS' }" @click="tab = 'PS'">
+        <li
+          class="tabs tabs-after"
+          :class="{ active: tab == 'PS' }"
+          @click="tab = 'PS'"
+        >
           <p class="tabs-link">Personal Storage</p>
         </li>
         <li
@@ -43,11 +52,7 @@
         >
           <p class="tabs-link">Back Pack</p>
         </li>
-        <li
-          class="tabs tabs-after"
-          :class="{ active: tab == 'SW' }"
-          @click="tab = 'SW'"
-        >
+        <li class="tabs" :class="{ active: tab == 'SW' }" @click="tab = 'SW'">
           <p class="tabs-link">Smart Watch</p>
         </li>
         <li
@@ -57,7 +62,11 @@
         >
           <p class="tabs-link">Pen</p>
         </li>
-        <li class="tabs" :class="{ active: tab == 'LS' }" @click="tab = 'LS'">
+        <li
+          class="tabs tabs-after"
+          :class="{ active: tab == 'LS' }"
+          @click="tab = 'LS'"
+        >
           <p class="tabs-link">Laptop Stand</p>
         </li>
         <li
@@ -103,8 +112,8 @@ export default {
   justify-content: center;
   border: 0px;
   gap: 20px;
-  margin-right: 0;
-  margin-left: 20px;
+  margin-right: 15px;
+  margin-left: 0;
 }
 
 .section-header {
@@ -175,6 +184,60 @@ export default {
   bottom: 0;
   margin: auto;
 }
+@media (max-width: 1200px) {
+  .content-wrapper {
+    padding: 0;
+  }
+
+  .product-header {
+    margin: 0;
+  }
+  .product-card {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 860px) {
+  .content-wrapper {
+    padding: 0px;
+    justify-content: center;
+  }
+  .product-header {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .section-header {
+    margin: 0;
+  }
+  .nav-tabs {
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+  .nav-tabs .tabs {
+    padding: 6px 30px;
+    height: 35px;
+  }
+
+  .tabs-after::after {
+    margin-top: -0px;
+    margin-left: -80px;
+    width: 0;
+  }
+  .feature .tabs-link {
+    font-size: 14px;
+  }
+  .product-card {
+    margin: 20px 0 0 0;
+  }
+}
+
 @media (max-width: 500px) {
   .content-wrapper {
     padding: 0px;

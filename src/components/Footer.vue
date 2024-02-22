@@ -1,6 +1,11 @@
 <template>
-  <div class="mt-5 footer">
-    <div class="footer-card container d-flex">
+  <div
+    class="mt-5 footer"
+    data-aos="fade-down"
+    data-aos-delay="50"
+    data-aos-duration="1500"
+  >
+    <div class="footer-card">
       <div class="address-card text-start">
         <div class="address mb-4">
           <h2>Address</h2>
@@ -8,7 +13,8 @@
             <span class="material-symbols-outlined"> near_me </span>
             <p>
               No.508 A, Lower Kyee Myin daing Road,<br />
-              (Home Lan Bus Stop), Kyee Myin Daing Township. Yangon.
+              (Home Lan Bus Stop), Kyee Myin Daing Township. <br />
+              Yangon.
             </p>
           </div>
         </div>
@@ -39,40 +45,57 @@
       </div>
       <div class="partner-card text-start">
         <h2>Our Partnership</h2>
-        <div class="row partnership">
-          <div class="col-3 col-md-3 partnership-card">
+        <div class="partnership">
+          <div class="col-4 col-md-4 partnership-card">
+            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          </div>
+          <div class="col-4 col-md-4 partnership-card">
+            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          </div>
+          <div class="col-4 col-md-4 partnership-card">
+            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          </div>
+          <div class="col-4 col-md-4 partnership-card">
+            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          </div>
+          <div class="col-4 col-md-4 partnership-card">
+            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          </div>
+          <div class="col-4 col-md-4 partnership-card">
+            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          </div>
+          <div class="col-4 col-md-4 partnership-card">
             <img src="../assets/Logo/xp-pen.jpg" alt="" />
           </div>
           <div class="col-3 col-md-3 partnership-card">
             <img src="../assets/Logo/xp-pen.jpg" alt="" />
           </div>
-          <div class="col-3 col-md-3 partnership-card">
+          <div class="col-3 col-md-3 partnership-card none">
             <img src="../assets/Logo/xp-pen.jpg" alt="" />
           </div>
-          <div class="col-3 col-md-3 partnership-card">
-            <img src="../assets/Logo/xp-pen.jpg" alt="" />
-          </div>
-          <div class="col-3 col-md-3 partnership-card">
-            <img src="../assets/Logo/xp-pen.jpg" alt="" />
-          </div>
-          <div class="col-3 col-md-3 partnership-card">
-            <img src="../assets/Logo/xp-pen.jpg" alt="" />
-          </div>
-          <div class="col-3 col-md-3 partnership-card">
-            <img src="../assets/Logo/xp-pen.jpg" alt="" />
-          </div>
-          <div class="col-3 col-md-3 partnership-card">
-            <img src="../assets/Logo/xp-pen.jpg" alt="" />
-          </div>
-          <div class="col-3 col-md-3 partnership-card">
-            <img src="../assets/Logo/xp-pen.jpg" alt="" />
-          </div>
-          <div class="col-3 col-md-3 partnership-card">
+          <div class="col-4 col-md-4 partnership-card">
             <button>View More</button>
           </div>
         </div>
-        <h2>Follow Us</h2>
+        <h2 class="follow-us">Follow Us</h2>
         <div class="footer-icon-group d-flex gap-4">
+          <div class="icon">
+            <i class="bi bi-facebook" style="font-size: 30px"></i>
+          </div>
+          <div class="icon">
+            <i class="bi bi-instagram" style="font-size: 30px"></i>
+          </div>
+          <div class="icon">
+            <i class="bi bi-youtube" style="font-size: 30px"></i>
+          </div>
+          <div class="icon">
+            <i class="bi bi-linkedin" style="font-size: 30px"></i>
+          </div>
+        </div>
+      </div>
+      <div class="mobile-footer mt-4 d-none">
+        <h2 class="text-start">Follow Us</h2>
+        <div class="mobile-footer-icon d-flex gap-4">
           <div class="icon">
             <i class="bi bi-facebook" style="font-size: 30px"></i>
           </div>
@@ -102,6 +125,11 @@ export default {};
   padding: 12px;
 }
 
+.footer-card {
+  margin: 0 300px;
+  display: flex;
+}
+
 .footer-card h2 {
   text-decoration: underline;
   color: #fff;
@@ -117,8 +145,14 @@ export default {};
   color: #fff;
 }
 
-.footer-card .shopnow-card {
-  width: 200px;
+.partnership {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.partnership .footer-card .shopnow-card {
+  width: 500px;
 }
 
 .shopnow-card {
@@ -132,6 +166,10 @@ export default {};
 
 .shopnow-list ul li {
   line-height: 20px;
+}
+
+.partner-card {
+  width: 400px;
 }
 
 .partnership-card {
@@ -173,9 +211,91 @@ export default {};
   background: #fff;
 }
 
+@media (max-width: 1200px) {
+  .footer-card {
+    margin: 0 auto;
+  }
+
+  .address-card {
+    width: 700px;
+  }
+
+  .address {
+    width: 400px;
+  }
+  .shopnow-card {
+    width: 300px !important;
+    margin-left: 50px;
+  }
+
+  .partner-card {
+    width: 700px;
+    overflow: hidden;
+  }
+
+  .partnership {
+    width: 600px;
+    overflow: hidden;
+  }
+  .none {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .footer-card {
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  .address-card {
+    width: 800px;
+    display: flex;
+  }
+  .shopnow-card {
+    width: 200px;
+    margin: 0;
+  }
+  .location {
+    width: 400px;
+  }
+
+  .partner-card {
+    width: 440px;
+    overflow: hidden;
+  }
+
+  .partnership {
+    width: 600px;
+    overflow: hidden;
+  }
+
+  .footer-icon-group {
+    display: none !important;
+  }
+  .follow-us {
+    display: none;
+  }
+  .mobile-footer {
+    display: block !important;
+  }
+}
+
 @media (max-width: 500px) {
   .footer-card {
     flex-direction: column;
+  }
+  .address-card {
+    width: 400px;
+    display: block;
+  }
+  .shopnow-card {
+    width: 400px !important;
+  }
+  .shopnow-list ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 }
 </style>

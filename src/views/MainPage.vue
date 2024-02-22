@@ -1,10 +1,12 @@
 <template>
-  <Header></Header>
-  <Slider></Slider>
-  <PopularSilder></PopularSilder>
-  <BrowseBrand></BrowseBrand>
-  <ProductShow></ProductShow>
-  <!-- <Footer></Footer> -->
+  <div class="main-page">
+    <Header></Header>
+    <Slider></Slider>
+    <PopularSilder></PopularSilder>
+    <BrowseBrand></BrowseBrand>
+    <ProductShow></ProductShow>
+    <Footer></Footer>
+  </div>
 </template>
 
 <script>
@@ -26,4 +28,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.main-page {
+  overflow: hidden;
+}
+</style>
