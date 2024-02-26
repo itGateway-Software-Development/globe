@@ -20,78 +20,66 @@
         data-aos-duration="1500"
       >
         <div class="row brand-list">
-          <div class="col-3 col-md-3 col-sm-3 brand-photo">
+          <div class="col-3 col-md-3 col-sm-3 mb-3">
             <div class="brand-logo">
-              <img src="../assets/Logo/dell.jpg" alt="" class="img-fluid" />
+              <img src="../assets/Logo/dell.png" alt="" class="img-fluid" />
             </div>
           </div>
-          <div class="col-3 col-md-3 col-sm-3 brand-photo">
+          <div class="col-3 col-md-3 col-sm-3 mb-3">
             <div class="brand-logo">
               <img src="../assets/Logo/acer.png" alt="" class="img-fluid" />
             </div>
           </div>
-          <div class="col-3 col-md-3 col-sm-3 brand-photo">
+          <div class="col-3 col-md-3 col-sm-3 mb-3">
             <div class="brand-logo">
               <img src="../assets/Logo/hp.png" alt="" class="img-fluid" />
             </div>
           </div>
-          <div class="col-3 col-md-3 col-sm-3 brand-photo">
+          <div class="col-3 col-md-3 col-sm-3 mb-3">
             <div class="brand-logo">
-              <img src="../assets/Logo/asus.jpg" alt="" class="img-fluid" />
+              <img src="../assets/Logo/asus.png" alt="" class="img-fluid" />
             </div>
           </div>
-          <div class="col-3 col-md-3 col-sm-3 brand-photo">
+          <div class="col-3 col-md-3 col-sm-3 mb-3">
             <div class="brand-logo">
               <img src="../assets/Logo/aoc.png" alt="" class="img-fluid" />
             </div>
           </div>
-          <div class="col-3 col-md-3 col-sm-3 brand-photo">
+          <div class="col-3 col-md-3 col-sm-3 mb-3">
             <div class="brand-logo">
               <img
-                src="../assets/Logo/alldocube-logo-vector.png"
+                src="../assets/Logo/alldocube.png"
                 alt=""
                 class="img-fluid"
               />
             </div>
           </div>
-          <div class="col-3 col-md-3 col-sm-3 brand-photo">
+          <div class="col-3 col-md-3 col-sm-3 mb-3">
             <div class="brand-logo">
-              <img
-                src="../assets/Logo/avita-logo-1024x216.png"
-                alt=""
-                class="img-fluid"
-              />
+              <img src="../assets/Logo/avita.png" alt="" class="img-fluid" />
             </div>
           </div>
-          <div class="col-3 col-md-3 col-sm-3 brand-photo">
+          <div class="col-3 col-md-3 col-sm-3 mb-3">
             <div class="brand-logo">
               <img src="../assets/Logo/cisco.png" alt="" class="img-fluid" />
             </div>
           </div>
-          <div class="col-3 col-md-3 col-sm-3 brand-photo">
+          <div class="col-3 col-md-3 col-sm-3 mb-3">
             <div class="brand-logo">
               <img src="../assets/Logo/jbl.png" alt="" class="img-fluid" />
             </div>
           </div>
-          <div class="col-3 col-md-3 col-sm-3 brand-photo">
+          <div class="col-3 col-md-3 col-sm-3 mb-3">
             <div class="brand-logo">
-              <img
-                src="../assets/Logo/APC-Emblem.jpg"
-                alt=""
-                class="img-fluid"
-              />
+              <img src="../assets/Logo/apc.png" alt="" class="img-fluid" />
             </div>
           </div>
-          <div class="col-3 col-md-3 col-sm-3 brand-photo">
+          <div class="col-3 col-md-3 col-sm-3 mb-3">
             <div class="brand-logo">
-              <img
-                src="../assets/Logo/D-Link-symbol.jpg"
-                alt=""
-                class="img-fluid"
-              />
+              <img src="../assets/Logo/d-link.png" alt="" class="img-fluid" />
             </div>
           </div>
-          <div class="col-3 col-md-3 col-sm-3 brand-photo">
+          <div class="col-3 col-md-3 col-sm-3 mb-3">
             <div class="brand-logo">
               <img src="../assets/Logo/mashall.png" alt="" class="img-fluid" />
             </div>
@@ -114,23 +102,10 @@ export default {
 .barnds {
   padding: 30px;
 }
-.brand-photo {
+
+.brand-logo img {
+  width: 200px;
   border: 1px solid #111;
-  margin: 5px;
-  width: 150px;
-  height: 150px;
-}
-
-.brand-logo {
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-}
-
-.brand-photo img {
-  width: 120px;
-  object-fit: fill;
-  margin: 20px auto;
 }
 
 .brand-text {
@@ -147,9 +122,8 @@ export default {
   }
 }
 @media (max-width: 860px) {
-  .brand-photo {
-    width: 80px;
-    height: 80px;
+  .brand-logo img {
+    width: 100px;
   }
   .brand-text {
     padding-top: 45px;

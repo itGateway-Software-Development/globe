@@ -462,4 +462,20 @@ export default {
     font-size: 16px;
   }
 }
+
+@media (max-width: 400px) {
+  .card {
+    width: 150px;
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .card-text {
+    font-size: 14px;
+  }
+  .btn {
+    font-size: 16px;
+  }
+}
 </style>

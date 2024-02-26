@@ -1,12 +1,17 @@
 <template>
-  <MainPage></MainPage>
+  <Header></Header>
+  <router-view />
+  <Footer></Footer>
 </template>
 
 <script>
-import MainPage from "./views/MainPage";
-
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 export default {
-  components: { MainPage },
+  components: {
+    Footer,
+    Header,
+  },
 };
 </script>
 
@@ -17,6 +22,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  overflow: hidden;
 }
 
 nav {

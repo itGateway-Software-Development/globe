@@ -1,5 +1,6 @@
-import { createRouter, createWebHashHistory } from "vue-router";
-import MainPage from "../views/MainPage";
+import { createRouter, createWebHistory } from "vue-router";
+import MainPage from "../views/MainPage.vue";
+import ByBrand from "../views/ByBrand.vue";
 
 const routes = [
   {
@@ -7,10 +8,15 @@ const routes = [
     name: "mainpage",
     component: MainPage,
   },
+  {
+    path: "/bybrand",
+    name: "bybrand",
+    component: ByBrand,
+  },
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(process.env.BASE_URL),
   routes,
 });
 

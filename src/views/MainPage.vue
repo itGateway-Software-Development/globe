@@ -1,11 +1,9 @@
 <template>
   <div class="main-page">
-    <Header></Header>
     <Slider></Slider>
     <PopularSilder></PopularSilder>
     <BrowseBrand></BrowseBrand>
     <ProductShow></ProductShow>
-    <Footer></Footer>
   </div>
 </template>
 

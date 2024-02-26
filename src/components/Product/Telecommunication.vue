@@ -275,4 +275,13 @@ export default {
     margin: 20px 0 0 0;
   }
 }
+@media (max-width: 400px) {
+  .product-header {
+    width: 400px;
+  }
+
+  .nav-tabs {
+    width: 375px;
+  }
+}
 </style>

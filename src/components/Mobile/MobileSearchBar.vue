@@ -147,4 +147,25 @@ export default {
     border-bottom: 2px solid #111;
   }
 }
+
+@media (max-width: 400px) {
+  .form-control input {
+    width: 380px;
+  }
+  .form-control {
+    width: 380px;
+  }
+  .hidden-search-mobile {
+    margin-top: 50px;
+    width: 370px;
+    height: 400px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #333;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+}
 </style>

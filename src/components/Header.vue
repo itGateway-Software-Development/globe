@@ -138,7 +138,7 @@
                   v-for="item in categories"
                   :key="item.id"
                 >
-                  <router-link to="#" class="item">{{ item.name }}</router-link>
+                  <router-link to="/" class="item">{{ item.name }}</router-link>
                   <div class="sub-dropdown">
                     <div class="sub-item">
                       <router-link
@@ -155,7 +155,7 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/">Brands</router-link>
+            <router-link to="/bybrand">Brands</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/">Promotion</router-link>
@@ -1112,6 +1112,12 @@ nav .nav-item {
     right: 0;
     margin-top: 30px;
     margin-right: 30px;
+  }
+}
+
+@media (max-width: 400px) {
+  nav .close {
+    gap: 150px;
   }
 }
 </style>

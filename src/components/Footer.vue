@@ -1,10 +1,5 @@
 <template>
-  <div
-    class="mt-5 footer"
-    data-aos="fade-down"
-    data-aos-delay="50"
-    data-aos-duration="1500"
-  >
+  <div class="mt-5 footer">
     <div class="footer-card">
       <div class="address-card text-start">
         <div class="address mb-4">
@@ -45,36 +40,30 @@
       </div>
       <div class="partner-card text-start">
         <h2>Our Partnership</h2>
-        <div class="partnership">
-          <div class="col-4 col-md-4 partnership-card">
-            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+        <div class="partnership row">
+          <div class="col-3 col-md-3 col-sm-3 partnership-card">
+            <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-4 col-md-4 partnership-card">
-            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          <div class="col-3 col-md-3 col-sm-3 partnership-card">
+            <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-4 col-md-4 partnership-card">
-            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          <div class="col-3 col-md-3 col-sm-3 partnership-card">
+            <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-4 col-md-4 partnership-card">
-            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          <div class="col-3 col-md-3 col-sm-3 partnership-card">
+            <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-4 col-md-4 partnership-card">
-            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          <div class="col-3 col-md-3 col-sm-3 partnership-card">
+            <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-4 col-md-4 partnership-card">
-            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          <div class="col-3 col-md-3 col-sm-3 partnership-card">
+            <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-4 col-md-4 partnership-card">
-            <img src="../assets/Logo/xp-pen.jpg" alt="" />
+          <div class="col-3 col-md-3 col-sm-3 partnership-card">
+            <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-3 col-md-3 partnership-card">
-            <img src="../assets/Logo/xp-pen.jpg" alt="" />
-          </div>
-          <div class="col-3 col-md-3 partnership-card none">
-            <img src="../assets/Logo/xp-pen.jpg" alt="" />
-          </div>
-          <div class="col-4 col-md-4 partnership-card">
-            <button>View More</button>
+          <div class="col-3 col-md-3 col-sm-3 partnership-card">
+            <button>View All</button>
           </div>
         </div>
         <h2 class="follow-us">Follow Us</h2>
@@ -126,7 +115,7 @@ export default {};
 }
 
 .footer-card {
-  margin: 0 300px;
+  margin: 0 200px;
   display: flex;
 }
 
@@ -146,9 +135,11 @@ export default {};
 }
 
 .partnership {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  padding: 0 150px 0 0;
+}
+
+.partnership-card {
+  margin-bottom: 10px;
 }
 
 .partnership .footer-card .shopnow-card {
@@ -170,13 +161,6 @@ export default {};
 
 .partner-card {
   width: 400px;
-}
-
-.partnership-card {
-  width: 100px;
-  height: 100px;
-  margin-right: 12px;
-  margin-bottom: 12px;
 }
 
 .partnership-card button {
@@ -279,6 +263,10 @@ export default {};
   .mobile-footer {
     display: block !important;
   }
+
+  .footer-card p {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -296,6 +284,19 @@ export default {};
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+  }
+  .footer-card p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .partnership-card img {
+    width: 90px;
+  }
+
+  .partnership-card {
+    width: 90px;
   }
 }
 </style>
