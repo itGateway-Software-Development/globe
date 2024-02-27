@@ -1,7 +1,7 @@
 <template>
-  <div v-if="tab == 'home'" class="row vm gap-3">
+  <div v-if="tab == 'home'" class="vm row gap-3 content-wrapper">
     <div
-      class="card col-12 col-md-6 col-lg-3"
+      class="card col-3 col-md-3 col-sm-12"
       v-for="laptop in homeLaptop"
       :key="laptop.id"
     >
@@ -28,7 +28,7 @@
     </div>
   </div>
 
-  <div class="row vm gap-3" v-if="tab == '2in1'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == '2in1'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in twoin1Laptop"
@@ -57,7 +57,7 @@
     </div>
   </div>
 
-  <div class="row vm gap-3" v-if="tab == 'productivity'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'productivity'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in productivityLaptop"
@@ -85,7 +85,7 @@
       <button v-else class="btn main-btn vm mt-3">View All</button>
     </div>
   </div>
-  <div class="row vm gap-3" v-if="tab == 'gaming'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'gaming'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in gamingLaptop"

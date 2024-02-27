@@ -1,5 +1,5 @@
 <template>
-  <div v-if="tab == 'home'" class="row vm gap-3">
+  <div v-if="tab == 'home'" class="row vm gap-3 content-wrapper">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="gadget in KM"
@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <div class="row vm gap-3" v-if="tab == 'portable'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'portable'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in twoin1Laptop"
@@ -62,7 +62,7 @@
     </div>
   </div>
 
-  <div class="row vm gap-3" v-if="tab == 'loud'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'loud'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in productivityLaptop"
@@ -90,7 +90,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row vm gap-3" v-if="tab == 'soundbar'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'soundbar'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in gamingLaptop"
@@ -118,7 +118,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row vm gap-3" v-if="tab == 'conference'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'conference'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in gamingLaptop"
@@ -489,7 +489,7 @@ export default {
 
 @media (max-width: 860px) {
   .card {
-    width: 300px;
+    width: 3 content-wrapper00px;
   }
   .card-title {
     font-size: 14px;

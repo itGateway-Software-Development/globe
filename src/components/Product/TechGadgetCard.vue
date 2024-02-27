@@ -1,5 +1,5 @@
 <template>
-  <div v-if="tab == 'K&B'" class="row vm gap-3">
+  <div v-if="tab == 'K&B'" class="row vm gap-3 content-wrapper">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="gadget in KM"
@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <div class="row vm gap-3" v-if="tab == 'D&A'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'D&A'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in twoin1Laptop"
@@ -62,7 +62,7 @@
     </div>
   </div>
 
-  <div class="row vm gap-3" v-if="tab == 'P&C'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'P&C'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in productivityLaptop"
@@ -90,7 +90,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row vm gap-3" v-if="tab == 'PS'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'PS'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in gamingLaptop"
@@ -118,7 +118,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row vm gap-3" v-if="tab == 'BP'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'BP'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in gamingLaptop"
@@ -146,7 +146,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row vm gap-3" v-if="tab == 'SW'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'SW'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in gamingLaptop"
@@ -174,7 +174,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row vm gap-3" v-if="tab == 'pen'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'pen'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in gamingLaptop"
@@ -202,7 +202,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row vm gap-3" v-if="tab == 'LS'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'LS'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in gamingLaptop"
@@ -230,7 +230,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row vm gap-3" v-if="tab == 'lighting'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'lighting'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in gamingLaptop"
@@ -258,7 +258,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row vm gap-3" v-if="tab == 'W&M'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'W&M'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in gamingLaptop"
