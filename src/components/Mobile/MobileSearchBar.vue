@@ -153,7 +153,7 @@ export default {
     width: 380px;
   }
   .form-control {
-    width: 380px;
+    width: 390px;
   }
   .hidden-search-mobile {
     margin-top: 50px;

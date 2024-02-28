@@ -46,7 +46,7 @@
           <p class="tabs-link">Projector</p>
         </li>
         <li
-          class="tabs tabs-after"
+          class="tabs"
           :class="{ active: tab == 'conferencing' }"
           @click="tab = 'conferencing'"
         >
@@ -173,6 +173,14 @@ export default {
   }
   .product-card {
     margin-left: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .tabs-after::after {
+    margin-top: -0px;
+    margin-left: -80px;
+    width: 0;
   }
 }
 

@@ -61,7 +61,9 @@
           <div class="col-3 col-lg-3 col-md-4 col-sm-4 partnership-card">
             <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-3 col-lg-3 col-md-4 col-sm-4 partnership-card">
+          <div
+            class="col-3 col-lg-3 col-md-4 col-sm-4 d-none d-lg-block partnership-card"
+          >
             <img src="../assets/Logo/asus.png" alt="" />
           </div>
           <div
@@ -189,7 +191,7 @@ export default {};
 }
 
 .partnership {
-  padding: 0 350px 0 0;
+  padding: 0 250px 0 0;
 }
 
 .partnership-card {

@@ -102,15 +102,16 @@
         </p>
       </div>
     </div>
-
-    <button
-      v-if="!isViewAll4"
-      class="btn main-btn vm mt-3"
-      @click="viewMoreItem('gaming')"
-    >
-      View More
-    </button>
-    <button v-else class="btn main-btn vm mt-3">View All</button>
+    <div>
+      <button
+        v-if="!isViewAll4"
+        class="btn main-btn vm mt-3"
+        @click="viewMoreItem('gaming')"
+      >
+        View More
+      </button>
+      <button v-else class="btn main-btn vm mt-3">View All</button>
+    </div>
   </div>
 </template>
 

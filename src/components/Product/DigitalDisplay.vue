@@ -155,6 +155,14 @@ export default {
   }
 }
 
+@media (max-width: 1024px) {
+  .tabs-after::after {
+    margin-top: -0px;
+    margin-left: -80px;
+    width: 0;
+  }
+}
+
 @media (max-width: 860px) {
   .content-wrapper {
     padding: 0px;

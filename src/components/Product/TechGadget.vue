@@ -45,14 +45,14 @@
         >
           <p class="tabs-link">Personal Storage</p>
         </li>
-        <li
-          class="tabs tabs-after"
-          :class="{ active: tab == 'BP' }"
-          @click="tab = 'BP'"
-        >
+        <li class="tabs" :class="{ active: tab == 'BP' }" @click="tab = 'BP'">
           <p class="tabs-link">Back Pack</p>
         </li>
-        <li class="tabs" :class="{ active: tab == 'SW' }" @click="tab = 'SW'">
+        <li
+          class="tabs tabs-after"
+          :class="{ active: tab == 'SW' }"
+          @click="tab = 'SW'"
+        >
           <p class="tabs-link">Smart Watch</p>
         </li>
         <li
@@ -194,6 +194,14 @@ export default {
   }
   .product-card {
     margin-left: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .tabs-after::after {
+    margin-top: -0px;
+    margin-left: -80px;
+    width: 0;
   }
 }
 

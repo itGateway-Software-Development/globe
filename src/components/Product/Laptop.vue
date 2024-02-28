@@ -1,6 +1,6 @@
 <template>
   <div
-    class="feature"
+    class="feature align-items-center"
     data-aos="fade-up"
     data-aos-delay="50"
     data-aos-duration="2000"
@@ -158,6 +158,14 @@ export default {
   }
   .product-card {
     margin-left: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .tabs-after::after {
+    margin-top: -0px;
+    margin-left: -80px;
+    width: 0;
   }
 }
 

@@ -76,3 +76,8 @@ ul li {
   margin-left: 25px;
   overflow: hidden;
 }
+
+.nav-tabs{
+  padding: 0px 10%;
+}
+

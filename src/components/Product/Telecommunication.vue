@@ -46,13 +46,17 @@
           <p class="tabs-link">GSM Gateway</p>
         </li>
         <li
-          class="tabs tabs-after"
+          class="tabs"
           :class="{ active: tab == 'VOIP' }"
           @click="tab = 'VOIP'"
         >
           <p class="tabs-link">VOIP Gateway</p>
         </li>
-        <li class="tabs" :class="{ active: tab == 'CM' }" @click="tab = 'CM'">
+        <li
+          class="tabs tabs-after"
+          :class="{ active: tab == 'CM' }"
+          @click="tab = 'CM'"
+        >
           <p class="tabs-link">Conference Mic</p>
         </li>
         <li

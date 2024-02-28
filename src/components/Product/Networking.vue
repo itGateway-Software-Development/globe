@@ -45,14 +45,14 @@
         >
           <p class="tabs-link">Wireless Router</p>
         </li>
-        <li
-          class="tabs tabs-after"
-          :class="{ active: tab == 'NS' }"
-          @click="tab = 'NS'"
-        >
+        <li class="tabs" :class="{ active: tab == 'NS' }" @click="tab = 'NS'">
           <p class="tabs-link">Network Switch</p>
         </li>
-        <li class="tabs" :class="{ active: tab == 'NTK' }" @click="tab = 'NTK'">
+        <li
+          class="tabs tabs-after"
+          :class="{ active: tab == 'NTK' }"
+          @click="tab = 'NTK'"
+        >
           <p class="tabs-link">Network Tools Kit</p>
         </li>
         <li
@@ -195,6 +195,14 @@ export default {
   }
   .product-card {
     margin-left: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .tabs-after::after {
+    margin-top: -0px;
+    margin-left: -80px;
+    width: 0;
   }
 }
 
