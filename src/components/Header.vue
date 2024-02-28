@@ -179,7 +179,42 @@
         </ul>
       </nav>
     </div>
-    <div class="content-wrapper mobile-navigation" v-if="isShow">
+
+    <!-- <div
+      class="w-100 h-100 bg-info top-0 bottom-0 position-fixed"
+      style="z-index: 2000; overflow-y: scroll"
+    >
+      <ul>
+        <li>one <br /><br /><br /></li>
+        <li>one <br /><br /><br /></li>
+        <li>one <br /><br /><br /></li>
+        <li>one <br /><br /><br /></li>
+        <li>one <br /><br /><br /></li>
+        <li>one <br /><br /><br /></li>
+        <li>one <br /><br /><br /></li>
+        <li>one <br /><br /><br /></li>
+        <li>one <br /><br /><br /></li>
+        <li>two <br /><br /><br /></li>
+        <li>two <br /><br /><br /></li>
+        <li>two <br /><br /><br /></li>
+        <li>two <br /><br /><br /></li>
+        <li>two <br /><br /><br /></li>
+        <li>two <br /><br /><br /></li>
+        <li>two <br /><br /><br /></li>
+        <li>two <br /><br /><br /></li>
+        <li>three <br /><br /><br /></li>
+        <li>three <br /><br /><br /></li>
+        <li>three <br /><br /><br /></li>
+        <li>three <br /><br /><br /></li>
+        <li>three <br /><br /><br /></li>
+      </ul>
+    </div> -->
+
+    <div
+      class="content-wrapper w-100 h-100 top-0 bottom-0 position-fixed"
+      v-if="isShow"
+      style="z-index: 2000; overflow-y: scroll; background: rgba(0, 0, 0, 0.5)"
+    >
       <nav>
         <div class="close">
           <h3>Menu</h3>
@@ -201,9 +236,9 @@
                   arrow_drop_down
                 </span>
               </div>
-              <div class="dropdown" v-if="dropdown">
+              <div class="mb-dropdown" v-if="dropdown">
                 <div
-                  class="dropdown-item"
+                  class="mb-dropdown-item"
                   v-for="item in categories"
                   :key="item.id"
                 >
@@ -229,21 +264,20 @@
           <li class="nav-item">
             <router-link to="/">Promotion</router-link>
           </li>
-          <li class="nav-item" @click="dropdown = !dropdown">
-            <router-link to="/" class="f-d"
-              >Information<span class="material-symbols-outlined">
-                arrow_drop_down
-              </span>
-              <div class="dropdown" v-if="dropdown">
-                <div class="dropdown-item">
-                  <router-link
-                    to="/"
-                    v-for="text in Infromation"
-                    :key="text"
-                    class="item"
-                  >
-                    {{ text.name }}
-                  </router-link>
+          <li class="nav-item">
+            <router-link to="/">
+              <div class="f-d" @click="dropdown2 = !dropdown2">
+                Information<span class="material-symbols-outlined">
+                  arrow_drop_down
+                </span>
+              </div>
+              <div class="mb-dropdown" v-if="dropdown2">
+                <div
+                  class="mb-dropdown-item"
+                  v-for="text in information"
+                  :key="text.id"
+                >
+                  <router-link to="#" class="item">{{ text.name }}</router-link>
                 </div>
               </div>
             </router-link>
@@ -655,9 +689,21 @@ export default {
 
     let dropdown = ref(false);
 
+    let dropdown2 = ref(false);
+
     let isShow = ref(false);
 
-    return { categories, isShow, dropdown, information, search_bar };
+    let isShow2 = ref(false);
+
+    return {
+      categories,
+      isShow,
+      isShow2,
+      dropdown,
+      information,
+      search_bar,
+      dropdown2,
+    };
   },
 };
 </script>
@@ -775,9 +821,6 @@ export default {
   width: 100%;
 }
 
-.mobile-navigation {
-  display: none;
-}
 nav {
   padding: 0 !important;
   display: flex;
@@ -979,20 +1022,10 @@ nav .nav-item {
     height: 1000px;
     background-color: rgba(0, 0, 0, 0.5);
   }
-  .mobile-navigation {
-    position: absolute;
-    background: none;
-    width: 100%;
-    top: 0;
-    right: 0;
-    height: 1000px;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: block;
-    z-index: 99;
-  }
 
-  nav .mobile-navigation .close {
+  nav .close {
     display: block;
+    overflow: scroll;
   }
 
   nav .close {
@@ -1014,8 +1047,8 @@ nav .nav-item {
     position: relative;
     float: right;
     background: #0f8ec5;
-    height: 1000px;
     width: 30%;
+    min-height: 100%;
     display: inline-block;
     text-align: left;
   }
@@ -1033,7 +1066,7 @@ nav .nav-item {
     padding: 10px 20px;
     border-bottom: 1px solid #fff;
   }
-  .dropdown {
+  .mb-dropdown {
     width: 210px;
     margin: 0 !important;
     position: relative;
@@ -1043,6 +1076,12 @@ nav .nav-item {
   }
   .sub-dropdown {
     display: none;
+  }
+  .mb-dropdown-item {
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    text-align: start;
+    padding: 10px 0px;
   }
 }
 
