@@ -1119,5 +1119,8 @@ nav .nav-item {
   nav .close {
     gap: 150px;
   }
+  .menu {
+    margin-right: 0px;
+  }
 }
 </style>

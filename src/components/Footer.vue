@@ -47,19 +47,19 @@
           <div class="col-3 col-md-3 col-sm-3 partnership-card">
             <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-3 col-md-3 col-sm-3 partnership-card">
+          <div class="col-3 col-md-3 col-sm-3 partnership-card none">
             <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-3 col-md-3 col-sm-3 partnership-card">
+          <div class="col-3 col-md-3 col-sm-3 partnership-card none">
             <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-3 col-md-3 col-sm-3 partnership-card">
+          <div class="col-3 col-md-3 col-sm-3 partnership-card none">
             <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-3 col-md-3 col-sm-3 partnership-card">
+          <div class="col-3 col-md-3 col-sm-3 partnership-card none">
             <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-3 col-md-3 col-sm-3 partnership-card">
+          <div class="col-3 col-md-3 col-sm-3 partnership-card none">
             <img src="../assets/Logo/asus.png" alt="" />
           </div>
           <div class="col-3 col-md-3 col-sm-3 partnership-card">
@@ -200,6 +200,10 @@ export default {};
     margin: 0 auto;
   }
 
+  .partnership {
+    padding: 0 180px 0 0;
+  }
+
   .address-card {
     width: 700px;
   }
@@ -220,9 +224,6 @@ export default {};
   .partnership {
     width: 600px;
     overflow: hidden;
-  }
-  .none {
-    display: none;
   }
 }
 
@@ -291,12 +292,8 @@ export default {};
 }
 
 @media (max-width: 400px) {
-  .partnership-card img {
-    width: 90px;
-  }
-
-  .partnership-card {
-    width: 90px;
+  .none {
+    display: none;
   }
 }
 </style>

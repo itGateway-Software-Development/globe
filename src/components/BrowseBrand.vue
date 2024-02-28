@@ -123,7 +123,7 @@ export default {
 }
 @media (max-width: 860px) {
   .brand-logo img {
-    width: 100px;
+    width: 200px;
   }
   .brand-text {
     padding-top: 45px;
