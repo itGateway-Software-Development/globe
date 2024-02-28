@@ -1,7 +1,9 @@
 <template>
   <div class="mt-5 footer">
-    <div class="footer-card">
-      <div class="address-card text-start">
+    <div
+      class="footer-card d-flex justify-content-between content-wrapper flex-md-row"
+    >
+      <div class="address-card text-start col-4 col-md-4">
         <div class="address mb-4">
           <h2>Address</h2>
           <div class="location d-flex gap-2">
@@ -25,7 +27,7 @@
           </div>
         </div>
       </div>
-      <div class="shopnow-card text-start">
+      <div class="shopnow-card text-start col-2 col-md-2">
         <h2>Shop Now</h2>
         <div class="shopnow-list">
           <ul>
@@ -38,31 +40,51 @@
           </ul>
         </div>
       </div>
-      <div class="partner-card text-start">
+      <div class="ins-card text-start col-2 col-md-2">
+        <h2>Information</h2>
+        <div class="ins-list">
+          <ul>
+            <li><p>About Us</p></li>
+            <li><p>Shipping Policy</p></li>
+            <li><p>Refund Policy</p></li>
+            <li><p>Our Store Location</p></li>
+            <li><p>Contact Us</p></li>
+          </ul>
+        </div>
+      </div>
+      <div class="partner-card text-start col-4 col-md-6">
         <h2>Our Partnership</h2>
         <div class="partnership row">
-          <div class="col-3 col-md-3 col-sm-3 partnership-card">
+          <div class="col-3 col-lg-3 col-md-4 col-sm-4 partnership-card">
             <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-3 col-md-3 col-sm-3 partnership-card">
+          <div class="col-3 col-lg-3 col-md-4 col-sm-4 partnership-card">
             <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-3 col-md-3 col-sm-3 partnership-card none">
+          <div class="col-3 col-lg-3 col-md-4 col-sm-4 partnership-card">
             <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-3 col-md-3 col-sm-3 partnership-card none">
+          <div
+            class="col-3 col-lg-3 col-md-4 col-sm-4 d-none d-lg-block d-md-block partnership-card"
+          >
             <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-3 col-md-3 col-sm-3 partnership-card none">
+          <div
+            class="col-3 col-lg-3 col-md-4 col-sm-4 d-none d-lg-block d-md-block partnership-card"
+          >
             <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-3 col-md-3 col-sm-3 partnership-card none">
+          <div
+            class="col-3 col-lg-3 col-md-4 col-sm-4 d-none d-lg-block partnership-card"
+          >
             <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-3 col-md-3 col-sm-3 partnership-card none">
+          <div
+            class="col-3 col-lg-3 col-md-4 col-sm-4 d-none d-lg-block partnership-card"
+          >
             <img src="../assets/Logo/asus.png" alt="" />
           </div>
-          <div class="col-3 col-md-3 col-sm-3 partnership-card">
+          <div class="col-3 col-lg-3 col-md-4 col-sm-4 partnership-card">
             <button>View All</button>
           </div>
         </div>
@@ -100,6 +122,18 @@
         </div>
       </div>
     </div>
+    <div
+      class="footer-text d-flex justify-content-between align-items-center content-wrapper"
+    >
+      <p>
+        © Copyright
+        <span class="company">itGateway Technology Group Ltd</span> . All Rights
+        Reserved.
+      </p>
+      <p>
+        Designed by <span class="team">itGateway Software Developement</span>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -111,17 +145,29 @@ export default {};
 .footer {
   margin: 0 auto;
   background-color: #0f8ec5;
-  padding: 12px;
 }
-
-.footer-card {
-  margin: 0 350px;
-  display: flex;
-}
-
 .footer-card h2 {
   text-decoration: underline;
   color: #fff;
+}
+
+.footer-text {
+  background: #142142;
+  font-size: 20px;
+  color: #fff;
+}
+
+.footer-text p {
+  margin-top: 20px;
+}
+
+.footer-text .company {
+  font-weight: 700;
+}
+
+.footer-text .team {
+  color: rgb(236, 99, 22);
+  font-weight: 600;
 }
 
 .footer-card p {
@@ -134,21 +180,20 @@ export default {};
   color: #fff;
 }
 
+.ins-card ul {
+  padding: 0;
+}
+
+.ins-card ul li {
+  line-height: 20px;
+}
+
 .partnership {
-  padding: 0 150px 0 0;
+  padding: 0 350px 0 0;
 }
 
 .partnership-card {
   margin-bottom: 10px;
-}
-
-.partnership .footer-card .shopnow-card {
-  width: 500px;
-}
-
-.shopnow-card {
-  margin-left: 50px;
-  margin-right: 70px;
 }
 
 .shopnow-list ul {
@@ -157,10 +202,6 @@ export default {};
 
 .shopnow-list ul li {
   line-height: 20px;
-}
-
-.partner-card {
-  width: 400px;
 }
 
 .partnership-card button {
@@ -183,10 +224,6 @@ export default {};
   border-radius: 20px;
 }
 
-.partnership {
-  width: 600px;
-}
-
 .icon {
   color: #0f8ec5;
   border: 2px solid #111;
@@ -195,42 +232,41 @@ export default {};
   background: #fff;
 }
 
-@media (max-width: 1200px) {
-  .footer-card {
-    margin: 0 auto;
-  }
-
-  .partnership {
-    padding: 0 180px 0 0;
-  }
-
-  .address-card {
-    width: 700px;
-  }
-
-  .address {
-    width: 400px;
-  }
-  .shopnow-card {
-    width: 300px !important;
-    margin-left: 50px;
-  }
-
-  .partner-card {
-    width: 700px;
-    overflow: hidden;
-  }
-
-  .partnership {
-    width: 600px;
-    overflow: hidden;
+@media (max-width: 1400px) {
+  .content-wrapper {
+    padding: 10px 2% !important;
   }
 }
 
+@media (max-width: 1200px) {
+  .footer h2 {
+    font-size: 24px;
+  }
+
+  .footer p {
+    font-size: 16px;
+  }
+
+  .partnership {
+    padding: 0 200px 0 0;
+  }
+
+  .none {
+    display: none;
+  }
+}
 @media (max-width: 860px) {
   .footer-card {
     flex-wrap: wrap;
     padding: 0;
+  }
+
+  .footer-text {
+    flex-direction: column;
+  }
+
+  .footer-text p {
+    margin-bottom: 0px;
   }
 
   .address-card {
@@ -278,6 +314,9 @@ export default {};
     width: 400px;
     display: block;
   }
+  .partnership {
+    padding-right: 150px;
+  }
   .shopnow-card {
     width: 400px !important;
   }
@@ -285,6 +324,14 @@ export default {};
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+  }
+  .ins-card ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .ins-card {
+    width: 400px !important;
   }
   .footer-card p {
     font-size: 16px;
