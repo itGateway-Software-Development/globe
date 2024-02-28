@@ -1,5 +1,5 @@
 <template>
-  <div v-if="tab == 'BB'" class="row vm gap-3">
+  <div v-if="tab == 'BB'" class="row vm gap-3 content-wrapper">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="gadget in KM"
@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <div class="row vm gap-3" v-if="tab == 'IFP'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'IFP'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in twoin1Laptop"
@@ -62,7 +62,7 @@
     </div>
   </div>
 
-  <div class="row vm gap-3" v-if="tab == 'accessories'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'accessories'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in productivityLaptop"

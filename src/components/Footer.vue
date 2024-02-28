@@ -115,7 +115,7 @@ export default {};
 }
 
 .footer-card {
-  margin: 0 200px;
+  margin: 0 350px;
   display: flex;
 }
 

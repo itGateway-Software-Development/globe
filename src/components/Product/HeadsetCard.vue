@@ -1,5 +1,5 @@
 <template>
-  <div v-if="tab == 'business'" class="row vm gap-3">
+  <div v-if="tab == 'business'" class="row vm gap-3 content-wrapper">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="gadget in KM"
@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <div class="row vm gap-3" v-if="tab == 'professional'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'professional'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in twoin1Laptop"
@@ -62,7 +62,7 @@
     </div>
   </div>
 
-  <div class="row vm gap-3" v-if="tab == 'wireless'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'wireless'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in productivityLaptop"
@@ -90,7 +90,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row vm gap-3" v-if="tab == 'mic'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'mic'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in gamingLaptop"
@@ -118,7 +118,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row vm gap-3" v-if="tab == 'wireheadset'">
+  <div class="row vm gap-3 content-wrapper" v-if="tab == 'wireheadset'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in gamingLaptop"
