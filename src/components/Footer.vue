@@ -129,7 +129,7 @@
     >
       <p>
         © Copyright
-        <span class="company">itGateway Technology Group Ltd</span> . All Rights
+        <span class="company">Globe IT & Smart Electronic</span> . All Rights
         Reserved.
       </p>
       <p>

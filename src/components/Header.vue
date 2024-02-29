@@ -138,7 +138,9 @@
                   v-for="item in categories"
                   :key="item.id"
                 >
-                  <router-link to="/" class="item">{{ item.name }}</router-link>
+                  <router-link to="/categories/laptop" class="item">{{
+                    item.name
+                  }}</router-link>
                   <div class="sub-dropdown">
                     <div class="sub-item">
                       <router-link
@@ -211,7 +213,7 @@
     </div> -->
 
     <div
-      class="content-wrapper w-100 h-100 top-0 bottom-0 position-fixed"
+      class="content-wrapper w-100 min-vh-100 top-0 bottom-0 position-fixed"
       v-if="isShow"
       style="z-index: 2000; overflow-y: scroll; background: rgba(0, 0, 0, 0.5)"
     >
@@ -1154,7 +1156,7 @@ nav .nav-item {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   nav .close {
     gap: 150px;
   }
