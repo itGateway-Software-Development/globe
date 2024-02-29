@@ -87,7 +87,7 @@
             <img src="../assets/Logo/asus.png" alt="" />
           </div>
           <div class="col-3 col-lg-3 col-md-4 col-sm-4 partnership-card">
-            <button>View All</button>
+            <button class="footer-btn">View All</button>
           </div>
         </div>
         <h2 class="follow-us">Follow Us</h2>
@@ -204,19 +204,6 @@ export default {};
 
 .shopnow-list ul li {
   line-height: 20px;
-}
-
-.partnership-card button {
-  width: 100px;
-  height: 100px;
-  border: 1px solid #111;
-  border-radius: 20px;
-  font-weight: 600;
-}
-
-.partnership-card button:hover {
-  background: #0f8ec5;
-  color: #fff;
 }
 
 .partnership img {

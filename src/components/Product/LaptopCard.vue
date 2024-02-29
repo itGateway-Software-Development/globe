@@ -8,12 +8,22 @@
       <img :src="laptop.img" class="card-img-top" alt="..." />
       <div class="card-body">
         <h5 class="card-title">{{ laptop.name }}</h5>
-        <p class="card-text text-start">
-          Memory: {{ laptop.ram }} <br />
-          CPU: {{ laptop.cpu }} <br />
-          Storage: {{ laptop.storage }} <br />
-          Price: {{ laptop.price }} Ks
-        </p>
+        <div class="text-start card-text d-flex">
+          <p>CPU:</p>
+          <p>{{ laptop.cpu.slice(0, 22) }}</p>
+        </div>
+        <div class="text-start card-text d-flex">
+          <p>Memory:</p>
+          <p>{{ laptop.ram }}</p>
+        </div>
+        <div class="text-start card-text d-flex">
+          <p>Storage:</p>
+          <p>{{ laptop.storage.slice(0, 19) }}</p>
+        </div>
+        <div class="text-start card-text d-flex">
+          <p>Price:</p>
+          <p>{{ laptop.price }} MMK</p>
+        </div>
       </div>
     </div>
     <div>
@@ -37,12 +47,22 @@
       <img :src="laptop.img" class="card-img-top" alt="..." />
       <div class="card-body">
         <h5 class="card-title">{{ laptop.name }}</h5>
-        <p class="card-text text-start">
-          Memory: {{ laptop.ram }} <br />
-          CPU: {{ laptop.cpu }} <br />
-          Storage: {{ laptop.storage }} <br />
-          Price: {{ laptop.price }} Ks
-        </p>
+        <div class="text-start card-text d-flex">
+          <p>CPU:</p>
+          <p>{{ laptop.cpu.slice(0, 22) }}</p>
+        </div>
+        <div class="text-start card-text d-flex">
+          <p>Memory:</p>
+          <p>{{ laptop.ram }}</p>
+        </div>
+        <div class="text-start card-text d-flex">
+          <p>Storage:</p>
+          <p>{{ laptop.storage.slice(0, 19) }}</p>
+        </div>
+        <div class="text-start card-text d-flex">
+          <p>Price:</p>
+          <p>{{ laptop.price }} MMK</p>
+        </div>
       </div>
     </div>
     <div>
@@ -66,12 +86,22 @@
       <img :src="laptop.img" class="card-img-top" alt="..." />
       <div class="card-body">
         <h5 class="card-title">{{ laptop.name }}</h5>
-        <p class="card-text text-start">
-          Memory: {{ laptop.ram }} <br />
-          CPU: {{ laptop.cpu }} <br />
-          Storage: {{ laptop.storage }} <br />
-          Price: {{ laptop.price }} Ks
-        </p>
+        <div class="text-start card-text d-flex">
+          <p>CPU:</p>
+          <p>{{ laptop.cpu.slice(0, 22) }}</p>
+        </div>
+        <div class="text-start card-text d-flex">
+          <p>Memory:</p>
+          <p>{{ laptop.ram }}</p>
+        </div>
+        <div class="text-start card-text d-flex">
+          <p>Storage:</p>
+          <p>{{ laptop.storage.slice(0, 19) }}</p>
+        </div>
+        <div class="text-start card-text d-flex">
+          <p>Price:</p>
+          <p>{{ laptop.price }} MMK</p>
+        </div>
       </div>
     </div>
     <div>
@@ -94,12 +124,22 @@
       <img :src="laptop.img" class="card-img-top" alt="..." />
       <div class="card-body">
         <h5 class="card-title">{{ laptop.name }}</h5>
-        <p class="card-text text-start">
-          Memory: {{ laptop.ram }} <br />
-          CPU: {{ laptop.cpu }} <br />
-          Storage: {{ laptop.storage }} <br />
-          Price: {{ laptop.price }} Ks
-        </p>
+        <div class="text-start card-text d-flex">
+          <p>CPU:</p>
+          <p>{{ laptop.cpu.slice(0, 22) }}</p>
+        </div>
+        <div class="text-start card-text d-flex">
+          <p>Memory:</p>
+          <p>{{ laptop.ram }}</p>
+        </div>
+        <div class="text-start card-text d-flex">
+          <p>Storage:</p>
+          <p>{{ laptop.storage.slice(0, 19) }}</p>
+        </div>
+        <div class="text-start card-text d-flex">
+          <p>Price:</p>
+          <p>{{ laptop.price }} MMK</p>
+        </div>
       </div>
     </div>
     <div>

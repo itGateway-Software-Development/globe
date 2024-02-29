@@ -15,10 +15,11 @@
       </div>
       <div class="card-body">
         <h5 class="card-title">{{ gadget.name }}</h5>
-        <p class="card-text text-start">
-          Specification: {{ gadget.spec }} <br />
-          Price: {{ gadget.price }} $
-        </p>
+        <div class="card-text text-start d-flex">
+          <p>Specification:</p>
+          <p>{{ gadget.spec }}</p>
+        </div>
+        <p class="card-text text-start">Price: {{ gadget.price }} $</p>
       </div>
     </div>
     <div>
@@ -100,44 +101,44 @@ export default {
     const AllGadget = [
       {
         id: "1",
-        name: "RK 61",
-        spec: "RK 61 is a special 60% Mechnical Keyboard",
+        name: "XP Pen",
+        spec: "XP-pen 15.6 inch dreawing display",
         price: "48",
         img: [
-          { url: require("@/assets/Keyboard/RK61.jpg"), status: "primary_img" },
+          { url: require("@/assets/xp-pen/xp-pen.jpg"), status: "primary_img" },
           { url: require("@/assets/Laptop/X1-Carbon.jpg"), status: "sec_img" },
         ],
         cat: "K&M",
       },
       {
         id: "2",
-        name: "RK 61",
-        spec: "RK 61 is a special 60% Mechnical Keyboard",
+        name: "XP Pen",
+        spec: "XP-pen 15.6 inch dreawing display",
         price: "48",
         img: [
-          { url: require("@/assets/Keyboard/RK61.jpg"), status: "primary_img" },
+          { url: require("@/assets/xp-pen/xp-pen.jpg"), status: "primary_img" },
           { url: require("@/assets/Laptop/X1-Carbon.jpg"), status: "sec_img" },
         ],
         cat: "K&M",
       },
       {
         id: "3",
-        name: "RK 61",
-        spec: "RK 61 is a special 60% Mechnical Keyboard",
+        name: "XP Pen",
+        spec: "XP-pen 15.6 inch dreawing display",
         price: "48",
         img: [
-          { url: require("@/assets/Keyboard/RK61.jpg"), status: "primary_img" },
+          { url: require("@/assets/xp-pen/xp-pen.jpg"), status: "primary_img" },
           { url: require("@/assets/Laptop/X1-Carbon.jpg"), status: "sec_img" },
         ],
         cat: "K&M",
       },
       {
         id: "4",
-        name: "RK 61",
-        spec: "RK 61 is a special 60% Mechnical Keyboard",
+        name: "XP Pen",
+        spec: "XP-pen 15.6 inch dreawing display",
         price: "48",
         img: [
-          { url: require("@/assets/Keyboard/RK61.jpg"), status: "primary_img" },
+          { url: require("@/assets/xp-pen/xp-pen.jpg"), status: "primary_img" },
           { url: require("@/assets/Laptop/X1-Carbon.jpg"), status: "sec_img" },
         ],
         cat: "K&M",

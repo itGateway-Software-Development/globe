@@ -1,5 +1,5 @@
 <template>
-  <div v-if="tab == 'business'" class="row vm gap-3 content-wrapper">
+  <div v-if="tab == 'business'" class="row vm gap/headset/hoco.jpg">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="gadget in KM"
@@ -15,10 +15,13 @@
       </div>
       <div class="card-body">
         <h5 class="card-title">{{ gadget.name }}</h5>
-        <p class="card-text text-start">
-          Specification: {{ gadget.spec }} <br />
-          Price: {{ gadget.price }} $
-        </p>
+        <div class="card-text text-start d-flex">
+          <p>Specification:</p>
+          <p>{{ gadget.spec }}</p>
+        </div>
+        <div class="card-text text-start d-flex">
+          <p>Price: {{ gadget.price }} $</p>
+        </div>
       </div>
     </div>
     <div>
@@ -33,7 +36,7 @@
     </div>
   </div>
 
-  <div class="row vm gap-3 content-wrapper" v-if="tab == 'professional'">
+  <div class="row vm gap/headset/hoco.jpg" v-if="tab == 'professional'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in twoin1Laptop"
@@ -62,7 +65,7 @@
     </div>
   </div>
 
-  <div class="row vm gap-3 content-wrapper" v-if="tab == 'wireless'">
+  <div class="row vm gap/headset/hoco.jpg" v-if="tab == 'wireless'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in productivityLaptop"
@@ -90,7 +93,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row vm gap-3 content-wrapper" v-if="tab == 'mic'">
+  <div class="row vm gap/headset/hoco.jpg" v-if="tab == 'mic'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in gamingLaptop"
@@ -118,7 +121,7 @@
       <button v-else class="btn main-btn vm mt-5">View All</button>
     </div>
   </div>
-  <div class="row vm gap-3 content-wrapper" v-if="tab == 'wireheadset'">
+  <div class="row vm gap/headset/hoco.jpg" v-if="tab == 'wireheadset'">
     <div
       class="card col-12 col-md-6 col-lg-3"
       v-for="laptop in gamingLaptop"
@@ -156,44 +159,44 @@ export default {
     const AllGadget = [
       {
         id: "1",
-        name: "RK 61",
-        spec: "RK 61 is a special 60% Mechnical Keyboard",
+        name: "Hoco Headset",
+        spec: "Hoco Bsiness Wireless Headset",
         price: "48",
         img: [
-          { url: require("@/assets/Keyboard/RK61.jpg"), status: "primary_img" },
+          { url: require("@/assets/headset/hoco.jpg"), status: "primary_img" },
           { url: require("@/assets/Laptop/X1-Carbon.jpg"), status: "sec_img" },
         ],
         cat: "K&M",
       },
       {
         id: "2",
-        name: "RK 61",
-        spec: "RK 61 is a special 60% Mechnical Keyboard",
+        name: "Hoco Headset",
+        spec: "Hoco Bsiness Wireless Headset",
         price: "48",
         img: [
-          { url: require("@/assets/Keyboard/RK61.jpg"), status: "primary_img" },
+          { url: require("@/assets/headset/hoco.jpg"), status: "primary_img" },
           { url: require("@/assets/Laptop/X1-Carbon.jpg"), status: "sec_img" },
         ],
         cat: "K&M",
       },
       {
         id: "3",
-        name: "RK 61",
-        spec: "RK 61 is a special 60% Mechnical Keyboard",
+        name: "Hoco Headset",
+        spec: "Hoco Bsiness Wireless Headset",
         price: "48",
         img: [
-          { url: require("@/assets/Keyboard/RK61.jpg"), status: "primary_img" },
+          { url: require("@/assets/headset/hoco.jpg"), status: "primary_img" },
           { url: require("@/assets/Laptop/X1-Carbon.jpg"), status: "sec_img" },
         ],
         cat: "K&M",
       },
       {
         id: "4",
-        name: "RK 61",
-        spec: "RK 61 is a special 60% Mechnical Keyboard",
+        name: "Hoco Headset",
+        spec: "Hoco Bsiness Wireless Headset",
         price: "48",
         img: [
-          { url: require("@/assets/Keyboard/RK61.jpg"), status: "primary_img" },
+          { url: require("@/assets/headset/hoco.jpg"), status: "primary_img" },
           { url: require("@/assets/Laptop/X1-Carbon.jpg"), status: "sec_img" },
         ],
         cat: "K&M",

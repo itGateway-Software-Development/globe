@@ -15,10 +15,13 @@
       </div>
       <div class="card-body">
         <h5 class="card-title">{{ gadget.name }}</h5>
-        <p class="card-text text-start">
-          Specification: {{ gadget.spec }} <br />
-          Price: {{ gadget.price }} $
-        </p>
+        <div class="card-text text-start">
+          <p>Specification:</p>
+          <p>{{ gadget.spec }}</p>
+        </div>
+        <div class="text-start card-text d-flex">
+          <p>Price: {{ gadget.price }} $</p>
+        </div>
       </div>
     </div>
     <div>
@@ -100,44 +103,56 @@ export default {
     const AllGadget = [
       {
         id: "1",
-        name: "RK 61",
-        spec: "RK 61 is a special 60% Mechnical Keyboard",
+        name: "Smart Black Board",
+        spec: "Loresem lesas lasda msdfe asla laseasesxs",
         price: "48",
         img: [
-          { url: require("@/assets/Keyboard/RK61.jpg"), status: "primary_img" },
+          {
+            url: require("@/assets/DigitalDisplay/blackboard.png"),
+            status: "primary_img",
+          },
           { url: require("@/assets/Laptop/X1-Carbon.jpg"), status: "sec_img" },
         ],
         cat: "K&M",
       },
       {
         id: "2",
-        name: "RK 61",
-        spec: "RK 61 is a special 60% Mechnical Keyboard",
+        name: "Smart Black Board",
+        spec: "Loresem lesas lasda msdfe asla laseasesxs",
         price: "48",
         img: [
-          { url: require("@/assets/Keyboard/RK61.jpg"), status: "primary_img" },
+          {
+            url: require("@/assets/DigitalDisplay/blackboard.png"),
+            status: "primary_img",
+          },
           { url: require("@/assets/Laptop/X1-Carbon.jpg"), status: "sec_img" },
         ],
         cat: "K&M",
       },
       {
         id: "3",
-        name: "RK 61",
-        spec: "RK 61 is a special 60% Mechnical Keyboard",
+        name: "Smart Black Board",
+        spec: "Loresem lesas lasda msdfe asla laseasesxs",
         price: "48",
         img: [
-          { url: require("@/assets/Keyboard/RK61.jpg"), status: "primary_img" },
+          {
+            url: require("@/assets/DigitalDisplay/blackboard.png"),
+            status: "primary_img",
+          },
           { url: require("@/assets/Laptop/X1-Carbon.jpg"), status: "sec_img" },
         ],
         cat: "K&M",
       },
       {
         id: "4",
-        name: "RK 61",
-        spec: "RK 61 is a special 60% Mechnical Keyboard",
+        name: "Smart Black Board",
+        spec: "Loresem lesas lasda msdfe asla laseasesxs",
         price: "48",
         img: [
-          { url: require("@/assets/Keyboard/RK61.jpg"), status: "primary_img" },
+          {
+            url: require("@/assets/DigitalDisplay/blackboard.png"),
+            status: "primary_img",
+          },
           { url: require("@/assets/Laptop/X1-Carbon.jpg"), status: "sec_img" },
         ],
         cat: "K&M",

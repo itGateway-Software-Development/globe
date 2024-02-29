@@ -15,10 +15,11 @@
       </div>
       <div class="card-body">
         <h5 class="card-title">{{ gadget.name }}</h5>
-        <p class="card-text text-start">
-          Specification: {{ gadget.spec }} <br />
-          Price: {{ gadget.price }} $
-        </p>
+        <div class="card-text text-start d-flex">
+          <p>Specification:</p>
+          <p>{{ gadget.spec }}</p>
+        </div>
+        <p class="card-text text-start">Price: {{ gadget.price }} $</p>
       </div>
     </div>
     <div>
