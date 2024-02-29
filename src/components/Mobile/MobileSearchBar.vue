@@ -148,12 +148,12 @@ export default {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .form-control input {
-    width: 380px;
+    width: 390px;
   }
   .form-control {
-    width: 390px;
+    width: 420px;
   }
   .hidden-search-mobile {
     margin-top: 50px;
@@ -166,6 +166,12 @@ export default {
     border-bottom-right-radius: 10px;
     display: flex;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 390px) {
+  .form-control {
+    width: 390px;
   }
 }
 </style>
