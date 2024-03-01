@@ -1,10 +1,10 @@
 <template>
   <img src="../../assets/Banner/Laptop.jpg" alt="" class="w-100" />
   <div class="d-flex laptop-list content-wrapper">
-    <div>
+    <div class="me-5">
       <Nav></Nav>
     </div>
-    <div>
+    <div class="ms-5">
       <ProductList></ProductList>
     </div>
   </div>
@@ -21,4 +21,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.content-wrapper {
+  padding: 10px 10%;
+}
+</style>
