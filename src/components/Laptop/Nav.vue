@@ -290,7 +290,7 @@
     <div class="brands-filter mb-4">
       <div
         class="d-flex align-items-centers laptop-spec"
-        @click="specFilter = !specFilter"
+        @click="brandFilter = !brandFilter"
       >
         <h2 class="fw-bold fs-3">
           Brands Filter
@@ -300,7 +300,7 @@
       <hr />
       <div
         class="spec-list lh-lg text-start d-flex flex-column"
-        v-if="specFilter"
+        v-if="brandFilter"
         data-aos="fade-down"
         data-aos-delay="10"
         data-aos-duration="1000"
@@ -354,6 +354,7 @@ export default {
     let screenList = ref(false);
     let typeList = ref(false);
     let priceList = ref(false);
+    let brandFilter = ref(false);
     return {
       specFilter,
       cpuList,
@@ -363,6 +364,7 @@ export default {
       screenList,
       typeList,
       priceList,
+      brandFilter,
     };
   },
 };
@@ -383,5 +385,11 @@ export default {
 
 .spec-list ul {
   padding: 10px;
+}
+
+@media (max-width: 500px) {
+  .laptop-nav {
+    display: none;
+  }
 }
 </style>
