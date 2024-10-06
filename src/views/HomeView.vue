@@ -1,18 +1,30 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <Carousel></Carousel>
+    <PopularItem></PopularItem>
+    <XP_PenSection></XP_PenSection>
+    <LaptopSection></LaptopSection>
+    <BrandList></BrandList>
+  </v-app>
 </template>
 
 <script>
+import BrandList from "../components/BrandList";
+import Laptop from "../components/categories/Laptop";
+import XP_PenSection from "../components/XP_PenSection";
+import LaptopSection from "../components/LaptopSection";
+import PopularItem from "../components/PopularItem";
+import Carousel from "../components/Carousel";
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'HomeView',
   components: {
-    HelloWorld
-  }
-}
+    BrandList,
+    Laptop,
+    XP_PenSection,
+    LaptopSection,
+    PopularItem,
+    Carousel,
+  },
+};
 </script>

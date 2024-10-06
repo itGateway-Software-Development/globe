@@ -1,30 +1,38 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <v-app>
+    <Navbar @menuHoverStatus="menuHoverEffect"></Navbar>
+    <v-main :class="{ blurPage: isHover }">
+      <router-view />
+    </v-main>
+    <Footer></Footer>
+  </v-app>
 </template>
 
+<script>
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import { ref } from "vue";
+export default {
+  components: {
+    Footer,
+    Navbar,
+  },
+
+  setup() {
+    const isHover = ref(false);
+    const menuHoverEffect = (data) => (isHover.value = data);
+
+    return {
+      menuHoverEffect,
+      isHover,
+    };
+  },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.blurPage {
+  filter: blur(5px) brightness(0.5);
+  background: rgb(255, 254, 254);
 }
 </style>
