@@ -1,26 +1,28 @@
 <template>
-  <div class="nav-wrapper">
+  <div class="nav-wrapper" v-if="isNavbarVisible">
     <nav class="upper-nav content-wrapper">
       <div
-        class="d-flex align-items-center gap-5 justify-content-center mobile-nav"
+        class="d-flex align-items-center gap-5 mobile-nav justify-content-between"
       >
-        <div class="logo">
-          <img src="../assets/images/logo.png" alt="" />
-        </div>
+        <div class="d-flex align-items-center gap-4">
+          <div class="logo">
+            <img src="../assets/images/logo.png" alt="" />
+          </div>
 
-        <div class="phone">
-          <router-link
-            to="/"
-            class="d-flex align-items-center gap-1 justify-content-center phone-list"
-          >
-            <div class="d-flex align-items-center gap-1">
-              <span class="icon-phone">
-                <span class="material-symbols-outlined"> phone_in_talk </span>
-              </span>
-              <p class="text-bold">Call Us:</p>
-            </div>
-            <span class="color-text">+959 880 441 046</span>
-          </router-link>
+          <div class="phone">
+            <router-link
+              to="/"
+              class="d-flex align-items-center gap-1 justify-content-center phone-list"
+            >
+              <div class="d-flex align-items-center gap-1">
+                <span class="icon-phone">
+                  <span class="material-symbols-outlined"> phone_in_talk </span>
+                </span>
+                <p class="text-bold">Call Us:</p>
+              </div>
+              <span class="color-text">+959 880 441 046</span>
+            </router-link>
+          </div>
         </div>
         <!-- mobile menu button  -->
         <div class="mobile-menu-btn align-items-center justify-content-between">
@@ -67,7 +69,7 @@
         <div class="top-menu d-flex align-items-center gap-4">
           <router-link to="/" class="d-flex align-items-center">
             <span class="material-symbols-outlined"> shopping_cart </span>
-            <span class="cardtotal text-center">$0</span>
+            <span class="cardtotal text-center">0</span>
           </router-link>
           <router-link to="/" class="d-flex align-items-center">
             <span class="material-symbols-outlined"> favorite </span>
@@ -82,7 +84,7 @@
         </div>
       </div>
     </nav>
-    <nav class="lower-nav">
+    <nav class="lower-nav" id="navbar">
       <ul
         class="d-flex align-items center justify-content-center gap-5 nav-list"
       >
@@ -99,42 +101,42 @@
           <div class="menu-dropdown menuDefault nav-dropdown--lv1">
             <ul>
               <li>
-                <router-link class="menu-route">
+                <router-link to="/" class="menu-route">
                   <p>Laptop</p>
                 </router-link>
               </li>
               <li>
-                <router-link class="menu-route">
+                <router-link to="/" class="menu-route">
                   <p>Tech Gadgets</p>
                 </router-link>
               </li>
               <li>
-                <router-link class="menu-route">
+                <router-link to="/" class="menu-route">
                   <p>Headset</p>
                 </router-link>
               </li>
               <li>
-                <router-link class="menu-route">
+                <router-link to="/" class="menu-route">
                   <p>Speaker</p>
                 </router-link>
               </li>
               <li>
-                <router-link class="menu-route">
+                <router-link to="/" class="menu-route">
                   <p>Portable</p>
                 </router-link>
               </li>
               <li>
-                <router-link class="menu-route">
+                <router-link to="/" class="menu-route">
                   <p>Tablet & E-Reader</p>
                 </router-link>
               </li>
               <li>
-                <router-link class="menu-route">
+                <router-link to="/" class="menu-route">
                   <p>Netwroking</p>
                 </router-link>
               </li>
               <li>
-                <router-link class="menu-route">
+                <router-link to="/" class="menu-route">
                   <p>Telecommunication</p>
                 </router-link>
               </li>
@@ -151,17 +153,17 @@
           <div class="menu-dropdown menuDefault nav-dropdown--lv1">
             <ul>
               <li>
-                <router-link class="menu-route">
+                <router-link to="/" class="menu-route">
                   <p>Drawing Tablets</p>
                 </router-link>
               </li>
               <li>
-                <router-link class="menu-route">
+                <router-link to="/" class="menu-route">
                   <p>Drawing Display</p>
                 </router-link>
               </li>
               <li>
-                <router-link class="menu-route">
+                <router-link to="/" class="menu-route">
                   <p>Accessories</p>
                 </router-link>
               </li>
@@ -183,17 +185,17 @@
           <div class="menu-dropdown menuDefault nav-dropdown--lv1">
             <ul>
               <li>
-                <router-link class="menu-route">
+                <router-link to="/" class="menu-route">
                   <p>Promotion</p>
                 </router-link>
               </li>
               <li>
-                <router-link class="menu-route">
+                <router-link to="/" class="menu-route">
                   <p>About Us</p>
                 </router-link>
               </li>
               <li>
-                <router-link class="menu-route">
+                <router-link to="/" class="menu-route">
                   <p>Contact Us</p>
                 </router-link>
               </li>
@@ -243,7 +245,7 @@
 <script>
 import MobileDrawer from "./MobileDrawer";
 import "@/assets/css/nav.css";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, onBeforeUnmount } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
 import { useStore } from "vuex";
@@ -260,6 +262,23 @@ export default {
     const isScroll = ref(false);
     const isMobileSearch = ref(false);
     const route = useRoute();
+
+    const isNavbarVisible = ref(true);
+    const lastScrollY = ref(window.scrollY);
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < lastScrollY.value) {
+        // Scrolling up
+        isNavbarVisible.value = true;
+      } else if (currentScrollY > lastScrollY.value) {
+        // Scrolling down
+        isNavbarVisible.value = false;
+      }
+
+      lastScrollY.value = currentScrollY;
+    };
 
     const navigate = (route) => {
       router.push(route);
@@ -296,12 +315,20 @@ export default {
       window.addEventListener("scroll", handleNavShadow);
     });
 
+    onMounted(() => {
+      window.addEventListener("scroll", handleScroll);
+    });
+
+    onBeforeUnmount(() => {
+      window.removeEventListener("scroll", handleScroll);
+    });
+
     return {
       isSearch,
       drawer,
       navigate,
       handleChangeRoute,
-
+      isNavbarVisible,
       handleSearch,
       isMobileSearch,
       route,

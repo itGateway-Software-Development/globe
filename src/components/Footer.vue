@@ -156,7 +156,7 @@ export default {};
 
   font-family: "Gilory-Medium", sans-serif;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 17px;
 }
 
 .footer-list a:hover {
