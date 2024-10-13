@@ -118,6 +118,22 @@
     </v-list-item>
 
     <hr class="py-0 my-0" />
+
+    <v-list-item>
+      <v-list-item-title>
+        <div class="">
+          <router-link to="/" class="d-flex align-items-center gap-1">
+            <div class="d-flex align-items-center gap-1">
+              <span class="icon-phone">
+                <span class="material-symbols-outlined"> phone_in_talk </span>
+              </span>
+              <p class="text-bold">Call Us:</p>
+            </div>
+            <span class="color-text">+959 880 441 046</span>
+          </router-link>
+        </div>
+      </v-list-item-title>
+    </v-list-item>
   </v-list>
 </template>
 

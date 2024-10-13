@@ -61,4 +61,8 @@
 export default {};
 </script>
 
-<style></style>
+<style scoped>
+.content-group ul li p {
+  margin: 0px !important;
+}
+</style>

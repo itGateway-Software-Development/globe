@@ -1,11 +1,11 @@
 <template>
-  <div class="popular-item-wrapper">
+  <div class="popular-item-wrapper content-wrapper">
     <div class="content-heading text-center">
       <h2>Popular Items</h2>
     </div>
     <swiper
       :slidesPerView="6"
-      :spaceBetween="20"
+      :spaceBetween="0"
       :loop="true"
       :navigation="true"
       :modules="modules"
@@ -140,7 +140,6 @@ export default {
 
 <style scoped>
 .popular-item-wrapper {
-  padding: 0px 60px;
   margin-top: 90px;
 }
 
@@ -175,9 +174,9 @@ export default {
   transform: translateY(-20px);
 }
 
-@media (max-width: 1280px) {
-  .popular-item-wrapper {
-    padding: 10px;
+@media (max-width: 1200px) {
+  .img-container img {
+    width: 120px;
   }
 }
 
@@ -193,7 +192,7 @@ export default {
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 770px) {
   .desktop {
     display: none;
   }

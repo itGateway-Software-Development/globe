@@ -19,8 +19,6 @@
   font-style: normal;
 }
 
-@import url(./nav.css);
-
 * {
   padding: 0;
   margin: 0;
@@ -131,12 +129,12 @@
 
 .swiper-button-next {
   top: 82% !important;
-  right: 2% !important;
+  right: 3% !important;
 }
 
 .swiper-button-prev {
   top: 82% !important;
-  left: 91% !important;
+  left: 88% !important;
 }
 
 .swiper-button-next:hover,
@@ -173,13 +171,18 @@
 
   .swiper-button-prev {
     top: 82% !important;
-    left: 90% !important;
+    left: 87% !important;
   }
 }
 
 @media (max-width: 1200px) {
   .content-wrapper {
     padding: 10px 9%;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 75% !important;
   }
 }
 

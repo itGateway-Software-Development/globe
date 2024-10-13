@@ -6,10 +6,10 @@
         <div class="footer-list mt-5">
           <ul>
             <li class="hilight-font">
-              <router-link to="/">About us</router-link>
+              <router-link to="/">Promotion</router-link>
             </li>
             <li class="hilight-font">
-              <router-link to="/">Promotion</router-link>
+              <router-link to="/">About us</router-link>
             </li>
             <li class="hilight-font">
               <router-link to="/">Contact Us</router-link>
@@ -48,9 +48,6 @@
             </li>
             <li class="hilight-font">
               <router-link to="/">Portable</router-link>
-            </li>
-            <li class="hilight-font">
-              <router-link to="/">Digital Display</router-link>
             </li>
             <li class="hilight-font">
               <router-link to="/">Netwroking</router-link>
@@ -151,11 +148,11 @@ export default {};
   list-style: none;
   margin: 5px 0px;
   color: #ffffff;
-  transition: 0.5s ease-out;
+  transition: 0.3s;
 }
 
 .footer-list a {
-  transition: 0.5s ease-out;
+  transition: 0.3s;
 
   font-family: "Gilory-Medium", sans-serif;
   font-weight: 400;
@@ -167,9 +164,8 @@ export default {};
 }
 
 .footer-list ul li:hover {
-  text-decoration: underline;
-  transform: translateZ(100%);
   opacity: 1;
+  color: #0a65af;
 }
 
 .address,
@@ -188,6 +184,7 @@ export default {};
 
 .icon-group a:hover .fa-brands {
   opacity: 1;
+  color: #0a65af;
 }
 
 .copy-right {

@@ -1,125 +1,214 @@
 <template>
   <div class="nav-wrapper">
-    <div class="upper-nav">
-      <div class="d-flex align-items-center justify-content-between">
+    <nav class="upper-nav content-wrapper">
+      <div
+        class="d-flex align-items-center gap-5 justify-content-center mobile-nav"
+      >
         <div class="logo">
-          <router-link to="/" class="d-flex align-items-center gap-2">
-            <img src="../assets/images/logo.png" alt="" />
-            <div class="d-inline-block">
-              <h5><span>GLOBE</span></h5>
-              <h5>IT & SMART ELECTRONIC</h5>
+          <img src="../assets/images/logo.png" alt="" />
+        </div>
+
+        <div class="phone">
+          <router-link
+            to="/"
+            class="d-flex align-items-center gap-1 justify-content-center phone-list"
+          >
+            <div class="d-flex align-items-center gap-1">
+              <span class="icon-phone">
+                <span class="material-symbols-outlined"> phone_in_talk </span>
+              </span>
+              <p class="text-bold">Call Us:</p>
             </div>
+            <span class="color-text">+959 880 441 046</span>
           </router-link>
         </div>
-
         <!-- mobile menu button  -->
-        <div class="mobile-menu-btn align-items-center gap-2">
-          <div class="cursor-pointer" @click="isMobileSearch = !isMobileSearch">
-            <span
-              class="material-symbols-outlined fs-1"
-              :style="{ color: isMobileSearch ? '#23b5de' : '' }"
+        <div class="mobile-menu-btn align-items-center justify-content-between">
+          <div class="icon-group-mobile d-flex align-items-center gap-4">
+            <div
+              class="cursor-pointer"
+              @click="isMobileSearch = !isMobileSearch"
             >
-              search
-            </span>
-          </div>
-          <div>
-            <span class="material-symbols-outlined"> shopping_cart </span>
-          </div>
+              <span
+                class="material-symbols-outlined"
+                :style="{
+                  color: isMobileSearch ? '#23b5de' : '',
+                }"
+              >
+                search
+              </span>
+            </div>
+            <div>
+              <span class="material-symbols-outlined"> shopping_cart </span>
+            </div>
 
-          <div @click="drawer = !drawer" class="cursor-pointer">
-            <span class="material-symbols-outlined fs-1"> menu_open </span>
+            <div @click="drawer = !drawer" class="cursor-pointer">
+              <span class="material-symbols-outlined fs-1"> menu_open </span>
+            </div>
           </div>
         </div>
 
-        <div class="top-menu d-flex align-items-center gap-2">
-          <span
-            class="search-input-wrapper d-inline-flex"
-            :class="{ searching: isSearch }"
-          >
+        <div class="search-group">
+          <span class="search-input-wrapper d-inline-flex align-items-center">
             <input
               type="text"
               class="search-input"
               placeholder="search ....."
-              :class="{ searching: isSearch }"
             />
             <span
               class="material-symbols-outlined icon cursor-pointer search-bar-icon prevent-select"
-              :class="{ searching: isSearch }"
               ref="searchIcon"
               @click="handleSearch"
             >
               search
             </span>
           </span>
-          <div class="d-flex align-items-center gap-4">
-            <router-link
-              to="/"
-              class="text-center d-inline-block justify-content-center"
-            >
-              <span class="material-symbols-outlined"> shopping_cart </span>
-            </router-link>
-            <router-link
-              to="/"
-              class="text-center d-inline-block justify-content-center"
-            >
-              <span class="material-symbols-outlined"> favorite </span>
-            </router-link>
-            <router-link
-              to="/"
-              class="text-center d-inline-block justify-content-center"
-            >
-              <span class="material-symbols-outlined"> account_circle </span>
-            </router-link>
-            <router-link
-              to="/"
-              class="text-center d-inline-block justify-content-center"
-            >
-              <span class="material-symbols-outlined"> phone </span>
-            </router-link>
-          </div>
         </div>
-      </div>
-    </div>
-    <div class="lower-nav">
-      <div class="nav-content">
-        <div
-          class="d-flex align-items-center justify-content-center gap-5 pt-0 position-relative"
-        >
-          <router-link to="/"><p>Home</p></router-link>
+        <div class="top-menu d-flex align-items-center gap-4">
+          <router-link to="/" class="d-flex align-items-center">
+            <span class="material-symbols-outlined"> shopping_cart </span>
+            <span class="cardtotal text-center">$0</span>
+          </router-link>
+          <router-link to="/" class="d-flex align-items-center">
+            <span class="material-symbols-outlined"> favorite </span>
+            <span class="wishlist text-center">0</span>
+          </router-link>
           <router-link
             to="/"
-            class="menu"
-            @mouseenter="menuHover(true)"
-            @mouseleave="menuHover(false)"
+            class="d-flex flex-column justify-content-center align-items-center"
           >
-            <p class="d-flex align-items-center gap-2">
-              Categories
-              <span class="material-symbols-outlined"> arrow_drop_down </span>
-            </p>
-
-            <Categories />
+            <span class="material-symbols-outlined"> account_circle </span>
           </router-link>
-          <router-link to="/" class="d-flex align-items-center gap-2"
-            ><p>XP-Pen</p>
-            <span class="material-symbols-outlined">
-              arrow_drop_down
-            </span></router-link
-          >
-          <router-link to="/"><p>Globe Solar Solution</p></router-link>
-          <router-link to="/"><p>Information</p></router-link>
         </div>
       </div>
-    </div>
+    </nav>
+    <nav class="lower-nav">
+      <ul
+        class="d-flex align-items center justify-content-center gap-5 nav-list"
+      >
+        <li class="nav-item">
+          <router-link class="menu-route" to="/"><p>Home</p></router-link>
+        </li>
+        <li class="nav-item dropdown">
+          <router-link class="menu-route d-flex" to="/"
+            ><p class="nav-link">Categories</p>
+            <span class="material-symbols-outlined nav-link mt-1">
+              keyboard_arrow_down
+            </span></router-link
+          >
+          <div class="menu-dropdown menuDefault nav-dropdown--lv1">
+            <ul>
+              <li>
+                <router-link class="menu-route">
+                  <p>Laptop</p>
+                </router-link>
+              </li>
+              <li>
+                <router-link class="menu-route">
+                  <p>Tech Gadgets</p>
+                </router-link>
+              </li>
+              <li>
+                <router-link class="menu-route">
+                  <p>Headset</p>
+                </router-link>
+              </li>
+              <li>
+                <router-link class="menu-route">
+                  <p>Speaker</p>
+                </router-link>
+              </li>
+              <li>
+                <router-link class="menu-route">
+                  <p>Portable</p>
+                </router-link>
+              </li>
+              <li>
+                <router-link class="menu-route">
+                  <p>Tablet & E-Reader</p>
+                </router-link>
+              </li>
+              <li>
+                <router-link class="menu-route">
+                  <p>Netwroking</p>
+                </router-link>
+              </li>
+              <li>
+                <router-link class="menu-route">
+                  <p>Telecommunication</p>
+                </router-link>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <router-link class="menu-route d-flex" to="/"
+            ><p class="nav-link">XP-Pen</p>
+            <span class="material-symbols-outlined nav-link mt-1">
+              keyboard_arrow_down
+            </span></router-link
+          >
+          <div class="menu-dropdown menuDefault nav-dropdown--lv1">
+            <ul>
+              <li>
+                <router-link class="menu-route">
+                  <p>Drawing Tablets</p>
+                </router-link>
+              </li>
+              <li>
+                <router-link class="menu-route">
+                  <p>Drawing Display</p>
+                </router-link>
+              </li>
+              <li>
+                <router-link class="menu-route">
+                  <p>Accessories</p>
+                </router-link>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item">
+          <router-link class="menu-route" to="/"
+            ><p>Globe Solar Solution</p></router-link
+          >
+        </li>
+        <li class="nav-item dropdown">
+          <router-link class="menu-route d-flex" to="/"
+            ><p class="nav-link">Information</p>
+            <span class="material-symbols-outlined nav-link mt-1">
+              keyboard_arrow_down
+            </span></router-link
+          >
+          <div class="menu-dropdown menuDefault nav-dropdown--lv1">
+            <ul>
+              <li>
+                <router-link class="menu-route">
+                  <p>Promotion</p>
+                </router-link>
+              </li>
+              <li>
+                <router-link class="menu-route">
+                  <p>About Us</p>
+                </router-link>
+              </li>
+              <li>
+                <router-link class="menu-route">
+                  <p>Contact Us</p>
+                </router-link>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
 
     <!-- Sidebar (Drawer) for mobile -->
     <v-navigation-drawer
       app
       v-model="drawer"
+      style="background: var(--background-color); color: #ededed"
       id="drawer"
-      style="
-        background: var(--background-color);
-        color: var(--font-color-white);
-      "
       temporary
     >
       <MobileDrawer @changeRoute="handleChangeRoute" />
@@ -153,20 +242,43 @@
 
 <script>
 import MobileDrawer from "./MobileDrawer";
-import Categories from "./navDropDown/Categories";
-import { ref } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import "@/assets/css/nav.css";
+import { onMounted, ref } from "vue";
+import { useRouter, useRoute } from "vue-router";
+
+import { useStore } from "vuex";
+
 export default {
   components: {
     MobileDrawer,
-    Categories,
   },
   setup(props, { emit }) {
     const isSearch = ref(false);
     const drawer = ref(false);
     const router = useRouter();
+    const store = useStore();
+    const isScroll = ref(false);
     const isMobileSearch = ref(false);
-    const dropdownContent = ref("categories");
+    const route = useRoute();
+
+    const navigate = (route) => {
+      router.push(route);
+      drawer.value = false;
+    };
+
+    const handleChangeRoute = (route) => {
+      router.push(route);
+      drawer.value = false;
+    };
+
+    const handleNavShadow = () => {
+      if (window.scrollY > 300) {
+        isScroll.value = true;
+      } else {
+        isScroll.value = false;
+      }
+    };
+
     const handleSearch = () => {
       isSearch.value = !isSearch.value;
       const browserWidth = window.innerWidth;
@@ -180,28 +292,19 @@ export default {
       }
     };
 
-    const toogleDrawer = () => {
-      drawer.value = true;
-      const mobile = document.getElementById("drawer");
-      mobile.classList.add("active-drawer");
-    };
-
-    const handleChangeRoute = (route) => {
-      router.push(route);
-      drawer.value = false;
-    };
-
-    const menuHover = (value) => emit("menuHoverStatus", value);
+    onMounted(() => {
+      window.addEventListener("scroll", handleNavShadow);
+    });
 
     return {
       isSearch,
-      handleSearch,
-      dropdownContent,
-      menuHover,
       drawer,
+      navigate,
       handleChangeRoute,
-      toogleDrawer,
+
+      handleSearch,
       isMobileSearch,
+      route,
     };
   },
 };
