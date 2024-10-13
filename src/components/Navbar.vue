@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-wrapper" v-if="isNavbarVisible">
+  <div class="nav-wrapper">
     <nav class="upper-nav content-wrapper">
       <div
         class="d-flex align-items-center gap-5 mobile-nav justify-content-between"
