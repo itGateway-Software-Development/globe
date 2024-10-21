@@ -1,10 +1,12 @@
 <template>
   <div class="content-wrapper brand-wrapper">
-    <div class="content-heading text-center"><h2>Shop by Brands</h2></div>
+    <div class="content-heading text-center" data-aos="flip-up">
+      <h2>Shop by Brands</h2>
+    </div>
     <div
       class="brand-logo d-flex flex-wrap align-items-center justify-content-center"
     >
-      <div class="img" v-for="i in 36" :key="i">
+      <div class="img" v-for="i in 36" :key="i" data-aos="flip-up">
         <img :src="require(`@/assets/images/Logo/${i}.jpg`)" alt="" />
       </div>
     </div>

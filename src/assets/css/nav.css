@@ -6,15 +6,11 @@
   background: var(--background-white-color);
   transition: 0.3s ease-in-out;
   position: fixed;
+  left: 0;
 }
 
 .upper-nav .mobile-menu-btn {
   display: none;
-}
-
-.upper-nav {
-  width: 100%;
-  padding: 10px 70px;
 }
 
 .upper-nav .logo img {

@@ -1,15 +1,16 @@
 <template>
   <div class="popular-item-wrapper content-wrapper">
-    <div class="content-heading text-center">
+    <div class="content-heading text-center" data-aos="flip-up">
       <h2>Popular Items</h2>
     </div>
     <swiper
       :slidesPerView="6"
-      :spaceBetween="0"
+      :spaceBetween="30"
       :loop="true"
       :navigation="true"
       :modules="modules"
       class="mySwiper desktop"
+      data-aos="fade-down"
     >
       <swiper-slide
         ><div class="img-container">
@@ -64,7 +65,7 @@
       ></swiper-slide>
     </swiper>
 
-    <div class="mobile">
+    <div class="mobile" data-aos="fade-down">
       <v-carousel hide-delimiters cycle :show-arrows="false">
         <template v-slot:prev="{ props }">
           <v-btn variant="elevated" @click="props.onClick" class="prev"
@@ -157,7 +158,7 @@ export default {
 }
 
 .img-container img {
-  width: 150px;
+  width: 180px;
   border: 2px solid var(--background-color);
   border-radius: 6px;
 }

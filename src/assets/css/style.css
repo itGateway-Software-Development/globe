@@ -61,6 +61,10 @@
   margin: 0px;
 }
 
+ul li {
+  list-style: none;
+}
+
 .content-heading h2 {
   font-size: 32px;
   font-family: "Gilory-Bold", sans-serif;
@@ -120,6 +124,7 @@
   border: 1px solid #23b5de !important;
   border-radius: 50%;
   transition: 0.3s ease-in;
+  display: none;
 }
 
 .swiper-button-next::after,
