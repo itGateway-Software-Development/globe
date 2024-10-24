@@ -7,12 +7,12 @@
             <img src="../../assets/images/laptop/surface.jpg" alt="" />
           </div>
           <div class="image-content">
-            <h4>Xp-Pen Drawing Tablet</h4>
-            <router-link class="mt-5 d-flex align-items-center gap-1"
+            <h4>Microsoft Surface</h4>
+            <a href="/" class="mt-5 d-flex align-items-center gap-1"
               >Shop Now
               <span class="material-symbols-outlined">
                 arrow_right_alt
-              </span></router-link
+              </span></a
             >
           </div>
         </div>
@@ -21,13 +21,19 @@
         <div class="row">
           <div
             class="col-6 col-md-3 col-lg-3 col-xl-3 mb-5"
-            v-for="item in productList"
+            v-for="(item, index) in productList"
             :key="item.id"
+            @mouseenter="onMouseEnter(index)"
+            @mouseleave="onMouseLeave(index)"
           >
             <div class="product-card">
               <div class="upper-card">
                 <div class="product-img">
-                  <img :src="item.img" alt="" />
+                  <img
+                    :src="currentImage(item, index)"
+                    :class="{ 'fade-in': hoveredIndex === index }"
+                    alt=""
+                  />
                 </div>
                 <div class="product-content">
                   <div class="product-type mb-2">
@@ -99,42 +105,71 @@ export default {
       {
         id: 1,
         type: "Laptop",
-        name: "Dell Insprion 15",
+        name: "Microsoft Surface Pro 9",
         price: "400",
         stock: "20",
         warrenty: "3",
-        img: require("@/assets/images/laptop/dell_insprion.jpg"),
+        img: require("@/assets/images/laptop/surface-pro.png"),
+        hoverimg: require("@/assets/images/laptop/1.jpg"),
       },
       {
         id: 2,
         type: "Laptop",
-        name: "Dell Insprion 15",
+        name: "Microsoft Surface Laptop 5",
         price: "400",
         stock: "20",
         warrenty: "3",
-        img: require("@/assets/images/laptop/dell_insprion.jpg"),
+        img: require("@/assets/images/laptop/3.jpg"),
+        hoverimg: require("@/assets/images/laptop/2.jpg"),
       },
       {
         id: 3,
         type: "Laptop",
-        name: "Dell Insprion 15",
+        name: "Microsoft Surface Go 3",
         price: "400",
         stock: "20",
         warrenty: "3",
-        img: require("@/assets/images/laptop/dell_insprion.jpg"),
+        img: require("@/assets/images/laptop/5.jpg"),
+        hoverimg: require("@/assets/images/laptop/4.jpg"),
       },
       {
         id: 4,
         type: "Laptop",
-        name: "Dell Insprion 15",
+        name: "Microsoft Surface Pro 9",
         price: "400",
         stock: "20",
         warrenty: "3",
-        img: require("@/assets/images/laptop/dell_insprion.jpg"),
+        img: require("@/assets/images/laptop/6.jpg"),
+        hoverimg: require("@/assets/images/laptop/7.jpg"),
       },
     ]);
 
-    return { rating, productList };
+    const hoveredIndex = ref(null);
+
+    // Handle mouse enter and leave to change image
+    const onMouseEnter = (index) => {
+      hoveredIndex.value = index;
+    };
+
+    const onMouseLeave = () => {
+      hoveredIndex.value = null;
+    };
+
+    // Determine current image based on hover state
+    const currentImage = (productList, index) => {
+      return hoveredIndex.value === index
+        ? productList.hoverimg
+        : productList.img;
+    };
+
+    return {
+      rating,
+      productList,
+      hoveredIndex,
+      onMouseEnter,
+      onMouseLeave,
+      currentImage,
+    };
   },
 };
 </script>
@@ -195,7 +230,8 @@ export default {
 .product-card {
   width: 100%;
   height: 375px;
-  border: 0.5px solid #111111;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   border-radius: 10px;
   transition: 0.3s linear;
   transform: translateZ(0px);
@@ -215,6 +251,13 @@ export default {
 .product-img img {
   width: 170px;
   height: 100%;
+  transform: translateZ(0px);
+  transition: all 0.5s linear;
+}
+
+.product-img img.fade-in {
+  transform: translateZ(100%);
+  width: 200px;
 }
 
 .product-card h4 {

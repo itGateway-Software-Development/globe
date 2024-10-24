@@ -5,11 +5,19 @@
     <PopularItem></PopularItem>
     <XP_PenSection></XP_PenSection>
     <LaptopSection></LaptopSection>
+    <HeadsetSection></HeadsetSection>
+    <SpeakerSection></SpeakerSection>
+    <Tablet_EReaderSection></Tablet_EReaderSection>
+    <TechGadgetsSection></TechGadgetsSection>
     <BrandList></BrandList>
   </v-app>
 </template>
 
 <script>
+import TechGadgetsSection from "../components/TechGadgetsSection";
+import Tablet_EReaderSection from "../components/Tablet_EReaderSection";
+import SpeakerSection from "../components/SpeakerSection";
+import HeadsetSection from "../components/HeadsetSection";
 import PromotionSlider from "../components/PromotionSlider";
 import BrandList from "../components/BrandList";
 import XP_PenSection from "../components/XP_PenSection";
@@ -20,6 +28,10 @@ import Carousel from "../components/Carousel";
 
 export default {
   components: {
+    TechGadgetsSection,
+    Tablet_EReaderSection,
+    SpeakerSection,
+    HeadsetSection,
     PromotionSlider,
     BrandList,
     XP_PenSection,

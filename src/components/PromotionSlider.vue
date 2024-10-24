@@ -67,15 +67,15 @@ export default {
     const slider1 = ref([
       {
         id: 1,
-        img: require("@/assets/images/promotion_sample.jpg"),
+        img: require("@/assets/images/1.jpg"),
       },
       {
         id: 2,
-        img: require("@/assets/images/promotion_sample.jpg"),
+        img: require("@/assets/images/2.jpg"),
       },
       {
         id: 3,
-        img: require("@/assets/images/promotion_sample.jpg"),
+        img: require("@/assets/images/3.jpg"),
       },
     ]);
 
@@ -98,7 +98,8 @@ export default {
 }
 
 .promotion-img {
-  border: 1px solid #111111;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .slider-btn {

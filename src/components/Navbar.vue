@@ -92,7 +92,7 @@
           <router-link class="menu-route" to="/"><p>Home</p></router-link>
         </li>
         <li class="nav-item dropdown">
-          <router-link class="menu-route d-flex" to="/"
+          <router-link class="menu-route d-flex" to="/categories"
             ><p class="nav-link">Categories</p>
             <span class="material-symbols-outlined nav-link mt-1">
               keyboard_arrow_down

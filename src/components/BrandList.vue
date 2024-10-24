@@ -26,8 +26,9 @@ export default {
 
 img {
   width: 100%;
-  padding: 20px;
-  border: 1px solid #111111;
+  padding: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   border-radius: 6px;
   cursor: pointer;
   transition: 0.5s ease-out;

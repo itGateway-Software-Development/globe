@@ -131,7 +131,6 @@ export default {};
   margin-top: 90px;
   background: var(--background-color);
   width: 100%;
-  height: 100%;
 }
 
 .footer-heading h5 {

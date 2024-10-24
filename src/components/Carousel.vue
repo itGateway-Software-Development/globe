@@ -60,28 +60,28 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img src="../assets/2.png" class="d-block w-100" alt="..." />
+        <img src="../assets/images/2.png" class="d-block w-100" alt="..." />
         <div class="carousel-caption d-none d-md-block">
           <h5>Third slide label</h5>
           <p>Some representative placeholder content for the third slide.</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="../assets/2.png" class="d-block w-100" alt="..." />
+        <img src="../assets/images/5.jpg" class="d-block w-100" alt="..." />
         <div class="carousel-caption d-none d-md-block">
           <h5>Fourth slide label</h5>
           <p>Some representative placeholder content for the third slide.</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="../assets/2.png" class="d-block w-100" alt="..." />
+        <img src="../assets/images/3.png" class="d-block w-100" alt="..." />
         <div class="carousel-caption d-none d-md-block">
           <h5>Fifth slide label</h5>
           <p>Some representative placeholder content for the third slide.</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="../assets/2.png" class="d-block w-100" alt="..." />
+        <img src="../assets/images/7.jpg" class="d-block w-100" alt="..." />
         <div class="carousel-caption d-none d-md-block">
           <h5>Sixth slide label</h5>
           <p>Some representative placeholder content for the third slide.</p>
