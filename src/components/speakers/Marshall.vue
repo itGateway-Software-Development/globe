@@ -125,7 +125,7 @@ export default {
       {
         id: 3,
         type: "speaker",
-        name: "Marshall Willen ",
+        name: "Marshall Willens ",
         price: "54",
         stock: "20",
         warrenty: "3",
