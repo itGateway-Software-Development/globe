@@ -209,7 +209,8 @@
     <v-navigation-drawer
       app
       v-model="drawer"
-      style="background: var(--background-color); color: #ededed"
+      :class="drawer ? 'active' : 'unactive'"
+      style="background: var(--background-color); color: #ededed; width: 100%"
       id="drawer"
       temporary
     >
@@ -337,4 +338,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.active {
+  transform: translateX(0px) !important;
+}
+
+.unactive {
+  transform: translateX(-100%) !important;
+}
+</style>
