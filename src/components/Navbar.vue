@@ -1,209 +1,215 @@
 <template>
-  <div class="nav-wrapper">
-    <nav class="upper-nav content-wrapper">
-      <div
-        class="d-flex align-items-center gap-5 mobile-nav justify-content-between"
-      >
-        <div class="d-flex align-items-center gap-4">
-          <div class="logo">
-            <img src="../assets/images/logo.png" alt="" />
+  <div class="nav-wrapper" v-if="isNavbarVisible" data-aos="fade-down">
+    <div class="desktop-nav">
+      <nav class="upper-nav content-wrapper">
+        <div
+          class="d-flex align-items-center gap-5 mobile-nav justify-content-between"
+        >
+          <div class="d-flex align-items-center gap-4">
+            <div class="logo">
+              <img src="../assets/images/logo.png" alt="" />
+            </div>
+
+            <div class="phone">
+              <router-link
+                to="/"
+                class="d-flex align-items-center gap-1 justify-content-center phone-list"
+              >
+                <div class="d-flex align-items-center gap-1">
+                  <span class="icon-phone">
+                    <span class="material-symbols-outlined">
+                      phone_in_talk
+                    </span>
+                  </span>
+                  <p class="text-bold">Call Us:</p>
+                </div>
+                <span class="color-text">+959 880 441 046</span>
+              </router-link>
+            </div>
+          </div>
+          <!-- mobile menu button  -->
+          <div
+            class="mobile-menu-btn align-items-center justify-content-between"
+          >
+            <div class="icon-group-mobile d-flex align-items-center gap-4">
+              <div
+                class="cursor-pointer"
+                @click="isMobileSearch = !isMobileSearch"
+              >
+                <span
+                  class="material-symbols-outlined"
+                  :style="{
+                    color: isMobileSearch ? '#23b5de' : '',
+                  }"
+                >
+                  search
+                </span>
+              </div>
+              <div>
+                <span class="material-symbols-outlined"> shopping_cart </span>
+              </div>
+
+              <div @click="drawer = !drawer" class="cursor-pointer">
+                <span class="material-symbols-outlined fs-1"> menu_open </span>
+              </div>
+            </div>
           </div>
 
-          <div class="phone">
-            <router-link
-              to="/"
-              class="d-flex align-items-center gap-1 justify-content-center phone-list"
-            >
-              <div class="d-flex align-items-center gap-1">
-                <span class="icon-phone">
-                  <span class="material-symbols-outlined"> phone_in_talk </span>
-                </span>
-                <p class="text-bold">Call Us:</p>
-              </div>
-              <span class="color-text">+959 880 441 046</span>
-            </router-link>
-          </div>
-        </div>
-        <!-- mobile menu button  -->
-        <div class="mobile-menu-btn align-items-center justify-content-between">
-          <div class="icon-group-mobile d-flex align-items-center gap-4">
-            <div
-              class="cursor-pointer"
-              @click="isMobileSearch = !isMobileSearch"
-            >
+          <div class="search-group">
+            <span class="search-input-wrapper d-inline-flex align-items-center">
+              <input
+                type="text"
+                class="search-input"
+                placeholder="search ....."
+              />
               <span
-                class="material-symbols-outlined"
-                :style="{
-                  color: isMobileSearch ? '#23b5de' : '',
-                }"
+                class="material-symbols-outlined icon cursor-pointer search-bar-icon prevent-select"
+                ref="searchIcon"
+                @click="handleSearch"
               >
                 search
               </span>
-            </div>
-            <div>
-              <span class="material-symbols-outlined"> shopping_cart </span>
-            </div>
-
-            <div @click="drawer = !drawer" class="cursor-pointer">
-              <span class="material-symbols-outlined fs-1"> menu_open </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="search-group">
-          <span class="search-input-wrapper d-inline-flex align-items-center">
-            <input
-              type="text"
-              class="search-input"
-              placeholder="search ....."
-            />
-            <span
-              class="material-symbols-outlined icon cursor-pointer search-bar-icon prevent-select"
-              ref="searchIcon"
-              @click="handleSearch"
-            >
-              search
             </span>
-          </span>
+          </div>
+          <div class="top-menu d-flex align-items-center gap-4">
+            <router-link to="/" class="d-flex align-items-center">
+              <span class="material-symbols-outlined"> shopping_cart </span>
+              <span class="cardtotal text-center">0</span>
+            </router-link>
+            <router-link to="/" class="d-flex align-items-center">
+              <span class="material-symbols-outlined"> favorite </span>
+              <span class="wishlist text-center">0</span>
+            </router-link>
+            <router-link
+              to="/"
+              class="d-flex flex-column justify-content-center align-items-center"
+            >
+              <span class="material-symbols-outlined"> account_circle </span>
+            </router-link>
+          </div>
         </div>
-        <div class="top-menu d-flex align-items-center gap-4">
-          <router-link to="/" class="d-flex align-items-center">
-            <span class="material-symbols-outlined"> shopping_cart </span>
-            <span class="cardtotal text-center">0</span>
-          </router-link>
-          <router-link to="/" class="d-flex align-items-center">
-            <span class="material-symbols-outlined"> favorite </span>
-            <span class="wishlist text-center">0</span>
-          </router-link>
-          <router-link
-            to="/"
-            class="d-flex flex-column justify-content-center align-items-center"
-          >
-            <span class="material-symbols-outlined"> account_circle </span>
-          </router-link>
-        </div>
-      </div>
-    </nav>
-    <nav class="lower-nav" id="navbar">
-      <ul
-        class="d-flex align-items center justify-content-center gap-5 nav-list"
-      >
-        <li class="nav-item">
-          <router-link class="menu-route" to="/"><p>Home</p></router-link>
-        </li>
-        <li class="nav-item dropdown">
-          <router-link class="menu-route d-flex" to="/categories"
-            ><p class="nav-link">Categories</p>
-            <span class="material-symbols-outlined nav-link mt-1">
-              keyboard_arrow_down
-            </span></router-link
-          >
-          <div class="menu-dropdown menuDefault nav-dropdown--lv1">
-            <ul>
-              <li>
-                <router-link to="/" class="menu-route">
-                  <p>Laptop</p>
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/" class="menu-route">
-                  <p>Tech Gadgets</p>
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/" class="menu-route">
-                  <p>Headset</p>
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/" class="menu-route">
-                  <p>Speaker</p>
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/" class="menu-route">
-                  <p>Portable</p>
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/" class="menu-route">
-                  <p>Tablet & E-Reader</p>
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/" class="menu-route">
-                  <p>Netwroking</p>
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/" class="menu-route">
-                  <p>Telecommunication</p>
-                </router-link>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <router-link class="menu-route d-flex" to="/"
-            ><p class="nav-link">XP-Pen</p>
-            <span class="material-symbols-outlined nav-link mt-1">
-              keyboard_arrow_down
-            </span></router-link
-          >
-          <div class="menu-dropdown menuDefault nav-dropdown--lv1">
-            <ul>
-              <li>
-                <router-link to="/" class="menu-route">
-                  <p>Drawing Tablets</p>
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/" class="menu-route">
-                  <p>Drawing Display</p>
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/" class="menu-route">
-                  <p>Accessories</p>
-                </router-link>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-item">
-          <router-link class="menu-route" to="/"
-            ><p>Globe Solar Solution</p></router-link
-          >
-        </li>
-        <li class="nav-item dropdown">
-          <router-link class="menu-route d-flex" to="/"
-            ><p class="nav-link">Information</p>
-            <span class="material-symbols-outlined nav-link mt-1">
-              keyboard_arrow_down
-            </span></router-link
-          >
-          <div class="menu-dropdown menuDefault nav-dropdown--lv1">
-            <ul>
-              <li>
-                <router-link to="/" class="menu-route">
-                  <p>Promotion</p>
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/" class="menu-route">
-                  <p>About Us</p>
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/" class="menu-route">
-                  <p>Contact Us</p>
-                </router-link>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </nav>
+      </nav>
+      <nav class="lower-nav" id="navbar">
+        <ul
+          class="d-flex align-items center justify-content-center gap-5 nav-list"
+        >
+          <li class="nav-item">
+            <router-link class="menu-route" to="/"><p>Home</p></router-link>
+          </li>
+          <li class="nav-item dropdown">
+            <router-link class="menu-route d-flex" to="/categories"
+              ><p class="nav-link">Categories</p>
+              <span class="material-symbols-outlined nav-link mt-1">
+                keyboard_arrow_down
+              </span></router-link
+            >
+            <div class="menu-dropdown menuDefault nav-dropdown--lv1">
+              <ul>
+                <li>
+                  <router-link to="/" class="menu-route">
+                    <p>Laptop</p>
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/" class="menu-route">
+                    <p>Tech Gadgets</p>
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/" class="menu-route">
+                    <p>Headset</p>
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/" class="menu-route">
+                    <p>Speaker</p>
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/" class="menu-route">
+                    <p>Portable</p>
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/" class="menu-route">
+                    <p>Tablet & E-Reader</p>
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/" class="menu-route">
+                    <p>Netwroking</p>
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/" class="menu-route">
+                    <p>Telecommunication</p>
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <router-link class="menu-route d-flex" to="/"
+              ><p class="nav-link">XP-Pen</p>
+              <span class="material-symbols-outlined nav-link mt-1">
+                keyboard_arrow_down
+              </span></router-link
+            >
+            <div class="menu-dropdown menuDefault nav-dropdown--lv1">
+              <ul>
+                <li>
+                  <router-link to="/" class="menu-route">
+                    <p>Drawing Tablets</p>
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/" class="menu-route">
+                    <p>Drawing Display</p>
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/" class="menu-route">
+                    <p>Accessories</p>
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <router-link class="menu-route" to="/"
+              ><p>Globe Solar Solution</p></router-link
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <router-link class="menu-route d-flex" to="/"
+              ><p class="nav-link">Information</p>
+              <span class="material-symbols-outlined nav-link mt-1">
+                keyboard_arrow_down
+              </span></router-link
+            >
+            <div class="menu-dropdown menuDefault nav-dropdown--lv1">
+              <ul>
+                <li>
+                  <router-link to="/" class="menu-route">
+                    <p>Promotion</p>
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/" class="menu-route">
+                    <p>About Us</p>
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/" class="menu-route">
+                    <p>Contact Us</p>
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
     <!-- Sidebar (Drawer) for mobile -->
     <v-navigation-drawer
@@ -265,6 +271,7 @@ export default {
     const route = useRoute();
 
     const isNavbarVisible = ref(true);
+    const fade_in = ref(false);
     const lastScrollY = ref(window.scrollY);
 
     const handleScroll = () => {
@@ -273,6 +280,7 @@ export default {
       if (currentScrollY < lastScrollY.value) {
         // Scrolling up
         isNavbarVisible.value = true;
+        fade_in.value = true;
       } else if (currentScrollY > lastScrollY.value) {
         // Scrolling down
         isNavbarVisible.value = false;
@@ -333,6 +341,7 @@ export default {
       handleSearch,
       isMobileSearch,
       route,
+      fade_in,
     };
   },
 };
@@ -345,5 +354,9 @@ export default {
 
 .unactive {
   transform: translateX(-100%) !important;
+}
+
+.fade-in {
+  top: 0;
 }
 </style>

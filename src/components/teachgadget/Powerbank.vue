@@ -331,12 +331,32 @@ export default {
   .upper-card {
     padding: 15px 10px;
   }
+
+  .product-img img {
+    width: 120px;
+  }
+
+  .responsive-image img {
+    height: 200px;
+  }
+
+  .product-img img.fade-in {
+    transform: translateZ(100%);
+    width: 150px;
+  }
+
+  .product-card {
+    height: 330px;
+  }
 }
 
 @media (max-width: 800px) {
   .product-img img {
     width: 160px;
     height: 100%;
+  }
+  .product-card {
+    height: 375px;
   }
 }
 

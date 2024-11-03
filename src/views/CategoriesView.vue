@@ -13,6 +13,6 @@ export default {
 
 <style>
 .categories-wrapper {
-  margin-top: 150px;
+  margin-top: 130px;
 }
 </style>

@@ -6,7 +6,6 @@
   background: var(--background-white-color);
   transition: 0.3s ease-in-out;
   position: fixed;
-  left: 0;
 }
 
 .upper-nav .mobile-menu-btn {
@@ -14,7 +13,7 @@
 }
 
 .upper-nav .logo img {
-  width: 90px;
+  width: 70px;
 }
 
 .logo h5 {
@@ -93,8 +92,8 @@
 /* lower nav */
 .lower-nav {
   width: 100%;
-  height: 100%;
   background-color: var(--background-color);
+  height: max-content;
 }
 
 .lower-nav {
