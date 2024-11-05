@@ -149,7 +149,7 @@
             </div>
           </li>
           <li class="nav-item dropdown">
-            <router-link class="menu-route d-flex" to="/"
+            <router-link class="menu-route d-flex" to="/xp_pen"
               ><p class="nav-link">XP-Pen</p>
               <span class="material-symbols-outlined nav-link mt-1">
                 keyboard_arrow_down

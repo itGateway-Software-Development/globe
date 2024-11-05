@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import CategoriesView from "../views/CategoriesView.vue";
+import XPPenView from "../views/XPPenView.vue";
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: "/categories",
     name: "categories",
     component: CategoriesView,
+  },
+  {
+    path: "/xp_pen",
+    name: "xp_pen",
+    component: XPPenView,
   },
 ];
 
