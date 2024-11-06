@@ -200,7 +200,7 @@
                   </router-link>
                 </li>
                 <li>
-                  <router-link to="/" class="menu-route">
+                  <router-link to="/contact" class="menu-route">
                     <p>Contact Us</p>
                   </router-link>
                 </li>

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import CategoriesView from "../views/CategoriesView.vue";
 import XPPenView from "../views/XPPenView.vue";
+import ContactUs from "../views/ContactUs.vue";
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: "/xp_pen",
     name: "xp_pen",
     component: XPPenView,
+  },
+  {
+    path: "/contact",
+    name: "contact",
+    component: ContactUs,
   },
 ];
 
