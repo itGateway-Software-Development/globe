@@ -7,12 +7,14 @@
         >
           <div class="d-flex align-items-center gap-4">
             <div class="logo">
-              <img src="../assets/images/logo.png" alt="" />
+              <router-link to="/"
+                ><img src="../assets/images/logo.png" alt=""
+              /></router-link>
             </div>
 
             <div class="phone">
               <router-link
-                to="/"
+                to="/contact"
                 class="d-flex align-items-center gap-1 justify-content-center phone-list"
               >
                 <div class="d-flex align-items-center gap-1">
