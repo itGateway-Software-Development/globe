@@ -13,7 +13,7 @@ export default {
 
 <style>
 .contact-wrapper {
-  margin-top: 120px;
+  margin-top: 140px;
 }
 
 @media (max-width: 760px) {

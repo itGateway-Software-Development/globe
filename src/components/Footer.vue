@@ -89,14 +89,19 @@
         <div class="footer-heading mt-5"><h5>Follow Us</h5></div>
         <div class="icon-group mt-5">
           <div class="d-flex align-items-center gap-5">
-            <a href="/" target="_blank"
+            <a href="https://www.facebook.com/globe.trading" target="_blank"
               ><i class="fa-brands fa-facebook-f"></i
             ></a>
             <a href="/" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-            <a href="/" target="_blank">
-              <i class="fa-brands fa-linkedin-in"></i
+            <a
+              href="https://www.tiktok.com/@globe_trading1?is_from_webapp=1&sender_device=pc"
+              target="_blank"
+            >
+              <i class="fa-brands fa-tiktok"></i
             ></a>
-            <a href="/" target="_blank"
+            <a
+              href="https://www.instagram.com/globetrading4?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              target="_blank"
               ><i class="fa-brands fa-instagram"></i
             ></a>
           </div>

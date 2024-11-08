@@ -1,7 +1,11 @@
 <template>
   <div class="categories-wrapper">
     <div class="block-banner text-center">
-      <h1>XP-PEN</h1>
+      <img
+        src="../assets/images/xp_pen/banner-2.jpg"
+        class="img-fluid"
+        alt=""
+      />
     </div>
     <div class="content-wrapper product-section">
       <div class="row">
@@ -506,11 +510,15 @@ export default {
 <style scoped>
 .block-banner {
   width: 100%;
-  height: 200px;
-  background: #f5f6fc;
+  height: 300px;
   align-content: center;
   font-family: "Gilory-Bold", sans-serif;
   font-weight: bold;
+}
+
+.product-section {
+  margin-top: 80px;
+  background: #fff;
 }
 
 .filter-header h4 {
