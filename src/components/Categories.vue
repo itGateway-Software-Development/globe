@@ -47,13 +47,13 @@
 
             <div class="availability">
               <div
-                class="sub-filter-header d-flex align-items-center justify-content-between mb-2"
+                class="filter-header d-flex align-items-center justify-content-between mb-2"
               >
                 <div class="d-flex align-items-center gap-2">
                   <span class="material-symbols-outlined">
                     keyboard_arrow_up
                   </span>
-                  <p>Availability</p>
+                  <h4>Availability</h4>
                 </div>
                 <p class="reset">Reset</p>
               </div>
@@ -77,13 +77,13 @@
 
             <div class="price-filter">
               <div
-                class="sub-filter-header d-flex align-items-center justify-content-between"
+                class="filter-header d-flex align-items-center justify-content-between"
               >
                 <div class="d-flex align-items-center gap-2">
                   <span class="material-symbols-outlined">
                     keyboard_arrow_up
                   </span>
-                  <p>Price</p>
+                  <h4>Price</h4>
                 </div>
                 <p class="reset" @click="resetPriceRange()">Reset</p>
               </div>
@@ -335,7 +335,7 @@
                 :key="item.id"
               >
                 <div class="product-card-list w-100 mb-5">
-                  <div class="d-flex align-items-center gap-5">
+                  <div class="d-flex align-items-center gap-3">
                     <div class="product-img-list">
                       <img :src="item.img" alt="" id="img1" />
                       <img :src="item.hoverimg" alt="" id="img2" />
@@ -622,6 +622,10 @@ export default {
   align-content: center;
   font-family: "Gilory-Bold", sans-serif;
   font-weight: bold;
+}
+
+.filter-header {
+  cursor: pointer;
 }
 
 .filter-header h4 {

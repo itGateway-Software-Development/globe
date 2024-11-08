@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import CategoriesView from "../views/CategoriesView.vue";
 import XPPenView from "../views/XPPenView.vue";
 import ContactUs from "../views/ContactUs.vue";
+import ProductDetail from "../views/product/ProductDetail.vue";
 
 const routes = [
   {
@@ -24,6 +25,12 @@ const routes = [
     path: "/contact",
     name: "contact",
     component: ContactUs,
+  },
+  {
+    path: "/product/productdetail",
+    name: "productdetail",
+    component: ProductDetail,
+    prop: true,
   },
 ];
 

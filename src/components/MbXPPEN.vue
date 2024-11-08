@@ -1,17 +1,182 @@
 <template>
-  <div class="categories-wrapper">
+  <div class="mb-categories">
     <div class="block-banner text-center">
-      <h1>XP-PEN</h1>
+      <h1>CATEGORIES</h1>
     </div>
-    <div class="content-wrapper product-section">
-      <div class="row">
-        <div class="col-12 col-md-3 col-xl-3">
-          <div class="left-filter">
+    <div
+      class="d-flex align-items-center justify-content-between content-wrapper"
+    >
+      <div class="filter-header d-flex align-items-center gap-2">
+        <span class="material-symbols-outlined" @click="drawer = !drawer">
+          menu
+        </span>
+        <h4>Filter By</h4>
+      </div>
+      <div class="view">
+        <div class="d-flex align-items-center gap-2">
+          <div
+            class="view-style"
+            :class="{ active: listView == 'app' }"
+            @click="changeView('app')"
+          >
+            <span class="material-symbols-outlined"> apps </span>
+          </div>
+          <div
+            class="view-style"
+            :class="{ active: listView == 'list' }"
+            @click="changeView('list')"
+          >
+            <span class="material-symbols-outlined">
+              format_list_bulleted
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product content-wrapper">
+      <div class="product-list" v-if="listView == 'app'">
+        <div class="row">
+          <div
+            class="col-6 col-sm-4 col-md-4 col-xl-4 mb-5"
+            v-for="(item, index) in productList"
+            :key="item.id"
+          >
+            <div class="product-card">
+              <div class="product-type text-right mb-2">
+                <h4>{{ item.type }}</h4>
+              </div>
+              <div class="product-img">
+                <img :src="item.img" alt="" id="img1" />
+                <img :src="item.hoverimg" alt="" id="img2" />
+              </div>
+              <div class="product-content mb-2">
+                <h4>{{ item.name }}</h4>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Excepturi, doloremque.
+                </p>
+              </div>
+              <div class="rating mb-2">
+                <v-rating
+                  readonly
+                  v-model="rating"
+                  active-color="orange-lighten-1"
+                  color="orange-lighten-1"
+                  size="mini"
+                ></v-rating>
+              </div>
+              <div
+                class="price-button d-flex align-items-center justify-content-between"
+              >
+                <div class="price">
+                  <h4>${{ item.price }}</h4>
+                </div>
+                <div class="button-group">
+                  <button class="btn cart-btn mt-1">
+                    <span class="material-symbols-outlined">
+                      shopping_cart
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-list" v-if="listView == 'list'">
+        <div class="d-flex flex-column mb-5 w-100">
+          <div
+            class="product-box"
+            v-for="(item, index) in productList"
+            :key="item.id"
+          >
+            <div class="product-card-list w-100 mb-5">
+              <div class="d-flex align-items-center gap-5">
+                <div class="product-img-list">
+                  <img :src="item.img" alt="" id="img1" />
+                  <img :src="item.hoverimg" alt="" id="img2" />
+                </div>
+                <div class="mobile-img d-none">
+                  <img :src="item.img" alt="" />
+                </div>
+                <div class="product-content">
+                  <div class="product-type mb-2">
+                    <h4 class="hilight-font">{{ item.type }}</h4>
+                  </div>
+                  <div class="product-name mb-2">
+                    <h4>{{ item.name }}</h4>
+                  </div>
+                  <div class="rating mb-2">
+                    <div class="">
+                      <v-rating
+                        readonly
+                        v-model="rating"
+                        active-color="orange-lighten-1"
+                        color="orange-lighten-1"
+                        size="mini"
+                      ></v-rating>
+                    </div>
+                  </div>
+                  <div class="price mb-2">${{ item.price }}</div>
+                  <div class="stock mb-2">
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="material-symbols-outlined">
+                        check_circle
+                      </span>
+                      <p>In Stock</p>
+                    </div>
+                  </div>
+                  <div class="content mb-3">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Impedit modi omnis qui aspernatur, voluptas ut
+                  </div>
+                  <div class="button-group">
+                    <button
+                      class="btn add-to-cart list-btn d-flex align-items-center gap-3 primary-btn justify-content-center"
+                    >
+                      <span class="material-symbols-outlined">
+                        shopping_cart
+                      </span>
+                      <p>Quick Add</p>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <v-navigation-drawer
+      app
+      v-model="drawer"
+      :class="drawer ? 'active' : 'unactive'"
+      :location="$vuetify.display.mobile ? 'bottom' : undefined"
+      id="mb-categories"
+      temporary
+    >
+      <div class="content-wrapper mb-filter-section">
+        <div
+          class="d-flex align-item-center justify-content-between pointer px-3 heading"
+        >
+          <h4>Filter & Sort</h4>
+          <span class="material-symbols-outlined" @click="drawer = !drawer">
+            close
+          </span>
+        </div>
+        <hr class="p-0 m-0" />
+        <v-list>
+          <v-list-item>
             <div class="filter-header d-flex align-items-center gap-2">
-              <span class="material-symbols-outlined"> menu </span>
+              <span class="material-symbols-outlined"> dataset </span>
               <h4>Categories</h4>
             </div>
-            <div class="categories-filter">
+            <div
+              class="categories-filter d-flex align-items-center flex-wrap gap-2"
+            >
               <div
                 class="categories-card"
                 v-for="(category, index) in visibleCategories"
@@ -19,88 +184,59 @@
               >
                 <h5>{{ category.name }}</h5>
               </div>
-              <!-- <div
+              <div
                 class="categories-card"
                 @click="showAllCategories = !showAllCategories"
               >
                 <h5>See More</h5>
-              </div> -->
+              </div>
             </div>
-
-            <div class="filter-header d-flex align-items-center gap-2">
-              <span class="material-symbols-outlined"> tune </span>
-              <h4>FILTER BY</h4>
-            </div>
-
-            <div class="break-line"><hr /></div>
-
-            <div class="clear-filter-btn">
-              <button
-                class="btn filter-btn d-flex align-item-center gap-2 justify-content-center"
-              >
-                <span class="material-symbols-outlined"> delete </span> Clear
-                All
-              </button>
-            </div>
-
-            <div class="break-line"><hr /></div>
-
+          </v-list-item>
+          <hr class="p-0 m-0" />
+          <v-list-item>
             <div class="availability">
               <div
-                class="sub-filter-header d-flex align-items-center justify-content-between mb-2"
+                class="filter-header d-flex align-items-center justify-content-between mb-2"
               >
                 <div class="d-flex align-items-center gap-2">
                   <span class="material-symbols-outlined">
                     keyboard_arrow_up
                   </span>
-                  <p>Availability</p>
+                  <h4>Availability</h4>
                 </div>
                 <p class="reset">Reset</p>
               </div>
 
               <div class="checkbox-list">
-                <v-checkbox
-                  v-model="checkbox1"
-                  :label="`In Stock`"
-                  class="checkbox"
-                ></v-checkbox>
-                <v-checkbox
-                  :model-value="false"
-                  disabled
-                  :label="`Out of Stock `"
-                  class="checkbox"
-                ></v-checkbox>
+                <ul class="list-items">
+                  <li class="item">
+                    <input type="checkbox" class="checkbox" />
+                    <span class="item-text">Stock</span>
+                  </li>
+                  <li class="item">
+                    <input type="checkbox" class="checkbox" />
+                    <span class="item-text">Out of Stock</span>
+                  </li>
+                </ul>
               </div>
             </div>
-
-            <div class="break-line"><hr /></div>
-
+          </v-list-item>
+          <hr class="p-0 m-0" />
+          <v-list-item>
             <div class="price-filter">
               <div
-                class="sub-filter-header d-flex align-items-center justify-content-between"
+                class="filter-header d-flex align-items-center justify-content-between"
               >
                 <div class="d-flex align-items-center gap-2">
                   <span class="material-symbols-outlined">
                     keyboard_arrow_up
                   </span>
-                  <p>Price</p>
+                  <h4>Price</h4>
                 </div>
                 <p class="reset" @click="resetPriceRange()">Reset</p>
               </div>
 
               <div class="price-range">
-                <v-range-slider
-                  v-model="priceRange"
-                  :min="0"
-                  :max="500"
-                  step="1"
-                  class="price-slider"
-                  track-fill-color="blue"
-                  thumb-color="blue"
-                  ticks="always"
-                  tick-size="4"
-                ></v-range-slider>
-
                 <!-- Min and Max Price Inputs -->
                 <v-row align="center" justify="center" class="price-inputs">
                   <v-text-field
@@ -123,15 +259,15 @@
                 </v-row>
               </div>
             </div>
-
-            <div class="break-line"><hr /></div>
-
+          </v-list-item>
+          <hr class="p-0 m-0" />
+          <v-list-item>
             <div class="brand-filter">
               <div class="filter-header d-flex align-items-center gap-2">
                 <span class="material-symbols-outlined">
                   keyboard_arrow_up
                 </span>
-                <h4>Filter</h4>
+                <h4>Brand</h4>
               </div>
               <ul class="list-items">
                 <li
@@ -144,176 +280,26 @@
                 </li>
               </ul>
             </div>
-
-            <div class="break-line"><hr /></div>
-
-            <div class="compatibility">
-              <div class="filter-header d-flex align-items-center gap-2">
-                <span class="material-symbols-outlined">
-                  keyboard_arrow_up
-                </span>
-                <h4>Compatibility</h4>
-              </div>
-              <ul class="d-flex align-items-center">
-                <li
-                  class="item"
-                  v-for="icon in compatibilityList"
-                  :key="icon.id"
-                >
-                  <img :src="icon.logo" alt="" />
-                </li>
-              </ul>
+          </v-list-item>
+          <hr class="p-0 m-0" />
+          <v-list-item>
+            <div class="clear-filter-btn">
+              <button
+                class="btn filter-btn d-flex align-item-center gap-2 justify-content-center"
+              >
+                <span class="material-symbols-outlined"> delete </span> Clear
+                All
+              </button>
             </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-9 col-xl-9">
-          <div class="float-right view-group">
-            <div class="d-flex align-items-center gap-2">
-              <div
-                class="view-style"
-                :class="{ active: listView == 'app' }"
-                @click="changeView('app')"
-              >
-                <span class="material-symbols-outlined"> apps </span>
-              </div>
-              <!-- <div
-                class="view-style"
-                :class="{ active: listView == 'app2' }"
-                @click="changeView('app2')"
-              >
-                <span class="material-symbols-outlined"> grid_view </span>
-              </div> -->
-              <div
-                class="view-style"
-                :class="{ active: listView == 'list' }"
-                @click="changeView('list')"
-              >
-                <span class="material-symbols-outlined">
-                  format_list_bulleted
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="product-list" v-if="listView == 'app'">
-            <div class="row">
-              <div
-                class="col-6 col-md-4 col-xl-4 mb-5"
-                v-for="(item, index) in productList"
-                :key="item.id"
-              >
-                <router-link to="/product/productdetail">
-                  <div class="product-card">
-                    <div class="product-type text-right mb-2">
-                      <h4>{{ item.type }}</h4>
-                    </div>
-                    <div class="product-img">
-                      <img :src="item.img" alt="" id="img1" />
-                      <img :src="item.hoverimg" alt="" id="img2" />
-                    </div>
-                    <div class="product-content mb-2">
-                      <h4>{{ item.name }}</h4>
-                      <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Excepturi, doloremque.
-                      </p>
-                    </div>
-                    <div class="rating mb-2">
-                      <v-rating
-                        readonly
-                        v-model="rating"
-                        active-color="orange-lighten-1"
-                        color="orange-lighten-1"
-                        size="mini"
-                      ></v-rating>
-                    </div>
-                    <div
-                      class="price-button d-flex align-items-center justify-content-between"
-                    >
-                      <div class="price">
-                        <h4>${{ item.price }}</h4>
-                      </div>
-                      <div class="button-group">
-                        <button class="btn cart-btn mt-1">
-                          <span class="material-symbols-outlined">
-                            shopping_cart
-                          </span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </router-link>
-              </div>
-            </div>
-          </div>
-          <div class="product-list" v-if="listView == 'list'">
-            <div class="d-flex flex-column mb-5 w-100">
-              <div
-                class="product-box"
-                v-for="(item, index) in productList"
-                :key="item.id"
-              >
-                <div class="product-card-list w-100 mb-5">
-                  <div class="d-flex align-items-center gap-5">
-                    <div class="product-img-list">
-                      <img :src="item.img" alt="" id="img1" />
-                      <img :src="item.hoverimg" alt="" id="img2" />
-                    </div>
-                    <div class="product-content">
-                      <div class="product-type mb-2">
-                        <h4 class="hilight-font">{{ item.type }}</h4>
-                      </div>
-                      <div class="product-name mb-2">
-                        <h4>{{ item.name }}</h4>
-                      </div>
-                      <div class="rating mb-2">
-                        <div class="">
-                          <v-rating
-                            readonly
-                            v-model="rating"
-                            active-color="orange-lighten-1"
-                            color="orange-lighten-1"
-                            size="mini"
-                          ></v-rating>
-                        </div>
-                      </div>
-                      <div class="price mb-2">${{ item.price }}</div>
-                      <div class="stock mb-2">
-                        <div class="d-flex align-items-center gap-2">
-                          <span class="material-symbols-outlined">
-                            check_circle
-                          </span>
-                          <p>In Stock</p>
-                        </div>
-                      </div>
-                      <div class="content mb-3">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Impedit modi omnis qui aspernatur, voluptas ut
-                      </div>
-                      <div class="button-group">
-                        <button
-                          class="btn add-to-cart list-btn d-flex align-items-center gap-3 primary-btn justify-content-center"
-                        >
-                          <span class="material-symbols-outlined">
-                            shopping_cart
-                          </span>
-                          <p>Quick Add</p>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          </v-list-item>
+        </v-list>
       </div>
-    </div>
+    </v-navigation-drawer>
   </div>
 </template>
 
 <script>
-import { ref, onMounted, computed, watch } from "vue";
+import { ref, watch, computed } from "vue";
 export default {
   setup() {
     const categories = ref([
@@ -504,6 +490,11 @@ export default {
 </script>
 
 <style scoped>
+#mb-categories {
+  height: 100% !important;
+  transform: translateX(0px);
+}
+
 .block-banner {
   width: 100%;
   height: 200px;
@@ -511,6 +502,15 @@ export default {
   align-content: center;
   font-family: "Gilory-Bold", sans-serif;
   font-weight: bold;
+}
+
+.heading h4 {
+  font-family: "Gilory-Bold", sans-serif;
+  font-weight: bold;
+}
+
+.filter-header {
+  cursor: pointer;
 }
 
 .filter-header h4 {
@@ -578,8 +578,16 @@ export default {
   cursor: pointer;
 }
 
-.availability .checkbox {
-  height: 30px !important;
+.price-filter {
+  width: 100%;
+  height: 100%;
+}
+
+.price-range {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  overflow: visible !important;
 }
 
 .price-slider {
@@ -598,6 +606,7 @@ export default {
 
 .v-range-slider .v-slider__thumb {
   border: 2px solid #007bff !important;
+  overflow: visible !important;
 }
 
 .price-inputs {
@@ -620,9 +629,13 @@ export default {
   padding-left: 12px;
 }
 
+.checkbox-list .list-items {
+  height: 100%;
+}
+
 .list-items {
   height: 140px;
-  overflow: auto;
+  overflow: auto !important;
   margin-top: 20px;
 }
 
@@ -832,7 +845,7 @@ export default {
   object-fit: cover;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  transition: 1.5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 .product-img-list #img2:hover {
@@ -857,8 +870,87 @@ export default {
   margin: 0px !important;
 }
 
-.compatibility img {
-  margin-top: 20px;
-  width: 40px;
+@media (max-width: 768px) {
+  .product-card {
+    margin-bottom: 10px;
+    border: 1px solid #111111;
+    padding: 10px;
+  }
+
+  .product-card .button-group {
+    padding: 0px;
+  }
+
+  .product-card .product-content h4 {
+    font-size: 16px;
+  }
+
+  .product-card .product-content p {
+    font-size: 14px !important;
+  }
+
+  .product-card-list {
+    padding: 10px;
+    overflow: hidden !important;
+    border: 1px solid #111111;
+  }
+
+  .product-img-list {
+    display: none;
+  }
+
+  .mobile-img {
+    display: block !important;
+    width: 500px;
+    height: 200px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+  .mobile-img img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .product-content {
+    padding: 20px 0px;
+  }
+}
+
+@media (max-width: 500px) {
+  .product-card {
+    padding: 5px;
+  }
+
+  .gap-5 {
+    gap: 10px !important;
+  }
+
+  .mobile-img {
+    display: block !important;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+  .product-card-list .content {
+    display: none;
+  }
+
+  .primary-btn {
+    width: 150px;
+  }
+
+  .primary-btn p {
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .mobile-img {
+    width: 150px;
+  }
 }
 </style>
