@@ -2,7 +2,7 @@
   <div class="categories-wrapper">
     <div class="block-banner text-center">
       <img
-        src="../assets/images/xp_pen/banner-2.jpg"
+        src="../assets/images/slider/slider-5.jpg"
         class="img-fluid"
         alt=""
       />
@@ -510,14 +510,14 @@ export default {
 <style scoped>
 .block-banner {
   width: 100%;
-  height: 300px;
+  height: 100%;
   align-content: center;
   font-family: "Gilory-Bold", sans-serif;
   font-weight: bold;
 }
 
 .product-section {
-  margin-top: 80px;
+  margin-top: 50px;
   background: #fff;
 }
 
