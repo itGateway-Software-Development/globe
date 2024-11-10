@@ -67,15 +67,15 @@ export default {
     const slider1 = ref([
       {
         id: 1,
-        img: require("@/assets/images/1.jpg"),
+        img: require("@/assets/images/promotion-1.jpg"),
       },
       {
         id: 2,
-        img: require("@/assets/images/2.jpg"),
+        img: require("@/assets/images/promotion-1.jpg"),
       },
       {
         id: 3,
-        img: require("@/assets/images/3.jpg"),
+        img: require("@/assets/images/promotion-1.jpg"),
       },
     ]);
 
