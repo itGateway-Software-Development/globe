@@ -131,6 +131,12 @@ export default {};
   z-index: 1;
 }
 
+.block-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .block-banner h1 {
   color: #ffffff;
   font-family: "Gilory-Bold", sans-serif;

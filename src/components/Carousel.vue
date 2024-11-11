@@ -1,188 +1,78 @@
 <template>
-  <div
-    id="carouselExampleCaptions"
-    class="carousel slide carousel-wrapper"
-    data-bs-ride="carousel"
-  >
-    <div class="carousel-indicators">
-      <button
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide-to="0"
-        class="active"
-        aria-current="true"
-        aria-label="Slide 1"
-      ></button>
-      <button
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide-to="1"
-        aria-label="Slide 2"
-      ></button>
-      <button
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide-to="2"
-        aria-label="Slide 3"
-      ></button>
-      <button
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide-to="3"
-        aria-label="Slide 4"
-      ></button>
-      <button
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide-to="4"
-        aria-label="Slide 5"
-      ></button>
-      <button
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide-to="5"
-        aria-label="Slide 6"
-      ></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img
-          src="../assets/images/slider/slider-1.jpg"
-          class="d-block w-100 img-fluid"
-          alt="..."
-        />
-        <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Some representative placeholder content for the first slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img
-          src="../assets/images/slider/slider-2.jpg "
-          class="d-block w-100 img-fluid"
-          alt="..."
-        />
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img
-          src="../assets/images/slider/slider-3.jpg"
-          class="d-block w-100 img-fluid"
-          alt="..."
-        />
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img
-          src="../assets/images/slider/slider-4.jpg"
-          class="d-block w-100 img-fluid"
-          alt="..."
-        />
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Fourth slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img
-          src="../assets/images/slider/slider-5.jpg"
-          class="d-block w-100 img-fluid"
-          alt="..."
-        />
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Fifth slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img
-          src="../assets/images/slider/slider-6.jpg"
-          class="d-block w-100 img-fluid"
-          alt="..."
-        />
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Sixth slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
-      </div>
-    </div>
-
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#carouselExampleCaptions"
-      data-bs-slide="prev"
+  <div class="carousel-wrapper">
+    <v-carousel
+      show-arrows="hover"
+      cycle
+      hide-delimiters
+      class="carousel"
+      height="1000"
     >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#carouselExampleCaptions"
-      data-bs-slide="next"
-    >
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+      <v-carousel-item
+        v-for="item in carousel_img"
+        :key="item.index"
+        class="carousel-item"
+      >
+        <img :src="item.img" alt="" class="carousel-img img-fluid" />
+      </v-carousel-item>
+    </v-carousel>
   </div>
 </template>
 
 <script>
-export default {};
+import { ref } from "vue";
+export default {
+  setup() {
+    const carousel_img = ref([
+      {
+        img: require("@/assets/images/slider/slider-1.jpg"),
+      },
+      {
+        img: require("@/assets/images/slider/slider-2.jpg"),
+      },
+      {
+        img: require("@/assets/images/slider/slider-3.jpg"),
+      },
+      {
+        img: require("@/assets/images/slider/slider-4.jpg"),
+      },
+      {
+        img: require("@/assets/images/slider/slider-5.jpg"),
+      },
+      {
+        img: require("@/assets/images/slider/slider-6.jpg"),
+      },
+    ]);
+
+    return {
+      carousel_img,
+    };
+  },
+};
 </script>
 
-<style>
+<style scoped>
 .carousel-wrapper {
-  margin-top: 120px;
+  margin-top: 130px;
 }
 
-.carousel-item img {
+.carousel {
+  height: max-content !important;
+}
+
+.carousel-img {
   width: 100%;
-  height: 600px;
+  height: 100%;
   object-fit: cover;
 }
 
-@media (max-width: 1200px) {
-  .carousel-item img {
-    width: 100%;
-    height: 500px;
-  }
-  .carousel-control-prev,
-  .carousel-control-next {
-    margin-top: 200px;
-  }
-}
-@media (max-width: 860px) {
-  .carousel-item img {
-    width: 100%;
-    height: 500px;
-    margin-top: 80px;
-  }
-  .carousel-control-prev,
-  .carousel-control-next {
-    margin-top: 100px;
-  }
-}
-@media (max-width: 770px) {
-  .carousel-wrapper {
-    margin-top: 0px;
-  }
-}
-@media (max-width: 500px) {
-  .carousel-item img {
-    height: 340px;
-    margin-top: 80px;
-  }
-  .carousel-control-prev,
-  .carousel-control-next {
-    margin-top: 100px;
-  }
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: max-content;
+  height: max-content;
+  padding: 25px;
+  border-radius: 50px;
+  background: var(--bacl);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+    rgb(209, 213, 219) 0px 0px 0px 1px inset;
 }
 </style>

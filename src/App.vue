@@ -35,7 +35,7 @@ export default {
 
       setTimeout(() => {
         loading.value = false;
-      }, 3000);
+      }, 1500);
     };
 
     watch(route, () => loadContent());

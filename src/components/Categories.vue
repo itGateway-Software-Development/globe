@@ -45,7 +45,7 @@
 
             <div class="break-line"><hr /></div>
 
-            <div class="availability">
+            <!-- <div class="availability">
               <div
                 class="filter-header d-flex align-items-center justify-content-between mb-2"
               >
@@ -71,7 +71,7 @@
                   class="checkbox"
                 ></v-checkbox>
               </div>
-            </div>
+            </div> -->
 
             <div class="break-line"><hr /></div>
 
@@ -80,15 +80,26 @@
                 class="filter-header d-flex align-items-center justify-content-between"
               >
                 <div class="d-flex align-items-center gap-2">
-                  <span class="material-symbols-outlined">
+                  <span
+                    class="material-symbols-outlined"
+                    v-if="priceShow"
+                    @click="priceShow = !priceShow"
+                  >
                     keyboard_arrow_up
+                  </span>
+                  <span
+                    class="material-symbols-outlined"
+                    v-else
+                    @click="priceShow = !priceShow"
+                  >
+                    keyboard_arrow_down
                   </span>
                   <h4>Price</h4>
                 </div>
                 <p class="reset" @click="resetPriceRange()">Reset</p>
               </div>
 
-              <div class="price-range">
+              <div class="price-range" v-if="priceShow">
                 <v-range-slider
                   v-model="priceRange"
                   :min="0"
@@ -128,12 +139,23 @@
 
             <div class="brand-filter">
               <div class="filter-header d-flex align-items-center gap-2">
-                <span class="material-symbols-outlined">
+                <span
+                  class="material-symbols-outlined"
+                  v-if="brandShow"
+                  @click="brandShow = !brandShow"
+                >
                   keyboard_arrow_up
+                </span>
+                <span
+                  class="material-symbols-outlined"
+                  v-else
+                  @click="brandShow = !brandShow"
+                >
+                  keyboard_arrow_down
                 </span>
                 <h4>Brand</h4>
               </div>
-              <ul class="list-items">
+              <ul class="list-items" v-if="brandShow">
                 <li
                   class="item"
                   v-for="(brand, index) in brandList"
@@ -144,6 +166,8 @@
                 </li>
               </ul>
             </div>
+
+            <div class="break-line"><hr /></div>
           </div>
         </div>
         <div class="col-12 col-md-9 col-xl-9">
@@ -183,35 +207,38 @@
                 :key="item.id"
               >
                 <div class="product-card">
-                  <div class="upper-card">
-                    <div class="product-img">
-                      <img
-                        :src="currentImage(item, index)"
-                        :class="{ 'fade-in': hoveredIndex === index }"
-                        alt=""
-                      />
-                    </div>
-                    <div class="product-content">
-                      <div class="product-type mb-2">
-                        <h4 class="hilight-font">{{ item.type }}</h4>
+                  <router-link to="/product/productdetail">
+                    <div class="upper-card">
+                      <div class="product-img">
+                        <img
+                          :src="currentImage(item, index)"
+                          :class="{ 'fade-in': hoveredIndex === index }"
+                          alt=""
+                        />
                       </div>
-                      <div class="product-name mb-2">
-                        <h4>{{ item.name }}</h4>
-                      </div>
-                      <div class="rating mb-2">
-                        <div class="">
-                          <v-rating
-                            readonly
-                            v-model="rating"
-                            active-color="orange-lighten-1"
-                            color="orange-lighten-1"
-                            size="mini"
-                          ></v-rating>
+                      <div class="product-content">
+                        <div class="product-type mb-2">
+                          <h4 class="hilight-font">{{ item.type }}</h4>
                         </div>
+                        <div class="product-name mb-2">
+                          <h4>{{ item.name }}</h4>
+                        </div>
+                        <div class="rating mb-2">
+                          <div class="">
+                            <v-rating
+                              readonly
+                              v-model="rating"
+                              active-color="orange-lighten-1"
+                              color="orange-lighten-1"
+                              size="mini"
+                            ></v-rating>
+                          </div>
+                        </div>
+                        <div class="price mb-2">${{ item.price }}</div>
                       </div>
-                      <div class="price mb-2">${{ item.price }}</div>
                     </div>
-                  </div>
+                  </router-link>
+
                   <div class="lower-card">
                     <div class="product-stock mb-3">
                       <p
@@ -260,35 +287,37 @@
                 @mouseleave="onMouseLeave(index)"
               >
                 <div class="product-card">
-                  <div class="upper-card">
-                    <div class="product-img">
-                      <img
-                        :src="currentImage(item, index)"
-                        :class="{ 'fade-in': hoveredIndex === index }"
-                        alt=""
-                      />
-                    </div>
-                    <div class="product-content">
-                      <div class="product-type mb-2">
-                        <h4 class="hilight-font">{{ item.type }}</h4>
+                  <router-link to="/product/productdetail">
+                    <div class="upper-card">
+                      <div class="product-img">
+                        <img
+                          :src="currentImage(item, index)"
+                          :class="{ 'fade-in': hoveredIndex === index }"
+                          alt=""
+                        />
                       </div>
-                      <div class="product-name mb-2">
-                        <h4>{{ item.name }}</h4>
-                      </div>
-                      <div class="rating mb-2">
-                        <div class="">
-                          <v-rating
-                            readonly
-                            v-model="rating"
-                            active-color="orange-lighten-1"
-                            color="orange-lighten-1"
-                            size="mini"
-                          ></v-rating>
+                      <div class="product-content">
+                        <div class="product-type mb-2">
+                          <h4 class="hilight-font">{{ item.type }}</h4>
                         </div>
+                        <div class="product-name mb-2">
+                          <h4>{{ item.name }}</h4>
+                        </div>
+                        <div class="rating mb-2">
+                          <div class="">
+                            <v-rating
+                              readonly
+                              v-model="rating"
+                              active-color="orange-lighten-1"
+                              color="orange-lighten-1"
+                              size="mini"
+                            ></v-rating>
+                          </div>
+                        </div>
+                        <div class="price mb-2">${{ item.price }}</div>
                       </div>
-                      <div class="price mb-2">${{ item.price }}</div>
                     </div>
-                  </div>
+                  </router-link>
                   <div class="lower-card">
                     <div class="product-stock mb-3">
                       <p
@@ -341,36 +370,39 @@
                       <img :src="item.hoverimg" alt="" id="img2" />
                     </div>
                     <div class="product-content">
-                      <div class="product-type mb-2">
-                        <h4 class="hilight-font">{{ item.type }}</h4>
-                      </div>
-                      <div class="product-name mb-2">
-                        <h4>{{ item.name }}</h4>
-                      </div>
-                      <div class="rating mb-2">
-                        <div class="">
-                          <v-rating
-                            readonly
-                            v-model="rating"
-                            active-color="orange-lighten-1"
-                            color="orange-lighten-1"
-                            size="mini"
-                          ></v-rating>
+                      <router-link to="/product/productdetail">
+                        <div class="product-type mb-2">
+                          <h4 class="hilight-font">{{ item.type }}</h4>
                         </div>
-                      </div>
-                      <div class="price mb-2">${{ item.price }}</div>
-                      <div class="stock mb-2">
-                        <div class="d-flex align-items-center gap-2">
-                          <span class="material-symbols-outlined">
-                            check_circle
-                          </span>
-                          <p>In Stock</p>
+                        <div class="product-name mb-2">
+                          <h4>{{ item.name }}</h4>
                         </div>
-                      </div>
-                      <div class="content mb-3">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Impedit modi omnis qui aspernatur, voluptas ut
-                      </div>
+                        <div class="rating mb-2">
+                          <div class="">
+                            <v-rating
+                              readonly
+                              v-model="rating"
+                              active-color="orange-lighten-1"
+                              color="orange-lighten-1"
+                              size="mini"
+                            ></v-rating>
+                          </div>
+                        </div>
+                        <div class="price mb-2">${{ item.price }}</div>
+                        <div class="stock mb-2">
+                          <div class="d-flex align-items-center gap-2">
+                            <span class="material-symbols-outlined">
+                              check_circle
+                            </span>
+                            <p>In Stock</p>
+                          </div>
+                        </div>
+                        <div class="content mb-3">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing
+                          elit. Impedit modi omnis qui aspernatur, voluptas ut
+                        </div></router-link
+                      >
+
                       <div class="button-group">
                         <button
                           class="btn add-to-cart list-btn d-flex align-items-center gap-3 primary-btn justify-content-center"
@@ -494,6 +526,9 @@ export default {
       },
     ]);
 
+    const priceShow = ref(true);
+    const brandShow = ref(true);
+
     const listView = ref("app");
 
     const changeView = (value) => {
@@ -593,6 +628,10 @@ export default {
       priceRange.value = [0, 500];
     };
 
+    onMounted(() => {
+      window.scroll(0, 0);
+    });
+
     return {
       categories,
       visibleCategories,
@@ -609,6 +648,8 @@ export default {
       rating,
       productList,
       currentImage,
+      priceShow,
+      brandShow,
     };
   },
 };
@@ -657,6 +698,7 @@ export default {
   font-family: "Gilory-bold", sans-serif;
   border-radius: 6px;
   margin: 6px 0px;
+  cursor: pointer;
 }
 
 .categories-card:hover {

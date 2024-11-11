@@ -452,7 +452,7 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 
 // Import Swiper styles
@@ -517,6 +517,10 @@ export default {
         hoverimg: require("@/assets/images/tablet/8.jpg"),
       },
     ]);
+
+    onMounted(() => {
+      window.scroll(0, 0);
+    });
 
     return {
       modules: [Pagination, Navigation],
