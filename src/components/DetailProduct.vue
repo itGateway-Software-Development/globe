@@ -77,12 +77,19 @@
           <div class="d-flex align-items-center gap-2">
             <div class="mini-img">
               <img
-                src="../assets/images/laptop/1.jpg"
+                src="../assets/images/laptop/4.jpg"
                 class="img-fluid"
                 alt=""
               />
             </div>
             <div class="mini-img">
+              <img
+                src="../assets/images/laptop/1.jpg"
+                class="img-fluid"
+                alt=""
+              />
+            </div>
+            <!-- <div class="mini-img">
               <img
                 src="../assets/images/laptop/1.jpg"
                 class="img-fluid"
@@ -95,14 +102,7 @@
                 class="img-fluid"
                 alt=""
               />
-            </div>
-            <div class="mini-img">
-              <img
-                src="../assets/images/laptop/1.jpg"
-                class="img-fluid"
-                alt=""
-              />
-            </div>
+            </div> -->
           </div>
         </div>
 
