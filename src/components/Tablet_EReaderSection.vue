@@ -76,7 +76,7 @@ export default {
 
 <style scoped>
 .laptop-wrapper {
-  margin-top: 90px;
+  margin-top: 80px;
 }
 
 .button-group ul {

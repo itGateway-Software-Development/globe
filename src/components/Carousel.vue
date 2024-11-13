@@ -19,7 +19,8 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
+import { useStore } from "vuex";
 export default {
   setup() {
     const carousel_img = ref([
@@ -42,6 +43,18 @@ export default {
         img: require("@/assets/images/slider/slider-6.jpg"),
       },
     ]);
+
+    const store = useStore();
+
+    const handleClick = () => {};
+
+    onMounted(() => {
+      document.addEventListener("click", handleClick);
+    });
+
+    onUnmounted(() => {
+      document.removeEventListener("click", handleClick);
+    });
 
     return {
       carousel_img,

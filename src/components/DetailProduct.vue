@@ -3,20 +3,32 @@
     <div class="row content content-wrapper">
       <div class="col-12 col-md-6 col-xl-6 mb-5">
         <div class="main-img mb-5 d-flex justify-content-center">
-          <img src="../assets/images/laptop/4.jpg" class="img-fluid" alt="" />
+          <img
+            :src="mainImage"
+            class="img-fluid"
+            alt=""
+            @mousemove="moveMagnifier"
+            @mouseover="showMagnifier"
+            @mouseout="hideMagnifier"
+          />
+          <div
+            class="magnifier"
+            ref="magnifier"
+            v-show="isMagnifierVisible"
+          ></div>
         </div>
         <div class="mini-img-list d-flex align-items-center gap-3">
           <div class="mini-img">
-            <img src="../assets/images/laptop/1.jpg" class="img-fluid" alt="" />
+            <img src="../assets/images/laptop/4.jpg" class="img-fluid" alt="" />
           </div>
           <div class="mini-img">
-            <img src="../assets/images/laptop/1.jpg" class="img-fluid" alt="" />
+            <img src="../assets/images/laptop/5.jpg" class="img-fluid" alt="" />
           </div>
           <div class="mini-img">
-            <img src="../assets/images/laptop/1.jpg" class="img-fluid" alt="" />
+            <img src="../assets/images/laptop/8.jpg" class="img-fluid" alt="" />
           </div>
           <div class="mini-img">
-            <img src="../assets/images/laptop/1.jpg" class="img-fluid" alt="" />
+            <img src="../assets/images/laptop/9.png" class="img-fluid" alt="" />
           </div>
         </div>
       </div>
@@ -474,6 +486,10 @@ export default {
     const description = ref(false);
     const delivery = ref(false);
     const shipping = ref(false);
+    const mainImage = ref(require("@/assets/images/laptop/4.jpg"));
+    const isMagnifierVisible = ref(false);
+    const magnifierSize = 200; // Size of magnifier square
+    const zoomLevel = 2; // Zoom level for magnification\
 
     const productList = ref([
       {
@@ -522,6 +538,48 @@ export default {
       window.scroll(0, 0);
     });
 
+    const showMagnifier = () => {
+      isMagnifierVisible.value = true;
+    };
+
+    const hideMagnifier = () => {
+      isMagnifierVisible.value = false;
+    };
+
+    const moveMagnifier = (e) => {
+      const img = e.target;
+      const magnifier = img.nextElementSibling;
+      const imgRect = img.getBoundingClientRect();
+      const mouseX = e.clientX - imgRect.left;
+      const mouseY = e.clientY - imgRect.top;
+
+      // Prevent magnifier from going out of image bounds
+      if (
+        mouseX < 0 ||
+        mouseY < 0 ||
+        mouseX > imgRect.width ||
+        mouseY > imgRect.height
+      ) {
+        hideMagnifier();
+        return;
+      }
+
+      const backgroundX = (mouseX / imgRect.width) * 100;
+      const backgroundY = (mouseY / imgRect.height) * 100;
+
+      magnifier.style.backgroundImage = `url(${mainImage.value})`;
+      magnifier.style.backgroundSize = `${imgRect.width * zoomLevel}px ${
+        imgRect.height * zoomLevel
+      }px`;
+      magnifier.style.backgroundPosition = `${backgroundX}% ${backgroundY}%`;
+
+      const magnifierX = mouseX - magnifierSize / 100;
+      const magnifierY = mouseY - magnifierSize / 100;
+
+      magnifier.style.left = `${magnifierX}px`;
+      magnifier.style.top = `${magnifierY}px`;
+    };
+
     return {
       modules: [Pagination, Navigation],
       rating,
@@ -529,6 +587,11 @@ export default {
       delivery,
       shipping,
       productList,
+      isMagnifierVisible,
+      showMagnifier,
+      hideMagnifier,
+      moveMagnifier,
+      mainImage,
     };
   },
 };
@@ -551,6 +614,7 @@ export default {
 
 .main-img img {
   object-fit: cover;
+  width: 100%;
 }
 
 .mini-img {
@@ -563,6 +627,30 @@ export default {
   border-radius: 10px;
   margin-bottom: 10px;
   cursor: pointer;
+}
+
+.magnifier {
+  display: none;
+  position: absolute;
+  /* border: 3px solid #000; */
+  width: 200px; /* Same as magnifierSize in script */
+  height: 200px; /* Same as magnifierSize in script */
+  pointer-events: none;
+  border-radius: 50%;
+  top: 100%;
+}
+
+.magnifier::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+}
+
+.magnifier {
+  display: block;
 }
 
 .review-link {

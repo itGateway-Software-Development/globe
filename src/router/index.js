@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import AboutView from "../views/AboutView.vue";
 import CategoriesView from "../views/CategoriesView.vue";
 import XPPenView from "../views/XPPenView.vue";
 import ContactUs from "../views/ContactUs.vue";
@@ -22,7 +23,7 @@ const routes = [
     component: XPPenView,
   },
   {
-    path: "/contact",
+    path: "/information/contact",
     name: "contact",
     component: ContactUs,
   },
@@ -31,6 +32,11 @@ const routes = [
     name: "productdetail",
     component: ProductDetail,
     prop: true,
+  },
+  {
+    path: "/information/aboutus",
+    name: "aboutus",
+    component: AboutView,
   },
 ];
 

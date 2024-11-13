@@ -58,6 +58,13 @@
                   <div class="product-name mb-2">
                     <h4>{{ item.name }}</h4>
                   </div>
+                  <div class="product-content-detail mb-2">
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quos animi ipsa sint laudantium sunt! Aliquid dicta nihil
+                      porro pariatur? Ratione.
+                    </p>
+                  </div>
                   <div class="rating mb-2">
                     <div class="">
                       <v-rating
@@ -781,16 +788,23 @@ export default {
 
 .product-card {
   width: 100%;
-  height: 375px;
+  height: 460px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   border-radius: 10px;
   transition: 0.3s linear;
   transform: translateZ(0px);
+  margin: 10px 0px;
 }
 
 .upper-card {
   padding: 15px 20px;
+}
+
+.product-content-detail {
+  height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-img {
@@ -816,6 +830,12 @@ export default {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.product-name h4 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .product-card h4:hover {
@@ -926,13 +946,12 @@ export default {
   margin: 0px !important;
 }
 
-@media (max-width: 768px) {
-  .product-card {
-    height: 400px;
-    margin-bottom: 10px;
-    border: 1px solid #111111;
-  }
+.content {
+  height: 50px;
+  text-overflow: ellipsis;
+}
 
+@media (max-width: 768px) {
   .product-card-list {
     padding: 10px;
     overflow: hidden !important;

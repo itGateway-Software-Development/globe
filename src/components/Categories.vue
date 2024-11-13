@@ -27,23 +27,11 @@
               </div>
             </div>
 
+            <div class="break-line"><hr /></div>
             <div class="filter-header d-flex align-items-center gap-2">
               <span class="material-symbols-outlined"> tune </span>
               <h4>FILTER BY</h4>
             </div>
-
-            <div class="break-line"><hr /></div>
-
-            <div class="clear-filter-btn">
-              <button
-                class="btn filter-btn d-flex align-item-center gap-2 justify-content-center"
-              >
-                <span class="material-symbols-outlined"> delete </span> Clear
-                All
-              </button>
-            </div>
-
-            <div class="break-line"><hr /></div>
 
             <!-- <div class="availability">
               <div
@@ -103,7 +91,7 @@
                 <v-range-slider
                   v-model="priceRange"
                   :min="0"
-                  :max="500"
+                  :max="5000000"
                   step="1"
                   class="price-slider"
                   track-fill-color="blue"
@@ -168,6 +156,16 @@
             </div>
 
             <div class="break-line"><hr /></div>
+
+            <div class="clear-filter-btn">
+              <button
+                class="btn filter-btn d-flex align-item-center gap-2 justify-content-center"
+              >
+                <span class="material-symbols-outlined"> delete </span> Clear
+                All
+              </button>
+            </div>
+            <div class="break-line"><hr /></div>
           </div>
         </div>
         <div class="col-12 col-md-9 col-xl-9">
@@ -222,6 +220,13 @@
                         </div>
                         <div class="product-name mb-2">
                           <h4>{{ item.name }}</h4>
+                        </div>
+                        <div class="product-content-detail">
+                          <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing
+                            elit. Assumenda cupiditate earum fugiat officiis
+                            error vel mollitia molestiae amet deserunt non.
+                          </p>
                         </div>
                         <div class="rating mb-2">
                           <div class="">
@@ -608,8 +613,8 @@ export default {
 
     // Initialize price range values
     const minPrice = ref(0);
-    const maxPrice = ref(500);
-    const priceRange = ref([0, 500]);
+    const maxPrice = ref(5000000);
+    const priceRange = ref([0, 5000000]);
 
     // Sync slider with min and max price fields
     watch(priceRange, (newVal) => {
@@ -624,8 +629,8 @@ export default {
     // Reset function for resetting the range to default
     const resetPriceRange = () => {
       minPrice.value = 0;
-      maxPrice.value = 500;
-      priceRange.value = [0, 500];
+      maxPrice.value = 5000000;
+      priceRange.value = [0, 5000000];
     };
 
     onMounted(() => {
@@ -663,10 +668,12 @@ export default {
   align-content: center;
   font-family: "Gilory-Bold", sans-serif;
   font-weight: bold;
+  margin-bottom: 30px;
 }
 
 .filter-header {
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .filter-header h4 {
@@ -676,7 +683,7 @@ export default {
 }
 
 .categories-filter {
-  margin: 30px 0px;
+  margin: 40px 0px;
   padding: 0px 10px;
 }
 
@@ -762,7 +769,8 @@ export default {
 }
 
 .price-field {
-  max-width: 80px;
+  max-width: 120px;
+  width: 100%;
   text-align: center;
   font-size: 14px;
 }
@@ -871,7 +879,7 @@ export default {
 
 .product-card {
   width: 100%;
-  height: 375px;
+  height: 450px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   border-radius: 10px;
@@ -906,6 +914,19 @@ export default {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.product-name h4 {
+  font-size: 22px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-content-detail {
+  height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-card h4:hover {

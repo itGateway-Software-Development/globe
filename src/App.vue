@@ -1,10 +1,12 @@
 <template>
   <v-app>
     <Navbar @menuHoverStatus="menuHoverEffect"></Navbar>
+
     <v-main :class="{ blurPage: isHover }">
       <Loading v-if="loading" />
       <router-view />
     </v-main>
+
     <Footer></Footer>
   </v-app>
   <Loading v-if="loading" />
@@ -14,8 +16,9 @@
 import Loading from "./components/Loading";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import { ref, watch, onMounted } from "vue";
+import { ref, watch, onMounted, onUnmounted, computed } from "vue";
 import { useRoute } from "vue-router";
+import { useStore } from "vuex";
 export default {
   components: {
     Loading,
@@ -27,6 +30,11 @@ export default {
     const isHover = ref(false);
     const menuHoverEffect = (data) => (isHover.value = data);
     const route = useRoute();
+    const store = useStore();
+
+    // const handleClick = (event) => {
+    //   console.log(searchUi.value);
+    // };
 
     const loading = ref(true);
 
@@ -47,6 +55,13 @@ export default {
       window.scroll(0, 0);
       loadContent();
     });
+    // onMounted(() => {
+    //   document.addEventListener("click", handleClick);
+    // });
+
+    // onUnmounted(() => {
+    //   document.removeEventListener("click", handleClick);
+    // });
 
     return {
       menuHoverEffect,

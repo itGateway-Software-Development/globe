@@ -57,12 +57,14 @@
             </div>
           </div>
 
-          <div class="search-group">
+          <div class="search-group" ref="searchBar">
             <span class="search-input-wrapper d-inline-flex align-items-center">
               <input
+                ref="searchInput"
                 type="text"
                 class="search-input"
                 placeholder="search ....."
+                @click="toggleSearch()"
               />
               <span
                 class="material-symbols-outlined icon cursor-pointer search-bar-icon prevent-select"
@@ -72,6 +74,27 @@
                 search
               </span>
             </span>
+
+            <div class="search-ui" v-if="searchUi">
+              <div class="search-ui-header">
+                <h6>Tranding Now</h6>
+              </div>
+              <hr class="px-0 py-0" />
+              <div
+                class="ternding-card-list d-flex align-items-center flex-wrap gap-3"
+              >
+                <div
+                  class="tranding-card"
+                  v-for="item in serachList"
+                  :key="item.index"
+                >
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="material-symbols-outlined"> search </span>
+                    <p>{{ item.name }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="top-menu d-flex align-items-center gap-4">
             <router-link to="/" class="d-flex align-items-center">
@@ -202,7 +225,7 @@
                   </router-link>
                 </li>
                 <li>
-                  <router-link to="/contact" class="menu-route">
+                  <router-link to="/information/contact" class="menu-route">
                     <p>Contact Us</p>
                   </router-link>
                 </li>
@@ -254,10 +277,10 @@
 <script>
 import MobileDrawer from "./MobileDrawer";
 import "@/assets/css/nav.css";
-import { onMounted, ref, onBeforeUnmount } from "vue";
+import { onMounted, ref, onBeforeUnmount, computed, onUnmounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
-
 import { useStore } from "vuex";
+import search from "../store/modules/search";
 
 export default {
   components: {
@@ -271,6 +294,56 @@ export default {
     const isScroll = ref(false);
     const isMobileSearch = ref(false);
     const route = useRoute();
+    const searchUi = ref(false);
+    const searchBar = ref(null);
+    const searchInput = ref(null);
+    const serachList = ref([
+      {
+        name: "Laptop",
+      },
+      {
+        name: "Speaker",
+      },
+      {
+        name: "Drawing Tablet",
+      },
+      {
+        name: "Keyboard",
+      },
+      {
+        name: "Mouse",
+      },
+      {
+        name: "Headphone",
+      },
+      {
+        name: "Earbuds",
+      },
+      {
+        name: "Tablets",
+      },
+      {
+        name: "Projector",
+      },
+      {
+        name: "Drawing Display",
+      },
+    ]);
+
+    const isSearchOpen = computed(() => store.getters.isSearchOpen);
+
+    const toggleSearch = () => {
+      searchUi.value = !searchUi.value;
+    };
+
+    const handleClickOutside = (event) => {
+      if (
+        event.target != searchBar.value &&
+        event.target != searchInput.value
+      ) {
+        searchUi.value = searchUi.value == true ? false : searchUi.value;
+      }
+    };
 
     const isNavbarVisible = ref(true);
     const fade_in = ref(false);
@@ -324,10 +397,12 @@ export default {
 
     onMounted(() => {
       window.addEventListener("scroll", handleNavShadow);
+      window.addEventListener("scroll", handleScroll);
+      window.addEventListener("click", handleClickOutside);
     });
 
-    onMounted(() => {
-      window.addEventListener("scroll", handleScroll);
+    onUnmounted(() => {
+      window.removeEventListener("click", handleClickOutside);
     });
 
     onBeforeUnmount(() => {
@@ -344,6 +419,12 @@ export default {
       isMobileSearch,
       route,
       fade_in,
+      serachList,
+      isSearchOpen,
+      toggleSearch,
+      searchUi,
+      searchBar,
+      searchInput,
     };
   },
 };

@@ -2,7 +2,7 @@
   <div class="categories-wrapper">
     <div class="block-banner text-center">
       <img
-        src="../assets/images/slider/slider-5.jpg"
+        src="../assets/images/xp_pen/banner-3.png"
         class="img-fluid"
         alt=""
       />
@@ -35,19 +35,6 @@
               <span class="material-symbols-outlined"> tune </span>
               <h4>FILTER BY</h4>
             </div>
-
-            <div class="break-line"><hr /></div>
-
-            <div class="clear-filter-btn">
-              <button
-                class="btn filter-btn d-flex align-item-center gap-2 justify-content-center"
-              >
-                <span class="material-symbols-outlined"> delete </span> Clear
-                All
-              </button>
-            </div>
-
-            <div class="break-line"><hr /></div>
 
             <!-- <div class="availability">
               <div
@@ -109,7 +96,7 @@
                 <v-range-slider
                   v-model="priceRange"
                   :min="0"
-                  :max="500"
+                  :max="5000000"
                   step="1"
                   class="price-slider"
                   track-fill-color="blue"
@@ -203,6 +190,16 @@
                 </li>
               </ul>
             </div>
+            <div class="break-line"><hr /></div>
+            <div class="clear-filter-btn">
+              <button
+                class="btn filter-btn d-flex align-item-center gap-2 justify-content-center"
+              >
+                <span class="material-symbols-outlined"> delete </span> Clear
+                All
+              </button>
+            </div>
+            <div class="break-line"><hr /></div>
           </div>
         </div>
         <div class="col-12 col-md-9 col-xl-9">
@@ -237,7 +234,7 @@
           <div class="product-list" v-if="listView == 'app'">
             <div class="row">
               <div
-                class="col-6 col-md-4 col-xl-4 mb-5"
+                class="col-6 col-md-3 col-xl-3 mb-5"
                 v-for="(item, index) in productList"
                 :key="item.id"
               >
@@ -439,43 +436,43 @@ export default {
     const productList = ref([
       {
         id: 1,
-        type: "tablet",
-        name: "Lenovo Tab K10",
-        price: "133",
-        stock: "20",
-        warrenty: "3",
-        img: require("@/assets/images/tablet/2.jpg"),
-        hoverimg: require("@/assets/images/tablet/1.jpg"),
-      },
-      {
-        id: 2,
-        type: "tablet",
-        name: "Lenovo Tab M8",
-        price: "131",
-        stock: "20",
-        warrenty: "3",
-        img: require("@/assets/images/tablet/3.jpg"),
-        hoverimg: require("@/assets/images/tablet/4.jpg"),
-      },
-      {
-        id: 3,
-        type: "tablet",
-        name: "Lenovo Tab M10 plus",
-        price: "232",
-        stock: "20",
-        warrenty: "3",
-        img: require("@/assets/images/tablet/5.jpg"),
-        hoverimg: require("@/assets/images/tablet/6.jpg"),
-      },
-      {
-        id: 4,
-        type: "tablet",
-        name: "Lenvo Duet Chromebook",
+        type: "Drawing Tablet",
+        name: "Artist 10 (2nd Gen)",
         price: "400",
         stock: "20",
         warrenty: "3",
-        img: require("@/assets/images/tablet/7.jpg"),
-        hoverimg: require("@/assets/images/tablet/8.jpg"),
+        img: require("@/assets/images/xp_pen/artist10.jpg"),
+        hoverimg: require("@/assets/images/xp_pen/deco_pro.jpg"),
+      },
+      {
+        id: 2,
+        type: "Drawing Tablet",
+        name: "Artist 12 (2nd Gen)",
+        price: "400",
+        stock: "20",
+        warrenty: "3",
+        img: require("@/assets/images/xp_pen/5.jpg"),
+        hoverimg: require("@/assets/images/xp_pen/6.jpg"),
+      },
+      {
+        id: 3,
+        type: "Drawing Tablet",
+        name: "Artist 16 (2nd Gen)",
+        price: "400",
+        stock: "20",
+        warrenty: "3",
+        img: require("@/assets/images/xp_pen/8.jpg"),
+        hoverimg: require("@/assets/images/xp_pen/7.jpg"),
+      },
+      {
+        id: 4,
+        type: "Drawing Tablet",
+        name: "Artist 22 pro",
+        price: "400",
+        stock: "20",
+        warrenty: "3",
+        img: require("@/assets/images/xp_pen/10.jpg"),
+        hoverimg: require("@/assets/images/xp_pen/9.jpg"),
       },
     ]);
 
@@ -508,8 +505,8 @@ export default {
 
     // Initialize price range values
     const minPrice = ref(0);
-    const maxPrice = ref(500);
-    const priceRange = ref([0, 500]);
+    const maxPrice = ref(5000000);
+    const priceRange = ref([0, 5000000]);
 
     // Sync slider with min and max price fields
     watch(priceRange, (newVal) => {
@@ -524,8 +521,8 @@ export default {
     // Reset function for resetting the range to default
     const resetPriceRange = () => {
       minPrice.value = 0;
-      maxPrice.value = 500;
-      priceRange.value = [0, 500];
+      maxPrice.value = 5000000;
+      priceRange.value = [0, 5000000];
     };
     onMounted(() => {
       window.scroll(0, 0);
@@ -559,7 +556,7 @@ export default {
 <style scoped>
 .block-banner {
   width: 100%;
-  height: 200px;
+  height: 300px;
   align-content: center;
   font-family: "Gilory-Bold", sans-serif;
   font-weight: bold;
@@ -567,8 +564,8 @@ export default {
 
 .block-banner img {
   width: 100%;
-  height: 200px;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
 }
 
 .product-section {
@@ -578,6 +575,7 @@ export default {
 
 .filter-header {
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .filter-header h4 {
@@ -587,7 +585,7 @@ export default {
 }
 
 .categories-filter {
-  margin: 30px 0px;
+  margin: 40px 0px;
   padding: 0px 10px;
 }
 
@@ -673,7 +671,8 @@ export default {
 }
 
 .price-field {
-  max-width: 80px;
+  max-width: 120px;
+  width: 100%;
   text-align: center;
   font-size: 14px;
 }
@@ -787,16 +786,20 @@ export default {
   border-radius: 10px;
   transition: 0.3s linear;
   padding: 10px 20px;
+  text-overflow: ellipsis;
 }
 
 .product-card h4 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   cursor: pointer;
 }
 
 .product-card .product-content h4 {
-  font-size: 22px;
+  white-space: nowrap;
+  font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-card .product-content p {
@@ -825,7 +828,7 @@ export default {
 
 .product-card .button-group {
   border: 1px solid #fff;
-  padding: 5px;
+  padding: 1px;
   display: flex;
   align-items: center;
   border-radius: 10px;
@@ -834,6 +837,10 @@ export default {
 
 .product-card .button-group .cart-btn {
   color: #fff;
+}
+
+.cart-btn .material-symbols-outlined {
+  font-size: 20px !important;
 }
 
 .product-img {

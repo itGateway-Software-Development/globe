@@ -21,7 +21,7 @@ export default {
 
 <style scoped>
 .brand-wrapper {
-  margin-top: 90px;
+  margin-top: 80px;
 }
 
 img {

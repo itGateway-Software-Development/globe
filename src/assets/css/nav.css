@@ -1,8 +1,9 @@
 .nav-wrapper {
+  max-width: 1920px;
   width: 100%;
   height: max-content;
   top: 0;
-  z-index: 999;
+  z-index: 99999;
   background: var(--background-white-color);
   transition: 0.3s ease-in-out;
   position: fixed;
@@ -206,6 +207,48 @@
   font-size: 18px !important;
 }
 
+.search-ui {
+  width: 600px;
+  background: #fcfafa;
+  position: absolute;
+  z-index: 9;
+  top: 48%;
+  border-radius: 10px;
+  padding: 20px 20px;
+  box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px,
+    rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px,
+    rgba(42, 51, 70, 0.04) 0px 2px 2px -1px,
+    rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px,
+    rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px,
+    rgba(42, 51, 70, 0.03) 0px 10px 10px -5px,
+    rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
+}
+
+.search-ui-header h6 {
+  font-family: "Gilory-bold", sans-serif;
+  font-weight: bold;
+}
+
+.tranding-card {
+  background: #ededed;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.tranding-card .material-symbols-outlined {
+  font-size: 20px;
+}
+
+.tranding-card p {
+  margin: 0px !important;
+}
+
+.tranding-card:hover {
+  background: var(--background-color);
+  color: var(--font-color-white);
+}
+
 /* search input end */
 
 /* menu dropdown  */
@@ -338,6 +381,10 @@
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
   }
+
+  .search-ui {
+    width: 500px;
+  }
 }
 
 @media (max-width: 1070px) {
@@ -369,6 +416,10 @@
 @media (max-width: 890px) {
   .upper-nav .search-input.searching {
     width: 280px;
+  }
+
+  .search-ui {
+    width: 400px;
   }
 }
 
