@@ -162,22 +162,19 @@
 
             <div class="break-line"><hr /></div>
 
+            <div class="clear-filter-btn">
+              <button
+                class="btn filter-btn d-flex align-item-center gap-2 justify-content-center"
+              >
+                <span class="material-symbols-outlined"> delete </span> Clear
+                All
+              </button>
+            </div>
+            <div class="break-line"><hr /></div>
             <div class="compatibility">
               <div class="filter-header d-flex align-items-center gap-2">
-                <span
-                  class="material-symbols-outlined"
-                  v-if="compatibilityShow"
-                  @click="compatibilityShow = !compatibilityShow"
-                >
-                  keyboard_arrow_up
-                </span>
-                <span
-                  class="material-symbols-outlined"
-                  v-else
-                  @click="compatibilityShow = !compatibilityShow"
-                >
-                  keyboard_arrow_down
-                </span>
+                <span class="material-symbols-outlined"> token </span>
+
                 <h4>Compatibility</h4>
               </div>
               <ul class="d-flex align-items-center" v-if="compatibilityShow">
@@ -189,15 +186,6 @@
                   <img :src="icon.logo" alt="" />
                 </li>
               </ul>
-            </div>
-            <div class="break-line"><hr /></div>
-            <div class="clear-filter-btn">
-              <button
-                class="btn filter-btn d-flex align-item-center gap-2 justify-content-center"
-              >
-                <span class="material-symbols-outlined"> delete </span> Clear
-                All
-              </button>
             </div>
             <div class="break-line"><hr /></div>
           </div>
