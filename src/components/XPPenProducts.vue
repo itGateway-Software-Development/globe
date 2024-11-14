@@ -550,6 +550,11 @@ export default {
   font-weight: bold;
 }
 
+.col-md-3,
+.col-xl-3 {
+  padding: 0px 10px;
+}
+
 .block-banner img {
   width: 100%;
   height: 100%;
@@ -790,9 +795,16 @@ export default {
   text-overflow: ellipsis;
 }
 
+.product-content {
+  text-overflow: ellipsis;
+}
+
 .product-card .product-content p {
   font-size: 16px !important;
   opacity: 0.8;
+  height: 45px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .product-card .price h4 {

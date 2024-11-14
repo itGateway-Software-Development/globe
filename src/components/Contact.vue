@@ -194,6 +194,7 @@ export default {};
 }
 
 .address h4 {
+  width: 90px;
   margin-bottom: 0px !important;
   font-size: 20px;
   font-family: "Gilory-Bold", sans-serif;
@@ -201,7 +202,7 @@ export default {};
 }
 
 .opening-time h4 {
-  width: 190px;
+  width: 90px;
   font-size: 20px;
   font-family: "Gilory-Bold", sans-serif;
   font-weight: bold;
@@ -249,7 +250,7 @@ export default {};
 }
 
 .map {
-  margin-top: 40px;
+  margin-top: 50px;
   overflow: hidden;
   border-radius: 10px;
   width: 100%;
