@@ -209,10 +209,11 @@
 
 .search-ui {
   width: 600px;
+  height: 400px;
   background: #fcfafa;
   position: absolute;
   z-index: 9;
-  top: 48%;
+  top: 55%;
   border-radius: 10px;
   padding: 20px 20px;
   box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px,
@@ -222,6 +223,7 @@
     rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px,
     rgba(42, 51, 70, 0.03) 0px 10px 10px -5px,
     rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
+  overflow: auto;
 }
 
 .search-ui-header h6 {

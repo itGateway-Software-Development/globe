@@ -94,10 +94,15 @@
                   </div>
                 </div>
               </div>
+              <div class="search-ui-header mt-5">
+                <h6>Popular Item</h6>
+              </div>
+              <hr class="px-0 py-0" />
+              <PopularProduct></PopularProduct>
             </div>
           </div>
           <div class="top-menu d-flex align-items-center gap-4">
-            <router-link to="/" class="d-flex align-items-center">
+            <router-link to="/cart" class="d-flex align-items-center">
               <span class="material-symbols-outlined"> shopping_cart </span>
               <span class="cardtotal text-center">0</span>
             </router-link>
@@ -275,6 +280,7 @@
 </template>
 
 <script>
+import PopularProduct from "./search/PopularProduct";
 import MobileDrawer from "./MobileDrawer";
 import "@/assets/css/nav.css";
 import { onMounted, ref, onBeforeUnmount, computed, onUnmounted } from "vue";
@@ -284,6 +290,7 @@ import search from "../store/modules/search";
 
 export default {
   components: {
+    PopularProduct,
     MobileDrawer,
   },
   setup(props, { emit }) {
@@ -429,7 +436,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .active {
   transform: translateX(0px) !important;
 }
@@ -440,5 +447,24 @@ export default {
 
 .fade-in {
   top: 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  width: 7px;
+  height: 5px !important;
+  border-radius: 10px !important;
+  border: 3px solid #dfdfdf;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #efefef;
+  border-radius: 10px;
+  border: 1px solid #dfdfdf;
 }
 </style>

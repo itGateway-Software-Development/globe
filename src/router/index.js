@@ -5,6 +5,7 @@ import CategoriesView from "../views/CategoriesView.vue";
 import XPPenView from "../views/XPPenView.vue";
 import ContactUs from "../views/ContactUs.vue";
 import ProductDetail from "../views/product/ProductDetail.vue";
+import Cart from "../views/Cart.vue";
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
     path: "/information/aboutus",
     name: "aboutus",
     component: AboutView,
+  },
+  {
+    path: "/cart",
+    name: "cart",
+    component: Cart,
   },
 ];
 
