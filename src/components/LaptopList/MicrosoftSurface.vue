@@ -34,6 +34,7 @@
                     :class="{ 'fade-in': hoveredIndex === index }"
                     alt=""
                   />
+                  <i class="fa-solid fa-heart" v-if="hoverIcon === index"></i>
                 </div>
                 <div class="product-content">
                   <div class="product-type mb-2">
@@ -145,14 +146,17 @@ export default {
     ]);
 
     const hoveredIndex = ref(null);
+    const hoverIcon = ref(null);
 
     // Handle mouse enter and leave to change image
     const onMouseEnter = (index) => {
       hoveredIndex.value = index;
+      hoverIcon.value = index;
     };
 
     const onMouseLeave = () => {
       hoveredIndex.value = null;
+      hoverIcon.value = null;
     };
 
     // Determine current image based on hover state
@@ -169,6 +173,7 @@ export default {
       onMouseEnter,
       onMouseLeave,
       currentImage,
+      hoverIcon,
     };
   },
 };
@@ -238,6 +243,26 @@ export default {
   transform: translateZ(0px);
 }
 
+.fa-heart {
+  width: max-content;
+  height: max-content;
+  right: 20px;
+  padding: 15px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  background: #ffffff;
+  position: absolute;
+  border-radius: 50%;
+  transition: 0.4s ease-in;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.fa-heart:hover {
+  background: var(--background-color);
+  color: #ffffff;
+}
+
 .upper-card {
   padding: 15px 20px;
 }
@@ -293,7 +318,8 @@ export default {
   transition: all 0.5s linear;
   transform: translateY(-200px);
   opacity: 0;
-  padding: 0px 10px;
+  padding: 10px 10px;
+  margin-bottom: 10px;
 }
 
 .lower-card .product-stock {
@@ -364,6 +390,7 @@ export default {
 @media (max-width: 600px) {
   .product-card {
     height: 380px;
+    margin-bottom: 10px;
   }
 }
 

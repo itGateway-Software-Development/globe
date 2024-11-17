@@ -348,7 +348,6 @@ export default {
     const isNavbarVisible = ref(true);
     const fade_in = ref(false);
     const lastScrollY = ref(window.scrollY);
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 

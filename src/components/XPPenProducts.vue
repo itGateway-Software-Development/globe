@@ -225,6 +225,8 @@
                 class="col-6 col-md-3 col-xl-3 mb-5"
                 v-for="(item, index) in productList"
                 :key="item.id"
+                @mouseenter="onMouseEnter(index)"
+                @mouseleave="onMouseLeave(index)"
               >
                 <div class="product-card">
                   <router-link to="/product/productdetail">
@@ -234,6 +236,10 @@
                     <div class="product-img">
                       <img :src="item.img" alt="" id="img1" />
                       <img :src="item.hoverimg" alt="" id="img2" />
+                      <i
+                        class="fa-solid fa-heart"
+                        v-if="hoverIcon === index"
+                      ></i>
                     </div>
                     <div class="product-content mb-2">
                       <h4>{{ item.name }}</h4>
@@ -277,12 +283,18 @@
                 class="product-box"
                 v-for="(item, index) in productList"
                 :key="item.id"
+                @mouseenter="onMouseEnter(index)"
+                @mouseleave="onMouseLeave(index)"
               >
                 <div class="product-card-list w-100 mb-5">
                   <div class="d-flex align-items-center gap-5">
                     <div class="product-img-list">
                       <img :src="item.img" alt="" id="img1" />
                       <img :src="item.hoverimg" alt="" id="img2" />
+                      <i
+                        class="fa-solid fa-heart"
+                        v-if="hoverIcon === index"
+                      ></i>
                     </div>
                     <div class="product-content">
                       <router-link to="/product/productdetail">
@@ -465,14 +477,17 @@ export default {
     ]);
 
     const hoveredIndex = ref(null);
+    const hoverIcon = ref(null);
 
     // Handle mouse enter and leave to change image
     const onMouseEnter = (index) => {
       hoveredIndex.value = index;
+      hoverIcon.value = index;
     };
 
     const onMouseLeave = () => {
       hoveredIndex.value = null;
+      hoverIcon.value = null;
     };
 
     // Determine current image based on hover state
@@ -536,6 +551,7 @@ export default {
       priceShow,
       filterShow,
       compatibilityShow,
+      hoverIcon,
     };
   },
 };
@@ -780,6 +796,27 @@ export default {
   transition: 0.3s linear;
   padding: 10px 20px;
   text-overflow: ellipsis;
+}
+
+.fa-heart {
+  width: max-content;
+  height: max-content;
+  top: 10px;
+  right: 0;
+  padding: 15px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  background: #ffffff;
+  position: absolute;
+  border-radius: 50%;
+  transition: 0.4s ease-in;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.fa-heart:hover {
+  background: var(--background-color);
+  color: #ffffff;
 }
 
 .product-card h4 {
