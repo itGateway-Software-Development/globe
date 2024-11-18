@@ -186,50 +186,94 @@
         </div>
       </div>
 
-      <div class="contact-header text-center second-header">
-        <h2>Message Us</h2>
-        <p>We'll get you back to you within 24 hours.</p>
-      </div>
+      <div class="row">
+        <div class="col-12 col-md-6 col-xl-6">
+          <div class="bottom-card">
+            <div class="contact-header text-center second-header">
+              <h2>Contact Us</h2>
+              <p>You can also contact us with the following information</p>
+            </div>
 
-      <div class="message-box">
-        <div class="d-flex align-items-center gap-5 flex-wrap box-group">
-          <div class="name-group">
-            <h6>First name</h6>
-            <v-text-field label="First name" variant="outlined"></v-text-field>
+            <div class="contact-information">
+              <div class="address d-flex">
+                <h6>Address:</h6>
+                <p>
+                  No.508 A, Lower Kyee Myin daing Road, (Home Lan Bus Stop),
+                  Kyee Myin Daing Township. Yangon.
+                </p>
+              </div>
+              <div class="contact d-flex">
+                <h6>Contact:</h6>
+                <p>+959 880 441 046</p>
+              </div>
+              <div class="contact d-flex">
+                <h6>Email:</h6>
+                <p>info@globetradingmm.com</p>
+              </div>
+              <div class="contact d-flex">
+                <h6>Opening time:</h6>
+                <p>Everyday from 9AM to 6PM</p>
+              </div>
+              <div class="socail-group">
+                <div class="socail-header">
+                  <h6>Social Link</h6>
+                </div>
+
+                <div class="d-flex align-items-center gap-3">
+                  <a href="/" class="social-icon">
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a href="/" class="social-icon">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                  <a href="/" class="social-icon">
+                    <i class="fa-brands fa-tiktok"></i>
+                  </a>
+                  <a href="/" class="social-icon">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="name-group">
-            <h6>Last name</h6>
-            <v-text-field label="last name" variant="outlined"></v-text-field>
+        </div>
+        <div class="col-12 col-md-6 col-xl-6">
+          <div class="bottom-card">
+            <div class="contact-header text-center second-header">
+              <h2>Message Us</h2>
+              <p>We'll get you back to you within 24 hours.</p>
+            </div>
+
+            <div class="message-box">
+              <div class="d-flex align-items-center gap-2">
+                <div class="name-group">
+                  <h6>Name</h6>
+                  <input type="text" placeholder="Your Name" />
+                </div>
+
+                <div class="name-group">
+                  <h6>Email</h6>
+                  <input type="email" placeholder="Your Email" />
+                </div>
+              </div>
+
+              <div class="name-group">
+                <h6>Phone Number</h6>
+                <input type="number" placeholder="Phone Number" />
+              </div>
+
+              <div class="name-group">
+                <h6>Message</h6>
+                <textarea name="" id="" placeholder="Message"></textarea>
+              </div>
+
+              <div class="button">
+                <button class="btn message-btn text-center">
+                  Send Message
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="email">
-          <h6>Email</h6>
-          <v-text-field
-            label="you@gmail.com"
-            variant="outlined"
-            type="email"
-          ></v-text-field>
-        </div>
-
-        <div class="email">
-          <h6>Email</h6>
-          <v-text-field
-            label="09 - 0000000"
-            variant="outlined"
-            type="number"
-          ></v-text-field>
-        </div>
-
-        <div class="email">
-          <h6>Message</h6>
-          <v-textarea
-            label="Leave us a message..."
-            variant="outlined"
-          ></v-textarea>
-        </div>
-
-        <div class="button">
-          <button class="btn message-btn text-center">Send Message</button>
         </div>
       </div>
     </div>
@@ -263,7 +307,7 @@ export default {
 }
 
 .second-header {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .contact-header h2 {
@@ -288,22 +332,37 @@ export default {
   margin-bottom: 10px;
 }
 
+.bottom-card {
+  width: 100%;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
 .icon {
-  padding: 10px 15px;
+  width: 60px !important;
+  height: 40px !important;
+  padding: 10px 20px;
   background: #b5d5f2;
   width: max-content;
   border-radius: 10px;
   color: #0a65af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.icon .fa-regular {
+/* .icon .fa-regular {
   font-size: 20px;
 }
 
 .icon .fa-solid {
   font-size: 20px;
   padding: 0px 2px;
-}
+} */
 
 .contact-card .icon {
   margin-bottom: 30px;
@@ -316,6 +375,7 @@ export default {
 .card-text h5 {
   font-weight: bold;
   margin-bottom: 5px !important;
+
   font-family: "Gilory-Bold", sans-serif;
 }
 
@@ -343,28 +403,39 @@ export default {
 }
 
 .message-box {
-  max-width: 650px;
   width: 100%;
   margin: 0px auto;
 }
 
 .box-group {
-  max-width: 650px;
   width: 100%;
 }
 
 .name-group {
-  max-width: 301px;
   width: 100%;
+  margin-bottom: 10px;
+}
+
+.name-group input {
+  width: 100%;
+  padding: 10px;
+  height: 40px;
+  border: 0.5px solid #8f8f8f;
+  border-radius: 6px;
+}
+
+.name-group textarea {
+  width: 100%;
+  border: 0.5px solid #8f8f8f;
+  border-radius: 6px;
+  padding: 10px;
 }
 
 .email {
-  max-width: 650px;
   width: 100%;
 }
 
 .button {
-  max-width: 650px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -381,6 +452,63 @@ export default {
 }
 
 .message-btn:hover {
+  background: #0a65af;
+}
+
+.address,
+.contact {
+  margin-bottom: 20px;
+}
+
+.address h6 {
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 18px;
+  width: 220px;
+  font-family: "Gilory-Bold", sans-serif;
+}
+
+.address p {
+  font-size: 16px !important;
+  font-weight: bold;
+}
+
+.contact h6 {
+  width: 140px;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: "Gilory-Bold", sans-serif;
+}
+
+.contact p {
+  font-size: 16px !important;
+  font-weight: bold;
+}
+
+.socail-header {
+  margin-bottom: 20px;
+}
+
+.socail-header h6 {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Gilory-Bold", sans-serif;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--background-color);
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  align-items: center;
+  color: #fff !important;
+}
+
+.social-icon:hover {
   background: #0a65af;
 }
 
