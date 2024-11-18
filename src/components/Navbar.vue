@@ -77,7 +77,7 @@
 
             <div class="search-ui" v-if="searchUi">
               <div class="search-ui-header">
-                <h6>Tranding Now</h6>
+                <h6>Trending Now</h6>
               </div>
               <hr class="px-0 py-0" />
               <div
