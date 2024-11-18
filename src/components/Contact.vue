@@ -144,7 +144,7 @@
             </div>
             <div class="card-text">
               <h5>Chat to support</h5>
-              <p>We're here forhelp</p>
+              <p>We're here for help</p>
             </div>
             <div class="card-button">
               <a href="/" class="card-btn btn">Chat to support</a>
@@ -157,7 +157,7 @@
               <i class="fa-solid fa-location-dot"></i>
             </div>
             <div class="card-text">
-              <h5>visit us</h5>
+              <h5>Visit us</h5>
               <p>Visit our store</p>
             </div>
             <div class="card-button">
@@ -177,7 +177,7 @@
             </div>
             <div class="card-text">
               <h5>Call us</h5>
-              <p>All week from 9am to 6pm</p>
+              <p>Everyday from 9AM to 6PM</p>
             </div>
             <div class="card-button">
               <a @click="callUs()" class="card-btn btn">Call our store</a>
