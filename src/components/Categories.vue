@@ -101,25 +101,39 @@
                 ></v-range-slider>
 
                 <!-- Min and Max Price Inputs -->
-                <v-row align="center" justify="center" class="price-inputs">
-                  <v-text-field
+                <div
+                  class="d-flex align-items-center flex-wrap gap-2 justify-content-center"
+                >
+                  <input
+                    type="number"
+                    v-model="minPrice"
+                    class="price-field text-center"
+                  />
+                  <span class="divider"> - </span>
+                  <input
+                    type="number"
+                    v-model="maxPrice"
+                    class="price-field text-center"
+                  />
+                </div>
+                <!-- <v-text-field
                     v-model="minPrice"
                     type="number"
                     hide-details
                     variant="outlined"
                     solo
                     class="price-field"
-                  ></v-text-field>
-                  <span class="divider"> - </span>
-                  <v-text-field
+                    style="ma"
+                  ></v-text-field> -->
+
+                <!-- <v-text-field
                     v-model="maxPrice"
                     type="number"
                     hide-details
                     variant="outlined"
                     solo
                     class="price-field"
-                  ></v-text-field>
-                </v-row>
+                  ></v-text-field> -->
               </div>
             </div>
 
@@ -700,6 +714,7 @@ export default {
   margin: 0px;
   font-family: "Gilory-Bold", sans-serif;
   font-weight: bold;
+  font-size: 19px !important;
 }
 
 .categories-filter {
@@ -789,10 +804,18 @@ export default {
 }
 
 .price-field {
-  max-width: 120px;
-  width: 100%;
+  width: 100px;
   text-align: center;
   font-size: 14px;
+  border: 0.5px solid #333;
+  padding: 8px 0px;
+  border-radius: 6px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .divider {

@@ -106,7 +106,22 @@
                 ></v-range-slider>
 
                 <!-- Min and Max Price Inputs -->
-                <v-row align="center" justify="center" class="price-inputs">
+                <div
+                  class="d-flex align-items-center flex-wrap gap-2 justify-content-center"
+                >
+                  <input
+                    type="number"
+                    v-model="minPrice"
+                    class="price-field text-center"
+                  />
+                  <span class="divider"> - </span>
+                  <input
+                    type="number"
+                    v-model="maxPrice"
+                    class="price-field text-center"
+                  />
+                </div>
+                <!-- <v-row align="center" justify="center" class="price-inputs">
                   <v-text-field
                     v-model="minPrice"
                     type="number"
@@ -124,7 +139,7 @@
                     solo
                     class="price-field"
                   ></v-text-field>
-                </v-row>
+                </v-row> -->
               </div>
             </div>
 
@@ -230,9 +245,9 @@
               >
                 <div class="product-card">
                   <router-link to="/product/productdetail">
-                    <div class="product-type text-right mb-2">
+                    <!-- <div class="product-type text-right mb-2">
                       <h4>{{ item.type }}</h4>
-                    </div>
+                    </div> -->
                     <div class="product-img">
                       <img :src="item.img" alt="" id="img1" />
                       <img :src="item.hoverimg" alt="" id="img2" />
@@ -591,6 +606,7 @@ export default {
   margin: 0px;
   font-family: "Gilory-Bold", sans-serif;
   font-weight: bold;
+  font-size: 19px !important;
 }
 
 .categories-filter {
@@ -680,10 +696,18 @@ export default {
 }
 
 .price-field {
-  max-width: 120px;
-  width: 100%;
+  width: 100px;
   text-align: center;
   font-size: 14px;
+  border: 0.5px solid #333;
+  padding: 8px 0px;
+  border-radius: 6px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .divider {
@@ -796,6 +820,12 @@ export default {
   transition: 0.3s linear;
   padding: 10px 20px;
   text-overflow: ellipsis;
+}
+
+.product-card .fa-heart {
+  padding: 10px;
+  font-size: 14px;
+  top: 0;
 }
 
 .fa-heart {

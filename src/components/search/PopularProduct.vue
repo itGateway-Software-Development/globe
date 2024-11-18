@@ -1,8 +1,6 @@
 <template>
   <div class="popular-product-wrapper">
-    <div
-      class="d-flex flex-wrap gap-4 align-items-center justify-content-center"
-    >
+    <div class="d-flex flex-wrap gap-4 align-items-center">
       <div
         class="product-card"
         v-for="(item, index) in popularProduct"
@@ -98,6 +96,7 @@ export default {
 
 <style scoped>
 .product-card {
+  width: max-content;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   border-radius: 6px;
@@ -110,6 +109,13 @@ export default {
   background: #ffffff;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
+}
+
+.product-name {
+  width: 120px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .product-name h6 {

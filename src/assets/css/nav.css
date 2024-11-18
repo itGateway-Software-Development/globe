@@ -239,16 +239,27 @@
 }
 
 .tranding-card .material-symbols-outlined {
-  font-size: 20px;
+  font-size: 16px;
+  opacity: 0.8;
 }
 
 .tranding-card p {
   margin: 0px !important;
+  opacity: 0.8;
+  font-size: 15px !important;
 }
 
 .tranding-card:hover {
   background: var(--background-color);
   color: var(--font-color-white);
+}
+
+.tranding-card:hover p {
+  opacity: 1;
+}
+
+.tranding-card:hover .material-symbols-outlined {
+  opacity: 1;
 }
 
 /* search input end */

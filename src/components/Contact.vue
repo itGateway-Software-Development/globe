@@ -1,9 +1,9 @@
 <template>
   <div class="contact-us">
-    <div class="block-banner text-center">
+    <!-- <div class="block-banner text-center">
       <h1>CONTACT US</h1>
-    </div>
-    <div class="content-wrapper contact-group">
+    </div> -->
+    <!-- <div class="content-wrapper contact-group">
       <div class="row">
         <div class="col-12 col-md-6 col-xl-6">
           <div class="input-form">
@@ -114,16 +114,287 @@
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
+    </div> -->
+
+    <div class="content-wrapper contact-group">
+      <div class="contact-header text-center">
+        <h2>Get in touch</h2>
+        <p>Ready to help you.Let's Chat about how can we help</p>
+      </div>
+
+      <div class="row card-section">
+        <div class="col-12 col-md-6 col-xl-3">
+          <div class="contact-card">
+            <div class="icon">
+              <i class="fa-regular fa-comment"></i>
+            </div>
+            <div class="card-text">
+              <h5>Chat to sales</h5>
+              <p>Speak to our friendly sales</p>
+            </div>
+            <div class="card-button">
+              <a href="/" class="card-btn btn">Chat to sales</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3">
+          <div class="contact-card">
+            <div class="icon">
+              <i class="fa-regular fa-comments"></i>
+            </div>
+            <div class="card-text">
+              <h5>Chat to support</h5>
+              <p>We're here forhelp</p>
+            </div>
+            <div class="card-button">
+              <a href="/" class="card-btn btn">Chat to support</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3">
+          <div class="contact-card">
+            <div class="icon">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="card-text">
+              <h5>visit us</h5>
+              <p>Visit our store</p>
+            </div>
+            <div class="card-button">
+              <a
+                href="https://maps.app.goo.gl/WBdViVkU6wvevsot7"
+                target="_blank"
+                class="card-btn btn"
+                >Get directions</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3">
+          <div class="contact-card">
+            <div class="icon">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="card-text">
+              <h5>Call us</h5>
+              <p>All week from 9am to 6pm</p>
+            </div>
+            <div class="card-button">
+              <a @click="callUs()" class="card-btn btn">Call our store</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-header text-center second-header">
+        <h2>Message Us</h2>
+        <p>We'll get you back to you within 24 hours.</p>
+      </div>
+
+      <div class="message-box">
+        <div class="d-flex align-items-center gap-5 flex-wrap box-group">
+          <div class="name-group">
+            <h6>First name</h6>
+            <v-text-field label="First name" variant="outlined"></v-text-field>
+          </div>
+          <div class="name-group">
+            <h6>Last name</h6>
+            <v-text-field label="last name" variant="outlined"></v-text-field>
+          </div>
+        </div>
+        <div class="email">
+          <h6>Email</h6>
+          <v-text-field
+            label="you@gmail.com"
+            variant="outlined"
+            type="email"
+          ></v-text-field>
+        </div>
+
+        <div class="email">
+          <h6>Email</h6>
+          <v-text-field
+            label="09 - 0000000"
+            variant="outlined"
+            type="number"
+          ></v-text-field>
+        </div>
+
+        <div class="email">
+          <h6>Message</h6>
+          <v-textarea
+            label="Leave us a message..."
+            variant="outlined"
+          ></v-textarea>
+        </div>
+
+        <div class="button">
+          <button class="btn message-btn text-center">Send Message</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import Swal from "sweetalert2";
+export default {
+  setup() {
+    const callUs = () => {
+      Swal.fire({
+        title: "+959 880 441 046",
+        text: "Here our number call us",
+        icon: "info",
+      });
+    };
+
+    return {
+      callUs,
+    };
+  },
+};
 </script>
 
 <style scoped>
-.block-banner {
+/* --- new design ----*/
+
+.contact-header {
+  margin-bottom: 60px;
+}
+
+.second-header {
+  margin-bottom: 30px;
+}
+
+.contact-header h2 {
+  font-weight: bold;
+  font-family: "Gilory-Bold", sans-serif;
+}
+
+.contact-header p {
+  color: #8f8f8f;
+}
+
+.card-section {
+  margin-bottom: 100px;
+}
+
+.contact-card {
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.icon {
+  padding: 10px 15px;
+  background: #b5d5f2;
+  width: max-content;
+  border-radius: 10px;
+  color: #0a65af;
+}
+
+.icon .fa-regular {
+  font-size: 20px;
+}
+
+.icon .fa-solid {
+  font-size: 20px;
+  padding: 0px 2px;
+}
+
+.contact-card .icon {
+  margin-bottom: 30px;
+}
+
+.card-text {
+  margin-bottom: 20px;
+}
+
+.card-text h5 {
+  font-weight: bold;
+  margin-bottom: 5px !important;
+  font-family: "Gilory-Bold", sans-serif;
+}
+
+.card-text p {
+  color: #8f8f8f;
+}
+
+.card-btn {
+  padding: 10px 15px;
+  border: 0.5px solid #8f8f8f;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+}
+
+.icon:hover {
+  background: var(--hover-color);
+  color: #fff;
+}
+
+.card-btn:hover {
+  background: var(--hover-color);
+  color: #fff !important;
+  border: none;
+}
+
+.message-box {
+  max-width: 650px;
+  width: 100%;
+  margin: 0px auto;
+}
+
+.box-group {
+  max-width: 650px;
+  width: 100%;
+}
+
+.name-group {
+  max-width: 301px;
+  width: 100%;
+}
+
+.email {
+  max-width: 650px;
+  width: 100%;
+}
+
+.button {
+  max-width: 650px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.message-btn {
+  width: 100%;
+  background: var(--background-color);
+  padding: 10px 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  transition: 0.3 ease-in-out;
+}
+
+.message-btn:hover {
+  background: #0a65af;
+}
+
+@media (max-width: 692px) {
+  .name-group {
+    max-width: 100%;
+    width: 100%;
+  }
+  .gap-5 {
+    gap: 0px !important;
+  }
+}
+
+/* .block-banner {
   width: 100%;
   height: 400px;
   background-image: url("@/assets/images/contact_us.png");
@@ -281,5 +552,5 @@ export default {};
     width: 420px;
     height: 300px;
   }
-}
+} */
 </style>
