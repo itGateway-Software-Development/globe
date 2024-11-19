@@ -196,26 +196,34 @@
 
             <div class="contact-information">
               <div class="address d-flex">
-                <h6>Address:</h6>
+                <h6>
+                  <span class="material-symbols-outlined"> location_on </span>
+                </h6>
+                <span class="dash">-</span>
                 <p>
                   No.508 A, Lower Kyee Myin daing Road, (Home Lan Bus Stop),
                   Kyee Myin Daing Township. Yangon.
                 </p>
               </div>
               <div class="contact d-flex">
-                <h6>Contact:</h6>
+                <h6><span class="material-symbols-outlined"> call </span></h6>
+                <span class="dash">-</span>
                 <p>+959 880 441 046</p>
               </div>
               <div class="contact d-flex">
-                <h6>Email:</h6>
+                <h6><span class="material-symbols-outlined"> mail </span></h6>
+                <span class="dash">-</span>
                 <p>info@globetradingmm.com</p>
               </div>
               <div class="contact d-flex">
-                <h6>Opening time:</h6>
+                <h6>
+                  <span class="material-symbols-outlined"> schedule </span>
+                </h6>
+                <span class="dash">-</span>
                 <p>Everyday from 9AM to 6PM</p>
               </div>
-              <div class="socail-group">
-                <div class="socail-header">
+              <div class="social-group">
+                <div class="social-header">
                   <h6>Social Link</h6>
                 </div>
 
@@ -245,7 +253,7 @@
             </div>
 
             <div class="message-box">
-              <div class="d-flex align-items-center gap-2">
+              <div class="d-flex align-items-center gap-2 md-flex-wrap">
                 <div class="name-group">
                   <h6>Name</h6>
                   <input type="text" placeholder="Your Name" />
@@ -338,7 +346,6 @@ export default {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   border-radius: 10px;
-  margin-bottom: 10px;
   padding: 20px;
 }
 
@@ -444,7 +451,7 @@ export default {
 .message-btn {
   width: 100%;
   background: var(--background-color);
-  padding: 10px 15px;
+  padding: 5px 15px;
   font-size: 20px;
   font-weight: bold;
   color: #fff;
@@ -460,38 +467,42 @@ export default {
   margin-bottom: 20px;
 }
 
-.address h6 {
+.address .material-symbols-outlined {
   white-space: nowrap;
   font-weight: bold;
-  font-size: 18px;
-  width: 220px;
-  font-family: "Gilory-Bold", sans-serif;
+  font-size: 24px;
+  color: var(--hover-color);
 }
 
 .address p {
   font-size: 16px !important;
   font-weight: bold;
+  margin-left: 20px !important;
 }
 
-.contact h6 {
-  width: 140px;
+.contact .material-symbols-outlined {
   white-space: nowrap;
   font-weight: bold;
-  font-size: 18px;
-  font-family: "Gilory-Bold", sans-serif;
+  font-size: 24px;
+  color: var(--hover-color);
 }
 
 .contact p {
   font-size: 16px !important;
   font-weight: bold;
+  margin-left: 20px !important;
 }
 
-.socail-header {
+.dash {
+  margin-left: 20px;
+}
+
+.social-header {
   margin-bottom: 20px;
 }
 
-.socail-header h6 {
-  font-size: 18px;
+.social-header h6 {
+  font-size: 20px !important;
   font-weight: bold;
   font-family: "Gilory-Bold", sans-serif;
 }
@@ -510,6 +521,16 @@ export default {
 
 .social-icon:hover {
   background: #0a65af;
+}
+
+@media (max-width: 765px) {
+  .bottom-card {
+    border: 0.5px solid #8f8f8f;
+  }
+
+  .col-12 {
+    margin-bottom: 40px;
+  }
 }
 
 @media (max-width: 692px) {

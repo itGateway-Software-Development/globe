@@ -15,4 +15,10 @@ export default {
 .cart-wrapper {
   margin-top: 130px;
 }
+
+@media (max-width: 760px) {
+  .cart-wrapper {
+    margin-top: 50px;
+  }
+}
 </style>
