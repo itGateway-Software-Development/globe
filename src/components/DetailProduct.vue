@@ -106,9 +106,14 @@
           </div>
         </div>
 
-        <div class="button-group mb-5">
+        <div class="button-group-1 mb-5">
           <div class="d-flex align-items-center gap-3">
-            <button class="btn primary-btn add-to-cart-btn">Add to cart</button>
+            <button
+              class="btn primary-btn add-to-cart-btn"
+              :class="{ shaking: isShaking }"
+            >
+              Add to cart
+            </button>
             <button class="btn wish-btn primary-btn">
               <span class="material-symbols-outlined"> favorite </span>
             </button>
@@ -464,7 +469,7 @@
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 
 // Import Swiper styles
@@ -481,7 +486,7 @@ export default {
     Swiper,
     SwiperSlide,
   },
-  setup() {
+  setup(props) {
     const rating = ref("3");
     const description = ref(false);
     const delivery = ref(false);
@@ -490,7 +495,8 @@ export default {
     const isMagnifierVisible = ref(false);
     const magnifierSize = 200; // Size of magnifier square
     const zoomLevel = 2; // Zoom level for magnification\
-
+    const isShaking = ref(false);
+    let intervalId;
     const productList = ref([
       {
         id: 1,
@@ -534,10 +540,6 @@ export default {
       },
     ]);
 
-    onMounted(() => {
-      window.scroll(0, 0);
-    });
-
     const showMagnifier = () => {
       isMagnifierVisible.value = true;
     };
@@ -580,6 +582,30 @@ export default {
       magnifier.style.top = `${magnifierY}px`;
     };
 
+    const triggerAnimation = () => {
+      isShaking.value = true;
+      setTimeout(() => {
+        isShaking.value = false;
+      }, 1000);
+    };
+
+    const startRepeatingAnimation = () => {
+      intervalId = setInterval(() => {
+        triggerAnimation();
+      }, 10000);
+    };
+
+    onMounted(() => {
+      window.scroll(0, 0);
+      triggerAnimation();
+      startRepeatingAnimation();
+      console.log(props);
+    });
+
+    onUnmounted(() => {
+      clearInterval(intervalId);
+    });
+
     return {
       modules: [Pagination, Navigation],
       rating,
@@ -592,6 +618,8 @@ export default {
       hideMagnifier,
       moveMagnifier,
       mainImage,
+      isShaking,
+      triggerAnimation,
     };
   },
 };
@@ -701,6 +729,28 @@ export default {
 .add-to-cart-btn {
   width: 100%;
   text-transform: uppercase;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shaking {
+  animation: shake 1s;
 }
 
 .wish-btn {

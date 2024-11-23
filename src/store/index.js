@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import search from "./modules/search";
+import product from "./modules/product";
 
 export default createStore({
   state: {},
@@ -8,5 +9,6 @@ export default createStore({
   actions: {},
   modules: {
     search,
+    product,
   },
 });

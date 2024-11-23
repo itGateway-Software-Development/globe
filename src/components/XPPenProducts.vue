@@ -192,7 +192,10 @@
 
                 <h4>Compatibility</h4>
               </div>
-              <ul class="d-flex align-items-center" v-if="compatibilityShow">
+              <ul
+                class="d-flex align-items-center gap-2 flex-wrap"
+                v-if="compatibilityShow"
+              >
                 <li
                   class="item"
                   v-for="icon in compatibilityList"
@@ -235,16 +238,16 @@
           </div>
 
           <div class="product-list" v-if="listView == 'app'">
-            <div class="row">
+            <div class="row mb-5">
               <div
                 class="col-6 col-md-3 col-xl-3 mb-5"
-                v-for="(item, index) in productList"
+                v-for="(item, index) in paginatedProducts"
                 :key="item.id"
                 @mouseenter="onMouseEnter(index)"
                 @mouseleave="onMouseLeave(index)"
               >
                 <div class="product-card">
-                  <router-link to="/product/productdetail">
+                  <router-link to="/product/productdetail/{`item.id`}">
                     <!-- <div class="product-type text-right mb-2">
                       <h4>{{ item.type }}</h4>
                     </div> -->
@@ -255,12 +258,22 @@
                         class="fa-solid fa-heart"
                         v-if="hoverIcon === index"
                       ></i>
+                      <i
+                        class="fa-solid fa-expand"
+                        v-if="hoverIcon === index"
+                      ></i>
                     </div>
                     <div class="product-content mb-2">
                       <h4>{{ item.name }}</h4>
-                      <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Excepturi, doloremque.
+                      <p>{{ item.cpu }}</p>
+                      <p
+                        v-for="(specItem, index) in getspecList(
+                          item.spec,
+                          item.id
+                        )"
+                        :key="index"
+                      >
+                        {{ specItem }}
                       </p>
                     </div>
                   </router-link>
@@ -290,6 +303,15 @@
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="row justify-content-centr mt-5">
+              <v-pagination
+                v-model="currentPage"
+                :length="totalPages"
+                :total-visible="5"
+                rounded="circle"
+                @click="scrollWindow()"
+              ></v-pagination>
             </div>
           </div>
           <div class="product-list" v-if="listView == 'list'">
@@ -369,6 +391,7 @@
 
 <script>
 import { ref, onMounted, computed, watch } from "vue";
+import { useStore } from "vuex";
 export default {
   setup() {
     const categories = ref([
@@ -435,11 +458,40 @@ export default {
         id: 2,
         logo: require("@/assets/images/xp_pen/compatibility/2.png"),
       },
+      {
+        id: 3,
+        logo: require("@/assets/images/xp_pen/compatibility/3.png"),
+      },
+      {
+        id: 4,
+        logo: require("@/assets/images/xp_pen/compatibility/4.png"),
+      },
+      {
+        id: 5,
+        logo: require("@/assets/images/xp_pen/compatibility/5.png"),
+      },
+      {
+        id: 6,
+        logo: require("@/assets/images/xp_pen/compatibility/6.png"),
+      },
+      {
+        id: 7,
+        logo: require("@/assets/images/xp_pen/compatibility/7.png"),
+      },
+      {
+        id: 8,
+        logo: require("@/assets/images/xp_pen/compatibility/8.png"),
+      },
+      {
+        id: 9,
+        logo: require("@/assets/images/xp_pen/compatibility/9.png"),
+      },
     ]);
 
     const priceShow = ref(true);
     const filterShow = ref(true);
     const compatibilityShow = ref(true);
+    const store = useStore();
 
     const listView = ref("app");
 
@@ -448,48 +500,28 @@ export default {
     };
 
     const rating = ref("3");
-    const productList = ref([
-      {
-        id: 1,
-        type: "Drawing Tablet",
-        name: "Artist 10 (2nd Gen)",
-        price: "400",
-        stock: "20",
-        warrenty: "3",
-        img: require("@/assets/images/xp_pen/artist10.jpg"),
-        hoverimg: require("@/assets/images/xp_pen/deco_pro.jpg"),
-      },
-      {
-        id: 2,
-        type: "Drawing Tablet",
-        name: "Artist 12 (2nd Gen)",
-        price: "400",
-        stock: "20",
-        warrenty: "3",
-        img: require("@/assets/images/xp_pen/5.jpg"),
-        hoverimg: require("@/assets/images/xp_pen/6.jpg"),
-      },
-      {
-        id: 3,
-        type: "Drawing Tablet",
-        name: "Artist 16 (2nd Gen)",
-        price: "400",
-        stock: "20",
-        warrenty: "3",
-        img: require("@/assets/images/xp_pen/8.jpg"),
-        hoverimg: require("@/assets/images/xp_pen/7.jpg"),
-      },
-      {
-        id: 4,
-        type: "Drawing Tablet",
-        name: "Artist 22 pro",
-        price: "400",
-        stock: "20",
-        warrenty: "3",
-        img: require("@/assets/images/xp_pen/10.jpg"),
-        hoverimg: require("@/assets/images/xp_pen/9.jpg"),
-      },
-    ]);
+    const productList = store.getters.productList;
+
+    const itemsPerPage = 12;
+    const currentPage = ref(1);
+
+    const totalPages = computed(() =>
+      Math.ceil(productList.length / itemsPerPage)
+    );
+
+    const paginatedProducts = computed(() => {
+      const start = (currentPage.value - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
+      return productList.slice(start, end);
+    });
+
+    const getspecList = (spec, id) => {
+      if (id == 40) {
+        return spec.split(", ").slice(0, 3);
+      } else {
+        return spec.split(", ").slice(0, 4);
+      }
+    };
 
     const hoveredIndex = ref(null);
     const hoverIcon = ref(null);
@@ -542,6 +574,11 @@ export default {
       maxPrice.value = 5000000;
       priceRange.value = [0, 5000000];
     };
+
+    const scrollWindow = () => {
+      window.scroll(0, 0);
+    };
+
     onMounted(() => {
       window.scroll(0, 0);
     });
@@ -567,6 +604,12 @@ export default {
       filterShow,
       compatibilityShow,
       hoverIcon,
+      getspecList,
+      paginatedProducts,
+      itemsPerPage,
+      currentPage,
+      totalPages,
+      scrollWindow,
     };
   },
 };
@@ -642,6 +685,12 @@ export default {
 
 .break-line {
   margin: 20px 0px;
+}
+
+.product-content {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .filter-btn {
@@ -822,7 +871,8 @@ input::-webkit-inner-spin-button {
   text-overflow: ellipsis;
 }
 
-.product-card .fa-heart {
+.product-card .fa-heart,
+.product-card .fa-expand {
   padding: 10px;
   font-size: 14px;
   top: 0;
@@ -844,7 +894,25 @@ input::-webkit-inner-spin-button {
   z-index: 999;
 }
 
-.fa-heart:hover {
+.fa-expand {
+  width: max-content;
+  height: max-content;
+  margin-top: 50px;
+  top: 10px;
+  right: 2px;
+  padding: 15px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  background: #ffffff;
+  position: absolute;
+  border-radius: 50%;
+  transition: 0.4s ease-in;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.fa-heart:hover,
+.fa-expand:hover {
   background: var(--background-color);
   color: #ffffff;
 }
@@ -869,7 +937,6 @@ input::-webkit-inner-spin-button {
 .product-card .product-content p {
   font-size: 16px !important;
   opacity: 0.8;
-  height: 45px;
   text-overflow: ellipsis;
   overflow: hidden;
 }
