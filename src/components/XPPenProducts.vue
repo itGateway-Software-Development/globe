@@ -438,7 +438,7 @@
               </div>
               <div class="col-12 col-md-12 col-xl-6">
                 <div class="detail-header">
-                  <h3>{{ modalItem.name }}</h3>
+                  <h4>{{ modalItem.name }}</h4>
                 </div>
                 <div class="specList mb-2">
                   <h5>Specification</h5>
@@ -464,7 +464,7 @@
                   ></v-rating>
                 </div>
                 <div class="price">
-                  <h3>Price - ${{ modalItem.price }}</h3>
+                  <h4>Price - ${{ modalItem.price }}</h4>
                 </div>
                 <div class="color">
                   <p>Color</p>
@@ -1271,7 +1271,7 @@ input::-webkit-inner-spin-button {
   border-radius: 10px;
 }
 
-.detail-header h3 {
+.detail-header h4 {
   font-family: "Gilory-bold", sans-serif;
   font-weight: bold;
 }
@@ -1282,7 +1282,7 @@ input::-webkit-inner-spin-button {
   text-decoration: underline;
 }
 
-.price h3 {
+.price h4 {
   font-family: "Gilory-bold", sans-serif;
   font-weight: bold;
 }
