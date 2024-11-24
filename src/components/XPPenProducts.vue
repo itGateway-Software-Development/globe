@@ -247,22 +247,20 @@
                 @mouseleave="onMouseLeave(index)"
               >
                 <div class="product-card">
-                  <router-link to="/product/productdetail/{`item.id`}">
-                    <!-- <div class="product-type text-right mb-2">
+                  <!-- <div class="product-type text-right mb-2">
                       <h4>{{ item.type }}</h4>
                     </div> -->
-                    <div class="product-img">
-                      <img :src="item.img" alt="" id="img1" />
-                      <img :src="item.hoverimg" alt="" id="img2" />
-                      <i
-                        class="fa-solid fa-heart"
-                        v-if="hoverIcon === index"
-                      ></i>
-                      <i
-                        class="fa-solid fa-expand"
-                        v-if="hoverIcon === index"
-                      ></i>
-                    </div>
+                  <div class="product-img">
+                    <img :src="item.img" alt="" id="img1" />
+                    <img :src="item.hoverimg" alt="" id="img2" />
+                    <i class="fa-solid fa-heart" v-if="hoverIcon === index"></i>
+                    <i
+                      class="fa-solid fa-expand"
+                      v-if="hoverIcon === index"
+                      @click="showModal(item)"
+                    ></i>
+                  </div>
+                  <router-link to="/product/productdetail/{`item.id`}">
                     <div class="product-content mb-2">
                       <h4>{{ item.name }}</h4>
                       <p>{{ item.cpu }}</p>
@@ -332,6 +330,10 @@
                         class="fa-solid fa-heart"
                         v-if="hoverIcon === index"
                       ></i>
+                      <i
+                        class="fa-solid fa-expand"
+                        v-if="hoverIcon === index"
+                      ></i>
                     </div>
                     <div class="product-content">
                       <router-link to="/product/productdetail">
@@ -379,6 +381,122 @@
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <!-- <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Modal title
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">...</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div> -->
+            <div class="row" v-if="modalItem">
+              <div class="col-12 col-md-12 col-xl-6">
+                <div class="product-detail-img d-flex justify-content-center">
+                  <img :src="modalItem.img" class="img-fluid" alt="" />
+                </div>
+                <div
+                  class="product-detail-mini-img d-flex align-items-center gap-3"
+                >
+                  <img :src="modalItem.img" class="img-fluid" alt="" /><img
+                    :src="modalItem.img"
+                    class="img-fluid"
+                    alt=""
+                  /><img :src="modalItem.img" class="img-fluid" alt="" />
+                </div>
+              </div>
+              <div class="col-12 col-md-12 col-xl-6">
+                <div class="detail-header">
+                  <h3>{{ modalItem.name }}</h3>
+                </div>
+                <div class="specList mb-2">
+                  <h5>Specification</h5>
+                  <p
+                    v-for="(specItem, index) in getSinglespecList(
+                      modalItem.spec
+                    )"
+                    :key="index"
+                  >
+                    {{ specItem }}
+                  </p>
+                  <p>{{ modalItem.color1 }}</p>
+                  <p>{{ modalItem.color2 }}</p>
+                  <p>{{ modalItem.com }}</p>
+                </div>
+                <div class="rating mb-2">
+                  <v-rating
+                    readonly
+                    v-model="rating"
+                    active-color="orange-lighten-1"
+                    color="orange-lighten-1"
+                    size="mini"
+                  ></v-rating>
+                </div>
+                <div class="price">
+                  <h3>Price - ${{ modalItem.price }}</h3>
+                </div>
+                <div class="color">
+                  <p>Color</p>
+                  <div class="d-flex align-items-center gap-4 mt-3">
+                    <div class="mini-img">
+                      <img :src="modalItem.img" class="img-fluid" alt="" />
+                    </div>
+                    <div class="mini-img">
+                      <img :src="modalItem.img" class="img-fluid" alt="" />
+                    </div>
+                    <div class="mini-img">
+                      <img :src="modalItem.img" class="img-fluid" alt="" />
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="modal-button-group d-flex align-items-center gap-2 mt-5"
+                >
+                  <button
+                    class="btn cart-button"
+                    @click="addtoCart()"
+                    :class="{ shaking: isShaking }"
+                  >
+                    <span class="add-to-cart">ADD TO Cart</span>
+                    <span class="added">ADDED : )</span>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <i class="fa-solid fa-box"></i>
+                  </button>
+                  <button class="btn heart-btn">
+                    <span class="material-symbols-outlined"> favorite </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -492,6 +610,8 @@ export default {
     const filterShow = ref(true);
     const compatibilityShow = ref(true);
     const store = useStore();
+    const modalItem = ref(null);
+    const isShaking = ref(false);
 
     const listView = ref("app");
 
@@ -521,6 +641,25 @@ export default {
       } else {
         return spec.split(", ").slice(0, 4);
       }
+    };
+
+    const getSinglespecList = (spec) => {
+      return spec.split(", ");
+    };
+
+    const triggerAnimation = () => {
+      isShaking.value = true;
+      setTimeout(() => {
+        isShaking.value = false;
+      }, 1000);
+    };
+
+    const showModal = (product) => {
+      const modalElement = document.getElementById("exampleModal");
+      const modalInstance = new bootstrap.Modal(modalElement);
+      modalInstance.show();
+      modalItem.value = product;
+      triggerAnimation();
     };
 
     const hoveredIndex = ref(null);
@@ -579,6 +718,16 @@ export default {
       window.scroll(0, 0);
     };
 
+    const addtoCart = () => {
+      const cartBtn = document.querySelector(".cart-button");
+      console.log(cartBtn);
+      cartBtn.classList.add("clicked");
+
+      setTimeout(() => {
+        cartBtn.classList.remove("clicked");
+      }, 3000);
+    };
+
     onMounted(() => {
       window.scroll(0, 0);
     });
@@ -610,6 +759,11 @@ export default {
       currentPage,
       totalPages,
       scrollWindow,
+      showModal,
+      modalItem,
+      getSinglespecList,
+      addtoCart,
+      isShaking,
     };
   },
 };
@@ -1069,5 +1223,237 @@ input::-webkit-inner-spin-button {
 .compatibility img {
   margin-top: 20px;
   width: 40px;
+}
+
+.modal-dialog {
+  max-width: 1200px !important;
+  width: 100%;
+}
+
+.modal-content {
+  padding: 30px;
+}
+
+.product-detail-img {
+  width: 80%;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.product-detail-img img {
+  border-radius: 8px;
+}
+
+.product-detail-mini-img {
+  width: 100px;
+  height: 100px;
+
+  border-radius: 8px;
+}
+
+.product-detail-mini-img img {
+  border-radius: 8px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.mini-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.mini-img img {
+  border-radius: 10px;
+}
+
+.detail-header h3 {
+  font-family: "Gilory-bold", sans-serif;
+  font-weight: bold;
+}
+
+.specList h5 {
+  font-family: "Gilory-bold", sans-serif;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.price h3 {
+  font-family: "Gilory-bold", sans-serif;
+  font-weight: bold;
+}
+
+.specList p {
+  font-weight: 500;
+}
+
+.heart-btn {
+  width: max-content;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #111111;
+  padding: 12px 15px;
+  transition: 0.3s ease;
+}
+
+.heart-btn:hover {
+  background: var(--background-color);
+  border: 1px solid var(--background-color);
+}
+
+.heart-btn:hover .material-symbols-outlined {
+  color: #fff;
+}
+
+.cart-button {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  color: #fff;
+  background: var(--background-color);
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cart-button:active {
+  transform: scale(0.9);
+}
+
+.cart-button .fa-cart-shopping {
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.cart-button .fa-box {
+  position: absolute;
+  top: -22%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  font-size: 16px;
+  color: #fff;
+}
+
+.cart-button .add-to-cart,
+.cart-button .added {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  font-family: "Gilory-bold", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.cart-button .added {
+  opacity: 0;
+}
+
+.cart-button:hover {
+  background: #007bff;
+}
+
+.cart-button.clicked {
+  background: #007bff;
+}
+
+.cart-button.clicked .fa-cart-shopping {
+  animation: cart 2s ease-in-out forwards;
+}
+.cart-button.clicked .fa-box {
+  animation: box 2s ease-in-out forwards;
+}
+.cart-button.clicked .add-to-cart {
+  animation: text1 2s ease-in-out forwards;
+}
+.cart-button.clicked .added {
+  animation: text2 2s ease-in-out forwards;
+}
+
+@keyframes cart {
+  0% {
+    left: -10%;
+  }
+
+  40%,
+  60% {
+    left: 50%;
+  }
+
+  100% {
+    left: 110%;
+  }
+}
+
+@keyframes box {
+  0%,
+  40% {
+    top: -22%;
+  }
+
+  60% {
+    top: 40%;
+    left: 51%;
+  }
+
+  100% {
+    top: 40%;
+    left: 112%;
+  }
+}
+
+@keyframes text1 {
+  0% {
+    opacity: 1;
+  }
+  20%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes text2 {
+  0%,
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shaking {
+  animation: shake 1s;
 }
 </style>
