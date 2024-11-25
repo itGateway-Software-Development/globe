@@ -316,7 +316,7 @@
             <div class="d-flex flex-column mb-5 w-100">
               <div
                 class="product-box"
-                v-for="(item, index) in productList"
+                v-for="(item, index) in paginatedProducts"
                 :key="item.id"
                 @mouseenter="onMouseEnter(index)"
                 @mouseleave="onMouseLeave(index)"
@@ -333,6 +333,7 @@
                       <i
                         class="fa-solid fa-expand"
                         v-if="hoverIcon === index"
+                        @click="showModal(item)"
                       ></i>
                     </div>
                     <div class="product-content">
@@ -384,6 +385,15 @@
                 </div>
               </div>
             </div>
+            <div class="row justify-content-centr mt-5">
+              <v-pagination
+                v-model="currentPage"
+                :length="totalPages"
+                :total-visible="5"
+                rounded="circle"
+                @click="scrollWindow()"
+              ></v-pagination>
+            </div>
           </div>
         </div>
       </div>
@@ -397,10 +407,7 @@
       >
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
-            <!-- <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Modal title
-              </h1>
+            <div class="modal-header">
               <button
                 type="button"
                 class="btn-close"
@@ -408,7 +415,7 @@
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">...</div>
+            <!-- <div class="modal-body">...</div>
             <div class="modal-footer">
               <button
                 type="button"
@@ -720,7 +727,6 @@ export default {
 
     const addtoCart = () => {
       const cartBtn = document.querySelector(".cart-button");
-      console.log(cartBtn);
       cartBtn.classList.add("clicked");
 
       setTimeout(() => {
@@ -1163,7 +1169,7 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
 }
 
-.button-group:hover {
+.button-group:hover .cart-btn {
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
@@ -1198,15 +1204,41 @@ input::-webkit-inner-spin-button {
   transition: 1.5s ease-in-out;
 }
 
+.product-img-list #img2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: 1.5s ease-in-out;
+}
+
+.product-card-list:hover .product-img-list #img2 {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.product-card-list:hover .product-img-list #img1 {
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* .product-img-list #img2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: 1.5s ease-in-out;
+}
+
 .product-img-list #img2:hover {
   opacity: 0;
   cursor: pointer;
 }
 
-.product-card-list:hover .product-img-list #img2 {
+.product-card-list:hover .product-img-list #img1 {
   opacity: 0;
   cursor: pointer;
-}
+} */
 
 .stock {
   color: #3cb872;
@@ -1228,6 +1260,10 @@ input::-webkit-inner-spin-button {
 .modal-dialog {
   max-width: 1200px !important;
   width: 100%;
+}
+
+.modal-header {
+  border: none;
 }
 
 .modal-content {

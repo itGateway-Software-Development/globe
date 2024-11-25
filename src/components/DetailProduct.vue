@@ -109,10 +109,14 @@
         <div class="button-group-1 mb-5">
           <div class="d-flex align-items-center gap-3">
             <button
-              class="btn primary-btn add-to-cart-btn"
+              class="btn add-to-cart-btn"
               :class="{ shaking: isShaking }"
+              @click="addtoCart"
             >
-              Add to cart
+              <span class="cart"> Add to cart</span>
+              <span class="added">Added : )</span>
+              <i class="fa-solid fa-cart-shopping"></i>
+              <i class="fa-solid fa-box"></i>
             </button>
             <button class="btn wish-btn primary-btn">
               <span class="material-symbols-outlined"> favorite </span>
@@ -582,6 +586,15 @@ export default {
       magnifier.style.top = `${magnifierY}px`;
     };
 
+    const addtoCart = () => {
+      const btn = document.querySelector(".add-to-cart-btn");
+      console.log(btn);
+      btn.classList.add("clicked");
+      setTimeout(() => {
+        btn.classList.remove("clicked");
+      }, 3000);
+    };
+
     const triggerAnimation = () => {
       isShaking.value = true;
       setTimeout(() => {
@@ -599,7 +612,6 @@ export default {
       window.scroll(0, 0);
       triggerAnimation();
       startRepeatingAnimation();
-      console.log(props);
     });
 
     onUnmounted(() => {
@@ -620,6 +632,7 @@ export default {
       mainImage,
       isShaking,
       triggerAnimation,
+      addtoCart,
     };
   },
 };
@@ -727,8 +740,127 @@ export default {
 }
 
 .add-to-cart-btn {
+  position: relative;
   width: 100%;
+  height: 45px;
+  transition: 0.3s ease;
+  overflow: hidden;
+  background: var(--background-color);
+}
+
+.add-to-cart-btn:hover {
+  background: #0a65af;
+}
+
+.add-to-cart-btn:active {
+  transform: scale(0.9);
+}
+
+.add-to-cart-btn .fa-cart-shopping {
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-size: 24px;
+  color: #fff;
+}
+
+.add-to-cart-btn .fa-box {
+  position: absolute;
+  top: -22%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  font-size: 16px;
+  color: #fff;
+}
+
+.add-to-cart-btn .cart,
+.add-to-cart-btn .added {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-transform: uppercase;
+  font-family: "Gilory-bold", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: #fff;
+}
+
+.add-to-cart-btn .added {
+  opacity: 0;
+}
+
+.add-to-cart-btn.clicked {
+  background: #0a65af !important;
+}
+
+.add-to-cart-btn.clicked .fa-cart-shopping {
+  animation: cart 2s ease-in-out forwards;
+}
+
+.add-to-cart-btn.clicked .fa-box {
+  animation: box 2s ease-in-out forwards;
+}
+.add-to-cart-btn.clicked .cart {
+  animation: text1 2s ease-in-out forwards;
+}
+.add-to-cart-btn.clicked .added {
+  animation: text2 2s ease-in-out forwards;
+}
+
+@keyframes cart {
+  0% {
+    left: -10%;
+  }
+
+  40%,
+  60% {
+    left: 50%;
+  }
+
+  100% {
+    left: 110%;
+  }
+}
+
+@keyframes box {
+  0%,
+  40% {
+    top: -22%;
+  }
+
+  60% {
+    top: 40%;
+    left: 51%;
+  }
+
+  100% {
+    top: 40%;
+    left: 112%;
+  }
+}
+
+@keyframes text1 {
+  0% {
+    opacity: 1;
+  }
+  20%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes text2 {
+  0%,
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes shake {

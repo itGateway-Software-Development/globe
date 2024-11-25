@@ -153,6 +153,18 @@ ul li {
     Mobile Menu Drawer
 ==========================*/
 
+.v-field__field {
+  height: 45px !important;
+}
+
+.v-field__field .v-field__input {
+  padding: 0px 0px 10px 16px !important;
+}
+
+.v-input__details {
+  display: none !important;
+}
+
 /* ========================
     Responsive
 ==========================*/

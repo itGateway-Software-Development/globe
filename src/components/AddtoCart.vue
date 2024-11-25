@@ -116,6 +116,7 @@
                     'Wyoming',
                   ]"
                   variant="outlined"
+                  class="custom-autocomplete"
                 ></v-autocomplete>
               </div>
               <div class="address">
@@ -123,6 +124,7 @@
                 <v-text-field
                   label="Enter your address"
                   variant="outlined"
+                  class="field"
                 ></v-text-field>
               </div>
               <div class="address">
@@ -130,6 +132,7 @@
                 <v-text-field
                   label="Enter Phone Number"
                   variant="outlined"
+                  class="field"
                 ></v-text-field>
               </div>
             </div>
@@ -400,6 +403,10 @@ tbody tr td {
 
 .total-group {
   padding: 20px 10px !important;
+}
+
+.custom-autocomplete .v-field__field {
+  height: 40px !important;
 }
 
 @media (max-width: 800px) {
