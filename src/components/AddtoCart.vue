@@ -3,10 +3,8 @@
     <div class="block-banner text-center">
       <h1>Your Shopping Cart</h1>
       <p>
-        <router-link to="/" class="block-link">Home</router-link> .
-        <router-link to="/cart" class="block-link"
-          >Your Shopping Cart</router-link
-        >
+        <router-link to="/" class="block-link">Home</router-link> /
+        <span to="/" class="disabled">Your Shopping Cart</span>
       </p>
     </div>
 
@@ -102,7 +100,7 @@
               </div>
             </div>
 
-            <div class="delivery-group">
+            <!-- <div class="delivery-group">
               <div class="city">
                 <h6>City</h6>
                 <v-autocomplete
@@ -168,14 +166,14 @@
                   </label>
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <div class="button-group">
               <div class="d-flex align-items-center gap-2">
                 <button @click="changeRoute()" class="btn shopping-btn">
                   Continus Shopping
                 </button>
-                <button class="btn checkout-btn">Order Now</button>
+                <button class="btn checkout-btn">Checkout Now</button>
               </div>
             </div>
           </div>
@@ -233,8 +231,26 @@ export default {
   align-content: center;
 }
 
+.cart-wrapper h1 {
+  font-weight: bold;
+  font-family: "Gilory-bold", sans-serif;
+}
+
 .block-link:hover {
   color: var(--hover-color) !important;
+}
+
+.block-link {
+  font-weight: bold;
+  font-family: "Gilory-bold", sans-serif;
+  opacity: 0.8;
+}
+
+.disabled {
+  color: #8f8f8f;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: "Gilory-bold", sans-serif;
 }
 
 .order-header {
@@ -255,7 +271,7 @@ export default {
 }
 
 .product-img {
-  width: 150px;
+  width: 90px;
 }
 
 .product-img img {

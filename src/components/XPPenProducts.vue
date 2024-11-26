@@ -238,7 +238,7 @@
           </div>
 
           <div class="product-list" v-if="listView == 'app'">
-            <div class="row mb-5">
+            <div class="row mb-5 main">
               <div
                 class="col-6 col-md-3 col-xl-3 mb-5"
                 v-for="(item, index) in paginatedProducts"
@@ -251,8 +251,11 @@
                       <h4>{{ item.type }}</h4>
                     </div> -->
                   <div class="product-img">
-                    <img :src="item.img" alt="" id="img1" />
-                    <img :src="item.hoverimg" alt="" id="img2" />
+                    <router-link :to="`/product/productdetail/${item.id}`">
+                      <div class="gradient"></div>
+                      <img :src="item.img" alt="" id="img1" />
+                      <img :src="item.hoverimg" alt="" id="img2" />
+                    </router-link>
                     <i class="fa-solid fa-heart" v-if="hoverIcon === index"></i>
                     <i
                       class="fa-solid fa-expand"
@@ -260,7 +263,7 @@
                       @click="showModal(item)"
                     ></i>
                   </div>
-                  <router-link to="/product/productdetail/{`item.id`}">
+                  <router-link :to="`/product/productdetail/${item.id}`">
                     <div class="product-content mb-2">
                       <h4>{{ item.name }}</h4>
                       <p>{{ item.cpu }}</p>
@@ -289,7 +292,7 @@
                     class="price-button d-flex align-items-center justify-content-between"
                   >
                     <div class="price">
-                      <h4>${{ item.price }}</h4>
+                      <h4>{{ item.price }} MMK</h4>
                     </div>
                     <div class="button-group">
                       <button class="btn cart-btn mt-1">
@@ -355,7 +358,7 @@
                             ></v-rating>
                           </div>
                         </div>
-                        <div class="price mb-2">${{ item.price }}</div>
+                        <div class="price mb-2">{{ item.price }} MMK</div>
                         <div class="stock mb-2">
                           <div class="d-flex align-items-center gap-2">
                             <span class="material-symbols-outlined">
@@ -447,8 +450,8 @@
                 <div class="detail-header">
                   <h4>{{ modalItem.name }}</h4>
                 </div>
-                <div class="specList mb-2">
-                  <h5>Specification</h5>
+                <div class="specList mb-3">
+                  <h5 class="mb-3">Specification</h5>
                   <p
                     v-for="(specItem, index) in getSinglespecList(
                       modalItem.spec
@@ -461,36 +464,31 @@
                   <p>{{ modalItem.color2 }}</p>
                   <p>{{ modalItem.com }}</p>
                 </div>
-                <div class="rating mb-2">
-                  <v-rating
-                    readonly
-                    v-model="rating"
-                    active-color="orange-lighten-1"
-                    color="orange-lighten-1"
-                    size="mini"
-                  ></v-rating>
+                <div class="stock mb-3">
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="material-symbols-outlined"> inventory_2 </span>
+                    <span>In Stock</span>
+                  </div>
                 </div>
-                <div class="price">
-                  <h4>Price - ${{ modalItem.price }}</h4>
+                <div class="price mb-5">
+                  <h4>{{ modalItem.price }} MMK</h4>
                 </div>
                 <div class="color">
-                  <p>Color</p>
-                  <div class="d-flex align-items-center gap-4 mt-3">
-                    <div class="mini-img">
-                      <img :src="modalItem.img" class="img-fluid" alt="" />
+                  <p>Color : <span>Dark</span></p>
+                  <div class="d-flex align-items-center gap-3 mt-3">
+                    <div class="color-circle">
+                      <div class="color1"></div>
                     </div>
-                    <div class="mini-img">
-                      <img :src="modalItem.img" class="img-fluid" alt="" />
+                    <div class="color-circle">
+                      <div class="color2"></div>
                     </div>
-                    <div class="mini-img">
-                      <img :src="modalItem.img" class="img-fluid" alt="" />
+                    <div class="color-circle">
+                      <div class="color3"></div>
                     </div>
                   </div>
                 </div>
 
-                <div
-                  class="modal-button-group d-flex align-items-center gap-2 mt-5"
-                >
+                <div class="modal-button-group d-flex align-items-center gap-2">
                   <button
                     class="btn cart-button"
                     @click="addtoCart()"
@@ -784,9 +782,13 @@ export default {
   font-weight: bold;
 }
 
+.col-xl-9 {
+  padding-left: 50px;
+}
+
 .col-md-3,
 .col-xl-3 {
-  padding: 0px 10px;
+  padding: 0px 5px;
 }
 
 .block-banner img {
@@ -1085,9 +1087,10 @@ input::-webkit-inner-spin-button {
 
 .product-card .product-content h4 {
   white-space: nowrap;
-  font-size: 20px;
+  font-size: 18px;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #111111;
 }
 
 .product-content {
@@ -1095,19 +1098,21 @@ input::-webkit-inner-spin-button {
 }
 
 .product-card .product-content p {
-  font-size: 16px !important;
+  font-size: 14px !important;
   opacity: 0.8;
   text-overflow: ellipsis;
   overflow: hidden;
+  color: #838282;
 }
 
 .product-card .price h4 {
-  font-size: 24px;
+  font-size: 20px;
+  color: #f1803e;
 }
 
-.product-card h4:hover {
+/* .product-card h4:hover {
   color: #0a65af;
-}
+} */
 
 .product-card .product-type h4 {
   color: #cdcdcd;
@@ -1131,6 +1136,7 @@ input::-webkit-inner-spin-button {
 
 .product-card .button-group .cart-btn {
   color: #fff;
+  padding: 6px 10px;
 }
 
 .cart-btn .material-symbols-outlined {
@@ -1140,10 +1146,24 @@ input::-webkit-inner-spin-button {
 .product-img {
   position: relative;
   width: 100%;
+  margin-bottom: 20px;
 }
+
+/* .gradient {
+  width: 100%;
+  height: 180px;
+  position: absolute;
+  background: #111111;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: 1s ease-in;
+} */
 
 .product-img img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -1162,6 +1182,10 @@ input::-webkit-inner-spin-button {
 .product-card:hover .product-img #img2 {
   opacity: 1;
   cursor: pointer;
+}
+
+.product-card:hover .gradient {
+  opacity: 0.4;
 }
 
 .product-card:hover .product-img #img1 {
@@ -1307,24 +1331,74 @@ input::-webkit-inner-spin-button {
   border-radius: 10px;
 }
 
+.color span {
+  color: #9c9c9c;
+}
+
+.color-circle {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #111111;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.color1,
+.color2,
+.color3 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.color1 {
+  background: #111111;
+}
+
+.color2 {
+  background: #0f8ec5;
+}
+
+.color3 {
+  background: #3cb872;
+}
+
 .detail-header h4 {
   font-family: "Gilory-bold", sans-serif;
   font-weight: bold;
+  color: #111111;
 }
 
 .specList h5 {
   font-family: "Gilory-bold", sans-serif;
   font-weight: bold;
   text-decoration: underline;
+  color: #9c9c9c;
 }
 
 .price h4 {
   font-family: "Gilory-bold", sans-serif;
   font-weight: bold;
+  color: #f1803e;
 }
 
 .specList p {
   font-weight: 500;
+  font-size: 14px;
+  color: #9c9c9c;
+}
+
+.color p {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.stock span {
+  color: #3cb872;
+}
+
+.modal-button-group {
+  margin-top: 30px;
 }
 
 .heart-btn {

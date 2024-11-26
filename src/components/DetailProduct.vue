@@ -34,7 +34,7 @@
       </div>
       <div class="col-12 col-md-6 col-xl-6">
         <div class="product-name mb-3">
-          <h3>Microsoft Surface pro 2022</h3>
+          <h3>{{ singleProduct.name }}</h3>
         </div>
         <div class="rating d-flex align-items-center gap-2 mb-5">
           <div class="d-flex align-items-center gap-2">
@@ -51,7 +51,9 @@
             ><h5>View All Reviews</h5></router-link
           >
         </div>
-        <div class="price"><h3>$500</h3></div>
+        <div class="price">
+          <h3>{{ singleProduct.price }} MMK</h3>
+        </div>
         <div class="product-content-detail mb-5">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum
@@ -62,11 +64,11 @@
         <div class="detail-content mb-5">
           <div class="d-flex align-items-center gap">
             <h6>Tags:</h6>
-            <p>Laptop</p>
+            <p>Drawing Tablet</p>
           </div>
           <div class="d-flex align-items-center gap">
             <h6>Category:</h6>
-            <p>Laptop</p>
+            <p>Drawing Tablet</p>
           </div>
         </div>
 
@@ -75,34 +77,15 @@
             <h6>Color: Black</h6>
           </div>
           <div class="d-flex align-items-center gap-2">
-            <div class="mini-img">
-              <img
-                src="../assets/images/laptop/4.jpg"
-                class="img-fluid"
-                alt=""
-              />
+            <div class="color-circle">
+              <div class="color1"></div>
             </div>
-            <div class="mini-img">
-              <img
-                src="../assets/images/laptop/1.jpg"
-                class="img-fluid"
-                alt=""
-              />
+            <div class="color-circle">
+              <div class="color2"></div>
             </div>
-            <!-- <div class="mini-img">
-              <img
-                src="../assets/images/laptop/1.jpg"
-                class="img-fluid"
-                alt=""
-              />
+            <div class="color-circle">
+              <div class="color3"></div>
             </div>
-            <div class="mini-img">
-              <img
-                src="../assets/images/laptop/1.jpg"
-                class="img-fluid"
-                alt=""
-              />
-            </div> -->
           </div>
         </div>
 
@@ -169,6 +152,37 @@
             inventore voluptates eveniet adipisci iusto dignissimos eius
             possimus quas consectetur placeat?
           </p>
+        </div>
+      </div>
+
+      <div class="description mb-3" :class="{ active: specification }">
+        <div
+          class="d-flex aligns-items-center justify-content-between description-header"
+          :class="{ active: specification }"
+          @click="specification = !specification"
+        >
+          <h4>Specification</h4>
+          <span class="material-symbols-outlined" v-if="specification">
+            keyboard_arrow_up </span
+          ><span class="material-symbols-outlined" v-else>
+            keyboard_arrow_down
+          </span>
+        </div>
+        <div class="specification-content" v-if="specification">
+          <div class="spec-header">
+            <h5>Specification</h5>
+          </div>
+          <div class="spec-list mt-5">
+            <ul>
+              <li
+                v-for="(spec, index) in specList(singleProduct.spec)"
+                :key="index"
+                class="mb-3"
+              >
+                <p>{{ spec }}</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -485,21 +499,41 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination } from "swiper/modules";
 import { Navigation } from "swiper/modules";
+import { useRoute } from "vue-router";
+import { useStore } from "vuex";
 export default {
   components: {
     Swiper,
     SwiperSlide,
   },
+
   setup(props) {
     const rating = ref("3");
     const description = ref(false);
     const delivery = ref(false);
     const shipping = ref(false);
-    const mainImage = ref(require("@/assets/images/laptop/4.jpg"));
+    const specification = ref(false);
+
     const isMagnifierVisible = ref(false);
     const magnifierSize = 200; // Size of magnifier square
     const zoomLevel = 2; // Zoom level for magnification\
     const isShaking = ref(false);
+    const route = useRoute();
+    const store = useStore();
+    const productId = route.params.id;
+
+    const productLists = store.getters.productList;
+
+    const singleProduct = productLists.find(
+      (product) => product.id == productId
+    );
+
+    const mainImage = ref(singleProduct.img);
+
+    const specList = (spec) => {
+      return spec.split(", ");
+    };
+
     let intervalId;
     const productList = ref([
       {
@@ -612,6 +646,7 @@ export default {
       window.scroll(0, 0);
       triggerAnimation();
       startRepeatingAnimation();
+      console.log(singleProduct);
     });
 
     onUnmounted(() => {
@@ -633,6 +668,9 @@ export default {
       isShaking,
       triggerAnimation,
       addtoCart,
+      singleProduct,
+      specification,
+      specList,
     };
   },
 };
@@ -702,6 +740,7 @@ export default {
   font-family: "Gilory-Bold", sans-serif;
   font-weight: bold;
   transition: 0.3s;
+  font-size: 16px;
 }
 
 .product-name h3 {
@@ -713,9 +752,10 @@ export default {
   color: var(--hover-color);
 }
 
-.price .h3 {
+.price h3 {
   font-family: "Gilory-Bold", sans-serif;
   font-weight: bold;
+  color: #f1803e;
 }
 
 .product-content-detail p {
@@ -730,13 +770,14 @@ export default {
 }
 
 .detail-content p {
-  font-size: 12px !important;
-  opacity: 0.8;
+  font-size: 14px !important;
+  color: #838282;
 }
 
 .color-content h6 {
   font-family: "Gilory-Bold", sans-serif;
   font-weight: bold;
+  color: #838282;
 }
 
 .add-to-cart-btn {
@@ -885,6 +926,34 @@ export default {
   animation: shake 1s;
 }
 
+.color-circle {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #111111;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.color1,
+.color2,
+.color3 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.color1 {
+  background: #111111;
+}
+
+.color2 {
+  background: #0f8ec5;
+}
+
+.color3 {
+  background: #3cb872;
+}
+
 .wish-btn {
   width: max-content;
   align-items: center;
@@ -907,11 +976,16 @@ export default {
   cursor: pointer;
 }
 
+.specification-content {
+  padding: 20px;
+}
+
 .description h4 {
   text-transform: uppercase;
   margin-bottom: 0px;
   font-family: "Gilory-Bold", sans-serif;
   font-weight: bold;
+  font-size: 20px;
 }
 
 .description-content {
@@ -920,7 +994,7 @@ export default {
 }
 
 .description-content p {
-  font-size: 14px !important;
+  font-size: 16px !important;
   margin-bottom: 20px !important;
 }
 
@@ -941,6 +1015,23 @@ export default {
   box-shadow: none;
   background: #ededed;
   border-radius: 0px;
+}
+
+.spec-header h5 {
+  font-weight: bold;
+  font-family: "Gilory-Bold", sans-serif;
+  font-size: 20px;
+  text-decoration: underline;
+  padding-left: 30px;
+}
+
+.spec-list ul li {
+  list-style: disc;
+}
+
+.spec-list p {
+  font-size: 16px !important;
+  color: #838282;
 }
 
 .line-break {

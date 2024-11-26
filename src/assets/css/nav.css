@@ -3,7 +3,7 @@
   width: 100%;
   height: max-content;
   top: 0;
-  z-index: 99999;
+  z-index: 999;
   background: var(--background-white-color);
   transition: 0.3s ease-in-out;
   position: fixed;

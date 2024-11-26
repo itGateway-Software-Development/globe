@@ -13,6 +13,6 @@ export default {
 
 <style>
 .product-detail-wrapper {
-  margin-top: 150px;
+  margin-top: 180px;
 }
 </style>
