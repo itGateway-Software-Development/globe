@@ -1,5 +1,5 @@
 <template>
-  <div class="footer-wrapper">
+  <div class="footer-wrapper" :class="{ 'no-padding': route.meta.hideNavbar }">
     <div class="row content-wrapper">
       <div class="col-12 col-sm-6 col-md-3 col-xl-3">
         <div class="footer-heading mt-5"><h5>Information</h5></div>
@@ -128,7 +128,17 @@
 </template>
 
 <script>
-export default {};
+import { useRoute } from "vue-router";
+import { ref, onMounted } from "vue";
+export default {
+  setup() {
+    const route = useRoute();
+
+    return {
+      route,
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -136,6 +146,10 @@ export default {};
   margin-top: 90px;
   background: var(--background-color);
   width: 100%;
+}
+
+.no-padding {
+  margin-top: 0px;
 }
 
 .footer-heading h5 {

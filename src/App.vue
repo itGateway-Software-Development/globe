@@ -1,18 +1,23 @@
 <template>
   <v-app>
-    <Navbar @menuHoverStatus="menuHoverEffect"></Navbar>
+    <Navbar
+      @menuHoverStatus="menuHoverEffect"
+      v-if="!route.meta.hideNavbar"
+    ></Navbar>
+    <CheckoutNav v-if="route.meta.hideNavbar"></CheckoutNav>
 
     <v-main :class="{ blurPage: isHover }">
       <Loading v-if="loading" />
       <router-view />
     </v-main>
 
-    <Footer></Footer>
+    <Footer v-if="!route.meta.hideNavbar"></Footer>
   </v-app>
   <Loading v-if="loading" />
 </template>
 
 <script>
+import CheckoutNav from "./components/CheckoutNav";
 import Loading from "./components/Loading";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
@@ -21,6 +26,7 @@ import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 export default {
   components: {
+    CheckoutNav,
     Loading,
     Footer,
     Navbar,
@@ -68,6 +74,7 @@ export default {
       isHover,
       loadContent,
       loading,
+      route,
     };
   },
 };

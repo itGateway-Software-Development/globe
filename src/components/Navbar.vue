@@ -366,7 +366,6 @@ export default {
         // Scrolling down
         isNavbarVisible.value = false;
       }
-
       lastScrollY.value = currentScrollY;
     };
 

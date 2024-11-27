@@ -6,6 +6,7 @@ import XPPenView from "../views/XPPenView.vue";
 import ContactUs from "../views/ContactUs.vue";
 import ProductDetail from "../views/product/ProductDetail.vue";
 import Cart from "../views/Cart.vue";
+import CheckoutView from "../views/CheckoutView.vue";
 
 const routes = [
   {
@@ -43,6 +44,12 @@ const routes = [
     path: "/cart",
     name: "cart",
     component: Cart,
+  },
+  {
+    path: "/cart/checkout",
+    name: "checkout",
+    component: CheckoutView,
+    meta: { hideNavbar: true },
   },
 ];
 

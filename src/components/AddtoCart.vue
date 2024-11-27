@@ -173,7 +173,9 @@
                 <button @click="changeRoute()" class="btn shopping-btn">
                   Continus Shopping
                 </button>
-                <button class="btn checkout-btn">Checkout Now</button>
+                <router-link to="/cart/checkout" class="btn checkout-btn"
+                  >Checkout Now</router-link
+                >
               </div>
             </div>
           </div>
@@ -402,7 +404,7 @@ tbody tr td {
   border: 1px solid var(--background-color);
   background: var(--background-color);
   font-size: 18px;
-  color: #fff;
+  color: #fff !important;
   font-weight: bold;
   transition: 0.3s ease-in-out;
 }

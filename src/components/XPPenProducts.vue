@@ -9,9 +9,9 @@
     </div>
     <div class="content-wrapper product-section">
       <div class="row">
-        <div class="col-12 col-md-3 col-xl-3">
+        <div class="col-12 col-md-3 col-xl-3 left-col">
           <div class="left-filter">
-            <div class="filter-header d-flex align-items-center gap-2">
+            <div class="filter-header d-flex align-items-center gap-2 cat">
               <span class="material-symbols-outlined"> menu </span>
               <h4>Categories</h4>
             </div>
@@ -208,7 +208,7 @@
             <div class="break-line"><hr /></div>
           </div>
         </div>
-        <div class="col-12 col-md-9 col-xl-9">
+        <div class="col-12 col-md-9 col-xl-9 right-col">
           <div class="float-right view-group">
             <div class="d-flex align-items-center gap-2">
               <div
@@ -410,14 +410,15 @@
       >
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
-            <div class="modal-header">
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <span class="material-symbols-outlined"> close </span>
+            </button>
+
             <!-- <div class="modal-body">...</div>
             <div class="modal-footer">
               <button
@@ -463,6 +464,9 @@
                   <p>{{ modalItem.color1 }}</p>
                   <p>{{ modalItem.color2 }}</p>
                   <p>{{ modalItem.com }}</p>
+                  <!-- <p class="more-spec" @click="fullspec = !fullspec">
+                    View More
+                  </p> -->
                 </div>
                 <div class="stock mb-3">
                   <div class="d-flex align-items-center gap-2">
@@ -617,6 +621,7 @@ export default {
     const store = useStore();
     const modalItem = ref(null);
     const isShaking = ref(false);
+    const fullspec = ref(false);
 
     const listView = ref("app");
 
@@ -768,6 +773,7 @@ export default {
       getSinglespecList,
       addtoCart,
       isShaking,
+      fullspec,
     };
   },
 };
@@ -780,6 +786,15 @@ export default {
   align-content: center;
   font-family: "Gilory-Bold", sans-serif;
   font-weight: bold;
+}
+
+.left-filter {
+  position: sticky;
+  top: 0;
+}
+
+.cat {
+  margin-top: 20px;
 }
 
 .col-xl-9 {
@@ -796,6 +811,22 @@ export default {
   height: 100%;
   object-fit: cover;
 }
+.more-spec {
+  cursor: pointer;
+}
+
+.more-spec:hover {
+  color: var(--hover-color) !important;
+}
+
+/* .left-col {
+  position: sticky;
+  top: 100%;
+}
+
+.right-col {
+  position: relative;
+} */
 
 .product-section {
   margin-top: 50px;
@@ -811,11 +842,11 @@ export default {
   margin: 0px;
   font-family: "Gilory-Bold", sans-serif;
   font-weight: bold;
-  font-size: 19px !important;
+  font-size: 17px !important;
 }
 
 .categories-filter {
-  margin: 40px 0px;
+  margin: 20px 0px 40px;
   padding: 0px 10px;
 }
 
@@ -1106,7 +1137,7 @@ input::-webkit-inner-spin-button {
 }
 
 .product-card .price h4 {
-  font-size: 20px;
+  font-size: 17px;
   color: #f1803e;
 }
 
@@ -1315,16 +1346,14 @@ input::-webkit-inner-spin-button {
 
 .product-detail-mini-img img {
   border-radius: 8px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  cursor: pointer;
 }
 
 .mini-img {
   width: 80px;
   height: 80px;
   border-radius: 10px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  cursor: pointer;
 }
 
 .mini-img img {
@@ -1333,6 +1362,7 @@ input::-webkit-inner-spin-button {
 
 .color span {
   color: #9c9c9c;
+  font-size: 14px;
 }
 
 .color-circle {
@@ -1367,6 +1397,7 @@ input::-webkit-inner-spin-button {
   font-family: "Gilory-bold", sans-serif;
   font-weight: bold;
   color: #111111;
+  font-size: 20px;
 }
 
 .specList h5 {
@@ -1374,22 +1405,24 @@ input::-webkit-inner-spin-button {
   font-weight: bold;
   text-decoration: underline;
   color: #9c9c9c;
+  font-size: 16px;
 }
 
 .price h4 {
   font-family: "Gilory-bold", sans-serif;
   font-weight: bold;
   color: #f1803e;
+  font-size: 20px;
 }
 
 .specList p {
   font-weight: 500;
-  font-size: 14px;
+  font-size: 14px !important;
   color: #9c9c9c;
 }
 
 .color p {
-  font-size: 14px;
+  font-size: 14px !important;
   font-weight: bold;
 }
 
@@ -1565,5 +1598,20 @@ input::-webkit-inner-spin-button {
 
 .shaking {
   animation: shake 1s;
+}
+
+.btn-close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  right: -1%;
+  top: -2%;
+  background: #007bff;
+  color: #fff;
+  opacity: 1;
+}
+
+.btn-close .material-symbols-outlined {
+  font-size: 16px;
 }
 </style>
