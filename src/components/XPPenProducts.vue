@@ -107,7 +107,7 @@
 
                 <!-- Min and Max Price Inputs -->
                 <div
-                  class="d-flex align-items-center flex-wrap gap-2 justify-content-center"
+                  class="d-flex align-items-center flex-wrap gap-2 justify-content-center flex-md-column"
                 >
                   <input
                     type="number"
@@ -240,7 +240,7 @@
           <div class="product-list" v-if="listView == 'app'">
             <div class="row mb-5 main">
               <div
-                class="col-6 col-md-3 col-xl-3 mb-5"
+                class="col-6 col-md-4 col-xl-3 mb-5"
                 v-for="(item, index) in paginatedProducts"
                 :key="item.id"
                 @mouseenter="onMouseEnter(index)"
@@ -1613,5 +1613,23 @@ input::-webkit-inner-spin-button {
 
 .btn-close .material-symbols-outlined {
   font-size: 16px;
+}
+
+@media (max-width: 1100px) {
+  .col-xl-9 {
+    padding-left: 30px;
+  }
+
+  .cart-btn .material-symbols-outlined {
+    font-size: 16px !important;
+  }
+
+  .product-card .button-group .cart-btn {
+    padding: 5px 10px;
+  }
+
+  .product-card .price h4 {
+    margin: 0px;
+  }
 }
 </style>

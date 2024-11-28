@@ -24,6 +24,7 @@ import XP_PenSection from "../components/XP_PenSection";
 import LaptopSection from "../components/LaptopSection";
 import PopularItem from "../components/PopularItem";
 import Carousel from "../components/Carousel";
+import { ref, onMounted } from "vue";
 // @ is an alias to /src
 
 export default {
@@ -39,5 +40,7 @@ export default {
     PopularItem,
     Carousel,
   },
+
+  setup() {},
 };
 </script>

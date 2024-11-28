@@ -6,16 +6,135 @@
     <div
       class="brand-logo d-flex flex-wrap align-items-center justify-content-center"
     >
-      <div class="img" v-for="i in 36" :key="i" data-aos="flip-up">
-        <img :src="require(`@/assets/images/Logo/${i}.jpg`)" alt="" />
+      <div
+        class="img"
+        v-for="(image, index) in logo"
+        :key="index"
+        data-aos="fade-down"
+      >
+        <img :src="image.img" alt="" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { ref } from "vue";
 export default {
-  setup() {},
+  setup() {
+    const logo = ref([
+      {
+        img: require("@/assets/images/Logo/1.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/2.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/3.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/4.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/5.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/6.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/7.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/8.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/9.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/10.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/11.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/12.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/13.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/14.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/15.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/16.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/17.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/18.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/19.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/20.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/21.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/22.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/23.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/24.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/25.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/26.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/27.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/28.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/29.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/30.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/31.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/32.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/33.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/34.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/35.jpg"),
+      },
+      {
+        img: require("@/assets/images/Logo/36.jpg"),
+      },
+    ]);
+
+    return { logo };
+  },
 };
 </script>
 

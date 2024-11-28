@@ -401,7 +401,6 @@ export default {
     };
 
     onMounted(() => {
-      window.addEventListener("scroll", handleNavShadow);
       window.addEventListener("scroll", handleScroll);
       window.addEventListener("click", handleClickOutside);
     });
