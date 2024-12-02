@@ -8,7 +8,7 @@
               <div
                 class="delivery-header mb-4 d-flex justify-content-between align-items-center"
               >
-                <h6>Delivery</h6>
+                <h6>Contact</h6>
                 <router-link to="/">Login</router-link>
               </div>
               <v-autocomplete
@@ -44,7 +44,70 @@
                 <p>Save the information for next time</p>
               </div>
             </div>
-            <div class="shipping-method"></div>
+            <div class="shipping-method">
+              <div class="delivery-header">
+                <h6>Delivery</h6>
+              </div>
+              <div class="delivery-design">
+                <div
+                  class="d-flex align-items-center justify-content-between delivery-items"
+                >
+                  <div class="d-flex align-items-center gap-4">
+                    <input type="radio" class="form-check-input" />
+                    <p>Yangon, Southokkalapa</p>
+                  </div>
+                  <div class="delivery-price"><p>+ 3000 MMK</p></div>
+                </div>
+                <div
+                  class="d-flex align-items-center justify-content-between delivery-items"
+                >
+                  <div class="d-flex align-items-center gap-4">
+                    <input type="radio" class="form-check-input" />
+                    <p>Mandalay</p>
+                  </div>
+                  <div class="delivery-price"><p>+ 4000 MMK</p></div>
+                </div>
+              </div>
+
+              <div class="delivery-design-2">
+                <div class="d-flex align-items-center gap-5">
+                  <div class="city w-100">
+                    <div class="header-2">
+                      <h6>Choose City</h6>
+                    </div>
+                    <v-autocomplete
+                      label="Autocomplete"
+                      :items="[
+                        'California',
+                        'Colorado',
+                        'Florida',
+                        'Georgia',
+                        'Texas',
+                        'Wyoming',
+                      ]"
+                      variant="outlined"
+                    ></v-autocomplete>
+                  </div>
+                  <div class="township w-100">
+                    <div class="header-2">
+                      <h6>Choose Township</h6>
+                    </div>
+                    <v-autocomplete
+                      label="choose township"
+                      :items="[
+                        'California',
+                        'Colorado',
+                        'Florida',
+                        'Georgia',
+                        'Texas',
+                        'Wyoming',
+                      ]"
+                      variant="outlined"
+                    ></v-autocomplete>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="payment-method">
               <div class="delivery-header">
                 <h6>Payment Method</h6>
@@ -251,6 +314,48 @@ export default {
   padding: 20px 0px;
 }
 
+.shipping-method {
+  margin: 30px 0px;
+}
+
+.delivery-design {
+  margin: 20px 0px;
+  border: 0.5px solid #9e9e9e;
+  border-radius: 10px;
+}
+
+.delivery-items {
+  padding: 20px;
+  border-bottom: 0.5px solid #9e9e9e;
+}
+
+.delivery-items:nth-last-child() {
+  border: none;
+}
+
+.contact-info,
+.shipping-method,
+.payment-method {
+  background: #ffffff;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.delivery-items p {
+  font-size: 16px !important;
+  color: #9e9e9e;
+}
+
+.delivery-design-2 {
+  margin: 30px 0px;
+}
+
+.header-2 h6 {
+  font-weight: bold;
+}
+
 .checkout-content {
   width: 100%;
   height: 100%;
@@ -273,9 +378,12 @@ export default {
 
 .right-wrapper,
 .left-wrapper {
-  background: #ffffff;
-  padding: 20px;
   border-radius: 6px;
+}
+
+.right-wrapper {
+  padding: 20px;
+  background: #ffffff;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }

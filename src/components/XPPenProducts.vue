@@ -264,44 +264,45 @@
                     ></i>
                   </div>
                   <router-link :to="`/product/productdetail/${item.id}`">
-                    <div class="product-content mb-2">
-                      <h4>{{ item.name }}</h4>
-                      <p>{{ item.cpu }}</p>
-                      <p
-                        v-for="(specItem, index) in getspecList(
-                          item.spec,
-                          item.id
-                        )"
-                        :key="index"
+                    <div class="product-card-content">
+                      <div class="product-content mb-2">
+                        <h4>{{ item.name }}</h4>
+                        <p>{{ item.cpu }}</p>
+                        <p
+                          v-for="(specItem, index) in getspecList(
+                            item.spec,
+                            item.id
+                          )"
+                          :key="index"
+                        >
+                          {{ specItem }}
+                        </p>
+                      </div>
+                      <div class="rating mb-2">
+                        <v-rating
+                          readonly
+                          v-model="rating"
+                          active-color="orange-lighten-1"
+                          color="orange-lighten-1"
+                          size="mini"
+                        ></v-rating>
+                      </div>
+                      <div
+                        class="price-button d-flex align-items-center justify-content-between"
                       >
-                        {{ specItem }}
-                      </p>
+                        <div class="price">
+                          <h4>{{ item.price }} MMK</h4>
+                        </div>
+                        <div class="button-group">
+                          <button class="btn cart-btn mt-1">
+                            <span class="material-symbols-outlined">
+                              shopping_cart
+                            </span>
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </router-link>
-
-                  <div class="rating mb-2">
-                    <v-rating
-                      readonly
-                      v-model="rating"
-                      active-color="orange-lighten-1"
-                      color="orange-lighten-1"
-                      size="mini"
-                    ></v-rating>
-                  </div>
-                  <div
-                    class="price-button d-flex align-items-center justify-content-between"
-                  >
-                    <div class="price">
-                      <h4>{{ item.price }} MMK</h4>
-                    </div>
-                    <div class="button-group">
-                      <button class="btn cart-btn mt-1">
-                        <span class="material-symbols-outlined">
-                          shopping_cart
-                        </span>
-                      </button>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -886,6 +887,10 @@ export default {
   text-overflow: ellipsis;
 }
 
+.product-card-content {
+  padding: 10px;
+}
+
 .filter-btn {
   width: 100%;
   background: var(--background-color);
@@ -1060,7 +1065,7 @@ input::-webkit-inner-spin-button {
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   border-radius: 10px;
   transition: 0.3s linear;
-  padding: 10px 20px;
+
   text-overflow: ellipsis;
 }
 
@@ -1124,10 +1129,6 @@ input::-webkit-inner-spin-button {
   color: #111111;
 }
 
-.product-content {
-  text-overflow: ellipsis;
-}
-
 .product-card .product-content p {
   font-size: 14px !important;
   opacity: 0.8;
@@ -1178,7 +1179,7 @@ input::-webkit-inner-spin-button {
   position: relative;
   width: 100%;
   height: 100%;
-  margin-bottom: 20px;
+  padding: 10px;
 }
 
 .gradient {
@@ -1191,6 +1192,7 @@ input::-webkit-inner-spin-button {
   z-index: 1;
   opacity: 0;
   transition: 1s ease-in;
+  border-radius: 6px 6px 0px 0px;
 }
 
 .product-img img {
@@ -1199,6 +1201,12 @@ input::-webkit-inner-spin-button {
   object-fit: cover;
   transition: 1.5s ease-in-out;
   margin-bottom: 20px;
+  border-radius: 6px 6px 0px 0px;
+  /* background: linear-gradient(
+    156.8deg,
+    rgb(30, 144, 231) 27.1%,
+    rgb(67, 101, 225) 77.8%
+  ); */
 }
 
 .product-img #img2 {
@@ -1206,7 +1214,11 @@ input::-webkit-inner-spin-button {
   top: 0;
   left: 0;
   opacity: 0;
-  transition: 1.5s ease-in-out;
+  transition: 1s ease-in-out;
+}
+
+.product-card:hover .product-img {
+  margin-bottom: 10px;
 }
 
 .product-card:hover .product-img #img2 {
