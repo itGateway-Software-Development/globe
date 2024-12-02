@@ -1,10 +1,10 @@
 <template>
   <div class="laptop-wrapper content-wrapper">
-    <div class="content-heading text-center">
+    <div class="content-heading text-center" data-aos="fade-down">
       <h2>Speaker List</h2>
     </div>
 
-    <div class="button-group mt-5">
+    <div class="button-group mt-5" data-aos="fade-down">
       <ul
         class="d-flex align-items-center justify-content-center flex-wrap gap-2"
       >

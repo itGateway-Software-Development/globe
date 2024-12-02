@@ -40,7 +40,7 @@
                           <div class="product-content">
                             <h6>{{ item.name }}</h6>
                             <p>{{ item.type }}</p>
-                            <h6>${{ item.price }}</h6>
+                            <h6>{{ item.price }} MMK</h6>
                           </div>
                         </div>
                       </div>
@@ -63,7 +63,7 @@
                       </div>
                     </td>
                     <td class="total-group">
-                      <h6>$ {{ item.price }}</h6>
+                      <h6>{{ item.price }} MMK</h6>
                     </td>
                   </tr>
                 </tbody>
@@ -83,20 +83,20 @@
                 class="d-flex align-items-center justify-content-between item"
               >
                 <p>Subtotal:</p>
-                <h6>$600</h6>
+                <h6>600,000 MMK</h6>
               </div>
               <div
                 class="d-flex align-items-center justify-content-between item"
               >
                 <p>Delivery:</p>
-                <h6>$0</h6>
+                <h6>600,000 MMK</h6>
               </div>
               <hr class="px-0 py-0" />
               <div
                 class="d-flex align-items-center justify-content-between item"
               >
                 <p>Total:</p>
-                <h6>$600</h6>
+                <h6>600,000 MMK</h6>
               </div>
             </div>
 
@@ -194,7 +194,7 @@ export default {
       {
         id: "1",
         name: "Asus Rog Strix Scope RX EVA-02 Edition",
-        price: "300",
+        price: "300,000",
         color: "red",
         type: "Keyboard",
         img: require("@/assets/images/gadget/7.jpg"),
@@ -203,7 +203,7 @@ export default {
       {
         id: "2",
         name: "Asus Rog Strix Scope RX EVA-02 Edition",
-        price: "300",
+        price: "300,000",
         color: "red",
         type: "Keyboard",
         img: require("@/assets/images/gadget/7.jpg"),
