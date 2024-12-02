@@ -193,7 +193,7 @@
                   </div>
                 </div>
                 <div class="price">
-                  <p>K 300,000</p>
+                  <p>300,000 <span class="unit">MMK</span></p>
                 </div>
               </div>
             </div>
@@ -202,19 +202,20 @@
                 class="d-flex sub-total align-items-center justify-content-between"
               >
                 <p>Subtotal</p>
-                <p>K 300,000</p>
+                <p>300,000 <span class="unit">MMK</span></p>
               </div>
               <div
                 class="d-flex sub-total align-items-center justify-content-between"
               >
                 <p>Shipping</p>
-                <p>K 3,000</p>
+                <p>3,000 <span class="unit">MMK</span></p>
               </div>
+              <hr class="px-0 py-0" />
               <div
                 class="d-flex total align-items-center justify-content-between"
               >
-                <h6>Total</h6>
-                <h6><span>MMK</span> K 300,000</h6>
+                <p>Total</p>
+                <p>300,000 <span class="unit">MMK</span></p>
               </div>
             </div>
           </div>
@@ -279,6 +280,10 @@ export default {
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
+.unit {
+  font-size: 13px;
+}
+
 .left-wrapper {
   position: relative;
 }
@@ -302,6 +307,9 @@ export default {
 
 .sub-total {
   margin: 10px 0px;
+}
+.sub-total p {
+  color: #9e9e9e;
 }
 
 .total h6 {

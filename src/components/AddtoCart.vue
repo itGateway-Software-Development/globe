@@ -171,7 +171,7 @@
             <div class="button-group">
               <div class="d-flex align-items-center gap-2">
                 <button @click="changeRoute()" class="btn shopping-btn">
-                  Continus Shopping
+                  Continue Shopping
                 </button>
                 <router-link to="/cart/checkout" class="btn checkout-btn"
                   >Checkout Now</router-link

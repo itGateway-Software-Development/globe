@@ -11,7 +11,7 @@
       <div class="route-link">
         <router-link to="/cart" class="d-flex align-items-center gap-2">
           <span class="material-symbols-outlined"> arrow_back_ios </span>
-          <p>Return to shopping</p>
+          <p>Back to Cart</p>
         </router-link>
       </div>
     </div>

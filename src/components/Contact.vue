@@ -177,7 +177,7 @@
             </div>
             <div class="card-text">
               <h5>Call us</h5>
-              <p>Everyday from 9AM to 6PM</p>
+              <p>Everyday from 9:00 AM to 6:00 PM</p>
             </div>
             <div class="card-button">
               <a @click="callUs()" class="card-btn btn">Call our store</a>
@@ -220,7 +220,7 @@
                   <span class="material-symbols-outlined"> schedule </span>
                 </h6>
                 <span class="dash">-</span>
-                <p>Everyday from 9AM to 6PM</p>
+                <p>Everyday from 9:00 AM to 6:00 PM</p>
               </div>
               <div class="social-group">
                 <div class="social-header">
@@ -387,6 +387,7 @@ export default {
 }
 
 .card-text p {
+  font-size: 14px !important;
   color: #8f8f8f;
 }
 

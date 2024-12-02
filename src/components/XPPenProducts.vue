@@ -107,7 +107,7 @@
 
                 <!-- Min and Max Price Inputs -->
                 <div
-                  class="d-flex align-items-center flex-wrap gap-2 justify-content-center flex-md-column"
+                  class="d-flex align-items-center flex-wrap gap-2 justify-content-center flex-column-md"
                 >
                   <input
                     type="number"
@@ -1177,12 +1177,13 @@ input::-webkit-inner-spin-button {
 .product-img {
   position: relative;
   width: 100%;
+  height: 100%;
   margin-bottom: 20px;
 }
 
-/* .gradient {
+.gradient {
   width: 100%;
-  height: 180px;
+  height: 100%;
   position: absolute;
   background: #111111;
   top: 0;
@@ -1190,14 +1191,12 @@ input::-webkit-inner-spin-button {
   z-index: 1;
   opacity: 0;
   transition: 1s ease-in;
-} */
+}
 
 .product-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
   transition: 1.5s ease-in-out;
   margin-bottom: 20px;
 }
