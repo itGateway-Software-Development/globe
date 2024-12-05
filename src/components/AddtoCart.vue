@@ -24,7 +24,7 @@
                 <thead>
                   <tr>
                     <th class="text-left"><h6>Product</h6></th>
-                    <th class="text-left"><h6>Quantity</h6></th>
+                    <th class="text-center"><h6>Quantity</h6></th>
                     <th class="text-left"><h6>Total</h6></th>
                   </tr>
                 </thead>
@@ -85,12 +85,12 @@
                 <p>Subtotal:</p>
                 <h6>600,000 MMK</h6>
               </div>
-              <div
+              <!-- <div
                 class="d-flex align-items-center justify-content-between item"
               >
                 <p>Delivery:</p>
                 <h6>600,000 MMK</h6>
-              </div>
+              </div> -->
               <hr class="px-0 py-0" />
               <div
                 class="d-flex align-items-center justify-content-between item"

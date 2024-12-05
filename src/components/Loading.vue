@@ -1,6 +1,9 @@
 <template>
   <div class="loading-container">
-    <div class="loader"></div>
+    <div class="d-flex flex-column align-items-center">
+      <div class="loader"></div>
+      <div class="loader-2"></div>
+    </div>
   </div>
 </template>
 
@@ -24,9 +27,9 @@ export default {};
 
 .loader {
   position: relative;
-  width: 64px;
-  height: 64px;
-  background-color: rgba(0, 0, 0, 0.5);
+  width: 120px;
+  height: 120px;
+  /* background-color: rgba(0, 0, 0, 0.5); */
   transform: rotate(45deg);
   overflow: hidden;
 }
@@ -35,17 +38,39 @@ export default {};
   position: absolute;
   inset: 10px;
   margin: auto;
-  background-image: url("@/assets/images/logo_1.jpg");
+  background-image: url("@/assets/images/logo_2.png");
   background-size: 100%;
 }
-.loader:before {
+
+/* HTML: <div class="loader"></div> */
+/* HTML: <div class="loader"></div> */
+.loader-2 {
+  width: 60px;
+  aspect-ratio: 4;
+  --_g: no-repeat radial-gradient(circle closest-side, #23b5de 90%, #0000);
+  background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
+  background-size: calc(100% / 3) 100%;
+  animation: l7 1s infinite linear;
+}
+@keyframes l7 {
+  33% {
+    background-size: calc(100% / 3) 0%, calc(100% / 3) 100%, calc(100% / 3) 100%;
+  }
+  50% {
+    background-size: calc(100% / 3) 100%, calc(100% / 3) 0%, calc(100% / 3) 100%;
+  }
+  66% {
+    background-size: calc(100% / 3) 100%, calc(100% / 3) 100%, calc(100% / 3) 0%;
+  }
+}
+/* .loader:before {
   content: "";
   position: absolute;
   inset: -15px;
   margin: auto;
   background: #23b5de;
   animation: diamondLoader 2s linear infinite;
-}
+} */
 @keyframes diamondLoader {
   0%,
   10% {

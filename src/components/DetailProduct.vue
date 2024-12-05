@@ -759,7 +759,7 @@ export default {
 }
 
 .product-content-detail p {
-  font-size: 14px;
+  font-size: 18px !important;
   opacity: 0.8;
 }
 
@@ -767,10 +767,11 @@ export default {
   font-family: "Gilory-Bold", sans-serif;
   font-weight: bold;
   min-width: 130px;
+  font-size: 18px;
 }
 
 .detail-content p {
-  font-size: 14px !important;
+  font-size: 15px !important;
   color: #838282;
 }
 
@@ -778,6 +779,7 @@ export default {
   font-family: "Gilory-Bold", sans-serif;
   font-weight: bold;
   color: #838282;
+  font-size: 18px;
 }
 
 .add-to-cart-btn {

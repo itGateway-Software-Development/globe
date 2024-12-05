@@ -161,7 +161,7 @@
                 >
                   keyboard_arrow_down
                 </span>
-                <h4>Filter</h4>
+                <h4>Series</h4>
               </div>
               <ul class="list-items" v-if="filterShow">
                 <li
@@ -190,7 +190,7 @@
               <div class="filter-header d-flex align-items-center gap-2">
                 <span class="material-symbols-outlined"> token </span>
 
-                <h4>Compatibility</h4>
+                <h4>Compatibility App</h4>
               </div>
               <ul
                 class="d-flex align-items-center gap-2 flex-wrap"
@@ -240,7 +240,7 @@
           <div class="product-list" v-if="listView == 'app'">
             <div class="row mb-5 main">
               <div
-                class="col-6 col-md-4 col-xl-3 mb-5"
+                class="col-6 col-md-4 col-xl-4 mb-5"
                 v-for="(item, index) in paginatedProducts"
                 :key="item.id"
                 @mouseenter="onMouseEnter(index)"
@@ -1138,7 +1138,7 @@ input::-webkit-inner-spin-button {
 }
 
 .product-card .price h4 {
-  font-size: 17px;
+  font-size: 18px;
   color: #f1803e;
 }
 
@@ -1419,7 +1419,7 @@ input::-webkit-inner-spin-button {
   font-weight: bold;
   text-decoration: underline;
   color: #9c9c9c;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .price h4 {
@@ -1431,7 +1431,7 @@ input::-webkit-inner-spin-button {
 
 .specList p {
   font-weight: 500;
-  font-size: 14px !important;
+  font-size: 16px !important;
   color: #9c9c9c;
 }
 

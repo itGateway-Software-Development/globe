@@ -49,7 +49,7 @@ export default {
 
       setTimeout(() => {
         loading.value = false;
-      }, 1500);
+      }, 2000);
     };
 
     watch(route, () => loadContent());

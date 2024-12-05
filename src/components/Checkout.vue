@@ -48,27 +48,6 @@
               <div class="delivery-header">
                 <h6>Delivery</h6>
               </div>
-              <div class="delivery-design">
-                <div
-                  class="d-flex align-items-center justify-content-between delivery-items"
-                >
-                  <div class="d-flex align-items-center gap-4">
-                    <input type="radio" class="form-check-input" />
-                    <p>Yangon, Southokkalapa</p>
-                  </div>
-                  <div class="delivery-price"><p>+ 3000 MMK</p></div>
-                </div>
-                <div
-                  class="d-flex align-items-center justify-content-between delivery-items"
-                >
-                  <div class="d-flex align-items-center gap-4">
-                    <input type="radio" class="form-check-input" />
-                    <p>Mandalay</p>
-                  </div>
-                  <div class="delivery-price"><p>+ 4000 MMK</p></div>
-                </div>
-              </div>
-
               <div class="delivery-design-2">
                 <div class="d-flex align-items-center gap-5">
                   <div class="city w-100">
@@ -272,6 +251,12 @@
               >
                 <p>Shipping</p>
                 <p>3,000 <span class="unit">MMK</span></p>
+              </div>
+              <div
+                class="d-flex sub-total align-items-center justify-content-between"
+              >
+                <p>Tax</p>
+                <p>0 <span class="unit">MMK</span></p>
               </div>
               <hr class="px-0 py-0" />
               <div

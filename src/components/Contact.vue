@@ -133,7 +133,12 @@
               <p>Speak to our friendly sales</p>
             </div>
             <div class="card-button">
-              <a href="/" class="card-btn btn">Chat to sales</a>
+              <a
+                href="https://m.me/globe.trading"
+                target="_blank"
+                class="card-btn btn"
+                >Chat to sales</a
+              >
             </div>
           </div>
         </div>
@@ -147,7 +152,12 @@
               <p>We're here for help</p>
             </div>
             <div class="card-button">
-              <a href="/" class="card-btn btn">Chat to support</a>
+              <a
+                href="https://m.me/globe.trading"
+                target="_blank"
+                class="card-btn btn"
+                >Chat to support</a
+              >
             </div>
           </div>
         </div>
