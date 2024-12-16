@@ -1,7 +1,7 @@
 <template>
   <div class="footer-wrapper" :class="{ 'no-padding': route.meta.hideNavbar }">
     <div class="row content-wrapper">
-      <div class="col-12 col-sm-6 col-md-3 col-xl-3">
+      <!-- <div class="col-12 col-sm-6 col-md-3 col-xl-3">
         <div class="footer-heading mt-5"><h5>Information</h5></div>
         <div class="footer-list mt-5">
           <ul>
@@ -16,7 +16,7 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
       <div class="col-12 col-sm-6 col-md-3 col-xl-3">
         <div class="footer-heading mt-5"><h5>Service</h5></div>
         <div class="footer-list mt-5">
@@ -27,7 +27,7 @@
           </ul>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-3 col-xl-3">
+      <!-- <div class="col-12 col-sm-6 col-md-3 col-xl-3">
         <div class="footer-heading mt-5"><h5>Shop Now</h5></div>
         <div class="footer-list mt-5">
           <ul>
@@ -57,38 +57,11 @@
             </li>
           </ul>
         </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-12 col-xl-3">
-        <div class="content-group align-items-center gap-5">
-          <div class="address">
-            <div class="footer-heading mt-5"><h5>Address</h5></div>
-            <div class="mt-5 d-flex align-items center gap-2">
-              <span class="material-symbols-outlined"> map </span>
-              <p class="hilight-font">
-                No.508 A, Lower Kyee Myin daing Road, (Home Lan Bus Stop), Kyee
-                Myin Daing Township. Yangon.
-              </p>
-            </div>
-          </div>
-          <div class="contact">
-            <div class="footer-heading mt-5"><h5>Contact Us</h5></div>
-            <div class="contact-us mt-5">
-              <div class="phone d-flex align-items-center gap-2 mb-2">
-                <span class="material-symbols-outlined"> call </span>
-                <p class="hilight-font">+959 880 441 046</p>
-              </div>
-
-              <div class="mail d-flex align-items-center gap-2">
-                <span class="material-symbols-outlined"> mail </span>
-                <p class="hilight-font">info@globetradingmm.com</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
+      </div> -->
+      <div class="col-12 col-sm-6 col-md-6 col-xl-3">
         <div class="footer-heading mt-5"><h5>Follow Us</h5></div>
         <div class="icon-group mt-5">
-          <div class="d-flex align-items-center gap-5">
+          <div class="d-flex align-items-center gap-4">
             <a href="https://www.facebook.com/globe.trading" target="_blank"
               ><i class="fa-brands fa-facebook-f"></i
             ></a>
@@ -104,6 +77,36 @@
               target="_blank"
               ><i class="fa-brands fa-instagram"></i
             ></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-xl-3">
+        <div class="contact">
+          <div class="footer-heading mt-5"><h5>Contact Us</h5></div>
+          <div class="contact-us mt-5">
+            <div class="phone d-flex align-items-center gap-2 mb-2">
+              <span class="material-symbols-outlined"> call </span>
+              <p class="hilight-font">+959 880 441 046</p>
+            </div>
+
+            <div class="mail d-flex align-items-center gap-2">
+              <span class="material-symbols-outlined"> mail </span>
+              <p class="hilight-font">info@globetradingmm.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-12 col-xl-3">
+        <div class="content-group align-items-center gap-5">
+          <div class="address">
+            <div class="footer-heading mt-5"><h5>Address</h5></div>
+            <div class="mt-5 d-flex align-items center gap-2">
+              <span class="material-symbols-outlined"> map </span>
+              <p class="hilight-font">
+                No.508 A, Lower Kyee Myin daing Road, (Home Lan Bus Stop), Kyee
+                Myin Daing Township. Yangon.
+              </p>
+            </div>
           </div>
         </div>
       </div>
