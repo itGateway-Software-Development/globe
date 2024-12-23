@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import CheckoutNav from "./components/CheckoutNav";
+import CheckoutNav from "./components/checkout/CheckoutNav";
 import Loading from "./components/Loading";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";

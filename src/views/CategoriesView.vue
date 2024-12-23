@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import MbCategories from "../components/MbCategories";
+import MbCategories from "../components/mobile/MbCategories";
 import Categories from "../components/Categories";
 export default {
   components: {

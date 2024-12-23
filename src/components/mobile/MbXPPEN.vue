@@ -39,143 +39,18 @@
         <div class="row">
           <div
             class="col-6 col-sm-4 col-md-4 col-xl-4 mb-5"
-            v-for="(item, index) in productList"
+            v-for="item in productList"
             :key="item.id"
           >
-            <div class="product-card">
-              <div class="upper-card">
-                <div class="product-img">
-                  <img
-                    :src="currentImage(item, index)"
-                    :class="{ 'fade-in': hoveredIndex === index }"
-                    alt=""
-                  />
-                </div>
-                <div class="product-content">
-                  <div class="product-type mb-2">
-                    <h4 class="hilight-font">{{ item.type }}</h4>
-                  </div>
-                  <div class="product-name mb-2">
-                    <h4>{{ item.name }}</h4>
-                  </div>
-                  <div class="product-content-detail mb-2">
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Quos animi ipsa sint laudantium sunt! Aliquid dicta nihil
-                      porro pariatur? Ratione.
-                    </p>
-                  </div>
-                  <div class="rating mb-2">
-                    <div class="">
-                      <v-rating
-                        readonly
-                        v-model="rating"
-                        active-color="orange-lighten-1"
-                        color="orange-lighten-1"
-                        size="mini"
-                      ></v-rating>
-                    </div>
-                  </div>
-                  <div class="price mb-2">${{ item.price }}</div>
-                </div>
-              </div>
-              <div class="lower-card">
-                <div class="product-stock mb-3">
-                  <p
-                    class="d-flex align-items-center gap-2 justify-content-center"
-                  >
-                    <span class="material-symbols-outlined"> check_circle </span
-                    ><span class="small-font"
-                      >{{ item.stock }} Products in stock</span
-                    >
-                  </p>
-                </div>
-                <div class="warranty mb-5">
-                  <p
-                    class="d-flex align-items-center gap-2 justify-content-center"
-                  >
-                    <span class="material-symbols-outlined"> check </span
-                    ><span class="small-font"
-                      >{{ item.warrenty }} Years Warranty</span
-                    >
-                  </p>
-                </div>
-                <div class="button-group">
-                  <button
-                    class="btn add-to-cart mx-auto d-flex align-items-center gap-3 primary-btn justify-content-center"
-                  >
-                    <span class="material-symbols-outlined">
-                      shopping_cart
-                    </span>
-                    <p>Quick Add</p>
-                  </button>
-                </div>
-              </div>
-            </div>
+            <ProductCard :data="item"></ProductCard>
           </div>
         </div>
       </div>
 
       <div class="product-list" v-if="listView == 'list'">
         <div class="d-flex flex-column mb-5 w-100">
-          <div
-            class="product-box"
-            v-for="(item, index) in productList"
-            :key="item.id"
-          >
-            <div class="product-card-list w-100 mb-5">
-              <div class="d-flex align-items-center gap-5">
-                <div class="product-img-list">
-                  <img :src="item.img" alt="" id="img1" />
-                  <img :src="item.hoverimg" alt="" id="img2" />
-                </div>
-                <div class="mobile-img d-none">
-                  <img :src="item.img" alt="" />
-                </div>
-                <div class="product-content">
-                  <div class="product-type mb-2">
-                    <h4 class="hilight-font">{{ item.type }}</h4>
-                  </div>
-                  <div class="product-name mb-2">
-                    <h4>{{ item.name }}</h4>
-                  </div>
-                  <div class="rating mb-2">
-                    <div class="">
-                      <v-rating
-                        readonly
-                        v-model="rating"
-                        active-color="orange-lighten-1"
-                        color="orange-lighten-1"
-                        size="mini"
-                      ></v-rating>
-                    </div>
-                  </div>
-                  <div class="price mb-2">${{ item.price }}</div>
-                  <div class="stock mb-2">
-                    <div class="d-flex align-items-center gap-2">
-                      <span class="material-symbols-outlined">
-                        check_circle
-                      </span>
-                      <p>In Stock</p>
-                    </div>
-                  </div>
-                  <div class="content mb-3">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Impedit modi omnis qui aspernatur, voluptas ut
-                  </div>
-                  <div class="button-group">
-                    <button
-                      class="btn add-to-cart list-btn d-flex align-items-center gap-3 primary-btn justify-content-center"
-                    >
-                      <span class="material-symbols-outlined">
-                        shopping_cart
-                      </span>
-                      <p>Quick Add</p>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="product-box" v-for="item in productList" :key="item.id">
+            <ProductCardList :data="item"></ProductCardList>
           </div>
         </div>
       </div>
@@ -330,103 +205,79 @@
 </template>
 
 <script>
+import ProductCardList from "../productcard/ProductCardList";
+import ProductCard from "../productcard/ProductCard";
 import { ref, watch, computed } from "vue";
 export default {
+  components: {
+    ProductCardList,
+    ProductCard,
+  },
   setup() {
     const drawer = ref(false);
-    const brandList = ref([
-      {
-        name: "Marshall",
-      },
-      {
-        name: "Lenovo",
-      },
-      {
-        name: "Dell",
-      },
-      {
-        name: "HP",
-      },
-      {
-        name: "Asus",
-      },
-      {
-        name: "Asus",
-      },
-      {
-        name: "Asus",
-      },
-      {
-        name: "Asus",
-      },
-      {
-        name: "Asus",
-      },
-      {
-        name: "Asus",
-      },
-      {
-        name: "Asus",
-      },
-      {
-        name: "Asus",
-      },
-      {
-        name: "Asus",
-      },
-      {
-        name: "Asus",
-      },
-      {
-        name: "Asus",
-      },
-      {
-        name: "Asus",
-      },
-      {
-        name: "Asus",
-      },
-      {
-        name: "Asus",
-      },
-      {
-        name: "Asus",
-      },
-      {
-        name: "Asus",
-      },
-      {
-        name: "Asus",
-      },
-      {
-        name: "Asus",
-      },
-    ]);
     const categories = ref([
       {
-        name: "XP-PEN",
+        name: "Drawing Display",
       },
-      { name: "Laptop" },
+      { name: "Drawing Tablet" },
       {
-        name: "Tech Gadgets",
+        name: "Accessories",
+      },
+      //   {
+      //     name: "Headsets",
+      //   },
+      //   {
+      //     name: "speaker",
+      //   },
+      //   {
+      //     name: "Portable",
+      //   },
+      //   {
+      //     name: "Tablet & E-Reader",
+      //   },
+      //   {
+      //     name: "Networking",
+      //   },
+      //   {
+      //     name: "Telecommunication",
+      //   },
+    ]);
+
+    const brandList = ref([
+      {
+        name: "Deco Pro Series",
       },
       {
-        name: "Headsets",
+        name: "Deco Series",
       },
       {
-        name: "speaker",
+        name: "Deco Fun Series",
       },
       {
-        name: "Portable",
+        name: "Star Series",
       },
       {
-        name: "Tablet & E-Reader",
+        name: "Artist Pro Series",
       },
       {
-        name: "Networking",
+        name: "Artist Series",
       },
       {
-        name: "Telecommunication",
+        name: "Innovator Series",
+      },
+      {
+        name: "Magic Drawing Pad",
+      },
+    ]);
+
+    const compatibilityList = ref([
+      {
+        id: 1,
+        logo: require("@/assets/images/xp_pen/compatibility/1.png"),
+      },
+      {
+        id: 2,
+        logo: require("@/assets/images/xp_pen/compatibility/2.png"),
       },
     ]);
 
@@ -530,21 +381,23 @@ export default {
     };
 
     return {
-      drawer,
-      maxPrice,
+      categories,
+      visibleCategories,
+      showAllCategories,
       minPrice,
+      maxPrice,
       priceRange,
       resetPriceRange,
       brandList,
-      visibleCategories,
-      showAllCategories,
-      onMouseEnter,
-      onMouseLeave,
-      productList,
-      rating,
       listView,
       changeView,
+      onMouseEnter,
+      onMouseLeave,
+      rating,
+      productList,
       currentImage,
+      compatibilityList,
+      drawer,
     };
   },
 };
@@ -784,218 +637,5 @@ export default {
 .view-style.active {
   background: #007bff;
   color: #fff;
-}
-
-.product-card {
-  width: 100%;
-  height: 460px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  border-radius: 10px;
-  transition: 0.3s linear;
-  transform: translateZ(0px);
-  margin: 10px 0px;
-}
-
-.upper-card {
-  padding: 15px 20px;
-}
-
-.product-content-detail {
-  height: 50px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.product-img {
-  width: 100%;
-  justify-content: center;
-  display: flex;
-  margin-bottom: 40px;
-}
-
-.product-img img {
-  width: 170px;
-  height: 100%;
-  transform: translateZ(0px);
-  transition: all 0.5s linear;
-}
-
-.product-img img.fade-in {
-  transform: translateZ(100%);
-  width: 200px;
-}
-
-.product-card h4 {
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.product-name h4 {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.product-card h4:hover {
-  color: #0a65af;
-}
-
-.product-card .product-type h4 {
-  color: #cdcdcd;
-  cursor: pointer;
-  transition: 0.4s;
-  font-size: 18px;
-}
-
-.product-card .product-type h4:hover {
-  color: #0a65af;
-}
-
-.product-card .price {
-  font-weight: bold;
-  font-size: 20px !important;
-  letter-spacing: 0.1rem;
-}
-
-.lower-card {
-  visibility: hidden;
-  transition: all 0.5s linear;
-  transform: translateY(-200px);
-  opacity: 0;
-  padding: 0px 10px;
-}
-
-.lower-card .product-stock {
-  color: #3cb872;
-}
-
-.lower-card .small-font {
-  font-size: 12px;
-}
-
-.add-to-cart {
-  width: 170px !important;
-}
-
-.product-card:hover .lower-card {
-  visibility: visible;
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.product-card:hover .upper-card {
-  border-bottom: 1px solid #111111;
-  margin-bottom: 20px;
-}
-
-.product-card:hover {
-  border: 0px;
-
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  height: 100%;
-  padding: 20px 0px;
-}
-
-.product-card-list {
-  width: 100%;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  border-radius: 10px;
-  transition: 0.3s linear;
-  transform: translateZ(0px);
-}
-
-.product-img-list {
-  position: relative;
-  width: 400px;
-  height: 300px;
-}
-
-.product-img-list img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  transition: 0.5s ease-in-out;
-}
-
-.product-img-list #img2:hover {
-  opacity: 0;
-  cursor: pointer;
-}
-
-.product-card-list:hover .product-img-list #img2 {
-  opacity: 0;
-  cursor: pointer;
-}
-
-.stock {
-  color: #3cb872;
-}
-
-.stock .material-symbols-outlined {
-  font-size: 18px !important;
-}
-
-.list-btn {
-  margin: 0px !important;
-}
-
-.content {
-  height: 50px;
-  text-overflow: ellipsis;
-}
-
-@media (max-width: 768px) {
-  .product-card-list {
-    padding: 10px;
-    overflow: hidden !important;
-    border: 1px solid #111111;
-  }
-
-  .product-img-list {
-    display: none;
-  }
-
-  .mobile-img {
-    display: block !important;
-    width: 500px;
-    height: 200px;
-    object-fit: cover;
-    overflow: hidden;
-  }
-
-  .mobile-img img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
-
-  .product-content {
-    padding: 20px 0px;
-  }
-}
-
-@media (max-width: 500px) {
-  .product-content {
-    padding: 20px;
-  }
-
-  .gap-5 {
-    gap: 10px !important;
-  }
-
-  .mobile-img {
-    display: block !important;
-    width: 500px;
-    height: 200px;
-    object-fit: cover;
-    overflow: hidden;
-  }
 }
 </style>

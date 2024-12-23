@@ -15,52 +15,52 @@
       <swiper-slide
         ><div class="img-container">
           <router-link to="/" class="menu-route">
-            <img src="../assets/images/popular/1.jpg" alt=""
+            <img src="../../assets/images/popular/1.jpg" alt=""
           /></router-link></div
       ></swiper-slide>
       <swiper-slide
         ><div class="img-container">
           <router-link to="/" class="menu-route"
-            ><img src="../assets/images/popular/2.jpg" alt="" />
+            ><img src="../../assets/images/popular/2.jpg" alt="" />
           </router-link>
         </div> </swiper-slide
       ><swiper-slide
         ><div class="img-container">
           <router-link to="/" class="menu-route"
-            ><img src="../assets/images/popular/3.jpg" alt=""
+            ><img src="../../assets/images/popular/3.jpg" alt=""
           /></router-link></div
       ></swiper-slide>
       <swiper-slide
         ><div class="img-container">
           <router-link to="/" class="menu-route"
-            ><img src="../assets/images/popular/4.jpg" alt=""
+            ><img src="../../assets/images/popular/4.jpg" alt=""
           /></router-link></div></swiper-slide
       ><swiper-slide
         ><div class="img-container">
           <router-link to="/" class="menu-route"
-            ><img src="../assets/images/popular/5.jpg" alt=""
+            ><img src="../../assets/images/popular/5.jpg" alt=""
           /></router-link></div
       ></swiper-slide>
       <swiper-slide
         ><div class="img-container">
           <router-link to="/" class="menu-route"
-            ><img src="../assets/images/popular/6.jpg" alt=""
+            ><img src="../../assets/images/popular/6.jpg" alt=""
           /></router-link></div></swiper-slide
       ><swiper-slide
         ><div class="img-container">
           <router-link to="/" class="menu-route"
-            ><img src="../assets/images/popular/7.jpeg" alt=""
+            ><img src="../../assets/images/popular/7.jpeg" alt=""
           /></router-link></div
       ></swiper-slide>
       <swiper-slide
         ><div class="img-container">
           <router-link to="/" class="menu-route"
-            ><img src="../assets/images/popular/8.png" alt=""
+            ><img src="../../assets/images/popular/8.png" alt=""
           /></router-link></div></swiper-slide
       ><swiper-slide
         ><div class="img-container">
           <router-link to="/" class="menu-route"
-            ><img src="../assets/images/popular/9.jpg" alt=""
+            ><img src="../../assets/images/popular/9.jpg" alt=""
           /></router-link></div
       ></swiper-slide>
     </swiper>
@@ -85,27 +85,27 @@
           <div
             class="d-flex align-items-center justify-content-center gap-5 item-list px-5"
           >
-            <img src="../assets/images/popular/1.jpg" alt="" />
-            <img src="../assets/images/popular/2.jpg" alt="" />
-            <img src="../assets/images/popular/3.jpg" alt="" /></div
+            <img src="../../assets/images/popular/1.jpg" alt="" />
+            <img src="../../assets/images/popular/2.jpg" alt="" />
+            <img src="../../assets/images/popular/3.jpg" alt="" /></div
         ></v-carousel-item>
 
         <v-carousel-item>
           <div
             class="d-flex align-items-center justify-content-center gap-5 item-list px-5"
           >
-            <img src="../assets/images/popular/4.jpg" alt="" />
-            <img src="../assets/images/popular/5.jpg" alt="" />
-            <img src="../assets/images/popular/6.jpg" alt="" /></div
+            <img src="../../assets/images/popular/4.jpg" alt="" />
+            <img src="../../assets/images/popular/5.jpg" alt="" />
+            <img src="../../assets/images/popular/6.jpg" alt="" /></div
         ></v-carousel-item>
 
         <v-carousel-item>
           <div
             class="d-flex align-items-center justify-content-center gap-5 item-list px-5"
           >
-            <img src="../assets/images/popular/7.jpeg" alt="" />
-            <img src="../assets/images/popular/8.png" alt="" />
-            <img src="../assets/images/popular/9.jpg" alt="" /></div
+            <img src="../../assets/images/popular/7.jpeg" alt="" />
+            <img src="../../assets/images/popular/8.png" alt="" />
+            <img src="../../assets/images/popular/9.jpg" alt="" /></div
         ></v-carousel-item>
       </v-carousel>
     </div>

@@ -1,72 +1,78 @@
 <template>
   <div class="laptop-wrapper content-wrapper">
     <div class="content-heading text-center" data-aos="fade-down">
-      <h2>Speaker List</h2>
+      <h2>Tech Gadgets</h2>
     </div>
 
     <div class="button-group mt-5" data-aos="fade-down">
       <ul
         class="d-flex align-items-center justify-content-center flex-wrap gap-2"
       >
-        <li>
+        <li
+          v-for="item in headerList"
+          :key="item"
+          class="d-flex align-items-center gap-2"
+        >
           <button
             class="btn product-btn"
-            @click="changeValue('marshall')"
-            :class="{ active: header == 'marshall' }"
+            @click="changeValue(item.value)"
+            :class="{ active: header == item.value }"
           >
-            Marshall
+            {{ item.name }}
           </button>
-        </li>
-        <li class="seperator-line"></li>
-        <li>
-          <button
-            class="btn product-btn"
-            @click="changeValue('harman')"
-            :class="{ active: header == 'harman' }"
-          >
-            Harman
-          </button>
-        </li>
-        <li class="seperator-line"></li>
-        <li>
-          <button class="btn product-btn" :class="{ active: header == 'jbl' }">
-            JBL
-          </button>
+          <div class="seperator-line"></div>
         </li>
       </ul>
     </div>
 
     <div class="show-product">
-      <div v-if="header == 'marshall'">
-        <Marshall></Marshall>
+      <div v-if="header == 'keyboard'">
+        <Keyboard></Keyboard>
       </div>
-      <div v-if="header == 'harman'">
-        <Harman></Harman>
+      <div v-if="header == 'powerbank'">
+        <Powerbank></Powerbank>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Harman from "./speakers/Harman";
-import Marshall from "./speakers/Marshall";
-
+import Powerbank from "../teachgadget/Powerbank";
+import Keyboard from "../teachgadget/Keyboard";
 import { ref } from "vue";
 export default {
   components: {
-    Harman,
-    Marshall,
+    Powerbank,
+    Keyboard,
+    Powerbank,
+    Keyboard,
   },
   setup() {
-    const header = ref("marshall");
+    const header = ref("keyboard");
 
     const changeValue = (value) => {
       header.value = value;
     };
 
+    const headerList = ref([
+      {
+        name: "Keyboard",
+        value: "keyboard",
+      },
+      {
+        name: "Powerbank",
+        value: "powerbank",
+      },
+      {
+        name: "Webcam",
+        value: "webcam",
+      },
+    ]);
+
     return {
       header,
       changeValue,
+      headerList,
     };
   },
 };
@@ -112,6 +118,10 @@ export default {
 
 .show-product {
   position: relative;
+}
+
+li:last-child .seperator-line {
+  display: none;
 }
 
 @media (max-width: 600px) {

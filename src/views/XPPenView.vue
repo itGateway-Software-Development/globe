@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import MbXPPEN from "../components/MbXPPEN";
+import MbXPPEN from "../components/mobile/MbXPPEN";
 import XPPenProducts from "../components/XPPenProducts";
 export default {
   components: {

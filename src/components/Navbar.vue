@@ -281,7 +281,7 @@
 
 <script>
 import PopularProduct from "./search/PopularProduct";
-import MobileDrawer from "./MobileDrawer";
+import MobileDrawer from "./drawer/MobileDrawer";
 import "@/assets/css/nav.css";
 import { onMounted, ref, onBeforeUnmount, computed, onUnmounted } from "vue";
 import { useRouter, useRoute } from "vue-router";

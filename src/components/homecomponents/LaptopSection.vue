@@ -1,67 +1,69 @@
 <template>
   <div class="laptop-wrapper content-wrapper">
     <div class="content-heading text-center" data-aos="fade-down">
-      <h2>HeadSet List</h2>
+      <h2>Laptop List</h2>
     </div>
 
     <div class="button-group mt-5" data-aos="fade-down">
       <ul
         class="d-flex align-items-center justify-content-center flex-wrap gap-2"
       >
-        <li>
+        <li
+          v-for="item in headerList"
+          :key="item"
+          class="d-flex align-items-center gap-2"
+        >
           <button
             class="btn product-btn"
-            @click="changeValue('headset')"
-            :class="{ active: header == 'headset' }"
+            @click="changeValue(item.value)"
+            :class="{ active: header == item.value }"
           >
-            Headsets
+            {{ item.name }}
           </button>
-        </li>
-        <li class="seperator-line"></li>
-        <li>
-          <button
-            class="btn product-btn"
-            @click="changeValue('earbuds')"
-            :class="{ active: header == 'earbuds' }"
-          >
-            Earbuds
-          </button>
-        </li>
-        <li class="seperator-line"></li>
-        <li>
-          <button
-            class="btn product-btn"
-            :class="{ active: header == 'lenovo' }"
-          >
-            Headphones
-          </button>
+          <div class="seperator-line"></div>
         </li>
       </ul>
     </div>
 
     <div class="show-product">
-      <div v-if="header == 'headset'">
-        <HeadSets></HeadSets>
+      <div v-if="header == 'microsoft'">
+        <MicrosoftSurface></MicrosoftSurface>
       </div>
-      <div v-if="header == 'earbuds'">
-        <Earbuds></Earbuds>
+      <div v-if="header == 'dell'">
+        <Dell></Dell>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import HeadSets from "./headset/HeadSets";
-import Earbuds from "./headset/Earbuds";
-
+import Dell from "../laptopList/Dell";
+import MicrosoftSurface from "../laptopList/MicrosoftSurface";
 import { ref } from "vue";
 export default {
   components: {
-    HeadSets,
-    Earbuds,
+    Dell,
+    MicrosoftSurface,
+    Dell,
+    MicrosoftSurface,
   },
   setup() {
-    const header = ref("headset");
+    const header = ref("microsoft");
+
+    const headerList = ref([
+      {
+        name: "Microsoft Surface",
+        value: "microsoft",
+      },
+      {
+        name: "Dell",
+        value: "dell",
+      },
+      {
+        name: "Lenovo",
+        value: "lenovo",
+      },
+    ]);
 
     const changeValue = (value) => {
       header.value = value;
@@ -70,6 +72,7 @@ export default {
     return {
       header,
       changeValue,
+      headerList,
     };
   },
 };
@@ -115,6 +118,10 @@ export default {
 
 .show-product {
   position: relative;
+}
+
+li:last-child .seperator-line {
+  display: none;
 }
 
 @media (max-width: 600px) {

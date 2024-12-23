@@ -1,75 +1,78 @@
 <template>
   <div class="laptop-wrapper content-wrapper">
-    <div class="content-heading text-center" data-aos="flip-up">
-      <h2>XP-Pen Section</h2>
+    <div class="content-heading text-center" data-aos="fade-down">
+      <h2>HeadSet List</h2>
     </div>
 
-    <div class="button-group mt-5" data-aos="flip-up">
+    <div class="button-group mt-5" data-aos="fade-down">
       <ul
         class="d-flex align-items-center justify-content-center flex-wrap gap-2"
       >
-        <li>
+        <li
+          v-for="item in headerList"
+          :key="item"
+          class="d-flex align-items-center gap-2"
+        >
           <button
             class="btn product-btn"
-            @click="changeValue('tablet')"
-            :class="{ active: header == 'tablet' }"
+            @click="changeValue(item.value)"
+            :class="{ active: header == item.value }"
           >
-            Drawing Tablet
+            {{ item.name }}
           </button>
-        </li>
-        <li class="seperator-line"></li>
-        <li>
-          <button
-            class="btn product-btn"
-            @click="changeValue('display')"
-            :class="{ active: header == 'display' }"
-          >
-            Drawing Display
-          </button>
-        </li>
-        <li class="seperator-line"></li>
-        <li>
-          <button
-            class="btn product-btn"
-            :class="{ active: header == 'accessories' }"
-          >
-            Accessories
-          </button>
+          <div class="seperator-line"></div>
         </li>
       </ul>
     </div>
 
     <div class="show-product">
-      <div v-if="header == 'tablet'">
-        <DrawingTablet></DrawingTablet>
+      <div v-if="header == 'headset'">
+        <HeadSets></HeadSets>
       </div>
-      <div v-if="header == 'display'">
-        <DrawingDisplay></DrawingDisplay>
+      <div v-if="header == 'earbuds'">
+        <Earbuds></Earbuds>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import DrawingDisplay from "./xp_pen/DrawingDisplay";
-import DrawingTablet from "./xp_pen/DrawingTablet";
-
+import Earbuds from "../headset/Earbuds";
+import HeadSets from "../headset/HeadSets";
 import { ref } from "vue";
 export default {
   components: {
-    DrawingDisplay,
-    DrawingTablet,
+    Earbuds,
+    HeadSets,
+    HeadSets,
+    Earbuds,
   },
   setup() {
-    const header = ref("tablet");
+    const header = ref("headset");
 
     const changeValue = (value) => {
       header.value = value;
     };
 
+    const headerList = ref([
+      {
+        name: "Headsets",
+        value: "headset",
+      },
+      {
+        name: "Earbuds",
+        value: "earbuds",
+      },
+      {
+        name: "Headphones",
+        value: "headphone",
+      },
+    ]);
+
     return {
       header,
       changeValue,
+      headerList,
     };
   },
 };
@@ -115,6 +118,9 @@ export default {
 
 .show-product {
   position: relative;
+}
+li:last-child .seperator-line {
+  display: none;
 }
 
 @media (max-width: 600px) {

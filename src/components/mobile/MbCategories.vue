@@ -39,112 +39,18 @@
         <div class="row">
           <div
             class="col-6 col-sm-4 col-md-4 col-xl-4 mb-5"
-            v-for="(item, index) in productList"
+            v-for="item in productList"
             :key="item.id"
           >
-            <div class="product-card">
-              <div class="product-type text-right mb-2">
-                <h4>{{ item.type }}</h4>
-              </div>
-              <div class="product-img">
-                <img :src="item.img" alt="" id="img1" />
-                <img :src="item.hoverimg" alt="" id="img2" />
-              </div>
-              <div class="product-content mb-2">
-                <h4>{{ item.name }}</h4>
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Excepturi, doloremque.
-                </p>
-              </div>
-              <div class="rating mb-2">
-                <v-rating
-                  readonly
-                  v-model="rating"
-                  active-color="orange-lighten-1"
-                  color="orange-lighten-1"
-                  size="mini"
-                ></v-rating>
-              </div>
-              <div
-                class="price-button d-flex align-items-center justify-content-between"
-              >
-                <div class="price">
-                  <h4>${{ item.price }}</h4>
-                </div>
-                <div class="button-group">
-                  <button class="btn cart-btn mt-1">
-                    <span class="material-symbols-outlined">
-                      shopping_cart
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
+            <ProductCard :data="item"></ProductCard>
           </div>
         </div>
       </div>
 
       <div class="product-list" v-if="listView == 'list'">
         <div class="d-flex flex-column mb-5 w-100">
-          <div
-            class="product-box"
-            v-for="(item, index) in productList"
-            :key="item.id"
-          >
-            <div class="product-card-list w-100 mb-5">
-              <div class="d-flex align-items-center gap-5">
-                <div class="product-img-list">
-                  <img :src="item.img" alt="" id="img1" />
-                  <img :src="item.hoverimg" alt="" id="img2" />
-                </div>
-                <div class="mobile-img d-none">
-                  <img :src="item.img" alt="" />
-                </div>
-                <div class="product-content">
-                  <div class="product-type mb-2">
-                    <h4 class="hilight-font">{{ item.type }}</h4>
-                  </div>
-                  <div class="product-name mb-2">
-                    <h4>{{ item.name }}</h4>
-                  </div>
-                  <div class="rating mb-2">
-                    <div class="">
-                      <v-rating
-                        readonly
-                        v-model="rating"
-                        active-color="orange-lighten-1"
-                        color="orange-lighten-1"
-                        size="mini"
-                      ></v-rating>
-                    </div>
-                  </div>
-                  <div class="price mb-2">${{ item.price }}</div>
-                  <div class="stock mb-2">
-                    <div class="d-flex align-items-center gap-2">
-                      <span class="material-symbols-outlined">
-                        check_circle
-                      </span>
-                      <p>In Stock</p>
-                    </div>
-                  </div>
-                  <div class="content mb-3">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Impedit modi omnis qui aspernatur, voluptas ut
-                  </div>
-                  <div class="button-group">
-                    <button
-                      class="btn add-to-cart list-btn d-flex align-items-center gap-3 primary-btn justify-content-center"
-                    >
-                      <span class="material-symbols-outlined">
-                        shopping_cart
-                      </span>
-                      <p>Quick Add</p>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="product-box" v-for="item in productList" :key="item.id">
+            <ProductCardList :data="item"></ProductCardList>
           </div>
         </div>
       </div>
@@ -299,72 +205,109 @@
 </template>
 
 <script>
+import ProductCardList from "../productcard/ProductCardList";
+import ProductCard from "../productcard/ProductCard";
 import { ref, watch, computed } from "vue";
 export default {
+  components: {
+    ProductCardList,
+    ProductCard,
+  },
   setup() {
-    const categories = ref([
-      {
-        name: "Drawing Display",
-      },
-      { name: "Drawing Tablet" },
-      {
-        name: "Accessories",
-      },
-      //   {
-      //     name: "Headsets",
-      //   },
-      //   {
-      //     name: "speaker",
-      //   },
-      //   {
-      //     name: "Portable",
-      //   },
-      //   {
-      //     name: "Tablet & E-Reader",
-      //   },
-      //   {
-      //     name: "Networking",
-      //   },
-      //   {
-      //     name: "Telecommunication",
-      //   },
-    ]);
-
+    const drawer = ref(false);
     const brandList = ref([
       {
-        name: "Deco Pro Series",
+        name: "Marshall",
       },
       {
-        name: "Deco Series",
+        name: "Lenovo",
       },
       {
-        name: "Deco Fun Series",
+        name: "Dell",
       },
       {
-        name: "Star Series",
+        name: "HP",
       },
       {
-        name: "Artist Pro Series",
+        name: "Asus",
       },
       {
-        name: "Artist Series",
+        name: "Asus",
       },
       {
-        name: "Innovator Series",
+        name: "Asus",
       },
       {
-        name: "Magic Drawing Pad",
+        name: "Asus",
+      },
+      {
+        name: "Asus",
+      },
+      {
+        name: "Asus",
+      },
+      {
+        name: "Asus",
+      },
+      {
+        name: "Asus",
+      },
+      {
+        name: "Asus",
+      },
+      {
+        name: "Asus",
+      },
+      {
+        name: "Asus",
+      },
+      {
+        name: "Asus",
+      },
+      {
+        name: "Asus",
+      },
+      {
+        name: "Asus",
+      },
+      {
+        name: "Asus",
+      },
+      {
+        name: "Asus",
+      },
+      {
+        name: "Asus",
+      },
+      {
+        name: "Asus",
       },
     ]);
-
-    const compatibilityList = ref([
+    const categories = ref([
       {
-        id: 1,
-        logo: require("@/assets/images/xp_pen/compatibility/1.png"),
+        name: "XP-PEN",
+      },
+      { name: "Laptop" },
+      {
+        name: "Tech Gadgets",
       },
       {
-        id: 2,
-        logo: require("@/assets/images/xp_pen/compatibility/2.png"),
+        name: "Headsets",
+      },
+      {
+        name: "speaker",
+      },
+      {
+        name: "Portable",
+      },
+      {
+        name: "Tablet & E-Reader",
+      },
+      {
+        name: "Networking",
+      },
+      {
+        name: "Telecommunication",
       },
     ]);
 
@@ -468,22 +411,21 @@ export default {
     };
 
     return {
-      categories,
-      visibleCategories,
-      showAllCategories,
-      minPrice,
+      drawer,
       maxPrice,
+      minPrice,
       priceRange,
       resetPriceRange,
       brandList,
-      listView,
-      changeView,
+      visibleCategories,
+      showAllCategories,
       onMouseEnter,
       onMouseLeave,
-      rating,
       productList,
+      rating,
+      listView,
+      changeView,
       currentImage,
-      compatibilityList,
     };
   },
 };
@@ -723,234 +665,5 @@ export default {
 .view-style.active {
   background: #007bff;
   color: #fff;
-}
-
-.product-card {
-  width: 100%;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  border-radius: 10px;
-  transition: 0.3s linear;
-  padding: 10px 20px;
-}
-
-.product-card h4 {
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.product-card .product-content h4 {
-  font-size: 22px;
-}
-
-.product-card .product-content p {
-  font-size: 16px !important;
-  opacity: 0.8;
-}
-
-.product-card .price h4 {
-  font-size: 24px;
-}
-
-.product-card h4:hover {
-  color: #0a65af;
-}
-
-.product-card .product-type h4 {
-  color: #cdcdcd;
-  cursor: pointer;
-  transition: 0.4s;
-  font-size: 18px;
-}
-
-.product-card .product-type h4:hover {
-  color: #0a65af;
-}
-
-.product-card .button-group {
-  border: 1px solid #fff;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-  background: #23b5de;
-}
-
-.product-card .button-group .cart-btn {
-  color: #fff;
-}
-
-.product-img {
-  position: relative;
-  width: 100%;
-}
-
-.product-img img {
-  width: 100%;
-  object-fit: cover;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  transition: 1.5s ease-in-out;
-  margin-bottom: 20px;
-}
-
-.product-img #img2 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: 1.5s ease-in-out;
-}
-
-.product-card:hover .product-img #img2 {
-  opacity: 1;
-  cursor: pointer;
-}
-
-.product-card:hover .product-img #img1 {
-  opacity: 0;
-  cursor: pointer;
-}
-
-.button-group:hover {
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-}
-
-.product-card:hover {
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-
-.product-card-list {
-  width: 100%;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  border-radius: 10px;
-  transition: 0.3s linear;
-  transform: translateZ(0px);
-}
-
-.product-img-list {
-  position: relative;
-  width: 400px;
-  height: 300px;
-}
-
-.product-img-list img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  transition: 0.5s ease-in-out;
-}
-
-.product-img-list #img2:hover {
-  opacity: 0;
-  cursor: pointer;
-}
-
-.product-card-list:hover .product-img-list #img2 {
-  opacity: 0;
-  cursor: pointer;
-}
-
-.stock {
-  color: #3cb872;
-}
-
-.stock .material-symbols-outlined {
-  font-size: 18px !important;
-}
-
-.list-btn {
-  margin: 0px !important;
-}
-
-@media (max-width: 768px) {
-  .product-card {
-    margin-bottom: 10px;
-    border: 1px solid #111111;
-    padding: 10px;
-  }
-
-  .product-card .button-group {
-    padding: 0px;
-  }
-
-  .product-card .product-content h4 {
-    font-size: 16px;
-  }
-
-  .product-card .product-content p {
-    font-size: 14px !important;
-  }
-
-  .product-card-list {
-    padding: 10px;
-    overflow: hidden !important;
-    border: 1px solid #111111;
-  }
-
-  .product-img-list {
-    display: none;
-  }
-
-  .mobile-img {
-    display: block !important;
-    width: 500px;
-    height: 200px;
-    object-fit: cover;
-    overflow: hidden;
-  }
-
-  .mobile-img img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
-
-  .product-content {
-    padding: 20px 0px;
-  }
-}
-
-@media (max-width: 500px) {
-  .product-card {
-    padding: 5px;
-  }
-
-  .gap-5 {
-    gap: 10px !important;
-  }
-
-  .mobile-img {
-    display: block !important;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    overflow: hidden;
-  }
-
-  .product-card-list .content {
-    display: none;
-  }
-
-  .primary-btn {
-    width: 150px;
-  }
-
-  .primary-btn p {
-    font-size: 14px !important;
-  }
-}
-
-@media (max-width: 400px) {
-  .mobile-img {
-    width: 150px;
-  }
 }
 </style>

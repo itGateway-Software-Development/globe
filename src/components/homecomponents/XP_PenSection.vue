@@ -1,74 +1,78 @@
 <template>
   <div class="laptop-wrapper content-wrapper">
-    <div class="content-heading text-center" data-aos="fade-down">
-      <h2>Laptop List</h2>
+    <div class="content-heading text-center" data-aos="flip-up">
+      <h2>XP-Pen Section</h2>
     </div>
 
-    <div class="button-group mt-5" data-aos="fade-down">
+    <div class="button-group mt-5" data-aos="flip-up">
       <ul
         class="d-flex align-items-center justify-content-center flex-wrap gap-2"
       >
-        <li>
+        <li
+          v-for="item in headerList"
+          :key="item"
+          class="d-flex align-items-center gap-2"
+        >
           <button
             class="btn product-btn"
-            @click="changeValue('microsoft')"
-            :class="{ active: header == 'microsoft' }"
+            @click="changeValue(item.value)"
+            :class="{ active: header == item.value }"
           >
-            Microsoft Surface
+            {{ item.name }}
           </button>
-        </li>
-        <li class="seperator-line"></li>
-        <li>
-          <button
-            class="btn product-btn"
-            @click="changeValue('dell')"
-            :class="{ active: header == 'dell' }"
-          >
-            Dell
-          </button>
-        </li>
-        <li class="seperator-line"></li>
-        <li>
-          <button
-            class="btn product-btn"
-            :class="{ active: header == 'lenovo' }"
-          >
-            Lenovo
-          </button>
+          <div class="seperator-line"></div>
         </li>
       </ul>
     </div>
 
     <div class="show-product">
-      <div v-if="header == 'microsoft'">
-        <MicrosoftSurface></MicrosoftSurface>
+      <div v-if="header == 'tablet'">
+        <DrawingTablet></DrawingTablet>
       </div>
-      <div v-if="header == 'dell'">
-        <Dell></Dell>
+      <div v-if="header == 'display'">
+        <DrawingDisplay></DrawingDisplay>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Dell from "./LaptopList/Dell";
-import MicrosoftSurface from "./LaptopList/MicrosoftSurface";
+import DrawingDisplay from "../xp_pen/DrawingDisplay";
+import DrawingTablet from "../xp_pen/DrawingTablet";
 import { ref } from "vue";
 export default {
   components: {
-    Dell,
-    MicrosoftSurface,
+    DrawingDisplay,
+    DrawingTablet,
+    DrawingDisplay,
+    DrawingTablet,
   },
   setup() {
-    const header = ref("microsoft");
+    const header = ref("tablet");
 
     const changeValue = (value) => {
       header.value = value;
     };
 
+    const headerList = ref([
+      {
+        name: "Drawing Tablet",
+        value: "tablet",
+      },
+      {
+        name: "Drawing Display",
+        value: "display",
+      },
+      {
+        name: "Accessories",
+        value: "accessories",
+      },
+    ]);
+
     return {
       header,
       changeValue,
+      headerList,
     };
   },
 };
@@ -114,6 +118,10 @@ export default {
 
 .show-product {
   position: relative;
+}
+
+li:last-child .seperator-line {
+  display: none;
 }
 
 @media (max-width: 600px) {

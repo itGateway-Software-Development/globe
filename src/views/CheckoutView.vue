@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import CheckoutNav from "../components/CheckoutNav";
-import Checkout from "../components/Checkout";
+import CheckoutNav from "../components/checkout/CheckoutNav";
+import Checkout from "../components/checkout/Checkout";
 export default {
   components: {
     CheckoutNav,

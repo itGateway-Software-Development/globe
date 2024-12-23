@@ -21,74 +21,10 @@
         <div class="row">
           <div
             class="col-6 col-md-3 col-lg-3 col-xl-3 mb-5"
-            v-for="(item, index) in productList"
+            v-for="item in productList"
             :key="item.id"
-            @mouseenter="onMouseEnter(index)"
-            @mouseleave="onMouseLeave(index)"
           >
-            <div class="product-card">
-              <div class="upper-card">
-                <div class="product-img">
-                  <img
-                    :src="currentImage(item, index)"
-                    :class="{ 'fade-in': hoveredIndex === index }"
-                    alt=""
-                  />
-                </div>
-                <div class="product-content">
-                  <div class="product-type mb-2">
-                    <h4 class="hilight-font">{{ item.type }}</h4>
-                  </div>
-                  <div class="product-name mb-2">
-                    <h4>{{ item.name }}</h4>
-                  </div>
-                  <div class="rating mb-2">
-                    <div class="">
-                      <v-rating
-                        readonly
-                        v-model="rating"
-                        active-color="orange-lighten-1"
-                        color="orange-lighten-1"
-                        size="mini"
-                      ></v-rating>
-                    </div>
-                  </div>
-                  <div class="price mb-2">${{ item.price }}</div>
-                </div>
-              </div>
-              <div class="lower-card">
-                <div class="product-stock mb-3">
-                  <p
-                    class="d-flex align-items-center gap-2 justify-content-center"
-                  >
-                    <span class="material-symbols-outlined"> check_circle </span
-                    ><span class="small-font"
-                      >{{ item.stock }} Products in stock</span
-                    >
-                  </p>
-                </div>
-                <div class="warranty mb-5">
-                  <p
-                    class="d-flex align-items-center gap-2 justify-content-center"
-                  >
-                    <span class="material-symbols-outlined"> check </span
-                    ><span class="small-font"
-                      >{{ item.warrenty }} Years Warranty</span
-                    >
-                  </p>
-                </div>
-                <div class="button-group">
-                  <button
-                    class="btn add-to-cart d-flex align-items-center gap-3 primary-btn justify-content-center"
-                  >
-                    <span class="material-symbols-outlined">
-                      shopping_cart
-                    </span>
-                    <p>Quick Add</p>
-                  </button>
-                </div>
-              </div>
-            </div>
+            <ProductCard :data="item"></ProductCard>
           </div>
         </div>
       </div>
@@ -97,8 +33,10 @@
 </template>
 
 <script>
+import ProductCard from "../productcard/ProductCard";
 import { ref } from "vue";
 export default {
+  components: { ProductCard },
   setup() {
     const rating = ref("3");
     const productList = ref([
@@ -225,169 +163,5 @@ export default {
 
 .image-content a:hover .material-symbols-outlined {
   transform: translateX(5px);
-}
-
-.product-card {
-  width: 100%;
-  height: 375px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  border-radius: 10px;
-  transition: 0.3s linear;
-  transform: translateZ(0px);
-}
-
-.upper-card {
-  padding: 15px 20px;
-}
-
-.product-img {
-  width: 100%;
-  justify-content: center;
-  display: flex;
-  margin-bottom: 40px;
-}
-
-.product-img img {
-  width: 170px;
-  height: 100%;
-  transform: translateZ(0px);
-  transition: all 0.5s linear;
-}
-
-.product-img img.fade-in {
-  transform: translateZ(100%);
-  width: 200px;
-}
-
-.product-card h4 {
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.product-card h4:hover {
-  color: #0a65af;
-}
-
-.product-card .product-type h4 {
-  color: #cdcdcd;
-  cursor: pointer;
-  transition: 0.4s;
-  font-size: 18px;
-}
-
-.product-card .product-type h4:hover {
-  color: #0a65af;
-}
-
-.product-card .price {
-  font-weight: bold;
-  font-size: 20px !important;
-  letter-spacing: 0.1rem;
-}
-
-.lower-card {
-  visibility: hidden;
-  transition: all 0.5s linear;
-  transform: translateY(-200px);
-  opacity: 0;
-  padding: 0px 10px;
-}
-
-.lower-card .product-stock {
-  color: #3cb872;
-}
-
-.lower-card .small-font {
-  font-size: 12px;
-}
-
-.add-to-cart {
-  width: 170px !important;
-}
-
-.product-card:hover .lower-card {
-  visibility: visible;
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.product-card:hover .upper-card {
-  border-bottom: 1px solid #111111;
-  margin-bottom: 20px;
-}
-
-.product-card:hover {
-  border: 0px;
-
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  height: 100%;
-  padding: 20px 0px;
-}
-
-@media (max-width: 1310px) {
-  .upper-card {
-    padding: 15px 10px;
-  }
-
-  .product-img img {
-    width: 120px;
-  }
-
-  .responsive-image img {
-    height: 200px;
-  }
-
-  .product-img img.fade-in {
-    transform: translateZ(100%);
-    width: 150px;
-  }
-
-  .product-card {
-    height: 330px;
-  }
-}
-
-@media (max-width: 800px) {
-  .product-img img {
-    width: 160px;
-    height: 100%;
-  }
-
-  .product-card {
-    height: 375px;
-  }
-}
-
-@media (max-width: 600px) {
-  .product-card {
-    height: 380px;
-  }
-}
-
-@media (max-width: 500px) {
-  .product-card .product-name h4 {
-    font-size: 14px;
-  }
-
-  .product-card {
-    height: 380px;
-  }
-
-  .upper-card {
-    padding: 5px 5px;
-  }
-}
-
-@media (max-width: 420px) {
-  .product-card .rating {
-    display: none;
-  }
-
-  .product-card {
-    height: 330px;
-  }
 }
 </style>

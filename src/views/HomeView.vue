@@ -14,16 +14,16 @@
 </template>
 
 <script>
-import TechGadgetsSection from "../components/TechGadgetsSection";
-import Tablet_EReaderSection from "../components/Tablet_EReaderSection";
-import SpeakerSection from "../components/SpeakerSection";
-import HeadsetSection from "../components/HeadsetSection";
-import PromotionSlider from "../components/PromotionSlider";
-import BrandList from "../components/BrandList";
-import XP_PenSection from "../components/XP_PenSection";
-import LaptopSection from "../components/LaptopSection";
-import PopularItem from "../components/PopularItem";
-import Carousel from "../components/Carousel";
+import TechGadgetsSection from "../components/homecomponents/TechGadgetsSection";
+import Tablet_EReaderSection from "../components/homecomponents/Tablet_EReaderSection";
+import SpeakerSection from "../components/homecomponents/SpeakerSection";
+import HeadsetSection from "../components/homecomponents/HeadsetSection";
+import PromotionSlider from "../components/homecomponents/PromotionSlider";
+import BrandList from "../components/homecomponents/BrandList";
+import XP_PenSection from "../components/homecomponents/XP_PenSection";
+import LaptopSection from "../components/homecomponents/LaptopSection";
+import PopularItem from "../components/homecomponents/PopularItem";
+import Carousel from "../components/homecomponents/Carousel";
 import { ref, onMounted } from "vue";
 // @ is an alias to /src
 
