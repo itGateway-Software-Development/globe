@@ -14,6 +14,7 @@
           alt=""
           :id="`img${++index}`"
         />
+        <img :src="product.img" v-if="product.img" />
       </router-link>
       <i class="fa-solid fa-heart"></i>
       <i class="fa-solid fa-expand" @click="$emit('openModal', product)"></i>
