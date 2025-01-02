@@ -37,8 +37,8 @@
 </template>
 
 <script>
-import Dell from "../laptopList/Dell.vue";
-import MicrosoftSurface from "../laptopList/MicrosoftSurface.vue";
+import Dell from "../laptopList/Dell";
+import MicrosoftSurface from "../laptopList/MicrosoftSurface";
 import { ref } from "vue";
 export default {
   components: {
