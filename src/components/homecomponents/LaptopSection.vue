@@ -26,25 +26,16 @@
     </div>
 
     <div class="show-product">
-      <div v-if="header == 'microsoft'">
-        <MicrosoftSurface></MicrosoftSurface>
-      </div>
-      <div v-if="header == 'dell'">
-        <Dell></Dell>
-      </div>
+      <div v-if="header == 'microsoft'"></div>
+      <div v-if="header == 'dell'"></div>
     </div>
   </div>
 </template>
 
 <script>
-import Dell from "../laptopList/Dell";
-import MicrosoftSurface from "../laptopList/MicrosoftSurface";
 import { ref } from "vue";
 export default {
-  components: {
-    Dell,
-    MicrosoftSurface,
-  },
+  components: {},
   setup() {
     const header = ref("microsoft");
 
