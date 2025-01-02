@@ -10,11 +10,7 @@
     <div class="content-wrapper product-section">
       <div class="row">
         <div class="col-12 col-md-3 col-xl-3 left-col">
-          <ProductFilter
-            :categories="categories"
-            :brand="brandList"
-            :compatibility="compatibilityList"
-          ></ProductFilter>
+          <ProductFilter></ProductFilter>
         </div>
         <div class="col-12 col-md-9 col-xl-9 right-col">
           <div class="float-right view-group">
@@ -49,7 +45,7 @@
             <div class="row mb-5 main">
               <div
                 class="col-6 col-md-4 col-xl-4 mb-5"
-                v-for="item in products"
+                v-for="item in productsPerPage"
                 :key="item.id"
               >
                 <ProductCard
@@ -70,7 +66,11 @@
           </div>
           <div class="product-list" v-if="listView == 'list'">
             <div class="d-flex flex-column mb-5 w-100">
-              <div class="product-box" v-for="item in products" :key="item.id">
+              <div
+                class="product-box"
+                v-for="item in productsPerPage"
+                :key="item.id"
+              >
                 <ProductCardList :data="item"></ProductCardList>
               </div>
             </div>
@@ -98,6 +98,7 @@ import ProductCardList from "./productcard/ProductCardList";
 import ProductCard from "./productcard/ProductCard";
 import { ref, onMounted, computed, watch } from "vue";
 import { useStore } from "vuex";
+import getProducts from "../composable/getProducts";
 import product from "../store/modules/product";
 export default {
   components: {
@@ -107,100 +108,6 @@ export default {
     ProductCard,
   },
   setup() {
-    const categories = ref([
-      {
-        name: "Drawing Display",
-      },
-      { name: "Drawing Tablet" },
-      {
-        name: "Accessories",
-      },
-      //   {
-      //     name: "Headsets",
-      //   },
-      //   {
-      //     name: "speaker",
-      //   },
-      //   {
-      //     name: "Portable",
-      //   },
-      //   {
-      //     name: "Tablet & E-Reader",
-      //   },
-      //   {
-      //     name: "Networking",
-      //   },
-      //   {
-      //     name: "Telecommunication",
-      //   },
-    ]);
-
-    const brandList = ref([
-      {
-        name: "Deco Pro Series",
-      },
-      {
-        name: "Deco Series",
-      },
-      {
-        name: "Deco Fun Series",
-      },
-      {
-        name: "Star Series",
-      },
-      {
-        name: "Artist Pro Series",
-      },
-      {
-        name: "Artist Series",
-      },
-      {
-        name: "Innovator Series",
-      },
-      {
-        name: "Magic Drawing Pad",
-      },
-    ]);
-
-    const compatibilityList = ref([
-      {
-        id: 1,
-        logo: require("@/assets/images/xp_pen/compatibility/1.png"),
-      },
-      {
-        id: 2,
-        logo: require("@/assets/images/xp_pen/compatibility/2.png"),
-      },
-      {
-        id: 3,
-        logo: require("@/assets/images/xp_pen/compatibility/3.png"),
-      },
-      {
-        id: 4,
-        logo: require("@/assets/images/xp_pen/compatibility/4.png"),
-      },
-      {
-        id: 5,
-        logo: require("@/assets/images/xp_pen/compatibility/5.png"),
-      },
-      {
-        id: 6,
-        logo: require("@/assets/images/xp_pen/compatibility/6.png"),
-      },
-      {
-        id: 7,
-        logo: require("@/assets/images/xp_pen/compatibility/7.png"),
-      },
-      {
-        id: 8,
-        logo: require("@/assets/images/xp_pen/compatibility/8.png"),
-      },
-      {
-        id: 9,
-        logo: require("@/assets/images/xp_pen/compatibility/9.png"),
-      },
-    ]);
-
     const trigger = ref(null);
     const handleProduct = (product) => {
       if (trigger.value) {
@@ -215,36 +122,34 @@ export default {
       listView.value = value;
     };
 
-    const productList = store.getters.productList;
-
     const itemsPerPage = 12;
     const currentPage = ref(1);
 
     const totalPages = computed(() =>
-      Math.ceil(productList.length / itemsPerPage)
+      Math.ceil(products.value.length / itemsPerPage)
     );
 
-    const products = computed(() => {
+    const productsPerPage = computed(() => {
       const start = (currentPage.value - 1) * itemsPerPage;
       const end = start + itemsPerPage;
-      return productList.slice(start, end);
+      return products.value.slice(start, end);
     });
 
     const scrollWindow = () => {
       window.scroll(0, 0);
     };
 
-    onMounted(() => {
+    let { products, error, loadProduct } = getProducts();
+
+    onMounted(async () => {
       window.scroll(0, 0);
+      await loadProduct();
     });
 
     return {
-      categories,
-      brandList,
       listView,
       changeView,
-      productList,
-      compatibilityList,
+
       trigger,
       itemsPerPage,
       currentPage,
@@ -252,6 +157,7 @@ export default {
       scrollWindow,
       handleProduct,
       products,
+      productsPerPage,
     };
   },
 };

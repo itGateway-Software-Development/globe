@@ -106,7 +106,7 @@
       </div>
 
       <ul class="list-items" v-if="filterShow">
-        <li class="item" v-for="item in brand" :key="item">
+        <li class="item" v-for="item in brandList" :key="item">
           <input type="checkbox" :value="item.name" class="checkbox" />
           <span class="item-text">{{ item.name }}</span>
         </li>
@@ -130,7 +130,7 @@
         <h4>Compatibility App</h4>
       </div>
       <ul class="d-flex align-items-center gap-2 flex-wrap mt-5">
-        <li class="item" v-for="icon in compatibility" :key="icon.id">
+        <li class="item" v-for="icon in compatibilityList" :key="icon.id">
           <img :src="icon.logo" alt="" />
         </li>
       </ul>
@@ -142,21 +142,95 @@
 <script>
 import { ref, computed, watch, onMounted } from "vue";
 export default {
-  props: ["categories", "brand", "compatibility"],
+  props: [],
   setup(props) {
+    const categories = ref([
+      {
+        name: "Drawing Display",
+      },
+      { name: "Drawing Tablet" },
+      {
+        name: "Accessories",
+      },
+    ]);
+
+    const brandList = ref([
+      {
+        name: "Deco Pro Series",
+      },
+      {
+        name: "Deco Series",
+      },
+      {
+        name: "Deco Fun Series",
+      },
+      {
+        name: "Star Series",
+      },
+      {
+        name: "Artist Pro Series",
+      },
+      {
+        name: "Artist Series",
+      },
+      {
+        name: "Innovator Series",
+      },
+      {
+        name: "Magic Drawing Pad",
+      },
+    ]);
+
+    const compatibilityList = ref([
+      {
+        id: 1,
+        logo: require("@/assets/images/xp_pen/compatibility/1.png"),
+      },
+      {
+        id: 2,
+        logo: require("@/assets/images/xp_pen/compatibility/2.png"),
+      },
+      {
+        id: 3,
+        logo: require("@/assets/images/xp_pen/compatibility/3.png"),
+      },
+      {
+        id: 4,
+        logo: require("@/assets/images/xp_pen/compatibility/4.png"),
+      },
+      {
+        id: 5,
+        logo: require("@/assets/images/xp_pen/compatibility/5.png"),
+      },
+      {
+        id: 6,
+        logo: require("@/assets/images/xp_pen/compatibility/6.png"),
+      },
+      {
+        id: 7,
+        logo: require("@/assets/images/xp_pen/compatibility/7.png"),
+      },
+      {
+        id: 8,
+        logo: require("@/assets/images/xp_pen/compatibility/8.png"),
+      },
+      {
+        id: 9,
+        logo: require("@/assets/images/xp_pen/compatibility/9.png"),
+      },
+    ]);
+
     const priceShow = ref(true);
     const brandShow = ref(true);
-    const compatibilityList = ref(props.compatibility);
-    const brandList = ref(props.brand);
     const filterShow = ref(true);
-
+    const compatibility = ref(true);
     const limitCategories = 4;
     const showAllCategories = ref(false);
 
     const visibleCategories = computed(() =>
       showAllCategories.value
-        ? props.categories
-        : props.categories.slice(0, limitCategories)
+        ? categories.value
+        : categories.value.slice(0, limitCategories)
     );
 
     // Initialize price range values
@@ -195,6 +269,7 @@ export default {
       showAllCategories,
       compatibilityList,
       filterShow,
+      compatibility,
     };
   },
 };

@@ -5,22 +5,29 @@
     @mouseleave="onMouseLeave(1)"
   >
     <div class="product-img">
-      <router-link :to="`/product/productdetail/${product.id}`">
+      <router-link :to="`/product/productdetail/${product.slug}`">
         <div class="gradient"></div>
-        <img :src="product.img" alt="" id="img1" />
-        <img :src="product.hoverimg" alt="" id="img2" />
+        <img
+          v-for="(img, index) in product.preview_images"
+          :key="index"
+          :src="img.image_url"
+          alt=""
+          :id="`img${++index}`"
+        />
       </router-link>
       <i class="fa-solid fa-heart"></i>
       <i class="fa-solid fa-expand" @click="$emit('openModal', product)"></i>
     </div>
-
     <div class="product-card-content">
-      <router-link :to="`/product/productdetail/${product.id}`" v-if="product">
+      <router-link
+        :to="`/product/productdetail/${product.slug}`"
+        v-if="product"
+      >
         <div class="product-content mb-2">
           <h4>{{ product.name }}</h4>
           <p>{{ product.cpu }}</p>
 
-          <p class="spec" v-html="product.spec"></p>
+          <p class="spec" v-html="product.sepcification"></p>
         </div>
         <div class="rating mb-2">
           <v-rating
@@ -109,6 +116,19 @@ export default {
   padding: 10px;
   font-size: 14px;
   top: 0;
+}
+
+.product-card .fa-heart,
+.product-card .fa-expand {
+  display: none;
+}
+
+.product-card:hover .fa-heart {
+  display: block;
+}
+
+.product-card:hover .fa-expand {
+  display: block;
 }
 
 .fa-heart {

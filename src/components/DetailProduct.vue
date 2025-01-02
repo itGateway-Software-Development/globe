@@ -18,17 +18,17 @@
           ></div>
         </div>
         <div class="mini-img-list d-flex align-items-center gap-3">
-          <div class="mini-img">
-            <img src="../assets/images/laptop/4.jpg" class="img-fluid" alt="" />
-          </div>
-          <div class="mini-img">
-            <img src="../assets/images/laptop/5.jpg" class="img-fluid" alt="" />
-          </div>
-          <div class="mini-img">
-            <img src="../assets/images/laptop/8.jpg" class="img-fluid" alt="" />
-          </div>
-          <div class="mini-img">
-            <img src="../assets/images/laptop/9.png" class="img-fluid" alt="" />
+          <div
+            class="mini-img"
+            v-for="img in singleProduct.images"
+            :key="img.id"
+          >
+            <img
+              :src="img.image_url"
+              class="img-fluid"
+              alt=""
+              @click="changeMainImage(img.image_url)"
+            />
           </div>
         </div>
       </div>
@@ -64,11 +64,11 @@
         <div class="detail-content mb-5">
           <div class="d-flex align-items-center gap">
             <h6>Tags:</h6>
-            <p>Drawing Tablet</p>
+            <p>{{ singleProduct.category }}</p>
           </div>
           <div class="d-flex align-items-center gap">
             <h6>Category:</h6>
-            <p>Drawing Tablet</p>
+            <p>{{ singleProduct.category }}</p>
           </div>
         </div>
 
@@ -173,15 +173,7 @@
             <h5>Specification</h5>
           </div>
           <div class="spec-list mt-5">
-            <ul>
-              <li
-                v-for="(spec, index) in specList(singleProduct.spec)"
-                :key="index"
-                class="mb-3"
-              >
-                <p>{{ spec }}</p>
-              </li>
-            </ul>
+            <p class="spec" v-html="singleProduct.sepcification"></p>
           </div>
         </div>
       </div>
@@ -439,47 +431,7 @@
           v-for="item in productList"
           :key="item.id"
         >
-          <router-link to="/product/productdetail">
-            <div class="product-card">
-              <div class="product-type text-right mb-2">
-                <h4>{{ item.type }}</h4>
-              </div>
-              <div class="product-img">
-                <img :src="item.img" alt="" id="img1" />
-                <img :src="item.hoverimg" alt="" id="img2" />
-              </div>
-              <div class="product-content mb-2">
-                <h4>{{ item.name }}</h4>
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Excepturi, doloremque.
-                </p>
-              </div>
-              <div class="rating mb-2">
-                <v-rating
-                  readonly
-                  v-model="rating"
-                  active-color="orange-lighten-1"
-                  color="orange-lighten-1"
-                  size="mini"
-                ></v-rating>
-              </div>
-              <div
-                class="price-button d-flex align-items-center justify-content-between"
-              >
-                <div class="price">
-                  <h4>${{ item.price }}</h4>
-                </div>
-                <div class="button-group">
-                  <button class="btn cart-btn mt-1">
-                    <span class="material-symbols-outlined">
-                      shopping_cart
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </router-link>
+          <ProductCard :data="item"></ProductCard>
         </div>
       </div>
     </div>
@@ -501,10 +453,14 @@ import { Pagination } from "swiper/modules";
 import { Navigation } from "swiper/modules";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
+import getSingleProduct from "../composable/getSingleProduct";
+import getProducts from "../composable/getProducts";
+import ProductCard from "./productcard/ProductCard";
 export default {
   components: {
     Swiper,
     SwiperSlide,
+    ProductCard,
   },
 
   setup(props) {
@@ -513,70 +469,30 @@ export default {
     const delivery = ref(false);
     const shipping = ref(false);
     const specification = ref(false);
+    const productList = ref([]);
 
     const isMagnifierVisible = ref(false);
     const magnifierSize = 200; // Size of magnifier square
+    const mainImage = ref([]);
+
     const zoomLevel = 2; // Zoom level for magnification\
     const isShaking = ref(false);
     const route = useRoute();
     const store = useStore();
-    const productId = route.params.id;
+    const productSlug = route.params.slug;
 
-    const productLists = store.getters.productList;
-
-    const singleProduct = productLists.find(
-      (product) => product.id == productId
-    );
-
-    const mainImage = ref(singleProduct.img);
+    let { singleProduct, error, getProduct } = getSingleProduct();
+    let { products, err, loadProduct } = getProducts();
 
     const specList = (spec) => {
       return spec.split(", ");
     };
 
+    const changeMainImage = (imgUrl) => {
+      mainImage.value = imgUrl;
+    };
+
     let intervalId;
-    const productList = ref([
-      {
-        id: 1,
-        type: "tablet",
-        name: "Lenovo Tab K10",
-        price: "133",
-        stock: "20",
-        warrenty: "3",
-        img: require("@/assets/images/tablet/2.jpg"),
-        hoverimg: require("@/assets/images/tablet/1.jpg"),
-      },
-      {
-        id: 2,
-        type: "tablet",
-        name: "Lenovo Tab M8",
-        price: "131",
-        stock: "20",
-        warrenty: "3",
-        img: require("@/assets/images/tablet/3.jpg"),
-        hoverimg: require("@/assets/images/tablet/4.jpg"),
-      },
-      {
-        id: 3,
-        type: "tablet",
-        name: "Lenovo Tab M10 plus",
-        price: "232",
-        stock: "20",
-        warrenty: "3",
-        img: require("@/assets/images/tablet/5.jpg"),
-        hoverimg: require("@/assets/images/tablet/6.jpg"),
-      },
-      {
-        id: 4,
-        type: "tablet",
-        name: "Lenvo Duet Chromebook",
-        price: "400",
-        stock: "20",
-        warrenty: "3",
-        img: require("@/assets/images/tablet/7.jpg"),
-        hoverimg: require("@/assets/images/tablet/8.jpg"),
-      },
-    ]);
 
     const showMagnifier = () => {
       isMagnifierVisible.value = true;
@@ -642,11 +558,18 @@ export default {
       }, 10000);
     };
 
-    onMounted(() => {
+    onMounted(async () => {
       window.scroll(0, 0);
       triggerAnimation();
       startRepeatingAnimation();
-      console.log(singleProduct);
+      await getProduct(productSlug);
+      await loadProduct();
+
+      productList.value = products.value.slice(0, 4);
+
+      if (singleProduct.value.images) {
+        mainImage.value = singleProduct.value.images[0]?.image_url;
+      }
     });
 
     onUnmounted(() => {
@@ -659,18 +582,19 @@ export default {
       description,
       delivery,
       shipping,
-      productList,
       isMagnifierVisible,
       showMagnifier,
       hideMagnifier,
       moveMagnifier,
-      mainImage,
       isShaking,
       triggerAnimation,
       addtoCart,
       singleProduct,
       specification,
       specList,
+      changeMainImage,
+      mainImage,
+      productList,
     };
   },
 };

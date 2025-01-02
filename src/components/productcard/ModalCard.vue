@@ -16,16 +16,32 @@
         <div class="row" v-if="modalItem">
           <div class="col-12 col-md-12 col-xl-6">
             <div class="product-detail-img d-flex justify-content-center">
-              <img :src="modalItem.img" class="img-fluid" alt="" />
+              <img
+                v-if="
+                  modalItem.preview_images &&
+                  modalItem.preview_images.length > 0
+                "
+                :src="modalItem.preview_images[0].image_url"
+                alt="Preview Image"
+              />
+              <!-- <img
+                v-for="(img, index) in modalItem.preview_images"
+                :key="index"
+                :src="img.image_url"
+                alt=""
+                :id="`img${++index}`"
+              /> -->
             </div>
             <div
               class="product-detail-mini-img d-flex align-items-center gap-3"
             >
-              <img :src="modalItem.img" class="img-fluid" alt="" /><img
-                :src="modalItem.img"
-                class="img-fluid"
+              <img
+                v-for="(img, index) in modalItem.images"
+                :key="index"
+                :src="img.image_url"
                 alt=""
-              /><img :src="modalItem.img" class="img-fluid" alt="" />
+                class="img-fluid"
+              />
             </div>
           </div>
           <div class="col-12 col-md-12 col-xl-6">
@@ -34,15 +50,7 @@
             </div>
             <div class="specList mb-3">
               <h5 class="mb-3">Specification</h5>
-              <p
-                v-for="(specItem, index) in getSinglespecList(modalItem.spec)"
-                :key="index"
-              >
-                {{ specItem }}
-              </p>
-              <p>{{ modalItem.color1 }}</p>
-              <p>{{ modalItem.color2 }}</p>
-              <p>{{ modalItem.com }}</p>
+              <p class="spec" v-html="modalItem.sepcification"></p>
             </div>
             <div class="stock mb-3">
               <div class="d-flex align-items-center gap-2">

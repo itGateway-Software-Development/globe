@@ -8,9 +8,11 @@
   },
   "dependencies": {
     "aos": "^3.0.0-beta.6",
+    "axios": "^1.7.9",
     "sweetalert2": "^11.11.1",
     "swiper": "^11.1.14",
     "vue": "^3.2.13",
+    "vue-axios": "^3.5.2",
     "vue-router": "^4.0.3",
     "vuetify": "^3.7.2",
     "vuex": "^4.0.0",

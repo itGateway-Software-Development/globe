@@ -205,7 +205,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .shipping-method {
   margin: 30px 0px;
 }
