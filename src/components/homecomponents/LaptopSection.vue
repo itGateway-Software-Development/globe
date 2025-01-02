@@ -44,8 +44,6 @@ export default {
   components: {
     Dell,
     MicrosoftSurface,
-    Dell,
-    MicrosoftSurface,
   },
   setup() {
     const header = ref("microsoft");
