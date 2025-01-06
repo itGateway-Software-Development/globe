@@ -168,6 +168,9 @@ export default {
     });
     const clearFilter = (category) => {
       activeCategory.value = category;
+      selectedSeries.value = [];
+      minPrice.value = 0;
+      maxPrice.value = 5000000;
     };
 
     const itemsPerPage = 12;

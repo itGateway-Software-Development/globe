@@ -289,6 +289,8 @@ export default {
 
     const clearFilter = () => {
       setCategory.value = "All";
+      setSeries.value = [];
+      resetPriceRange();
       emit("clearFilter", setCategory.value);
     };
 
