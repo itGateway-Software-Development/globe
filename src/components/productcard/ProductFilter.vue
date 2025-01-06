@@ -9,6 +9,8 @@
         class="categories-card"
         v-for="(category, index) in visibleCategories"
         :key="index"
+        @click="filtercategories(category.name)"
+        :class="{ active_category: setCategory == category.name }"
       >
         <h5>{{ category.name }}</h5>
       </div>
@@ -71,13 +73,19 @@
         >
           <input
             type="number"
+            :min="0"
+            :max="5000000"
             v-model="minPrice"
+            @input="priceChange(minPrice)"
             class="price-field text-center"
           />
           <span class="divider"> - </span>
           <input
             type="number"
+            :min="0"
+            :max="5000000"
             v-model="maxPrice"
+            @input="priceChange(maxPrice)"
             class="price-field text-center"
           />
         </div>
@@ -107,7 +115,13 @@
 
       <ul class="list-items" v-if="filterShow">
         <li class="item" v-for="item in brandList" :key="item">
-          <input type="checkbox" :value="item.name" class="checkbox" />
+          <input
+            type="checkbox"
+            :value="item.name"
+            class="checkbox"
+            v-model="setSeries"
+            @change="filterSeries"
+          />
           <span class="item-text">{{ item.name }}</span>
         </li>
       </ul>
@@ -118,6 +132,7 @@
     <div class="clear-filter-btn">
       <button
         class="btn filter-btn d-flex align-item-center gap-2 justify-content-center"
+        @click="clearFilter()"
       >
         <span class="material-symbols-outlined"> delete </span> Clear All
       </button>
@@ -143,7 +158,7 @@
 import { ref, computed, watch, onMounted } from "vue";
 export default {
   props: [],
-  setup(props) {
+  setup(props, { emit }) {
     const categories = ref([
       {
         name: "Drawing Display",
@@ -220,12 +235,24 @@ export default {
       },
     ]);
 
+    const setCategory = ref("All");
+    const setSeries = ref([]);
+
     const priceShow = ref(true);
     const brandShow = ref(true);
     const filterShow = ref(true);
     const compatibility = ref(true);
     const limitCategories = 4;
     const showAllCategories = ref(false);
+
+    const filtercategories = (category) => {
+      setCategory.value = category;
+      emit("filter", category);
+    };
+
+    const filterSeries = () => {
+      emit("filterSeries", setSeries.value);
+    };
 
     const visibleCategories = computed(() =>
       showAllCategories.value
@@ -238,10 +265,15 @@ export default {
     const maxPrice = ref(5000000);
     const priceRange = ref([0, 5000000]);
 
+    const priceChange = () => {
+      emit("update-price", { mini: minPrice.value, max: maxPrice.value });
+    };
+
     // Sync slider with min and max price fields
     watch(priceRange, (newVal) => {
       minPrice.value = newVal[0];
       maxPrice.value = newVal[1];
+      emit("update-price", { mini: newVal[0], max: newVal[1] });
     });
 
     watch([minPrice, maxPrice], ([newMin, newMax]) => {
@@ -253,6 +285,11 @@ export default {
       minPrice.value = 0;
       maxPrice.value = 5000000;
       priceRange.value = [0, 5000000];
+    };
+
+    const clearFilter = () => {
+      setCategory.value = "All";
+      emit("clearFilter", setCategory.value);
     };
 
     onMounted(() => {});
@@ -270,6 +307,12 @@ export default {
       compatibilityList,
       filterShow,
       compatibility,
+      filtercategories,
+      setCategory,
+      clearFilter,
+      priceChange,
+      setSeries,
+      filterSeries,
     };
   },
 };
@@ -315,6 +358,11 @@ export default {
 }
 
 .categories-card:hover {
+  background: var(--hover-color);
+  color: var(--font-color-white);
+}
+
+.categories-card.active_category {
   background: var(--hover-color);
   color: var(--font-color-white);
 }

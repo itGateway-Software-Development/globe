@@ -173,7 +173,7 @@
             <h5>Specification</h5>
           </div>
           <div class="spec-list mt-5">
-            <p class="spec" v-html="singleProduct.sepcification"></p>
+            <p class="spec" v-html="singleProduct.specification"></p>
           </div>
         </div>
       </div>

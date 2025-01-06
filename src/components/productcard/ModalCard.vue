@@ -50,7 +50,7 @@
             </div>
             <div class="specList mb-3">
               <h5 class="mb-3">Specification</h5>
-              <p class="spec" v-html="modalItem.sepcification"></p>
+              <p class="spec" v-html="modalItem.specification"></p>
             </div>
             <div class="stock mb-3">
               <div class="d-flex align-items-center gap-2">

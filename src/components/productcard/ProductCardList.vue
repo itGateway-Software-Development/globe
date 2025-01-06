@@ -6,14 +6,19 @@
   >
     <div class="d-flex align-items-center gap-5">
       <div class="product-img-list">
-        <img :src="product.img" alt="" id="img1" />
-        <img :src="product.hoverimg" alt="" id="img2" />
-        <i class="fa-solid fa-heart" v-if="hoverIcon === index"></i>
-        <i
-          class="fa-solid fa-expand"
-          v-if="hoverIcon === index"
-          @click="showModal(product)"
-        ></i>
+        <router-link :to="`/product/productdetail/${product.slug}`">
+          <div class="gradient"></div>
+          <img
+            v-for="(img, index) in product.preview_images"
+            :key="index"
+            :src="img.image_url"
+            alt=""
+            :id="`img${++index}`"
+          />
+          <img :src="product.img" v-if="product.img" />
+        </router-link>
+        <i class="fa-solid fa-heart"></i>
+        <i class="fa-solid fa-expand" @click="$emit('openModal', product)"></i>
       </div>
       <div class="product-content">
         <router-link to="/product/productdetail">
@@ -34,7 +39,9 @@
               ></v-rating>
             </div>
           </div>
-          <div class="price mb-2">{{ product.price }} MMK</div>
+          <div class="price mb-2">
+            <h4>{{ product.price }} MMK</h4>
+          </div>
           <div class="stock mb-2">
             <div class="d-flex align-items-center gap-2">
               <span class="material-symbols-outlined"> check_circle </span>
@@ -146,6 +153,19 @@ export default {
   cursor: pointer;
 }
 
+.product-card-list .fa-heart,
+.product-card-list .fa-expand {
+  display: none;
+}
+
+.product-card-list:hover .fa-heart {
+  display: block;
+}
+
+.product-card-list:hover .fa-expand {
+  display: block;
+}
+
 .fa-heart {
   width: max-content;
   height: max-content;
@@ -200,5 +220,10 @@ export default {
 .compatibility img {
   margin-top: 20px;
   width: 40px;
+}
+
+.price h4 {
+  font-size: 18px !important;
+  color: #f1803e;
 }
 </style>

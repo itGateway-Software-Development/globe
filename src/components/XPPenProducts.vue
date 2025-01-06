@@ -10,7 +10,13 @@
     <div class="content-wrapper product-section">
       <div class="row">
         <div class="col-12 col-md-3 col-xl-3 left-col">
-          <ProductFilter></ProductFilter>
+          <ProductFilter
+            :max-price-limt="maxPriceLimit"
+            @filter="setCategoryFilter"
+            @filterSeries="setSeriesFilter"
+            @update-price="setPriceFilter"
+            @clearFilter="clearFilter"
+          ></ProductFilter>
         </div>
         <div class="col-12 col-md-9 col-xl-9 right-col">
           <div class="float-right view-group">
@@ -115,24 +121,66 @@ export default {
       }
     };
 
+    const activeCategory = ref("All");
+    const selectedSeries = ref([]);
+
     const store = useStore();
     const listView = ref("app");
 
+    const maxPriceLimit = ref(5000000);
+
+    const minPrice = ref(0);
+    const maxPrice = ref(maxPriceLimit.value);
+
+    const setPriceFilter = (range) => {
+      minPrice.value = range.mini;
+      maxPrice.value = range.max;
+      currentPage.value = 1;
+    };
+
     const changeView = (value) => {
       listView.value = value;
+    };
+
+    const setCategoryFilter = (category) => {
+      activeCategory.value = category;
+      currentPage.value = 1;
+    };
+
+    const setSeriesFilter = (series) => {
+      selectedSeries.value = series;
+      currentPage.value = 1;
+    };
+
+    const filterProducts = computed(() => {
+      return products.value.filter((product) => {
+        const matchCategory =
+          activeCategory.value == "All" ||
+          product.category == activeCategory.value;
+        const matchPrice =
+          product.price >= minPrice.value && product.price <= maxPrice.value;
+        const matchSeries =
+          selectedSeries.value.length === 0 ||
+          selectedSeries.value.includes(product.series);
+
+        return matchCategory && matchPrice && matchSeries;
+      });
+    });
+    const clearFilter = (category) => {
+      activeCategory.value = category;
     };
 
     const itemsPerPage = 12;
     const currentPage = ref(1);
 
     const totalPages = computed(() =>
-      Math.ceil(products.value.length / itemsPerPage)
+      Math.ceil(filterProducts.value.length / itemsPerPage)
     );
 
     const productsPerPage = computed(() => {
       const start = (currentPage.value - 1) * itemsPerPage;
       const end = start + itemsPerPage;
-      return products.value.slice(start, end);
+      return filterProducts.value.slice(start, end);
     });
 
     const scrollWindow = () => {
@@ -149,7 +197,6 @@ export default {
     return {
       listView,
       changeView,
-
       trigger,
       itemsPerPage,
       currentPage,
@@ -158,6 +205,12 @@ export default {
       handleProduct,
       products,
       productsPerPage,
+      setCategoryFilter,
+      filterProducts,
+      clearFilter,
+      maxPriceLimit,
+      setPriceFilter,
+      setSeriesFilter,
     };
   },
 };

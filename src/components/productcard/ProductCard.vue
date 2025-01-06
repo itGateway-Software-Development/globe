@@ -28,7 +28,7 @@
           <h4>{{ product.name }}</h4>
           <p>{{ product.cpu }}</p>
 
-          <p class="spec" v-html="product.sepcification"></p>
+          <p class="spec" v-html="product.specification"></p>
         </div>
         <div class="rating mb-2">
           <v-rating
@@ -47,7 +47,7 @@
           <h4>{{ product.price }} MMK</h4>
         </div>
         <div class="button-group">
-          <button class="btn cart-btn mt-1">
+          <button class="btn cart-btn mt-1" @click="addToCart(product)">
             <span class="material-symbols-outlined"> shopping_cart </span>
           </button>
         </div>
@@ -82,6 +82,22 @@ export default {
       hoverIcon.value = null;
     };
 
+    const addToCart = (product) => {
+      const productToAdd = {
+        id: product.id,
+        brand: product.brand,
+        category: product.category,
+        name: product.name,
+        images: product.images,
+        price: product.price,
+        qty: 1,
+      };
+
+      localStorage.setItem("cartItem", JSON.stringify(product));
+    };
+
+    onMounted(() => {});
+
     return {
       product,
       hoveredIndex,
@@ -92,6 +108,7 @@ export default {
       childRef,
       trigger,
       modalItem,
+      addToCart,
     };
   },
 };
@@ -307,5 +324,13 @@ export default {
 .product-card:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.button-group:active {
+  scale: 90%;
+}
+
+.cart-btn:active {
+  border: none;
 }
 </style>
