@@ -94,7 +94,7 @@
             <button
               class="btn add-to-cart-btn"
               :class="{ shaking: isShaking }"
-              @click="addtoCart"
+              @click="addToCart(singleProduct)"
             >
               <span class="cart"> Add to cart</span>
               <span class="added">Added : )</span>
@@ -480,6 +480,7 @@ export default {
     const route = useRoute();
     const store = useStore();
     const productSlug = route.params.slug;
+    const quantity = ref(1);
 
     let { singleProduct, error, getProduct } = getSingleProduct();
     let { products, err, loadProduct } = getProducts();
@@ -536,14 +537,14 @@ export default {
       magnifier.style.top = `${magnifierY}px`;
     };
 
-    const addtoCart = () => {
-      const btn = document.querySelector(".add-to-cart-btn");
-      console.log(btn);
-      btn.classList.add("clicked");
-      setTimeout(() => {
-        btn.classList.remove("clicked");
-      }, 3000);
-    };
+    // const addtoCart = () => {
+    //   const btn = document.querySelector(".add-to-cart-btn");
+    //   console.log(btn);
+    //   btn.classList.add("clicked");
+    //   setTimeout(() => {
+    //     btn.classList.remove("clicked");
+    //   }, 3000);
+    // };
 
     const triggerAnimation = () => {
       isShaking.value = true;
@@ -556,6 +557,26 @@ export default {
       intervalId = setInterval(() => {
         triggerAnimation();
       }, 10000);
+    };
+    const addToCart = (product) => {
+      const btn = document.querySelector(".add-to-cart-btn");
+      console.log(btn);
+      btn.classList.add("clicked");
+      setTimeout(() => {
+        btn.classList.remove("clicked");
+      }, 3000);
+      const productToAdd = {
+        productId: product.id,
+        productName: product.name,
+        productSlug: product.slug,
+        productBrand: product.brand,
+        productCategory: product.category,
+        price: product.price,
+        images: product.preview_images,
+        quantity: quantity.value,
+      };
+
+      store.dispatch("addToCart", productToAdd);
     };
 
     onMounted(async () => {
@@ -588,13 +609,14 @@ export default {
       moveMagnifier,
       isShaking,
       triggerAnimation,
-      addtoCart,
+
       singleProduct,
       specification,
       specList,
       changeMainImage,
       mainImage,
       productList,
+      addToCart,
     };
   },
 };
@@ -607,8 +629,7 @@ export default {
 
 .main-img {
   width: 100%;
-  height: 400px;
-  object-fit: cover;
+  height: 500px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;

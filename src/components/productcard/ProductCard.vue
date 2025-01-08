@@ -59,6 +59,7 @@
 <script>
 import ModalCard from "./ModalCard";
 import { ref, onMounted, computed, defineEmits } from "vue";
+import store from "../../store";
 export default {
   components: { ModalCard },
   props: ["data"],
@@ -70,6 +71,7 @@ export default {
     const childRef = ref(null);
     const trigger = ref(null);
     const modalItem = ref(null);
+    const quantity = ref(1);
 
     // Handle mouse enter and leave to change image
     const onMouseEnter = (index) => {
@@ -84,16 +86,17 @@ export default {
 
     const addToCart = (product) => {
       const productToAdd = {
-        id: product.id,
-        brand: product.brand,
-        category: product.category,
-        name: product.name,
-        images: product.images,
+        productId: product.id,
+        productName: product.name,
+        productSlug: product.slug,
+        productBrand: product.brand,
+        productCategory: product.category,
         price: product.price,
-        qty: 1,
+        images: product.preview_images,
+        quantity: quantity.value,
       };
 
-      localStorage.setItem("cartItem", JSON.stringify(product));
+      store.dispatch("addToCart", productToAdd);
     };
 
     onMounted(() => {});

@@ -1,4 +1,17 @@
 import { ref } from "vue";
+import Vue3Toastify from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
+import { toast } from "vue3-toastify";
+
+const CART_KEY = "cart";
+const saveCartToLocalStorage = (cart) => {
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+};
+
+const loadCartFromLocalStorage = () => {
+  const cart = localStorage.getItem(CART_KEY);
+  return cart ? JSON.parse(cart) : [];
+};
 
 const products = ref([
   {
@@ -510,12 +523,82 @@ const products = ref([
 export default {
   state: {
     products,
+    cart: loadCartFromLocalStorage(),
   },
   getters: {
     productList: (state) => {
       return state.products;
     },
+    cartItems: (state) => {
+      return state.cart;
+    },
+    totalPrice: (state) => {
+      return state.cart.reduce(
+        (total, item) => total + item.price * item.quantity,
+        0
+      );
+    },
+    cartItemCount: (state) => {
+      return state.cart.reduce((count, item) => count + item.quantity, 0);
+    },
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    addToCart(state, product) {
+      const itemInCart = state.cart.find(
+        (item) => item.productId == product.productId
+      );
+      if (itemInCart) {
+        itemInCart.quantity += product.quantity;
+        // console.log("error");
+      } else {
+        state.cart.push(product);
+        // console.log("working");
+      }
+
+      saveCartToLocalStorage(state.cart);
+    },
+    increaseQuantity(state, { quantity, product }) {
+      const itemInCart = state.cart.find((item) => item.productId == product);
+      if (itemInCart) {
+        itemInCart.quantity++;
+      }
+      saveCartToLocalStorage(state.cart);
+      //   // console.log(product);
+    },
+    decreaseQuantity(state, { quantity, product }) {
+      const itemInCart = state.cart.find((item) => item.productId == product);
+      if (itemInCart && itemInCart.quantity > 1) {
+        itemInCart.quantity--;
+      } else {
+        state.cart = state.cart.filter((item) => !(item.productId == product));
+      }
+      saveCartToLocalStorage(state.cart);
+      // console.log(product);
+    },
+    removeFromCart(state, product) {
+      state.cart = state.cart.filter(
+        (item) => !(item.productId == product.productId)
+      );
+
+      saveCartToLocalStorage(state.cart);
+    },
+  },
+  actions: {
+    addToCart(context, product) {
+      context.commit("addToCart", product);
+      toast(`${product.productName} is added to cart`, { type: "success" });
+    },
+    increaseQuantity(context, payload) {
+      context.commit("increaseQuantity", payload);
+      // console.log(payload);
+    },
+    decreaseQuantity(context, payload) {
+      context.commit("decreaseQuantity", payload);
+    },
+    removeFromCart(context, product) {
+      context.commit("removeFromCart", product);
+
+      toast(`${product.productName} is removed form cart`, { type: "error" });
+    },
+  },
 };

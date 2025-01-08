@@ -360,9 +360,8 @@ export default {
 }
 
 .icon {
-  width: 60px !important;
-  height: 40px !important;
-  padding: 10px 20px;
+  width: 45px !important;
+  height: 45px !important;
   background: #b5d5f2;
   width: max-content;
   border-radius: 10px;

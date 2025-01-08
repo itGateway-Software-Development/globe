@@ -7,7 +7,6 @@
         <span to="/" class="disabled">Your Shopping Cart</span>
       </p>
     </div>
-
     <div class="content-wrapper product-group">
       <div class="row">
         <div class="col-12 col-md-12 col-xl-8">
@@ -16,38 +15,47 @@
               class="shopping-cart-header d-flex align-items-center justify-content-between"
             >
               <h3>Shopping Cart</h3>
-              <h6>{{ cartItemList.length }} Items</h6>
+              <h6>Items</h6>
             </div>
             <hr class="px-0 py-0" />
             <div class="cart-list">
-              <v-table>
+              <v-table v-if="cartItems.length > 0">
                 <thead>
                   <tr>
                     <th class="text-left"><h6>Product</h6></th>
                     <th class="text-center"><h6>Quantity</h6></th>
-                    <th class="text-left"><h6>Total</h6></th>
+                    <th class="text-center"><h6>Total</h6></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="item in cartItemList" :key="item.id">
+                  <tr v-for="item in cartItems" :key="item.id">
                     <td class="product-group">
-                      <div class="d-flex align-items-center gap-3">
-                        <span class="material-symbols-outlined"> delete </span>
-                        <div class="d-flex align-items-center gap-3">
+                      <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center gap-5">
                           <div class="product-img">
-                            <img :src="item.img" alt="" class="img-fluid" />
+                            <img
+                              :src="item.images[0].image_url"
+                              alt=""
+                              class="img-fluid"
+                            />
                           </div>
                           <div class="product-content">
-                            <h6>{{ item.name }}</h6>
-                            <p>{{ item.type }}</p>
+                            <h6>{{ item.productName }}</h6>
+                            <p>{{ item.productCategory }}</p>
                             <h6>{{ item.price }} MMK</h6>
                           </div>
                         </div>
                       </div>
                     </td>
                     <td class="quantity-group">
-                      <div class="d-flex align-items-center gap-3">
-                        <button class="quantity-btn">
+                      <div
+                        class="d-flex align-items-center justify-content-center gap-3"
+                      >
+                        <button
+                          class="quantity-btn"
+                          @click="decreaseQuantity(item)"
+                        >
                           <span class="material-symbols-outlined">
                             remove
                           </span>
@@ -57,13 +65,21 @@
                           v-model="item.quantity"
                           class="quantity-input text-center"
                         />
-                        <button class="quantity-btn">
+                        <button
+                          class="quantity-btn"
+                          @click="increaseQuantity(item)"
+                        >
                           <span class="material-symbols-outlined"> add </span>
                         </button>
                       </div>
                     </td>
-                    <td class="total-group">
+                    <td class="total-group text-center">
                       <h6>{{ item.price }} MMK</h6>
+                    </td>
+                    <td class="delete">
+                      <button class="delete-btn" @click="removeFromCart(item)">
+                        <span class="material-symbols-outlined"> delete </span>
+                      </button>
                     </td>
                   </tr>
                 </tbody>
@@ -82,91 +98,20 @@
               <div
                 class="d-flex align-items-center justify-content-between item"
               >
-                <p>Subtotal:</p>
-                <h6>600,000 MMK</h6>
+                <p>Subtotal</p>
+
+                <h6>{{ totalPrice }} MMK</h6>
               </div>
-              <!-- <div
-                class="d-flex align-items-center justify-content-between item"
-              >
-                <p>Delivery:</p>
-                <h6>600,000 MMK</h6>
-              </div> -->
+
               <hr class="px-0 py-0" />
               <div
                 class="d-flex align-items-center justify-content-between item"
               >
-                <p>Total:</p>
-                <h6>600,000 MMK</h6>
+                <p>Total</p>
+
+                <h6>{{ totalPrice }} MMK</h6>
               </div>
             </div>
-
-            <!-- <div class="delivery-group">
-              <div class="city">
-                <h6>City</h6>
-                <v-autocomplete
-                  label="Choose your city"
-                  :items="[
-                    'California',
-                    'Colorado',
-                    'Florida',
-                    'Georgia',
-                    'Texas',
-                    'Wyoming',
-                  ]"
-                  variant="outlined"
-                  class="custom-autocomplete"
-                ></v-autocomplete>
-              </div>
-              <div class="address">
-                <h6>Address</h6>
-                <v-text-field
-                  label="Enter your address"
-                  variant="outlined"
-                  class="field"
-                ></v-text-field>
-              </div>
-              <div class="address">
-                <h6>Phone Number</h6>
-                <v-text-field
-                  label="Enter Phone Number"
-                  variant="outlined"
-                  class="field"
-                ></v-text-field>
-              </div>
-            </div>
-
-            <div class="payment-group">
-              <h6>Payment</h6>
-              <div class="from-group">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="exampleRadios"
-                    id="exampleRadios1"
-                    value="option1"
-                    checked
-                  />
-                  <label class="form-check-label" for="exampleRadios1">
-                    Cash on Delivery
-                  </label>
-                </div>
-                <hr class="mx-0 my-0" />
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="radio"
-                    name="exampleRadios"
-                    id="exampleRadios1"
-                    value="option1"
-                    checked
-                  />
-                  <label class="form-check-label" for="exampleRadios1">
-                    Online Pay
-                  </label>
-                </div>
-              </div>
-            </div> -->
 
             <div class="button-group">
               <div class="d-flex align-items-center gap-2">
@@ -186,40 +131,48 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import { useStore } from "vuex";
 export default {
   setup() {
-    const cartItemList = ref([
-      {
-        id: "1",
-        name: "Asus Rog Strix Scope RX EVA-02 Edition",
-        price: "300,000",
-        color: "red",
-        type: "Keyboard",
-        img: require("@/assets/images/gadget/7.jpg"),
-        quantity: 1,
-      },
-      {
-        id: "2",
-        name: "Asus Rog Strix Scope RX EVA-02 Edition",
-        price: "300,000",
-        color: "red",
-        type: "Keyboard",
-        img: require("@/assets/images/gadget/7.jpg"),
-        quantity: 1,
-      },
-    ]);
-
     const router = useRouter();
+    const store = useStore();
+    const cartItems = computed(() => store.getters["cartItems"]);
+    const totalPrice = computed(() => store.getters["totalPrice"]);
+    const increaseQuantity = (item) => {
+      store.dispatch("increaseQuantity", {
+        quantity: item.quantity,
+        product: item.productId,
+      });
+    };
+
+    const decreaseQuantity = (item) => {
+      store.dispatch("decreaseQuantity", {
+        quantity: item.quantity,
+        product: item.productId,
+      });
+    };
+
+    const removeFromCart = (item) => {
+      store.dispatch("removeFromCart", item);
+    };
 
     const changeRoute = () => {
       router.push("/");
     };
 
+    onMounted(() => {
+      console.log(totalPrice);
+    });
+
     return {
-      cartItemList,
+      cartItems,
       changeRoute,
+      increaseQuantity,
+      decreaseQuantity,
+      totalPrice,
+      removeFromCart,
     };
   },
 };
@@ -425,6 +378,24 @@ tbody tr td {
 
 .custom-autocomplete .v-field__field {
   height: 40px !important;
+}
+
+.delete-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #f3f4f6;
+}
+
+.delete-btn .material-symbols-outlined {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.delete-btn:hover {
+  background: red;
+  color: #fff;
 }
 
 @media (max-width: 800px) {

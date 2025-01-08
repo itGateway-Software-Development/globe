@@ -104,8 +104,9 @@
           <div class="top-menu d-flex align-items-center gap-4">
             <router-link to="/cart" class="d-flex align-items-center">
               <span class="material-symbols-outlined"> shopping_cart </span>
-              <span class="cardtotal text-center">0</span>
+              <span class="cardtotal text-center">{{ cartItemCount }}</span>
             </router-link>
+
             <router-link to="/" class="d-flex align-items-center">
               <span class="material-symbols-outlined"> favorite </span>
               <span class="wishlist text-center">0</span>
@@ -337,6 +338,8 @@ export default {
       },
     ]);
 
+    const cartItemCount = computed(() => store.getters["cartItemCount"]);
+
     const isSearchOpen = computed(() => store.getters.isSearchOpen);
 
     const toggleSearch = () => {
@@ -429,6 +432,7 @@ export default {
       searchUi,
       searchBar,
       searchInput,
+      cartItemCount,
     };
   },
 };
