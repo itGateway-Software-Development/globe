@@ -7,7 +7,7 @@
         <span to="/" class="disabled">Your Shopping Cart</span>
       </p>
     </div>
-    <div class="content-wrapper product-group">
+    <div class="content-wrapper product-group" v-if="cartItems.length > 0">
       <div class="row">
         <div class="col-12 col-md-12 col-xl-8">
           <div class="shopping-cart">
@@ -126,6 +126,10 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="content-wrapper no-product-group text-center" v-else>
+      <h4 class="mb-5">There is no item in cart.</h4>
+      <router-link to="/" class="btn shop-more">Go back Shopping</router-link>
     </div>
   </div>
 </template>
@@ -396,6 +400,20 @@ tbody tr td {
 .delete-btn:hover {
   background: red;
   color: #fff;
+}
+
+.shop-more {
+  padding: 10px 15px;
+  background: var(--background-color);
+  color: #fff !important;
+}
+
+.shop-more:hover {
+  background: #0a65af;
+}
+
+.shop-more:active {
+  scale: 95%;
 }
 
 @media (max-width: 800px) {
