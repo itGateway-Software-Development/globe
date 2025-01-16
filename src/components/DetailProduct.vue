@@ -428,7 +428,7 @@
       <div class="row">
         <div
           class="col-6 col-md-3 col-xl-3 mb-5"
-          v-for="item in productList"
+          v-for="item in randomProduct"
           :key="item.id"
         >
           <ProductCard :data="item"></ProductCard>
@@ -454,7 +454,7 @@ import { Navigation } from "swiper/modules";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 import getSingleProduct from "../composable/getSingleProduct";
-import getProducts from "../composable/getProducts";
+import getRandom from "../composable/getRandom";
 import ProductCard from "./productcard/ProductCard";
 export default {
   components: {
@@ -469,7 +469,7 @@ export default {
     const delivery = ref(false);
     const shipping = ref(false);
     const specification = ref(false);
-    const productList = ref([]);
+    const randomProduct = ref([]);
 
     const isMagnifierVisible = ref(false);
     const magnifierSize = 200; // Size of magnifier square
@@ -483,7 +483,7 @@ export default {
     const quantity = ref(1);
 
     let { singleProduct, error, getProduct } = getSingleProduct();
-    let { products, err, loadProduct } = getProducts();
+    let { randomProducts, errors, getRandomProduct } = getRandom();
 
     const specList = (spec) => {
       return spec.split(", ");
@@ -584,9 +584,8 @@ export default {
       triggerAnimation();
       startRepeatingAnimation();
       await getProduct(productSlug);
-      await loadProduct();
-
-      productList.value = products.value.slice(0, 4);
+      await getRandomProduct();
+      randomProduct.value = randomProducts.value;
 
       if (singleProduct.value.images) {
         mainImage.value = singleProduct.value.images[0]?.image_url;
@@ -609,13 +608,12 @@ export default {
       moveMagnifier,
       isShaking,
       triggerAnimation,
-
+      randomProduct,
       singleProduct,
       specification,
       specList,
       changeMainImage,
       mainImage,
-      productList,
       addToCart,
     };
   },
